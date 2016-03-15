@@ -1,17 +1,5 @@
 GIT
-  remote: git://github.com/Zhomart/ransack.git
-  revision: e90ffd1ed970372b1df93e23e34ff83289478ed4
-  branch: mongoid
-  specs:
-    ransack (1.5.1)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      i18n
-      polyamorous (~> 1.1)
-
-GIT
-  remote: git@github.com:Zhomart/active_admin.git
+  remote: git://github.com/Zhomart/active_admin.git
   revision: 9d6c25987bdadc43e765cf9634af25d041492c75
   branch: mongoid-old
   specs:
@@ -27,6 +15,18 @@ GIT
       kaminari (~> 0.15)
       rails (>= 3.2, < 5.0)
       ransack (~> 1.3)
+
+GIT
+  remote: git://github.com/Zhomart/ransack.git
+  revision: e90ffd1ed970372b1df93e23e34ff83289478ed4
+  branch: mongoid
+  specs:
+    ransack (1.5.1)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -71,6 +71,8 @@ GEM
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
+    attr_encrypted (1.3.5)
+      encryptor (~> 1.3.0)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -98,8 +100,15 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-two-factor (2.0.1)
+      activesupport
+      attr_encrypted (~> 1.3.2)
+      devise (~> 3.5.0)
+      railties
+      rotp (~> 2)
     domain_name (0.5.20160309)
       unf (>= 0.0.5, < 1.0.0)
+    encryptor (1.3.0)
     erubis (2.7.0)
     execjs (2.6.0)
     formtastic (3.1.3)
@@ -192,6 +201,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rotp (2.1.1)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -242,6 +252,7 @@ DEPENDENCIES
   cancancan (~> 1.10)
   coffee-rails (~> 4.1.0)
   devise
+  devise-two-factor
   formtastic
   formtastic-bootstrap (~> 3.0.0)
   jbuilder (~> 2.0)

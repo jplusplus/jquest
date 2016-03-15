@@ -5,8 +5,11 @@ class User
   include Mongoid::Timestamps # For c_at and u_at.
 
   # Include default devise modules. Others available are:
-  devise :database_authenticatable, :confirmable, :lockable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :confirmable, :lockable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :two_factor_authenticatable,
+         :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
+         # :database_authenticatable,
 
   # Wether or not a user can access to the admin panel
   field :role, type: String, default: nil
@@ -40,6 +43,13 @@ class User
   field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   field :locked_at,       type: Time
+
+
+  field :consumed_timestep,         type:Integer, default: 0
+  field :otp_required_for_login,    type:Boolean, default: true
+  field :encrypted_otp_secret,      type:String
+  field :encrypted_otp_secret_iv,   type:String
+  field :encrypted_otp_secret_salt, type:String
 
   def password_required?
     new_record? ? false : super

@@ -1,0 +1,10 @@
+<% content_for :body_class, "active_admin  logged_out new" %>
+
+<div id="wrapper">
+  <div id="content_wrapper">
+    <div id="active_admin_content">
+      <h2><%= I18n.t("devise.two_factor_authentication.max_login_attempts_reached") %></h2>
+      <p><%= I18n.t("devise.two_factor_authentication.contact_administrator") %></p>
+    </div>
+  </div>
+</div>

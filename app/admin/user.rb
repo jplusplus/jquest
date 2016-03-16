@@ -13,6 +13,8 @@ ActiveAdmin.register User do
     actions
   end
 
+  show :title => proc{|user| user.email }
+
   filter :email
   filter :phone_number
   filter :current_sign_in_at

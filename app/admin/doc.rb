@@ -17,7 +17,6 @@ ActiveAdmin.register Doc do
   filter :label
   filter :domain
 
-
   form do |f|
     f.inputs "Details" do
       f.input :label
@@ -29,4 +28,13 @@ ActiveAdmin.register Doc do
     f.actions
   end
 
+  csv do
+    column :label
+    column(:users) { |doc|
+      (doc.users.all.map :email).join ', '
+    }
+    column :type
+    column :domain
+    column :content
+  end
 end

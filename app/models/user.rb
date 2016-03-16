@@ -51,6 +51,10 @@ class User
   field :encrypted_otp_secret_iv,   type:String
   field :encrypted_otp_secret_salt, type:String
 
+  def to_s
+    email
+  end
+
   def password_required?
     new_record? ? false : super
   end

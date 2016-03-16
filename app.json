@@ -1,0 +1,10 @@
+{
+  "name": "jQuest",
+  "description": "",
+  "keywords": [],
+  "image": "heroku/ruby",
+  "addons": [
+    "heroku-postgresql",
+    "mailtrap"
+  ]
+}

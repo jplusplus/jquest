@@ -9,13 +9,17 @@ ActiveAdmin.register Doc do
     column :label
     column :domain
     column :content
-    column :users
+    column(:users) { |doc|
+      (doc.users.all.map :email).join ', '
+    }
     actions
   end
+
 
   filter :type
   filter :label
   filter :domain
+  filter :content
 
   form do |f|
     f.inputs "Details" do

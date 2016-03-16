@@ -1,0 +1,19 @@
+web:
+  build: .
+  command: 'bash -c ''bundle exec puma -C config/puma.rb'''
+  working_dir: /app/user
+  environment: &ENV
+    PORT: 8080
+    SECRET_KEY_BASE: <SOMETHING>
+  ports:
+    - '8080:8080'
+shell:
+  build: .
+  command: bash
+  working_dir: /app/user
+  environment:
+    <<: *ENV
+  ports:
+    - '8080:8080'
+  volumes:
+    - '.:/app/user'

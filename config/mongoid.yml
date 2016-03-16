@@ -1,3 +1,14 @@
+<% if ENV['MONGOLAB_URI'] %>
+<% uri = URI.parse(ENV['MONGOLAB_URI']) %>
+production:
+  clients:
+    default:
+      database: <%= uri.path.sub('/','') %>
+      username: <%= uri.user %>
+      password: <%= uri.password %>
+      hosts:
+        - <%= uri.host %>:<%= uri.port %>
+<% end %>
 development:
   # Configure available database clients. (required)
   clients:

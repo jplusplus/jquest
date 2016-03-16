@@ -24,8 +24,6 @@ ActiveAdmin.register User do
       f.input :email
       f.input :phone_number
       f.input :role
-      # f.input :password
-      # f.input :password_confirmation
       f.input :confirmed_at, as: :datepicker
     end
     f.actions

@@ -1,0 +1,130 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/home/pirhoo/.npm-packages/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'bower' ]
+2 info using npm@3.5.2
+3 info using node@v5.7.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData bower
+8 silly fetchNamedPackageData bower
+9 silly mapToRegistry name bower
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/bower
+13 verbose request uri https://registry.npmjs.org/bower
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 17:11:07
+16 verbose request id 7155171a71581c89
+17 verbose etag "2UZ1USYDC3PX7QIF6P9NM7HWW"
+18 http request GET https://registry.npmjs.org/bower
+19 http 200 https://registry.npmjs.org/bower
+20 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+20 verbose headers   etag: '"5MUDH9L4QDLQMH49H7Z8SEO74"',
+20 verbose headers   'content-type': 'application/json',
+20 verbose headers   'cache-control': 'max-age=300',
+20 verbose headers   'content-length': '169410',
+20 verbose headers   'accept-ranges': 'bytes',
+20 verbose headers   date: 'Wed, 16 Mar 2016 16:11:07 GMT',
+20 verbose headers   via: '1.1 varnish',
+20 verbose headers   age: '256',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'x-served-by': 'cache-lcy1131-LCY',
+20 verbose headers   'x-cache': 'HIT',
+20 verbose headers   'x-cache-hits': '6',
+20 verbose headers   'x-timer': 'S1458144667.926050,VS0,VE0',
+20 verbose headers   vary: 'Accept' }
+21 silly get cb [ 200,
+21 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+21 silly get     etag: '"5MUDH9L4QDLQMH49H7Z8SEO74"',
+21 silly get     'content-type': 'application/json',
+21 silly get     'cache-control': 'max-age=300',
+21 silly get     'content-length': '169410',
+21 silly get     'accept-ranges': 'bytes',
+21 silly get     date: 'Wed, 16 Mar 2016 16:11:07 GMT',
+21 silly get     via: '1.1 varnish',
+21 silly get     age: '256',
+21 silly get     connection: 'keep-alive',
+21 silly get     'x-served-by': 'cache-lcy1131-LCY',
+21 silly get     'x-cache': 'HIT',
+21 silly get     'x-cache-hits': '6',
+21 silly get     'x-timer': 'S1458144667.926050,VS0,VE0',
+21 silly get     vary: 'Accept' } ]
+22 verbose get saving bower to /home/pirhoo/.npm/registry.npmjs.org/bower/.cache.json
+23 silly install normalizeTree
+24 silly loadCurrentTree Finishing
+25 silly loadIdealTree Starting
+26 silly install loadIdealTree
+27 silly cloneCurrentTree Starting
+28 silly install cloneCurrentTreeToIdealTree
+29 silly cloneCurrentTree Finishing
+30 silly loadShrinkwrap Starting
+31 silly install loadShrinkwrap
+32 silly loadShrinkwrap Finishing
+33 silly loadAllDepsIntoIdealTree Starting
+34 silly install loadAllDepsIntoIdealTree
+35 silly resolveWithNewModule bower@1.7.7 checking installable status
+36 silly cache add args [ 'bower', null ]
+37 verbose cache add spec bower
+38 silly cache add parsed spec Result {
+38 silly cache add   raw: 'bower',
+38 silly cache add   scope: null,
+38 silly cache add   name: 'bower',
+38 silly cache add   rawSpec: '',
+38 silly cache add   spec: 'latest',
+38 silly cache add   type: 'tag' }
+39 silly addNamed bower@latest
+40 verbose addNamed "latest" is being treated as a dist-tag for bower
+41 info addNameTag [ 'bower', 'latest' ]
+42 silly mapToRegistry name bower
+43 silly mapToRegistry using default registry
+44 silly mapToRegistry registry https://registry.npmjs.org/
+45 silly mapToRegistry uri https://registry.npmjs.org/bower
+46 verbose addNameTag registry:https://registry.npmjs.org/bower not in flight; fetching
+47 verbose get https://registry.npmjs.org/bower not expired, no request
+48 silly addNameTag next cb for bower with tag latest
+49 silly addNamed bower@1.7.7
+50 verbose addNamed "1.7.7" is a plain semver version for bower
+51 silly cache afterAdd bower@1.7.7
+52 verbose afterAdd /home/pirhoo/.npm/bower/1.7.7/package/package.json not in flight; writing
+53 verbose afterAdd /home/pirhoo/.npm/bower/1.7.7/package/package.json written
+54 silly loadAllDepsIntoIdealTree Finishing
+55 silly idealTree:prePrune lib
+55 silly idealTree:prePrune └── bower@1.7.7
+56 silly loadIdealTree Finishing
+57 silly currentTree lib
+57 silly currentTree └── bower@1.7.7
+58 silly idealTree lib
+58 silly idealTree └── bower@1.7.7
+59 silly generateActionsToTake Starting
+60 silly install generateActionsToTake
+61 warn checkPermissions Missing write access to /usr/local/lib/node_modules/bower
+62 warn checkPermissions Missing write access to /usr/local/lib/node_modules
+63 silly rollbackFailedOptional Starting
+64 silly rollbackFailedOptional Finishing
+65 silly runTopLevelLifecycles Starting
+66 silly runTopLevelLifecycles Finishing
+67 silly install printInstalled
+68 verbose stack Error: EACCES: permission denied, access '/usr/local/lib/node_modules/bower'
+68 verbose stack     at Error (native)
+69 verbose cwd /tmp/jquest
+70 error Linux 4.2.0-34-generic
+71 error argv "/usr/local/bin/node" "/home/pirhoo/.npm-packages/bin/npm" "install" "-g" "bower"
+72 error node v5.7.1
+73 error npm  v3.5.2
+74 error path /usr/local/lib/node_modules/bower
+75 error code EACCES
+76 error errno -13
+77 error syscall access
+78 error Error: EACCES: permission denied, access '/usr/local/lib/node_modules/bower'
+78 error     at Error (native)
+78 error  { [Error: EACCES: permission denied, access '/usr/local/lib/node_modules/bower']
+78 error   errno: -13,
+78 error   code: 'EACCES',
+78 error   syscall: 'access',
+78 error   path: '/usr/local/lib/node_modules/bower' }
+79 error Please try running this command again as root/Administrator.
+80 verbose exit [ -13, true ]

@@ -44,7 +44,7 @@ class User
   field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   field :locked_at,       type: Time
 
-
+  ## Two-factor authenticatable
   field :consumed_timestep,         type:Integer, default: 0
   field :otp_required_for_login,    type:Boolean, default: false
   field :encrypted_otp_secret,      type:String

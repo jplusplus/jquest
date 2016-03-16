@@ -58,4 +58,9 @@ class User
   def role?(r)
     !role.nil? && role.include?(r.to_s)
   end
+
+  def send_two_factor_authentication_code
+    #send sms with code!
+    p "=> Your OTP code for #{email}:  #{otp_code}"
+  end
 end

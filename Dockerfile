@@ -31,7 +31,7 @@ ENV SECRET_KEY_BASE $(openssl rand -base64 32)
 RUN mkdir -p /app/.profile.d/
 RUN echo "cd /app/user/" > /app/.profile.d/home.sh
 # Copy ENV vars
-RUN echo "export PATH=\"$PATH\"" > /app/.profile.d/ruby.sh
+RUN echo "export PATH=\"$PATH\":/app/user/bin/" > /app/.profile.d/ruby.sh
 RUN echo "export GEM_PATH=\"$GEM_PATH\"" >> /app/.profile.d/ruby.sh
 RUN echo "export GEM_HOME=\"$GEM_HOME\"" >> /app/.profile.d/ruby.sh
 RUN echo "export RAILS_ENV=\"\${RAILS_ENV:-$RAILS_ENV}\"" >> /app/.profile.d/ruby.sh

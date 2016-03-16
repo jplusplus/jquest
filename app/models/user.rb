@@ -46,7 +46,7 @@ class User
 
 
   field :consumed_timestep,         type:Integer, default: 0
-  field :otp_required_for_login,    type:Boolean, default: true
+  field :otp_required_for_login,    type:Boolean, default: false
   field :encrypted_otp_secret,      type:String
   field :encrypted_otp_secret_iv,   type:String
   field :encrypted_otp_secret_salt, type:String

@@ -1,13 +1,12 @@
-<% if ENV['MONGOLAB_URI'] %>
-<% uri = URI.parse(ENV['MONGOLAB_URI']) %>
+<% if ENV['MONGOLAB_URI'] || ENV['MONGOHQ_URL'] %>
 production:
   clients:
     default:
-      database: <%= uri.path.sub('/','') %>
-      username: <%= uri.user %>
-      password: <%= uri.password %>
-      hosts:
-        - <%= uri.host %>:<%= uri.port %>
+      uri: <%= ENV['MONGOLAB_URI'] || ENV['MONGOHQ_URL']%>
+      options:
+        max_retries_on_connection_failure: 20
+        persist_in_safe_mode: true
+        skip_version_check: true
 <% end %>
 development:
   # Configure available database clients. (required)

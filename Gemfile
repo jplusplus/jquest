@@ -26,8 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'mongoid', '~> 5.1.0'
-
 gem "bower-rails", "~> 0.10.0"
 gem 'puma'
 gem 'rest-client'
@@ -35,17 +33,20 @@ gem 'devise'
 gem 'devise-two-factor'
 gem 'cancancan', '~> 1.10'
 
-gem 'ransack', github: 'Zhomart/ransack', branch: 'mongoid'
-gem 'activeadmin', github: 'Zhomart/active_admin', branch: 'mongoid-old'
+gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'activeadmin_hstore_editor'
 
 gem 'formtastic'
 gem 'formtastic-bootstrap', '~> 3.0.0'
 
+# gem 'jquest_political_gaps', path: '../jquest-political-gaps'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
@@ -53,4 +54,9 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end

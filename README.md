@@ -2,15 +2,15 @@
 
 ## Install
 
-Assuming you already installed [Ruby], [Bower] and [MongoDB] on your computer.
+Assuming you already installed [Ruby] and [Bower] on your computer.
 
     git clone git@github.com:jplusplus/jquest.git && cd jquest
     bundle install
     bower install
 
-## Populate database with dummy data
+## Setup and populate database
 
-    rake db:seed
+    rake db:setup
 
 ## Run
 
@@ -30,4 +30,3 @@ This app comes with Docker settings that can be deployed on Heroku:
 
 [Ruby]: https://www.ruby-lang.org/en/documentation/installation/
 [Bower]: http://bower.io/#install-bower
-[MongoDB]: https://docs.mongodb.org/manual/installation/

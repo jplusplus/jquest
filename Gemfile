@@ -35,11 +35,10 @@ gem 'cancancan', '~> 1.10'
 
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'activeadmin_hstore_editor'
+gem 'country_select'
 
 gem 'formtastic'
 gem 'formtastic-bootstrap', '~> 3.0.0'
-
-# gem 'jquest_political_gaps', path: '../jquest-political-gaps'
 
 
 group :development, :test do
@@ -47,6 +46,8 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # This won't work if you didn't checkout the gem repository in the parent directory.
+  gem 'jquest_pg', path: '../jquest-pg'
 end
 
 group :development do
@@ -59,4 +60,5 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'jquest_pg', github: 'jplusplus/jquest-pg'
 end

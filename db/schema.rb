@@ -11,44 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112163123) do
+ActiveRecord::Schema.define(version: 20160317085807) do
+
+  create_table "jquest_pg_territories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
-    ## Database authenticatable
     t.string   "email",                     default: "",    null: false
     t.string   "encrypted_password",        default: "",    null: false
-    ## Recoverable
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
-    ## Rememberable
     t.datetime "remember_created_at"
-    ## Trackable
     t.integer  "sign_in_count",             default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    ## Confirmable
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.integer  "failed_attempts",           default: 0,     null: false
     t.string   "unlock_token"
-    ## Lockable
     t.datetime "locked_at"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-    ## Omniauth
     t.string   "provider"
     t.string   "uid"
-    ## Two-factor authenticatable
     t.string   "encrypted_otp_secret"
     t.string   "encrypted_otp_secret_iv"
     t.string   "encrypted_otp_secret_salt"
     t.integer  "consumed_timestep",         default: 0,     null: false
     t.boolean  "otp_required_for_login",    default: false, null: false
-    ## General fields
     t.string   "role",                      default: "",    null: false
     t.string   "phone_number",              default: "",    null: false
   end

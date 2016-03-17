@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          # :database_authenticatable,
 
   def to_s
-    email
+    email || phone_number
   end
 
   def password_required?

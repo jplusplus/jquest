@@ -8,7 +8,7 @@ web:
     # Those options can be set here
     # SECRET_KEY_BASE: <SOMETHING VERY SECRET>
     # MAILTRAP_API_TOKEN: <SOMETHING VERY SECRET>
-    # MONGOLAB_URI: <SOMETHING VERY SECRET>
+    # DATABASE_URL: <SOMETHING VERY SECRET>
   ports:
     - '8080:8080'
 shell:

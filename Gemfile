@@ -31,7 +31,8 @@ gem 'puma'
 gem 'rest-client'
 gem 'devise'
 gem 'devise-two-factor'
-gem 'cancancan', '~> 1.10'
+gem "pundit"
+
 
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'active_admin_theme'

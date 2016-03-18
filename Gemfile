@@ -33,12 +33,10 @@ gem 'devise'
 gem 'devise-two-factor'
 gem 'cancancan', '~> 1.10'
 
-gem 'activeadmin', '~> 1.0.0.pre1'
-gem 'activeadmin_hstore_editor'
+gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'active_admin_theme'
+gem "active_admin_import" , '2.1.2'
 gem 'country_select'
-
-gem 'formtastic'
-gem 'formtastic-bootstrap', '~> 3.0.0'
 
 
 # This won't work if you didn't checkout the gem repository in the parent directory.

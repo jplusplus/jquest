@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
+  active_admin_import
   permit_params :email, :phone_number, :password, :password_confirmation,
+                :otp_required_for_login,
                 :role, :created_at, :updated_at, :confirmed_at
 
   index do
@@ -31,5 +33,4 @@ ActiveAdmin.register User do
     end
     f.actions
   end
-
 end

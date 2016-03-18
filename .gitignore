@@ -20,3 +20,4 @@ bower_components
 public/assets/*
 docker-compose.yml
 local-env.yml
+.byebug_history

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317085807) do
+ActiveRecord::Schema.define(version: 20160318100646) do
 
   create_table "jquest_pg_territories", force: :cascade do |t|
     t.string   "name"

@@ -35,7 +35,7 @@ gem 'cancancan', '~> 1.10'
 
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'active_admin_theme'
-gem "active_admin_import" , '2.1.2'
+gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 gem 'country_select'
 
 

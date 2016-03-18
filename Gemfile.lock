@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/activeadmin-plugins/active_admin_import.git
+  revision: 8a7f300c94a4fbac9bd57d2d6d28248686b23087
+  specs:
+    active_admin_import (3.0.0.pre)
+      activerecord-import (~> 0.10.0)
+      rails (>= 4.0)
+      rchardet (~> 1.6)
+      rubyzip (~> 1.1, >= 1.0.0)
+
 PATH
   remote: ../jquest-pg
   specs:
@@ -26,10 +36,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_admin_import (2.1.2)
-      activeadmin (>= 0.6.0)
-      activerecord-import (~> 0.4, >= 0.4.1)
-      rubyzip (~> 1.0, >= 1.0.0)
     active_admin_theme (1.0.3)
     activeadmin (1.0.0.pre2)
       arbre (~> 1.0, >= 1.0.2)
@@ -54,7 +60,7 @@ GEM
       activemodel (= 4.2.6)
       activesupport (= 4.2.6)
       arel (~> 6.0)
-    activerecord-import (0.12.0)
+    activerecord-import (0.10.0)
       activerecord (>= 3.0)
     activesupport (4.2.6)
       i18n (~> 0.7)
@@ -196,6 +202,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    rchardet (1.6.1)
     rdoc (4.2.2)
       json (~> 1.4)
     responders (2.1.1)
@@ -251,7 +258,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_admin_import (= 2.1.2)
+  active_admin_import!
   active_admin_theme
   activeadmin (~> 1.0.0.pre2)
   bower-rails (~> 0.10.0)

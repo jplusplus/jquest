@@ -31,14 +31,13 @@ gem 'puma'
 gem 'rest-client'
 gem 'devise'
 gem 'devise-two-factor'
-gem "pundit"
-
+gem 'pundit'
+gem 'grape'
 
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'active_admin_theme'
 gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 gem 'country_select'
-
 
 # This won't work if you didn't checkout the gem repository in the parent directory.
 gem 'jquest_pg', path: '../jquest-pg'

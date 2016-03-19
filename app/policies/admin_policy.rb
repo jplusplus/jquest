@@ -8,41 +8,35 @@ class AdminPolicy  < ApplicationPolicy
   end
 
   def index?
-    is_admin?
+    ['admin', 'teacher'].include? user.role
   end
 
   def show?
-    is_admin?
+    index?
   end
 
   def create?
-    is_admin?
+    index?
   end
 
   def import?
-    is_admin?
+    index?
   end
 
   def new?
-    is_admin?
+    index?
   end
 
-  def edit?
-    is_admin?
+  def update?
+    index?
   end
 
   def destroy?
-    is_admin?
+    index?
   end
 
   def destroy_all?
-    is_admin?
-  end
-
-  protected
-
-  def is_admin?
-    user.role?(:admin)
+    index?
   end
 
 end

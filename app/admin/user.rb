@@ -27,7 +27,7 @@ ActiveAdmin.register User do
     f.inputs "Details" do
       f.input :email
       f.input :phone_number
-      f.input :role
+      f.input :role, as: :select, collection: User.roles.keys
       f.input :otp_required_for_login, as: :boolean
       f.input :confirmed_at, as: :datepicker
     end

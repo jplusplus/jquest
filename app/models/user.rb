@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
          # :database_authenticatable,
 
+  enum role: { admin: 'admin', teacher: 'teacher' }
+
   def to_s
     email || phone_number
   end

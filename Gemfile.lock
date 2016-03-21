@@ -8,8 +8,9 @@ GIT
       rchardet (~> 1.6)
       rubyzip (~> 1.1, >= 1.0.0)
 
-PATH
-  remote: ../jquest-pg
+GIT
+  remote: git://github.com/jplusplus/jquest-pg.git
+  revision: 350602103a5287a9af113b6df5361215f3a9d175
   specs:
     jquest_pg (0.0.1)
       rails (~> 4.2.6)
@@ -186,6 +187,9 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     netrc (0.11.0)
+    ngannotate-rails (1.2.1)
+      execjs
+      rails (>= 3.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -314,6 +318,7 @@ DEPENDENCIES
   grape
   jbuilder (~> 2.0)
   jquest_pg!
+  ngannotate-rails
   pg
   puma
   pundit

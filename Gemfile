@@ -39,6 +39,8 @@ gem 'active_admin_theme'
 gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 gem 'country_select'
 
+gem 'angular-rails-templates'
+
 # This won't work if you didn't checkout the gem repository in the parent directory.
 gem 'jquest_pg', path: '../jquest-pg'
 # gem 'jquest_pg', github: 'jplusplus/jquest-pg'

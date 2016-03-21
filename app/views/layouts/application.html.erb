@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="jquest">
 <head>
   <title>Jquest</title>
+  <meta charset="utf-8">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+    var href = document.location.protocol + "//" + document.location.host + document.location.pathname;
+    document.write("<base href='" + href + "' />");
+  </script>
 </head>
 <body class="<%= yield (:body_class) %>">
-  <%= yield %>
+  <div ui-view>
+    <%= yield %>
+  </div>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

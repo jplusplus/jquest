@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     redirect_to '/', :alert => exception.message
   end
 
+  def index
+    render 'layouts/application', layout: false
+  end
+
   protected
 
   def configure_permitted_parameters

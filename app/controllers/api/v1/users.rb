@@ -4,7 +4,8 @@ module API
       resource :users do
         desc "Return list of users"
         get do
-          User.all
+          authenticate!
+          policy_scope User
         end
       end
     end

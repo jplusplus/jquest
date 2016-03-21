@@ -5,6 +5,7 @@ module API
       format :json
 
       mount Users
+      mount Schools
     end
   end
 end

@@ -2,7 +2,8 @@ ActiveAdmin.register User do
   active_admin_import
   permit_params :email, :phone_number, :password, :password_confirmation,
                 :otp_required_for_login,
-                :role, :created_at, :updated_at, :confirmed_at
+                :role, :created_at, :updated_at, :confirmed_at,
+                school_ids: []
 
   index do
     selectable_column
@@ -30,6 +31,7 @@ ActiveAdmin.register User do
       f.input :role, as: :select, collection: User.roles.keys
       f.input :otp_required_for_login, as: :boolean
       f.input :confirmed_at, as: :datepicker
+      f.input :schools, :as => :select, :input_html => {:multiple => true}
     end
     f.actions
   end

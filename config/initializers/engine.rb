@@ -13,13 +13,13 @@ module Rails
         gemspec and gemspec.metadata['season']
       end
 
-      def root_path
+      def root_path(suffix='/season/')
         if gemspec and gemspec.metadata['root_path']
-          gemspec.metadata['root_path']
+          suffix + gemspec.metadata['root_path']
         elsif gemspec.name
-          gemspec.name.downcase
+          suffix + gemspec.name.downcase
         else
-          name.downcase
+          suffix + name.downcase
         end
       end
     end

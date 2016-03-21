@@ -5,12 +5,12 @@ for SCRIPT in /app/.profile.d/*;
 done
 
 # Create, migrate DB
-if rake db:version | grep ": 0$"; then
+if bundle exec rake db:version | grep ": 0$"; then
   echo 'Creating database'
-  rake db:setup
+  bundle exec rake db:setup
 else
   echo 'Migrating database'
-  rake db:migrate
+  bundle exec rake db:migrate
 fi
 
 exec "$@"

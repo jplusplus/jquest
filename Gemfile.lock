@@ -8,9 +8,8 @@ GIT
       rchardet (~> 1.6)
       rubyzip (~> 1.1, >= 1.0.0)
 
-GIT
-  remote: git://github.com/jplusplus/jquest-pg.git
-  revision: 350602103a5287a9af113b6df5361215f3a9d175
+PATH
+  remote: ../jquest-pg
   specs:
     jquest_pg (0.0.1)
       rails (~> 4.2.6)

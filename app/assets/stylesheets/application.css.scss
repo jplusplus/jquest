@@ -11,6 +11,22 @@
  * file per style scope.
  *
  *= require_self
- *= require bootstrap-sass/assets/stylesheets/_bootstrap.scss
  *= require_tree ../client
+ *= require_tree ../components
  */
+
+$body-bg: #F2EEE8;
+$body-color:#34343C;
+
+$brand-primary: #3D303D;
+$link-color: #211a21;
+
+$font-family-sans-serif: "Fira Sans", "Droid Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", Arial, sans-serif !default;
+
+$card-bg: #fffbf5;
+$card-border-color: mix($card-bg, $body-bg);
+$card-cap-bg: $card-border-color;
+$jumbotron-bg: $card-bg;
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300,500,700&subset=latin,latin-ext);
+@import "bootstrap";

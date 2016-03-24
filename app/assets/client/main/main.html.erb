@@ -1,3 +1,13 @@
-<div class="main container" ui-view>
-  <h2>{{ 'main.title' | translate }}</h2>
+<div class="main" ui-view>
+  <div class="container">
+    <div ng-include="'header/header.html'"></div>
+    <div class="card">
+      <div class="card-header">
+        <h3>{{ 'main.title' | translate }}</h3>
+      </div>
+      <div class="card-block">
+        Lorem ispum
+      </div>
+    </div>
+  </div>
 </div>

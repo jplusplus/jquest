@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# We use bootstrap as a gem to be able to customize it
+gem 'bootstrap', '~> 4.0.0.alpha3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -54,6 +56,9 @@ group :development, :test do
   # Better error display
   gem "better_errors"
   gem "binding_of_caller"
+  # Assets livereload
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem "rack-livereload"
 end
 
 group :development do

@@ -28,4 +28,6 @@
 //= require lodash/dist/lodash.min.js
 //= require restangular/dist/restangular.min.js
 
+//= require angular-rails-templates
 //= require index.module.js.coffee
+//= require_tree ../components

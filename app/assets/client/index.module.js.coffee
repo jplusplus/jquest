@@ -1,5 +1,4 @@
 #= require_self
-#= require angular-rails-templates
 #= require_tree .
 
 angular.module 'jquest', [

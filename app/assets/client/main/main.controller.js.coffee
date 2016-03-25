@@ -1,4 +1,4 @@
 angular.module 'jquest'
-  .controller 'MainController', ->
-    new class MainController
+  .controller 'MainCtrl', ->
+    new class MainCtrl
       constructor: ->

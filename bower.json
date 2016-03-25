@@ -30,6 +30,7 @@
     "angular-ui-router": "~0.2.18",
     "angular-bootstrap": "~1.2.5",
     "lodash": "~4.6.*",
-    "restangular": "~1.5.2"
+    "restangular": "~1.5.2",
+    "css-hamburgers": "~0.3.0"
   }
 }

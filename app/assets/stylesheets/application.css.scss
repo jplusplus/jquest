@@ -10,23 +10,75 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
- *= require_tree ../client
- *= require_tree ../components
  */
 
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-shadows: true;
+$enable-transitions: true;
+$enable-rounded: false;
+
+// Body
+//
 $body-bg: #F2EEE8;
 $body-color:#42413c;
 
+// Colors
+//
 $brand-primary: #3D303D;
 $link-color: #211a21;
 
-$font-family-sans-serif: "Fira Sans", "Droid Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", Arial, sans-serif !default;
+// Fonts
+//
+$font-family-sans-serif: "Fira Sans", "Droid Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", Arial, sans-serif;
 
+// Cards
+//
 $card-bg: #fffbf5;
-$card-border-color: mix($card-bg, $body-bg);
+$card-border-color: mix($card-bg, $body-color, 90);
 $card-cap-bg: $card-border-color;
+
+// Jumbotron
+//
 $jumbotron-bg: $card-bg;
 
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300,500,700&subset=latin,latin-ext);
+// Lists
+//
+$list-group-bg: $card-bg;
+$list-group-border-color: $card-border-color;
+
+// Navs
+//
+$nav-link-hover-bg:             mix($card-bg, $body-bg);
+$nav-disabled-link-color:       $card-bg;
+$nav-disabled-link-hover-color: $card-bg;
+
+$nav-tabs-border-color:                       darken($card-border-color, 5);
+$nav-tabs-link-hover-border-color:            mix($card-bg, $body-bg);
+$nav-tabs-active-link-hover-color:            $card-bg;
+$nav-tabs-active-link-hover-bg:               $body-bg;
+$nav-tabs-active-link-hover-border-color:     darken($card-border-color, 5);
+$nav-tabs-justified-link-border-color:        darken($card-border-color, 5);
+$nav-tabs-justified-active-link-border-color: $body-bg;
+
+
+// Forms
+//
+$input-border-focus:             #FEB24C;
+$input-box-shadow-focus:         rgba($input-border-focus, .3);
+
+
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+@import url('//fonts.googleapis.com/css?family=Fira+Sans:400,300,500,700&subset=latin,latin-ext');
+// External
+//
 @import "bootstrap";
+// Internal
+//
+@import "./mixins";
+@import "./animations";
+@import "./hamburger";
+
+@import "../client/**/*";
+@import "../components/**/*";

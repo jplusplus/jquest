@@ -4,5 +4,5 @@ angular.module 'jquest'
       .state 'main',
         url: '/'
         templateUrl: 'main/main.html'
-        controller: 'MainController'
+        controller: 'MainCtrl'
         controllerAs: 'main'

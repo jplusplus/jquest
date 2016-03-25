@@ -1,7 +1,68 @@
-<header class="header">
-  <div class="container">
-    <div class="header__wrapper">
-      <a ui-sref="main">jQuest</a>
+<header class="header" ng-controller="HeaderCtrl as header">
+  <nav class="navbar navbar-light header__navbar">
+    <div class="header__navbar__hamburger">
+      <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': header.isMenuVisible() }" ng-click="header.toggleMenu()">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </a>
     </div>
+    <div class="navbar-brand header__navbar__brand">
+      <a href="/">jQuest</a>
+    </div>
+
+
+    <form class="form-inline nav-item header__navbar__search pull-xs-right">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control  header__navbar__search__input" type="search" placeholder="{{ navbar.search | translate }}" id="input-search">
+          <label class="input-group-addon header__navbar__search__addon" for="input-search">
+            <i class="fa fa-search"></i>
+          </label>
+        </div>
+      </div>
+    </form>
+    
+    <div class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">Admin</a>
+      </li>
+    </div>
+
+  </nav>
+
+  <div class="header__menu" ng-show="header.isMenuVisible()">
+    <ul class="list-inline row header__menu__links">
+      <li class="header__menu__links__item col-md-3">
+        <a class="card card-block">
+          Watch intro again
+        </a>
+      </li>
+      <li class="header__menu__links__item col-md-3">
+        <a class="card card-block">
+          My task
+        </a>
+      </li>
+      <li class="header__menu__links__item col-md-3">
+        <a class="card card-block">
+          Tutorials
+        </a>
+      </li>
+      <li class="header__menu__links__item col-md-3">
+        <a class="card card-block">
+          Leaderboard
+        </a>
+      </li>
+      <li class="header__menu__links__item col-md-3">
+        <a class="card card-block">
+          Collected data
+        </a>
+      </li>
+      <li class="header__menu__links__item col-md-3">
+        <a class="card card-block">
+          About
+        </a>
+      </li>
+    </ul>
   </div>
 </header>

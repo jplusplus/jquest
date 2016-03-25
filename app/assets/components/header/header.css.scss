@@ -1,4 +1,72 @@
 .header {
-  padding:20px 10px;
-  margin-bottom:10px;
+  border-bottom:1px solid $nav-tabs-border-color;
+  margin-bottom:2rem;
+  position: relative;
+  z-index:$zindex-navbar-fixed;
+
+  &__navbar {
+    padding-right: 0;
+    padding-left: 0;
+
+    &__hamburger {
+      float:left;
+      transform: translateY(.5rem);
+      padding-right:2rem;
+    }
+
+    &__search {
+      margin-left:1rem;
+
+      &__input {
+        border-radius:2rem;
+        z-index:5;
+        position:relative;
+        padding-right:2rem;
+      }
+
+      &__addon {
+        border:0;
+        background:0;
+        position:absolute;
+        z-index:10;
+        right:0;
+        top:50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:rgba($body-bg, .9);
+    padding:1rem;
+    overflow: hidden;
+    @include box-shadow(0 2px 2px darken($card-border-color, 5));
+    @include transition(.4s);
+
+    &.ng-hide {
+      opacity: 0;
+      transform: translateY(-2rem);
+    }
+
+    &__links {
+      margin-bottom:0;
+
+      &__item {
+        margin-top:.5rem;
+        height: 150px;
+        cursor: pointer;
+        opacity:0;
+        animation:slideindown 300ms forwards;
+        @include animation-delay-loop(0, 20, 150ms);
+
+        .card {
+          height:100%;
+        }
+      }
+    }
+  }
 }

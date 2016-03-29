@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html ng-app="jquest">
 <head>
-  <title>Jquest</title>
+  <title>
+    <% if content_for?(:page_title) %>
+      <%= yield(:page_title) %>
+    <% else %>
+      jQuest
+    <% end %>
+  </title>
   <meta charset="utf-8">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <% if content_for?(:stylesheet_includes) %>
+    <%= yield :stylesheet_includes %>
+  <% else %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  <% end %>
+
   <%= csrf_meta_tags %>
 
   <script type="text/javascript">
@@ -15,6 +27,10 @@
   <div ui-view>
     <%= yield %>
   </div>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if content_for?(:javascript_includes) %>
+    <%= yield :javascript_includes %>
+  <% else %>
+    <%= javascript_include_tag 'application' %>
+  <% end %>
 </body>
 </html>

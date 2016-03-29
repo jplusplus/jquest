@@ -15,11 +15,13 @@ module Rails
 
       def root_path(suffix='/season/')
         if gemspec and gemspec.metadata['root_path']
-          suffix + gemspec.metadata['root_path']
+          path = suffix + gemspec.metadata['root_path']
+          path = path + '/' if not path.end_with? '/'
+          path
         elsif gemspec.name
-          suffix + gemspec.name.downcase
+          suffix + gemspec.name.downcase + '/'
         else
-          suffix + name.downcase
+          suffix + name.downcase + '/'
         end
       end
     end

@@ -3,7 +3,7 @@ angular.module 'jquest'
     'ngInject'
     $translateProvider
       .useStaticFilesLoader
-        prefix: 'locales/',
+        prefix: '/locales/',
         suffix: '.json'
       .registerAvailableLanguageKeys ['en'],
         'en_US': 'en',

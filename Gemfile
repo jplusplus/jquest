@@ -45,8 +45,8 @@ gem 'angular-rails-templates'
 gem 'ngannotate-rails'
 
 # This won't work if you didn't checkout the gem repository in the parent directory.
-# gem 'jquest_pg', path: '../jquest-pg'
-gem 'jquest_pg', github: 'jplusplus/jquest-pg'
+gem 'jquest_pg', path: '../jquest-pg'
+# gem 'jquest_pg', github: 'jplusplus/jquest-pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

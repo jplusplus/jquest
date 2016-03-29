@@ -11,7 +11,6 @@
       <a href="/">jQuest</a>
     </div>
 
-
     <form class="form-inline nav-item header__navbar__search pull-xs-right">
       <div class="form-group">
         <div class="input-group">
@@ -25,7 +24,7 @@
 
     <div class="nav navbar-nav pull-xs-right">
       <li class="nav-item">
-        <a class="nav-link" href="/admin">Admin</a>
+        <a class="nav-link" href="/admin" translate>nav.admin</a>
       </li>
     </div>
 
@@ -33,34 +32,9 @@
 
   <div class="header__menu" ng-show="header.isMenuVisible()">
     <ul class="list-inline row header__menu__links">
-      <li class="header__menu__links__item col-md-3">
-        <a class="card card-block">
-          Watch intro again
-        </a>
-      </li>
-      <li class="header__menu__links__item col-md-3">
-        <a class="card card-block">
-          My task
-        </a>
-      </li>
-      <li class="header__menu__links__item col-md-3">
-        <a class="card card-block">
-          Tutorials
-        </a>
-      </li>
-      <li class="header__menu__links__item col-md-3">
-        <a class="card card-block">
-          Leaderboard
-        </a>
-      </li>
-      <li class="header__menu__links__item col-md-3">
-        <a class="card card-block">
-          Collected data
-        </a>
-      </li>
-      <li class="header__menu__links__item col-md-3">
-        <a class="card card-block">
-          About
+      <li class="header__menu__links__item col-md-3" ng-repeat="item in ::header.getMenuItems()">
+        <a class="card card-block" ng-href="{{ item.href() }}">
+          {{ item.name | translate }}
         </a>
       </li>
     </ul>

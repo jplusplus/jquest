@@ -1,9 +1,15 @@
-# A sample Guardfile
-# More info at https://github.com/guard/guard#readme
-
-## Uncomment and set this to only include directories you want to watch
-# directories %w(app lib config test spec features) \
-#  .select{|d| Dir.exists?(d) ? d : UI.warning("Directory #{d} does not exist")}
+watched_directories = [ Dir.pwd ]
+# Analyse every engines
+Rails::Engine.subclasses.each do |engine|
+  # Does the engine have specs? Does the specs describe a jQuest season?
+  if engine.season?
+    watched_directories << engine.config.root.to_s
+    # guard 'livereload' &livereload_directives
+    # Add the engine's gem to the watch directorys
+  end
+end
+# Set the watch dirs
+directories watched_directories
 
 ## Note: if you are using the `directories` clause above and you are not
 ## watching the project directory ('.'), then you will want to move
@@ -15,7 +21,7 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard 'livereload' do
+livereload_directives = Proc.new do
   extensions = {
     css: :css,
     scss: :css,
@@ -47,7 +53,6 @@ guard 'livereload' do
       "/assets/#{path}.#{type}"
     end
   end
-
   # file needing a full reload of the page anyway
   watch(%r{app/.+\.(#{rails_view_exts * '|'})$})
   watch(%r{app/helpers/.+\.rb})
@@ -56,3 +61,5 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
   watch(%r{(app|vendor)(/assets/\w+/(.+)\.(scss))}) { |m| "/assets/#{m[3]}.css" }
 end
+
+guard 'livereload', &livereload_directives

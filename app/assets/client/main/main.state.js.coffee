@@ -5,3 +5,4 @@ angular.module 'jquest'
         templateUrl: 'main/main.html'
         controller: 'MainCtrl'
         controllerAs: 'main'
+        

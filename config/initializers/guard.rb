@@ -8,7 +8,6 @@ if Rails.env.development?
     fork do
       if __FILE__ == '(irb)'
       end
-
       # Guard.guards 'sass'
       Guard.start :no_interactions => true
     end

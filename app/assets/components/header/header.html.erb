@@ -24,7 +24,7 @@
 
     <div class="nav navbar-nav pull-xs-right">
       <li class="nav-item">
-        <a class="nav-link" href="/admin" translate>nav.admin</a>
+        <a class="nav-link" href="/admin" translate>header.nav.admin</a>
       </li>
     </div>
 
@@ -38,5 +38,15 @@
         </a>
       </li>
     </ul>
+    <div class="header__menu__links">
+      <h3 class="header__menu__links__heading" translate>header.seasons.title</h3>
+      <ul class="list-inline row">
+        <li class="header__menu__links__item col-md-3" ng-repeat="item in header.getSeasons()">
+          <a class="card card-block" ng-href="{{ item.root_path }}">
+            {{ item.name | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>

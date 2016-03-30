@@ -6,6 +6,7 @@ module API
 
       mount Users
       mount Schools
+      mount Seasons
     end
   end
 end

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def index
-    render 'layouts/application', layout: false
+    render './index'
   end
 
   protected

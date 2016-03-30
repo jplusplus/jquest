@@ -12,8 +12,6 @@
 
   <% if content_for?(:stylesheet_includes) %>
     <%= yield :stylesheet_includes %>
-  <% else %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
   <% end %>
 
   <%= csrf_meta_tags %>
@@ -29,8 +27,6 @@
   </div>
   <% if content_for?(:javascript_includes) %>
     <%= yield :javascript_includes %>
-  <% else %>
-    <%= javascript_include_tag 'application' %>
   <% end %>
 </body>
 </html>

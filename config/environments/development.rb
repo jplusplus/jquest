@@ -16,6 +16,28 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  if ENV.has_key?("MAILTRAP_API_TOKEN")
+    # Get Mailtrap SMTP details using its API
+    url = "https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}"
+    begin
+      response = RestClient.get url, {:accept => :json}
+      # Get first inbox
+      inbox = JSON.parse(response)[0]
+
+      config.action_mailer.delivery_method = :smtp
+      config.action_mailer.smtp_settings = {
+        :user_name => inbox['username'],
+        :password => inbox['password'],
+        :address => inbox['domain'],
+        :domain => inbox['domain'],
+        :port => inbox['smtp_ports'][0],
+        :authentication => :plain
+      }
+    rescue RestClient::Unauthorized
+      p 'Unable to configure Mailtrap'
+    end
+  end
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

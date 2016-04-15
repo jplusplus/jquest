@@ -4,13 +4,18 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   protect_from_forgery
   before_action :configure_permitted_parameters, if: :devise_controller?
-
-  def access_denied!(exception)
-    redirect_to '/', :alert => exception.message
-  end
+  after_filter :set_csrf_cookie_for_ng
 
   def index
     render './index'
+  end
+
+  def set_csrf_cookie_for_ng
+    cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+  end
+
+  def access_denied!(exception)
+    redirect_to '/', :alert => exception.message
   end
 
   protected
@@ -18,4 +23,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_in) << :otp_attempt
   end
+  
+  def verified_request?
+    super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
+  end
+
 end

@@ -11,5 +11,6 @@ angular.module 'jquest', [
   'ui.router',
   'ui.bootstrap',
   'pascalprecht.translate',
-  'jquest.template'
+  'jquest.template',
+  'Devise'
 ]

@@ -23,8 +23,14 @@
     </form>
 
     <div class="nav navbar-nav pull-xs-right">
-      <li class="nav-item">
+      <li class="nav-item" ng-show="main.currentUser && main.currentUser.role !== 'student'">
         <a class="nav-link" href="/admin" translate>header.nav.admin</a>
+      </li>
+      <li class="nav-item" ng-show="main.currentUser">
+        <a class="nav-link" href="/users/sign_out" translate>header.nav.sign_out</a>
+      </li>
+      <li class="nav-item" ng-hide="main.currentUser">
+        <a class="nav-link" href="/users/sign_in" translate>header.nav.sign_in</a>
       </li>
     </div>
 

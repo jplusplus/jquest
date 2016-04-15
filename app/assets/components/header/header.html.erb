@@ -1,58 +1,63 @@
-<header class="header" ng-controller="HeaderCtrl as header">
-  <nav class="navbar navbar-light header__navbar">
-    <div class="header__navbar__hamburger">
-      <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': header.isMenuVisible() }" ng-click="header.toggleMenu()">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </a>
-    </div>
-    <div class="navbar-brand header__navbar__brand">
-      <a href="/">jQuest</a>
-    </div>
-
-    <form class="form-inline nav-item header__navbar__search pull-xs-right">
-      <div class="form-group">
-        <div class="input-group">
-          <input class="form-control  header__navbar__search__input" type="search" placeholder="{{ navbar.search | translate }}" id="input-search">
-          <label class="input-group-addon header__navbar__search__addon" for="input-search">
-            <i class="fa fa-search"></i>
-          </label>
-        </div>
-      </div>
-    </form>
-
-    <div class="nav navbar-nav pull-xs-right">
-      <li class="nav-item" ng-show="main.currentUser && main.currentUser.role !== 'student'">
-        <a class="nav-link" href="/admin" translate>header.nav.admin</a>
-      </li>
-      <li class="nav-item" ng-show="main.currentUser">
-        <a class="nav-link" href="/users/sign_out" translate>header.nav.sign_out</a>
-      </li>
-      <li class="nav-item" ng-hide="main.currentUser">
-        <a class="nav-link" href="/users/sign_in" translate>header.nav.sign_in</a>
-      </li>
-    </div>
-
-  </nav>
-
-  <div class="header__menu" ng-show="header.isMenuVisible()">
-    <ul class="list-inline row header__menu__links">
-      <li class="header__menu__links__item col-md-3" ng-repeat="item in ::header.getMenuItems()">
-        <a class="card card-block" ng-href="{{ item.href() }}">
-          {{ item.name | translate }}
+<div class="container">
+  <header class="header" ng-controller="HeaderCtrl as header">
+    <nav class="navbar navbar-light header__navbar">
+      <div class="header__navbar__hamburger">
+        <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': header.isMenuVisible() }" ng-click="header.toggleMenu()">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
         </a>
-      </li>
-    </ul>
-    <div class="header__menu__links">
-      <h3 class="header__menu__links__heading" translate>header.seasons.title</h3>
-      <ul class="list-inline row">
-        <li class="header__menu__links__item col-md-3" ng-repeat="item in header.getSeasons()">
-          <a class="card card-block" ng-href="{{ item.root_path }}">
+      </div>
+      <div class="navbar-brand header__navbar__brand">
+        <a href="/">jQuest</a>
+      </div>
+
+      <form class="form-inline nav-item header__navbar__search pull-xs-right">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control  header__navbar__search__input" type="search" placeholder="{{ navbar.search | translate }}" id="input-search">
+            <label class="input-group-addon header__navbar__search__addon" for="input-search">
+              <i class="fa fa-search"></i>
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <div class="nav navbar-nav pull-xs-right">
+        <li class="nav-item" ng-show="main.currentUser && main.currentUser.role !== 'student'">
+          <a class="nav-link" href="/admin" translate>header.nav.admin</a>
+        </li>
+        <li class="nav-item" ng-show="main.currentUser">
+          <span class="nav-link" ng-bind-html="'header.nav.user-display' | translate: main.currentUser"></span>
+        </li>
+        <li class="nav-item" ng-show="main.currentUser">
+          <a class="nav-link" href="/users/sign_out" translate>header.nav.logout</a>
+        </li>
+        <li class="nav-item" ng-hide="main.currentUser">
+          <a class="nav-link" href="/users/sign_in" translate>header.nav.login</a>
+        </li>
+      </div>
+
+    </nav>
+
+    <div class="header__menu" ng-show="header.isMenuVisible()">
+      <ul class="list-inline row header__menu__links">
+        <li class="header__menu__links__item col-md-3" ng-repeat="item in ::header.getMenuItems()">
+          <a class="card card-block" ng-href="{{ item.href() }}">
             {{ item.name | translate }}
           </a>
         </li>
       </ul>
+      <div class="header__menu__links">
+        <h3 class="header__menu__links__heading" translate>header.seasons.title</h3>
+        <ul class="list-inline row">
+          <li class="header__menu__links__item col-md-3" ng-repeat="item in header.getSeasons()">
+            <a class="card card-block" ng-href="{{ item.root_path }}">
+              {{ item.name | translate }}
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+</div>

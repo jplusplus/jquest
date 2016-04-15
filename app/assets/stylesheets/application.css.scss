@@ -22,13 +22,22 @@ $enable-rounded: false;
 // Body
 //
 $body-bg: #F2EEE8;
-$body-bg: #F2EEE8;
 $body-color:#42413c;
 
 // Colors
 //
-$brand-primary: #3D303D;
+$brand-primary: #664566;
+$brand-info: #4b8187;
+$brand-warning: #ffefb3;
 $link-color: #211a21;
+
+// States
+//
+$state-warning-bg: $brand-warning;
+$state-warning-text: #847b5d;
+
+$state-info-bg: $brand-info;
+$state-info-text: #fff;
 
 // Fonts
 //

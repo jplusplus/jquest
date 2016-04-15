@@ -1,3 +1,7 @@
 {
-  "main.title": "Hello world!"
+  "main.title": "Hello world!",
+  "header.nav.admin": "Admin",
+  "header.nav.user-display": "Connected as <strong>{{ email }}</strong>",
+  "header.nav.logout": "Log Out",
+  "header.nav.login": "Log In"
 }

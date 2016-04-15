@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: 539a2b82b6f34e1b566a93586785494909a9b325
+  revision: 2b70644286a77a5408f1fbb7793c6f5ce6255b16
   specs:
     jquest_pg (0.0.1)
       rails (~> 4.2.6)

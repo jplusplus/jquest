@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     email || phone_number
   end
 
+  def email_md5
+    Digest::MD5.hexdigest email
+  end
+
   def password_required?
     new_record? ? false : super
   end

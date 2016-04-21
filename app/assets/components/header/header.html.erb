@@ -12,6 +12,28 @@
         <a href="/">jQuest</a>
       </div>
 
+
+      <div class="nav navbar-nav pull-xs-right">
+        <li class="nav-item header__navbar__user" uib-dropdown ng-show="main.currentUser">
+          <a href uib-dropdown-toggle>
+            <img src="//www.gravatar.com/avatar/{{ main.currentUser.email_md5 }}" class="img-circle header__navbar__user__avatar" />
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+            <h6 class="dropdown-header">
+              <span ng-bind-html="'header.nav.user-display' | translate: main.currentUser"></span>
+            </h6>
+            <div ng-show="main.currentUser.role !== 'student'">
+              <a class="dropdown-item" href="/admin" translate>header.nav.admin</a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/users/sign_out" translate>header.nav.logout</a>
+          </div>
+        </li>
+        <li class="nav-item" ng-hide="main.currentUser">
+          <a class="nav-link" href="/users/sign_in" translate>header.nav.login</a>
+        </li>
+      </div>
+
       <form class="form-inline nav-item header__navbar__search pull-xs-right">
         <div class="form-group">
           <div class="input-group">
@@ -22,22 +44,6 @@
           </div>
         </div>
       </form>
-
-      <div class="nav navbar-nav pull-xs-right">
-        <li class="nav-item" ng-show="main.currentUser && main.currentUser.role !== 'student'">
-          <a class="nav-link" href="/admin" translate>header.nav.admin</a>
-        </li>
-        <li class="nav-item" ng-show="main.currentUser">
-          <span class="nav-link" ng-bind-html="'header.nav.user-display' | translate: main.currentUser"></span>
-        </li>
-        <li class="nav-item" ng-show="main.currentUser">
-          <a class="nav-link" href="/users/sign_out" translate>header.nav.logout</a>
-        </li>
-        <li class="nav-item" ng-hide="main.currentUser">
-          <a class="nav-link" href="/users/sign_in" translate>header.nav.login</a>
-        </li>
-      </div>
-
     </nav>
 
     <div class="header__menu" ng-show="header.isMenuVisible()">

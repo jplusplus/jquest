@@ -1,12 +1,39 @@
-<h2>Resend unlock instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.submit "Resend unlock instructions" %></div>
+<% content_for :stylesheet_includes do %>
+  <%= stylesheet_link_tag 'season', media: 'all' %>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="devise">
+  <div class="devise__form devise__form--">
+    <div class="card">
+      <h5 class="card-header">Resend unlock instructions</h5>
+      <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+        <div class="card-block">
+          <%= devise_error_messages! %>
+          <div class="form-group row">
+            <label class="col-sm-3 text-sm-right">
+              <%= f.label :email %>
+            </label>
+            <div class="col-sm-9">
+              <%= f.email_field :email, class: 'form-control', autofocus: true %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5 col-sm-push-7 text-sm-right">
+              <%= f.submit "Resend instructions", :class => 'btn btn-primary' %>
+            </div>
+            <div class="col-sm-7 col-sm-pull-5 small">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <% if flash[:alert] %>
+      <p class="alert-warning alert"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="alert-info alert"><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+</div>

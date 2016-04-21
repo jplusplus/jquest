@@ -4,17 +4,9 @@
 
 <div class="devise">
   <div class="devise__form devise__form--sign-up">
-
-    <% if flash[:alert] %>
-      <p class="alert-warning alert"><%= flash[:alert] %></p>
-    <% end %>
-    <% if flash[:notice] %>
-      <p class="alert-info alert"><%= flash[:notice] %></p>
-    <% end %>
-
     <div class="card">
+      <h5 class="card-header">jQuest login</h5>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
-        <h5 class="card-header">jQuest login</h5>
         <div class="card-block">
           <div class="form-group row">
             <label class="col-sm-3 text-sm-right">
@@ -53,5 +45,12 @@
         </div>
       <% end %>
     </div>
+
+    <% if flash[:alert] %>
+      <p class="alert-warning alert"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="alert-info alert"><%= flash[:notice] %></p>
+    <% end %>
   </div>
 </div>

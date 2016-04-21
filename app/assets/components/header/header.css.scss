@@ -14,6 +14,12 @@
       padding-right:2rem;
     }
 
+    &__title {
+      display: inline-block;
+      padding:$input-padding-y;
+      color:white;
+    }
+
     &__user {
       height: $input-height + $input-padding-y/2rem;
       line-height: $input-height + $input-padding-y/2rem;
@@ -85,6 +91,7 @@
 
       &__heading {
         margin:10px 0;
+        margin-top:20px;
       }
 
       &__item {
@@ -95,8 +102,15 @@
         animation:slideindown 300ms forwards;
         @include animation-delay-loop(0, 20, 150ms);
 
+        &--active .card {
+          background: $brand-primary;
+          border-color: darken($brand-primary, 5%);
+          color: white;
+        }
+
         .card {
           height:100%;
+          @include transition(700ms);
         }
       }
     }

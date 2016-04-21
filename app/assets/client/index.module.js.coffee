@@ -12,5 +12,6 @@ angular.module 'jquest', [
   'ui.bootstrap',
   'pascalprecht.translate',
   'jquest.template',
+  'angular-growl',
   'Devise'
 ]

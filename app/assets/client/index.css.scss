@@ -1,3 +1,16 @@
 .card {
   @include box-shadow(0 1px 2px darken($card-border-color, 5));
 }
+
+.flash {
+  display: none;
+}
+
+.growl {
+  width:300px;
+  z-index: $zindex-navbar-fixed;
+  &-container > &-item {
+    padding-right:10px;
+    @include box-shadow(0 1px 5px darken($card-border-color, 50));
+  }
+}

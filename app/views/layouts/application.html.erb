@@ -28,5 +28,12 @@
   <% if content_for?(:javascript_includes) %>
     <%= yield :javascript_includes %>
   <% end %>
+
+  <div growl></div>
+  <div class="flash container">
+    <% flash.each do |name, msg| -%>
+      <div class="alert flash__item" data-type="<%= name %>"><%= msg %></div>
+    <% end -%>
+  </div>
 </body>
 </html>

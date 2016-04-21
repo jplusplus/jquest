@@ -11,6 +11,7 @@
 //= require angular-translate-loader-static-files/angular-translate-loader-static-files.min.js
 //= require angular-translate-storage-cookie/angular-translate-storage-cookie.min.js
 //= require angular-ui-router/release/angular-ui-router.min.js
+//= require angular-growl-v2/build/angular-growl.min.js
 //= require AngularDevise/lib/devise-min.js
 
 //= require lodash/dist/lodash.min.js

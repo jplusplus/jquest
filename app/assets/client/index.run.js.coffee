@@ -1,2 +1,2 @@
 angular.module 'jquest'
-  .run ($rootScope) ->
+  .run ()->

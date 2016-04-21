@@ -10,7 +10,8 @@ angular.module 'jquest'
       getHref: (params={})=>
         href  = @href or ''
         href += $state.href(@state, params) or ''
-      isActive: => $state.current.name is @state if @state?
+      isActive: =>
+        $state.current.name is @state if @state?
     class Menu
       constructor: ->
         @_items = []

@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319125541) do
+ActiveRecord::Schema.define(version: 20160422144129) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "season_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["season_id"], name: "index_groups_on_season_id"
 
   create_table "jquest_pg_territories", force: :cascade do |t|
     t.string   "name"
@@ -23,16 +29,6 @@ ActiveRecord::Schema.define(version: 20160319125541) do
     t.datetime "updated_at"
   end
 
-  create_table "school_teachers", force: :cascade do |t|
-    t.integer  "school_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "school_teachers", ["school_id"], name: "index_school_teachers_on_school_id", using: :btree
-  add_index "school_teachers", ["user_id"], name: "index_school_teachers_on_user_id", using: :btree
-
   create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.string   "contact_email"
@@ -40,6 +36,15 @@ ActiveRecord::Schema.define(version: 20160319125541) do
     t.string   "contact_name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string   "name"
+    t.string   "primary_color", default: "#373a3c"
+    t.string   "status",        default: "open"
+    t.string   "engine"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,8 +65,6 @@ ActiveRecord::Schema.define(version: 20160319125541) do
     t.integer  "failed_attempts",           default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "encrypted_otp_secret"
@@ -71,13 +74,15 @@ ActiveRecord::Schema.define(version: 20160319125541) do
     t.boolean  "otp_required_for_login",    default: false, null: false
     t.string   "role",                      default: "",    null: false
     t.string   "phone_number",              default: "",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "school_id"
+    t.integer  "group_id"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+  add_index "users", ["group_id"], name: "index_users_on_group_id"
+  add_index "users", ["provider"], name: "index_users_on_provider"
+  add_index "users", ["school_id"], name: "index_users_on_school_id"
+  add_index "users", ["uid"], name: "index_users_on_uid"
 
 end

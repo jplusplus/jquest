@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
          # :database_authenticatable,
 
   enum role: { admin: 'admin', teacher: 'teacher', student: 'student' }
-  has_and_belongs_to_many :schools, join_table: :school_teachers
 
   def to_s
     email || phone_number

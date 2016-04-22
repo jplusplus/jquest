@@ -232,4 +232,11 @@ ActiveAdmin.setup do |config|
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
+
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add label: 'Dashboard', priority: 0
+      menu.add label: 'Team', priority: 1
+    end
+  end
 end

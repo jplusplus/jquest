@@ -8,7 +8,7 @@ angular.module 'jquest'
         # Load season to inject into  the menu
         Restangular.all('seasons').getList().then (seasons)=>
           for season in seasons
-            @menu.addItem name: season.name, href: season.root_path
+            @menu.addItem name: season.name, href: season.engine.root_path
         # Watch for state changes
         $scope.$on '$stateChangeStart', => @_menuVisible = no
       toggleMenu: => @_menuVisible = !@_menuVisible

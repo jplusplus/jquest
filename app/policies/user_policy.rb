@@ -47,7 +47,12 @@ class UserPolicy  < ApplicationPolicy
   end
 
   def destroy?
-    @current_user != @user and @current_user.role?('admin')
+    @current_user.role?('admin')
   end
+
+  def destroy_all?
+    destroy?
+  end
+
 
 end

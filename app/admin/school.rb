@@ -1,6 +1,6 @@
 ActiveAdmin.register School do
-  active_admin_import
   permit_params :name, :contact_name, :contact_phone, :contact_email
+  menu label: 'Schools', parent: 'Team'
 
   filter :name
   filter :contact_name

@@ -13,13 +13,10 @@ Rails.application.routes.draw do
   mount API::Base => '/api'
 
   # Analyse every engines
-  Rails::Engine.subclasses.each do |engine|
-    # Does the engine have specs? Does the specs describe a jQuest season?
-    if engine.season?
-      # Add JQuest's engines route under /season/ endpoint
-      mount engine => engine.root_path
-      puts "=> Routing #{engine.name} though #{engine.root_path}"
-    end
+  Season::engines.each do |engine|
+    # Add JQuest's engines route under /season/ endpoint
+    mount engine => engine.root_path
+    puts "=> Routing #{engine.name} though #{engine.root_path}"
   end
 
 

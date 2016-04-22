@@ -8,9 +8,31 @@
 
 .growl {
   width:300px;
-  z-index: $zindex-navbar-fixed;
+  z-index: $zindex-navbar-fixed + 20;
   &-container > &-item {
     padding-right:10px;
     @include box-shadow(0 1px 5px darken($card-border-color, 50));
+  }
+}
+
+.body {
+  &:after {
+    content:"";
+    position: fixed;
+    z-index: $zindex-navbar-fixed;
+    top:100px;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity:0;
+    pointer-events: none;
+    $bg: $body-bg;
+    @include gradient-vertical( rgba($bg, 0), $bg);
+    @include transition(700ms);
+  }
+
+  &--has-menu-overlay:after {
+    opacity:1;
+    pointer-events: auto;
   }
 }

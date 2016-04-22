@@ -1,2 +1,3 @@
 angular.module 'jquest'
-  .run ()->
+  .run ($rootScope, Menu)->
+    $rootScope.menu = Menu

@@ -15,14 +15,25 @@ angular.module 'jquest'
     class Menu
       constructor: ->
         @_items = []
+        @_visible = no
+      isVisible: =>
+        @_visible
+      toggle: =>
+        @_visible = not @_visible
+      show: =>
+        @_visible = yes
+      hide: =>
+        @_visible = no
       hasTitle: =>
         @_title?
       getTitle: =>
         @_title
       setTitle: (title)=>
         @_title = title
+      hasPrimaryColor: =>
+        @_primaryColor?
       getPrimaryColor: =>
-        @_primaryColor or  '#373a3c'
+        @_primaryColor
       setPrimaryColor: (primaryColor)=>
         @_primaryColor = primaryColor
       getCategories: (category)=>

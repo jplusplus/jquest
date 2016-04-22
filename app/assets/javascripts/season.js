@@ -12,7 +12,7 @@
 //= require angular-translate-storage-cookie/angular-translate-storage-cookie.min.js
 //= require angular-ui-router/release/angular-ui-router.min.js
 //= require angular-growl-v2/build/angular-growl.min.js
-//= require AngularDevise/lib/devise-min.js
+//= require angular-devise/lib/devise-min.js
 
 //= require lodash/dist/lodash.min.js
 //= require restangular/dist/restangular.min.js

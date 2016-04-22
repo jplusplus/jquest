@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160422144129) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.integer  "season_id"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160422144129) do
     t.datetime "updated_at"
   end
 
-  add_index "groups", ["season_id"], name: "index_groups_on_season_id"
+  add_index "groups", ["season_id"], name: "index_groups_on_season_id", using: :btree
 
   create_table "jquest_pg_territories", force: :cascade do |t|
     t.string   "name"
@@ -65,6 +68,8 @@ ActiveRecord::Schema.define(version: 20160422144129) do
     t.integer  "failed_attempts",           default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "encrypted_otp_secret"
@@ -74,15 +79,17 @@ ActiveRecord::Schema.define(version: 20160422144129) do
     t.boolean  "otp_required_for_login",    default: false, null: false
     t.string   "role",                      default: "",    null: false
     t.string   "phone_number",              default: "",    null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "school_id"
     t.integer  "group_id"
   end
 
-  add_index "users", ["group_id"], name: "index_users_on_group_id"
-  add_index "users", ["provider"], name: "index_users_on_provider"
-  add_index "users", ["school_id"], name: "index_users_on_school_id"
-  add_index "users", ["uid"], name: "index_users_on_uid"
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["group_id"], name: "index_users_on_group_id", using: :btree
+  add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
 end

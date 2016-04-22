@@ -2,7 +2,7 @@
   <header class="header" ng-controller="HeaderCtrl as header">
     <nav class="navbar navbar-light header__navbar">
       <div class="header__navbar__hamburger">
-        <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': header.isMenuVisible() }" ng-click="header.toggleMenu()">
+        <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': menu.isVisible() }" ng-click="menu.toggle()">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
@@ -11,7 +11,7 @@
       <div class="navbar-brand header__navbar__brand">
         <a href="/">jQuest</a>
       </div>
-      <div class="nav header__navbar__title" ng-style=":: { background: header.menu.getPrimaryColor() }" ng-if=":: header.menu.hasTitle()">
+      <div class="nav header__navbar__title" ng-style="{ background: header.menu.getPrimaryColor() }" ng-if="header.menu.hasTitle()">
         {{ header.menu.getTitle() }}
       </div>
 
@@ -49,7 +49,7 @@
       </form>
     </nav>
 
-    <div class="header__menu" ng-show="header.isMenuVisible()">
+    <div class="header__menu" ng-show="menu.isVisible()">
       <div ng-repeat="category in header.menu.getCategories()">
         <h4 class="header__menu__links__heading"  ng-if="category">{{ category }}</h4>
         <ul class="list-inline row header__menu__links">

@@ -46,8 +46,14 @@ RUN chmod +x /app/user/init.sh
 # Install bower and its dependencies
 RUN npm install -g bower
 RUN bower --allow-root install
+
+# Allow caching for bundle install (until Gemfile changes)
+# See https://medium.com/@fbzga/how-to-cache-bundle-install-with-docker-7bed453a5800#.8d6q6unff
+COPY Gemfile* /tmp/
+WORKDIR /tmp
 # Run bundler to cache dependencies
 RUN bundle install --path /app/heroku/ruby/bundle --without development:test --deployment --jobs 4
+WORKDIR /app/user
 RUN bundle exec rake assets:precompile
 
 ENTRYPOINT ["/usr/bin/init.sh"]

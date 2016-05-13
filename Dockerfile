@@ -42,6 +42,7 @@ COPY ./init.sh /usr/bin/init.sh
 RUN chmod +x /usr/bin/init.sh
 
 ADD . /app/user
+RUN chmod +x /app/user/init.sh
 # Install bower and its dependencies
 RUN npm install -g bower
 RUN bower --allow-root install

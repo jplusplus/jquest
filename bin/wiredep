@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+var wiredep = require('wiredep');
+
+var regex = {
+  block: {
+    '//': /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi
+  }
+};
+
+// Prepare main JS file
+wiredep({
+  src: [
+    "app/assets/javascripts/application.js",
+    "app/assets/stylesheets/application.css.scss"
+  ],
+  ignorePath: "../../../vendor/assets/bower_components/",
+  fileTypes: {
+    js: {
+      block: regex.block['//'],
+      detect: {
+        js: /['"]([^'"]+\.js)['"],?/gi,
+      },
+      replace: {
+        js: '//= require "{{filePath}}"'
+      }
+    }
+  }
+})

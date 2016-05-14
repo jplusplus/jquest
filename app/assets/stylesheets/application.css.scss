@@ -72,13 +72,16 @@ $nav-tabs-justified-active-link-border-color: $body-bg;
 $input-border-focus:             #FEB24C;
 $input-box-shadow-focus:         rgba($input-border-focus, .3);
 
-
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 @import url('//fonts.googleapis.com/css?family=Fira+Sans:400,300,500,700&subset=latin,latin-ext');
+
 // External
 //
 @import "bootstrap";
-@import "angular-growl-v2/build/angular-growl";
+// bower:css
+@import "angular-growl-v2/build/angular-growl.css";
+// endbower
+
 // Internal
 //
 @import "./mixins";

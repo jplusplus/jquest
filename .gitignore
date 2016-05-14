@@ -17,6 +17,7 @@
 /tmp
 
 bower_components
+node_modules
 public/assets/*
 docker-compose.yml
 local-env.yml

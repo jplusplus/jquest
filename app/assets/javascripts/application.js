@@ -1,12 +1,18 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/client, vendor/assets/client,
-// or any plugin's vendor/assets/client directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
+// bower:js
+//= require "angular/angular.js"
+//= require "angular-animate/angular-animate.js"
+//= require "angular-cookies/angular-cookies.js"
+//= require "angular-touch/angular-touch.js"
+//= require "angular-sanitize/angular-sanitize.js"
+//= require "angular-messages/angular-messages.js"
+//= require "angular-aria/angular-aria.js"
+//= require "angular-translate/angular-translate.js"
+//= require "angular-translate-loader-static-files/angular-translate-loader-static-files.js"
+//= require "angular-translate-storage-cookie/angular-translate-storage-cookie.js"
+//= require "angular-ui-router/release/angular-ui-router.js"
+//= require "angular-bootstrap/ui-bootstrap-tpls.js"
+//= require "lodash/lodash.js"
+//= require "restangular/dist/restangular.js"
+//= require "angular-devise/lib/devise.js"
+//= require "angular-growl-v2/build/angular-growl.js"
+// endbower

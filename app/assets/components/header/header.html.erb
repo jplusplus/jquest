@@ -25,11 +25,11 @@
             <h6 class="dropdown-header">
               <span ng-bind-html="'header.nav.user-display' | translate: main.currentUser"></span>
             </h6>
-            <div ng-show="main.currentUser.role !== 'student'">
+            <div ng-show="main.currentUser.role === 'admin'">
               <a class="dropdown-item" href="/admin" translate>header.nav.admin</a>
             </div>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/users/sign_out" translate>header.nav.logout</a>
+            <a class="dropdown-item" href="/users/sign_out" translate>header.nav.logout</a>            
           </div>
         </li>
         <li class="nav-item" ng-hide="main.currentUser">

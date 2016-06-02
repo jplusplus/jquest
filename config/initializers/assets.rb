@@ -11,4 +11,4 @@ Rails.application.config.assets.paths << 'app/assets/components'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += ['*.erb','*/*.erb']
-Rails.application.config.assets.precompile += ['season.css.scss', 'season.js']
+Rails.application.config.assets.precompile += ['season.css', 'season.js']

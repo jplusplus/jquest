@@ -8,6 +8,9 @@ install:
 		npm install
 		bower install
 
+deploy:
+		heroku docker:push -a jquest
+
 build-docker:
 		docker build -t $(DOCKER_NAME) .
 

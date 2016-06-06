@@ -49,6 +49,8 @@ gem 'enumerize'
 # Rich text editor
 gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
 gem 'paperclip'
+# ActiveRecord versioning
+gem 'paper_trail'
 # Better assets support
 gem 'angular-rails-templates'
 gem 'ngannotate-rails'

@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_filter :set_csrf_cookie_for_ng
+  # See https://github.com/airblade/paper_trail/blob/master/doc/warning_about_not_setting_whodunnit.md
+  before_filter :set_paper_trail_whodunnit
+  skip_after_action :warn_about_not_setting_whodunnit
 
   def index
     render './index'
@@ -16,6 +19,10 @@ class ApplicationController < ActionController::Base
 
   def access_denied!(exception)
     redirect_to '/', :alert => exception.message
+  end
+
+  def current_user
+    @current_user ||= warden.user
   end
 
   protected

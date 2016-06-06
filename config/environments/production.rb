@@ -47,7 +47,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :warn
+  config.log_level = :error
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -76,7 +76,19 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'jquest.herokuapp.com', port: 80 }
 
-  if ENV.has_key?("MAILTRAP_API_TOKEN")
+  # Use Sendgrid if username available
+  if ENV.has_key?("SENDGRID_USERNAME")
+    ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => 'heroku.com',
+      :enable_starttls_auto => true
+    }
+  # Or use mailtrap if available
+  elsif ENV.has_key?("MAILTRAP_API_TOKEN")
     # Get Mailtrap SMTP details using its API
     url = "https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}"
     begin

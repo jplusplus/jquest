@@ -9,8 +9,19 @@ GIT
       rubyzip (~> 1.1, >= 1.0.0)
 
 GIT
-  remote: git://github.com/jplusplus/jquest-pg.git
-  revision: a9e93f65c540720ca991f5ec541f3dcdac744ae9
+  remote: https://github.com/kreativgebiet/rich.git
+  revision: 2c8f85438e7391f9a11d4972272723bbe85844cd
+  specs:
+    rich (1.4.8)
+      jquery-rails
+      kaminari
+      mime-types
+      rack-raw-upload
+      rails (>= 3.2.0)
+      sass-rails
+
+PATH
+  remote: ../jquest-pg
   specs:
     jquest_pg (0.0.2)
       rails (~> 4.2.6)
@@ -71,6 +82,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     angular-rails-templates (1.0.0)
       railties (>= 4.2, < 6)
       sprockets (~> 3.0)
@@ -102,6 +114,10 @@ GEM
     bower-rails (0.10.0)
     builder (3.2.2)
     byebug (8.2.2)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -119,6 +135,8 @@ GEM
     country_select (2.5.2)
       countries (~> 1.2.0)
       sort_alphabetical (~> 1.0)
+    css_parser (1.4.1)
+      addressable
     currencies (0.4.2)
     debug_inspector (0.0.2)
     descendants_tracker (0.0.4)
@@ -142,6 +160,8 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     encryptor (1.3.0)
+    enumerize (1.1.1)
+      activesupport (>= 3.2)
     equalizer (0.0.11)
     erubis (2.7.0)
     eventmachine (1.2.0.1)
@@ -185,6 +205,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.3)
+    htmlentities (4.3.4)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
@@ -219,6 +240,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99.1)
+    mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -234,9 +256,21 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    paperclip (4.3.6)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     pg (0.18.4)
     polyamorous (1.3.0)
       activerecord (>= 3.0)
+    premailer (1.8.6)
+      css_parser (>= 1.3.6)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.9.2)
+      actionmailer (>= 3, < 6)
+      premailer (~> 1.7, >= 1.7.9)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -251,6 +285,8 @@ GEM
       rack
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-raw-upload (1.1.1)
+      multi_json
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -371,19 +407,24 @@ DEPENDENCIES
   country_select
   devise
   devise-two-factor
+  enumerize
   grape
   grape-active_model_serializers
   guard-livereload (~> 2.5)
   jbuilder (~> 2.0)
   jquest_pg!
   ngannotate-rails
+  nokogiri
+  paperclip
   pg
+  premailer-rails
   puma
   pundit
   rack-livereload
   rails (= 4.2.6)
   rails_12factor
   rest-client
+  rich!
   sass-css-importer
   sass-rails (= 5.0.4)
   sdoc (~> 0.4.0)

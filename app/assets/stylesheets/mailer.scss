@@ -1,0 +1,176 @@
+#outlook a, body {
+    padding: 0
+}
+
+table, table td {
+    border-collapse: collapse
+}
+
+body {
+    width: 100%!important;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    margin: 0
+}
+
+.ExternalClass {
+    width: 100%
+}
+
+.ExternalClass .ExternalClass div, .ExternalClass font, .ExternalClass p,
+.ExternalClass span, .ExternalClass td {
+    line-height: 100%
+}
+
+#backgroundTable {
+    margin: 0;
+    padding: 0;
+    width: 100%!important;
+    line-height: 100%!important
+}
+
+img {
+    outline: 0;
+    text-decoration: none;
+    -ms-interpolation-mode: bicubic
+}
+
+a img {
+    border: none
+}
+
+.image_fix {
+    display: block
+}
+
+p {
+    margin: 1em 0
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000!important
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #00f!important
+}
+
+h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+    color: red!important
+}
+
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited,
+h5 a:visited, h6 a:visited {
+    color: purple!important
+}
+
+table {
+    mso-table-lspace: 0;
+    mso-table-rspace: 0
+}
+
+a {
+    color: orange
+}
+
+@media only screen and (max-device-width:480px) {
+    a[href^=tel], a[href^=sms] {
+        text-decoration: none;
+        color: #000;
+        pointer-events: none;
+        cursor: default
+    }
+    .mobile_link a[href^=tel], .mobile_link a[href^=sms] {
+        text-decoration: default;
+        color: orange!important;
+        pointer-events: auto;
+        cursor: default
+    }
+}
+
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) {
+    a[href^=tel], a[href^=sms] {
+        text-decoration: none;
+        color: #00f;
+        pointer-events: none;
+        cursor: default
+    }
+    .mobile_link a[href^=tel], .mobile_link a[href^=sms] {
+        text-decoration: default;
+        color: orange!important;
+        pointer-events: auto;
+        cursor: default
+    }
+}
+
+body {
+  background: #efefef;
+  color: #292F33;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+
+  a {
+   color: #664566 !important;
+  }
+
+  table, tr, td, tbody, tfoot, thead {
+    margin:0;
+    padding:0;
+    border:0;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .blockquote {
+    padding: 0 .5em;
+    margin:0;
+    font-size:.9em;
+    border-left: 3px solid #eee;
+  }
+
+
+  .btn {
+    padding: .5em;
+    color:white !important;
+    display:inline-block;
+    border:0;
+    text-decoration: none;
+    background: #664566;
+    text-align:center;
+    font-weight: bold;
+    white-space: nowrap;
+
+    &--block {
+      display: block;
+    }
+  }
+
+  #main {
+    width:100%;
+    padding:3vh 0;
+    font-size:14px;
+
+    &__wrapper,
+    &__footer {
+      width:100%;
+      max-width:550px;
+      margin:0 auto;
+      padding:5vh;
+    }
+
+    &__wrapper {
+      background:white;
+      border:#ddd 1px solid;
+      border-radius: 4px 4px 0 0;
+    }
+
+    &__footer {
+      text-align: center;
+      background: #e3e3e3;
+      color: #aaa;
+      font-size: .8em;
+      padding:1rem 2rem;
+      border-radius:0 0 4px 4px;
+    }
+  }
+}

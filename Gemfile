@@ -39,18 +39,27 @@ gem 'active_model_serializers'
 gem 'grape'
 gem 'grape-active_model_serializers'
 
+# Backend Interface
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'active_admin_theme'
 gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
+# Specials fields
 gem 'country_select'
-
+gem 'enumerize'
+# Rich text editor
+gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
+gem 'paperclip'
+# Better assets support
 gem 'angular-rails-templates'
 gem 'ngannotate-rails'
 gem 'sass-css-importer'
+# Email prerendering
+gem 'premailer-rails'
+gem 'nokogiri'
 
 # This won't work if you didn't checkout the gem repository in the parent directory.
-# gem 'jquest_pg', path: '../jquest-pg'
-gem 'jquest_pg', github: 'jplusplus/jquest-pg'
+gem 'jquest_pg', path: '../jquest-pg'
+# gem 'jquest_pg', github: 'jplusplus/jquest-pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

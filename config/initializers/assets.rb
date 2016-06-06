@@ -5,10 +5,10 @@ Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path
 Rails.application.config.assets.paths << 'vendor/assets/bower_components'
-Rails.application.config.assets.paths << 'app/assets/client'
+Rails.application.config.assets.paths << 'app/assets/app'
 Rails.application.config.assets.paths << 'app/assets/components'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += ['*.erb','*/*.erb']
-Rails.application.config.assets.precompile += ['season.css', 'season.js']
+Rails.application.config.assets.precompile += ['app.css', 'app.js']

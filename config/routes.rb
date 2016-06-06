@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   Season::engines.each do |engine|
     # Add JQuest's engines route under /season/ endpoint
     mount engine => engine.root_path
-    puts "=> Routing #{engine.name} though #{engine.root_path}"
   end
 
 

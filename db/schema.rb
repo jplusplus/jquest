@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606150008) do
+ActiveRecord::Schema.define(version: 20160606164656) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -22,11 +22,55 @@ ActiveRecord::Schema.define(version: 20160606150008) do
 
   add_index "groups", ["season_id"], name: "index_groups_on_season_id"
 
-  create_table "jquest_pg_territories", force: :cascade do |t|
+  create_table "jquest_pg_legislatures", force: :cascade do |t|
     t.string   "name"
-    t.string   "country"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name_english"
+    t.string   "name_local"
+    t.string   "territory"
+    t.integer  "difficulty_level"
+    t.string   "country",           limit: 3
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "source"
+    t.string   "list"
+    t.integer  "number_of_members"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "jquest_pg_mandatures", force: :cascade do |t|
+    t.integer  "legislature_id"
+    t.integer  "person_id"
+    t.string   "political_leaning"
+    t.string   "role"
+    t.string   "group"
+    t.string   "area"
+    t.string   "chamber"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "jquest_pg_mandatures", ["legislature_id", "person_id"], name: "index_jquest_pg_mandatures_on_legislature_id_and_person_id", unique: true
+  add_index "jquest_pg_mandatures", ["legislature_id"], name: "index_jquest_pg_mandatures_on_legislature_id"
+  add_index "jquest_pg_mandatures", ["person_id"], name: "index_jquest_pg_mandatures_on_person_id"
+
+  create_table "jquest_pg_people", force: :cascade do |t|
+    t.string   "fullname"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "education"
+    t.string   "profession_category"
+    t.string   "profession"
+    t.string   "image"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "gender"
+    t.string   "birthdate"
+    t.string   "birthplace"
+    t.string   "phone"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "schools", force: :cascade do |t|

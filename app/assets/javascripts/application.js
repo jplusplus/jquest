@@ -15,4 +15,7 @@
 //= require "restangular/dist/restangular.js"
 //= require "angular-devise/lib/devise.js"
 //= require "angular-growl-v2/build/angular-growl.js"
+//= require "jquery/dist/jquery.js"
+//= require "filament-fixed/fixedfixed.js"
+//= require "filament-sticky/fixedsticky.js"
 // endbower

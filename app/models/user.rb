@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def points
-    activities.sum(:points)
+    activities.group(:season_id).sum(:points)
   end
 
   def password_required?

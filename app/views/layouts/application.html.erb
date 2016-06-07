@@ -22,9 +22,7 @@
   </script>
 </head>
 <body class="<%= yield (:body_class) %> body" ng-class="{ 'body--has-menu-overlay': menu.isVisible() }">
-  <div ui-view>
-    <%= yield %>
-  </div>
+  <%= yield %>
   <% if content_for?(:javascript_includes) %>
     <%= yield :javascript_includes %>
   <% end %>

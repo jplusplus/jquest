@@ -6,3 +6,7 @@ angular.module 'jquest'
         controller: 'MainCtrl'
         controllerAs: 'main'
         url: '/'
+        resolve:
+          seasons: (Seasons)->
+            'ngInject'
+            Seasons.ready()

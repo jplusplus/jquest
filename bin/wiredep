@@ -11,7 +11,7 @@ var regex = {
 wiredep({
   src: [
     "app/assets/javascripts/application.js",
-    "app/assets/stylesheets/application.css.scss"
+    "app/assets/stylesheets/application.scss"
   ],
   ignorePath: "../../../vendor/assets/bower_components/",
   fileTypes: {
@@ -22,6 +22,23 @@ wiredep({
       },
       replace: {
         js: '//= require "{{filePath}}"'
+      }
+    },
+    scss: {
+      block: regex.block['//'],
+      detect: {
+        css: /@import\s['"](.+css)['"]/gi,
+        sass: /@import\s['"](.+sass)['"]/gi,
+        scss: /@import\s['"](.+scss)['"]/gi
+      },
+      replace: {
+        css: function(filePath) {
+          // Remove ending .css
+          filePath = filePath.replace(/\.css$/, '');
+          return '@import "' + filePath + '";'
+        },
+        sass: '@import "{{filePath}}";',
+        scss: '@import "{{filePath}}";'
       }
     }
   }

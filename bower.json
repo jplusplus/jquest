@@ -33,7 +33,8 @@
     "restangular": "~1.5.2",
     "css-hamburgers": "~0.3.0",
     "angular-devise": "angular-devise#~1.3.0",
-    "angular-growl-v2": "~0.7.5"
+    "angular-growl-v2": "~0.7.5",
+    "filament-sticky": "^0.1.7"
   },
   "resolutions": {
     "angular": "~1.5.*"

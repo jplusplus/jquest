@@ -10,5 +10,6 @@ angular.module 'jquest'
               @_current = season
           seasons
       all: => @_seasons
+      ready: =>  @_seasons.then => @
       current: => @_current
       hasCurrent: => @_current?

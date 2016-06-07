@@ -1,118 +1,137 @@
 .header {
-  border-bottom:1px solid $nav-tabs-border-color;
   margin-bottom:2rem;
-  position: relative;
-  z-index:$zindex-navbar-fixed + 10;
+  overflow: visible;
+  height: auto;
 
-  &__navbar {
-    padding-right: 0;
-    padding-left: 0;
+  &__nav {
+    position: relative;
+    z-index:$zindex-navbar-fixed + 10;
 
-    &__hamburger {
-      float:left;
-      transform: translateY(.5rem);
-      padding-right:2rem;
-    }
 
-    &__title {
-      display: inline-block;
-      padding:$input-padding-y;
-      color:white;
-    }
+    &__navbar {
+      padding-right: 0;
+      padding-left: 0;
 
-    &__user {
-      height: $input-height + $input-padding-y/2rem;
-      line-height: $input-height + $input-padding-y/2rem;
-      border:1px solid $input-border-color;
-      padding:2px;
-      border-radius: $input-height;
-      margin-left:10px;
-
-      img {
-        height: 100%;
-        display:inline-block;
+      &__hamburger {
         float:left;
-      }
-
-      .dropdown-toggle:after {
-        color:$text-muted;
-        margin:0 5px;
-      }
-
-      .dropdown-menu {
-        margin-top:1px; // Cover the navbar bottom border
-        transform: translate(0, $navbar-padding-vertical);
-      }
-    }
-
-    &__search {
-      margin-left:1rem;
-
-      &__input {
-        border-radius:2rem;
-        z-index:5;
-        position:relative;
+        transform: translateY(.5rem);
         padding-right:2rem;
       }
 
-      &__addon {
-        border:0;
-        background:0;
-        position:absolute;
-        z-index:10;
-        right:0;
-        top:50%;
-        transform: translateY(-50%);
+      &__title {
+        display: inline-block;
+        padding:$input-padding-y;
+        color:white;
+      }
+
+      &__user {
+        height: $input-height + $input-padding-y/2rem;
+        line-height: $input-height + $input-padding-y/2rem;
+        border:1px solid $input-border-color;
+        padding:2px;
+        border-radius: $input-height;
+        margin-left:10px;
+
+        img {
+          height: 100%;
+          display:inline-block;
+          float:left;
+        }
+
+        .dropdown-toggle:after {
+          color:$text-muted;
+          margin:0 5px;
+        }
+
+        .dropdown-menu {
+          margin-top:1px; // Cover the navbar bottom border
+          transform: translate(0, $navbar-padding-vertical);
+        }
+      }
+
+      &__search {
+        margin-left:1rem;
+
+        &__input {
+          border-radius:2rem;
+          z-index:5;
+          position:relative;
+          padding-right:2rem;
+        }
+
+        &__addon {
+          border:0;
+          background:0;
+          position:absolute;
+          z-index:10;
+          right:0;
+          top:50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    &__menu {
+      position: absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:$body-bg;
+      padding:1rem;
+      overflow: hidden;
+      @include box-shadow(0 2px 2px darken($card-border-color, 5));
+      @include transition(.4s);
+
+      &.ng-hide {
+        opacity: 0;
+        transform: translateY(-2rem);
+      }
+
+      &__links {
+
+        ul {
+          margin-bottom:10px;
+        }
+
+        &__heading {
+          margin:10px 0;
+          margin-top:20px;
+        }
+
+        &__item {
+          margin-top:.5rem;
+          height: 150px;
+          cursor: pointer;
+          opacity:0;
+          animation:slideindown 300ms forwards;
+          @include animation-delay-loop(0, 20, 150ms);
+
+          &--active .card {
+            background: $brand-primary;
+            border-color: darken($brand-primary, 5%);
+            color: white;
+          }
+
+          .card {
+            height:100%;
+            @include transition(700ms);
+          }
+        }
       }
     }
   }
 
-  &__menu {
-    position: absolute;
-    top:100%;
-    left:0;
-    right:0;
-    background:$body-bg;
-    padding:1rem;
-    overflow: hidden;
-    @include box-shadow(0 2px 2px darken($card-border-color, 5));
-    @include transition(.4s);
+  &__activity {
 
-    &.ng-hide {
-      opacity: 0;
-      transform: translateY(-2rem);
-    }
-
-    &__links {
-
-      ul {
-        margin-bottom:10px;
-      }
-
-      &__heading {
-        margin:10px 0;
-        margin-top:20px;
-      }
-
-      &__item {
-        margin-top:.5rem;
-        height: 150px;
-        cursor: pointer;
-        opacity:0;
-        animation:slideindown 300ms forwards;
-        @include animation-delay-loop(0, 20, 150ms);
-
-        &--active .card {
-          background: $brand-primary;
-          border-color: darken($brand-primary, 5%);
-          color: white;
-        }
-
-        .card {
-          height:100%;
-          @include transition(700ms);
-        }
-      }
+    &__wrapper {
+      padding: $navbar-padding-vertical $navbar-padding-horizontal;
+      background: mix($body-color, $body-bg);
+      color:white;
+      top:0;
+      font-size: .8rem;
+      text-align: right;
+      border-radius: 3px;
+      @include box-shadow(0 -1px 3px 0 rgba(black, .3) inset);
     }
   }
 }

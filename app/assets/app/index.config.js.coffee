@@ -1,5 +1,6 @@
 angular.module 'jquest'
   .config ($logProvider, $httpProvider, RestangularProvider, AuthProvider)->
+    'ngInject'
     # Enable log
     $logProvider.debugEnabled yes
     # Set API root

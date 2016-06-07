@@ -1,5 +1,6 @@
 angular.module 'jquest'
   .controller 'MainCtrl', (Auth, seasons, $scope)->
+    'ngInject'
     new class MainCtrl
       # Current season must be available
       season: seasons.current()

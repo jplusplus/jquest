@@ -9,6 +9,7 @@ install:
 		bower install
 
 deploy:
+		bundle install
 		heroku docker:push -a jquest
 
 build-docker:

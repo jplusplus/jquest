@@ -1,5 +1,6 @@
 angular.module 'jquest'
   .service 'Seasons', (Restangular, $window)->
+    'ngInject'
     new class Seasons
       _current: null
       constructor: ->

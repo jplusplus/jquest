@@ -1,5 +1,6 @@
 angular.module 'jquest'
   .controller 'HeaderCtrl', (Menu, Seasons, $scope)->
+    'ngInject'
     new class HeaderCtrl
       constructor: ->
         # Configurable menu instance

@@ -2,11 +2,10 @@
   margin-bottom:2rem;
   overflow: visible;
   height: auto;
+  position: relative;
+  z-index:$zindex-navbar-fixed + 10;
 
   &__nav {
-    position: relative;
-    z-index:$zindex-navbar-fixed + 10;
-
 
     &__navbar {
       padding-right: 0;
@@ -20,8 +19,22 @@
 
       &__title {
         display: inline-block;
-        padding:$input-padding-y;
+        padding: $input-padding-y $input-padding-x;
         color:white;
+        position:relative;
+        font-size:1.25rem;
+        line-height:1.6rem;
+        border-radius: 4px 4px 0 0;
+
+        &:after {
+          content:"";
+          position: absolute;
+          top:100%;
+          left:0;
+          right:0;
+          background:inherit;
+          height: 2 * $input-padding-y;
+        }
       }
 
       &__user {
@@ -79,12 +92,13 @@
       background:$body-bg;
       padding:1rem;
       overflow: hidden;
+      transform-origin: top left;
       @include box-shadow(0 2px 2px darken($card-border-color, 5));
       @include transition(.4s);
 
       &.ng-hide {
         opacity: 0;
-        transform: translateY(-2rem);
+        transform: scale(.8);
       }
 
       &__links {
@@ -130,7 +144,7 @@
       top:0;
       font-size: .8rem;
       text-align: right;
-      border-radius: 3px;
+      border-radius: 4px;
       @include box-shadow(0 -1px 3px 0 rgba(black, .3) inset);
     }
   }

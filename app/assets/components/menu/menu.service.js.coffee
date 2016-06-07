@@ -1,5 +1,6 @@
 angular.module 'jquest'
   .service 'Menu', ($state)->
+    'ngInject'
     class MenuItem
       constructor: (attributes={})->
         @name     = attributes.name

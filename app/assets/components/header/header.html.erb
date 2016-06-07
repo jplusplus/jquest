@@ -1,5 +1,5 @@
-<header class="header container">
-  <div class="header__nav" ng-controller="HeaderCtrl as header">
+<header class="header container" ng-controller="HeaderCtrl as header">
+  <div class="header__nav">
     <nav class="navbar navbar-light header__nav__navbar">
       <div class="header__nav__navbar__hamburger">
         <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': menu.isVisible() }" ng-click="menu.toggle()">
@@ -65,7 +65,7 @@
     </div>
   </div>
   <div class="header__activity" ng-if="main.user && main.season">
-    <div class="header__activity__wrapper">
+    <div class="header__activity__wrapper" ng-style="{ background: header.menu.getPrimaryColor() }">
       <span ng-bind-html=" 'header.activity.points' | translate:{ points: main.user.points[main.season.id] }"></span>
       <i class="fa fa-trophy"></i>
     </div>

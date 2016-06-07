@@ -1,11 +1,13 @@
 angular.module 'jquest'
   .config (growlProvider)->
+    'ngInject'
     growlProvider.globalDisableIcons yes
     growlProvider.globalTimeToLive 5000
     growlProvider.globalDisableCountDown yes
   .run (growl)->
+    'ngInject'
     items = document.querySelectorAll '.flash__item'
-    for item in items      
+    for item in items
       element = angular.element(item)
       text =  element.text()
       switch element.attr('data-type').toLowerCase()

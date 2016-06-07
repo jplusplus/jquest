@@ -9,6 +9,13 @@ GIT
       rubyzip (~> 1.1, >= 1.0.0)
 
 GIT
+  remote: git://github.com/jplusplus/jquest-pg.git
+  revision: b5918450545da329368f0dcec1b6125ccda83f2f
+  specs:
+    jquest_pg (0.0.2)
+      rails (~> 4.2.6)
+
+GIT
   remote: https://github.com/kreativgebiet/rich.git
   revision: 2c8f85438e7391f9a11d4972272723bbe85844cd
   specs:
@@ -19,12 +26,6 @@ GIT
       rack-raw-upload
       rails (>= 3.2.0)
       sass-rails
-
-PATH
-  remote: ../jquest-pg
-  specs:
-    jquest_pg (0.0.2)
-      rails (~> 4.2.6)
 
 GEM
   remote: https://rubygems.org/

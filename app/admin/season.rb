@@ -9,7 +9,7 @@ ActiveAdmin.register Season do
       f.input :name
       f.input :primary_color
       f.input :status, as: :select, collection: Season.statuses.keys
-      f.input :engine, :as => :select,  collection: Season::engines
+      f.input :engine, as: :select,  collection: Season::engines
     end
     f.actions
   end

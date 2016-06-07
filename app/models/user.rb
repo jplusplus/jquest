@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
          # :database_authenticatable,
 
+  has_many :activities
   enum role: { admin: 'admin', teacher: 'teacher', student: 'student' }
 
   def to_s
@@ -14,6 +15,10 @@ class User < ActiveRecord::Base
 
   def email_md5
     Digest::MD5.hexdigest email
+  end
+
+  def points
+    activities.sum(:points)
   end
 
   def password_required?

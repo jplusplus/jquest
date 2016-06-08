@@ -35,7 +35,7 @@ gem 'rest-client'
 gem 'devise'
 gem 'devise-two-factor'
 gem 'pundit'
-gem 'active_model_serializers'
+gem 'active_model_serializers', "~> 0.10.0"
 gem 'grape'
 gem 'grape-active_model_serializers'
 

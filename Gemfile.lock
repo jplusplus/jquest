@@ -406,7 +406,7 @@ PLATFORMS
 DEPENDENCIES
   active_admin_import!
   active_admin_theme
-  active_model_serializers
+  active_model_serializers (~> 0.10.0)
   activeadmin (~> 1.0.0.pre2)
   angular-rails-templates
   better_errors

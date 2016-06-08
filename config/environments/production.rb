@@ -76,6 +76,18 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'jquestapp.com', port: 80 }
 
+  config.ng_annotate.process = true
+  config.ng_annotate.paths = [ Rails.root.join('app/assets').to_s ]
+  # Analyse every season's engines
+  Season::engines.each do |engine|
+    config.ng_annotate.paths << engine.config.root.join('app/assets').to_s
+  end
+  
+  config.ng_annotate.ignore_paths = [
+    '/vendor/',
+  ]
+
+
   # Use Sendgrid if username available
   if ENV.has_key?("SENDGRID_USERNAME")
     ActionMailer::Base.smtp_settings = {

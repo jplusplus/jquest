@@ -39,6 +39,7 @@ gem 'active_model_serializers', "~> 0.10.0"
 gem 'grape'
 gem 'grape-active_model_serializers'
 
+
 # Backend Interface
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'active_admin_theme'
@@ -47,7 +48,7 @@ gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 gem 'country_select'
 gem 'enumerize'
 # Rich text editor
-gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
+gem 'rich', github: 'kreativgebiet/rich'
 gem 'paperclip'
 # ActiveRecord versioning
 gem 'paper_trail'

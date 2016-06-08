@@ -1,16 +1,16 @@
 class SchoolPolicy  < ApplicationPolicy
 
-  attr_reader :current_user, :model
+  attr_reader :user, :model
 
-  def initialize(current_user, model)
-    @current_user = current_user
-    @school = model
+  def initialize(user, model)
+    @user = user
+    @model = model
   end
 
   # Writting...
 
   def create?
-    @current_user.role == 'admin'
+    @user and @user.role? :admin
   end
 
   def import?
@@ -22,17 +22,17 @@ class SchoolPolicy  < ApplicationPolicy
   end
 
   def destroy?
-    @current_user != @school and @current_user.role?('admin')
+    @user and @user.role? :teacher, :admin
   end
 
   # Reading...
 
   def index?
-    ['admin', 'teacher'].include? @current_user.role
+    @user and @user.role? :teacher, :admin
   end
 
   def show?
-    ['admin', 'teacher'].include? @current_user.role
+    @user and @user.role? :teacher, :admin
   end
 
 end

@@ -4,7 +4,6 @@ module API
       resource :schools do
         desc "Return list of schools"
         get do
-          authenticate!
           policy_scope School
         end
       end

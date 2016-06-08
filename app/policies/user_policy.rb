@@ -1,24 +1,24 @@
 class UserPolicy  < ApplicationPolicy
 
-  attr_reader :current_user, :model
+  attr_reader :user, :model
 
-  def initialize(current_user, model)
-    @current_user = current_user
-    @user = model
+  def initialize(user, model)
+    @user = user
+    @model = model
   end
 
   class Scope
     attr_reader :user, :scope
 
-    def initialize(current_user, scope)
-      @current_user = current_user
+    def initialize(user, scope)
+      @user = user
       @scope = scope
     end
 
     def resolve
-      case @current_user.role
-        when 'teacher'
-          scope.where(role: 'student')
+      case @user.role.to_sym
+        when :teacher
+          scope.where role: :student
         else
           scope.all
       end
@@ -27,7 +27,7 @@ class UserPolicy  < ApplicationPolicy
 
 
   def create?
-    ['teacher', 'admin'].include? @current_user.role
+    @user and @user.role? :teacher, :admin
   end
 
   def import?
@@ -39,15 +39,15 @@ class UserPolicy  < ApplicationPolicy
   end
 
   def show?
-    create? or @current_user == @user
+    create? or @user == @model
   end
 
   def update?
-    create? or @current_user == @user
+    create? or @user == @model
   end
 
   def destroy?
-    @current_user.role?('admin')
+    @user and @user.role? :admin
   end
 
   def destroy_all?

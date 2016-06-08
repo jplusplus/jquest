@@ -1,14 +1,14 @@
 class AdminPolicy  < ApplicationPolicy
 
-  attr_reader :user, :record
+  attr_reader :user, :model
 
-  def initialize(user, record)
+  def initialize(user, model)
     @user = user
-    @record = record
+    @model = model
   end
 
   def index?
-    ['admin', 'teacher'].include? user.role
+    @user and @user.role? :teacher, :admin
   end
 
   def show?

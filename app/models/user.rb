@@ -17,16 +17,26 @@ class User < ActiveRecord::Base
     Digest::MD5.hexdigest email
   end
 
+  def email_anonymised
+    (email || '').gsub /[^@.]/, '*'
+  end
+
   def points
     activities.group(:season_id).sum(:points)
+  end
+
+  def password=(p)
+    if p
+      super
+    end
   end
 
   def password_required?
     new_record? ? false : super
   end
 
-  def role?(r)
-    role.respond_to?(:include?) && role.include?(r.to_s)
+  def role?(*roles)
+    roles.map(&:to_sym).include? role.to_sym
   end
 
   def send_two_factor_authentication_code

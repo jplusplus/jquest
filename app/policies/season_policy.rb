@@ -1,16 +1,16 @@
 class SeasonPolicy  < ApplicationPolicy
 
-  attr_reader :current_user, :season
+  attr_reader :user, :model
 
-  def initialize(current_user, season)
-    @current_user = current_user
-    @season = season
+  def initialize(user, model)
+    @user = user
+    @model = model
   end
 
   # Writting...
 
   def create?
-    @current_user.role == 'admin'
+    @user and @user.role? :admin
   end
 
   def import?
@@ -28,11 +28,11 @@ class SeasonPolicy  < ApplicationPolicy
   # Reading...
 
   def index?
-    ['admin', 'teacher'].include? @current_user.role
+    @user and @user.role? :teacher, :admin
   end
 
   def show?
-    ['admin', 'teacher'].include? @current_user.role
+    index?
   end
 
   def scope

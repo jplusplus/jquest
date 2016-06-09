@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
@@ -11,35 +9,21 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-gem "bower-rails", "~> 0.10.0"
+# Web server built for concurrency
 gem 'puma'
-gem 'rest-client'
+# User authentication
 gem 'devise'
 gem 'devise-two-factor'
+# Permissions helper
 gem 'pundit'
-gem 'active_model_serializers', "~> 0.10.0"
+# Build smart AP
 gem 'grape'
 gem 'grape-active_model_serializers'
-
-
+gem 'active_model_serializers', "~> 0.10.0"
 # Backend Interface
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'active_admin_theme'
@@ -48,18 +32,18 @@ gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 gem 'country_select'
 gem 'enumerize'
 # Rich text editor
-gem 'rich', github: 'kreativgebiet/rich'
-gem 'paperclip'
+# gem 'rich', github: 'kreativgebiet/rich'
+# gem 'paperclip'
 # ActiveRecord versioning
 gem 'paper_trail'
 # Better assets support
 gem 'angular-rails-templates'
 gem 'ngannotate-rails'
 gem 'sass-css-importer'
+gem "bower-rails", "~> 0.10.0"
 # Email prerendering
 gem 'premailer-rails'
 gem 'nokogiri'
-
 # This won't work if you didn't checkout the gem repository in the parent directory.
 # gem 'jquest_pg', path: '../jquest-pg'
 gem 'jquest_pg', github: 'jplusplus/jquest-pg'

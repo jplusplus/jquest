@@ -10,7 +10,7 @@ install:
 
 deploy:
 		bundle install
-		heroku docker:push -a jquest
+		heroku container:push -a jquest
 
 build-docker:
 		docker build -t $(DOCKER_NAME) .

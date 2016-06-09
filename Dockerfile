@@ -1,29 +1,20 @@
-FROM ruby:2.3.1
-RUN apt-get update -qq && apt-get install -y build-essential git libpq-dev nodejs npm
+FROM rails:onbuild
+# We need NPM to install bower
+RUN apt-get update && apt-get install -y npm
 RUN ln -s /usr/bin/nodejs /usr/bin/node
-# Copy the current directory as /app
-RUN mkdir -p /app
 # Configure env
-ENV PATH /app/bin:$PATH
-ENV RAILS_ENV production
-ENV RAILS_VERSION 4.2.6
+ENV PATH /usr/src/app:$PATH
 ENV RACK_ENV production
+ENV RAILS_ENV production
 ENV SECRET_KEY_BASE $(openssl rand -base64 32)
-# Install rails and bower globaly
-RUN gem install rails --version "$RAILS_VERSION"
-RUN npm install -g bower
 
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
-WORKDIR /app
-RUN bundle install --without development:test --deployment --jobs 4
-# Copy all file
-ADD . /app
-# Entrypoint script that setup or migrate db if needed
-RUN chmod +x /app/bin/init
-# Install bower and its dependencies
-RUN bower --allow-root install
+# Prevente a bug with bundler
+RUN git init
+# Manage front dependencies with bower
+RUN npm install bower -g
+# This will compile every assets, download dependencies with bower,
+# annotate angular DI and compress every files
 RUN bundle exec rake assets:precompile
 
-ENTRYPOINT ["bash", "/app/bin/init"]
+ENTRYPOINT ["bash", "/usr/src/app/bin/init"]
 CMD ["bundle", "exec", "puma -C config/puma.rb"]

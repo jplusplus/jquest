@@ -1,7 +1,5 @@
 {
   "directory": "./vendor/assets/bower_components/",
   "analytics": false,
-  "scripts": {
-    "postinstall": "node bin/wiredep"
-  }
+  "allow_root": true
 }

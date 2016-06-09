@@ -35,8 +35,11 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
-  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-  config.assets.precompile += ['active_admin.css']
+  config.ng_annotate.process = true
+
+  config.ng_annotate.ignore_paths = [
+    Rails.root.join('vendor/').to_s
+  ]
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -75,17 +78,6 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'jquestapp.com', port: 80 }
-
-  config.ng_annotate.process = true
-  config.ng_annotate.paths = [ Rails.root.join('app/assets').to_s ]
-  # Analyse every season's engines
-  Season::engines.each do |engine|
-    config.ng_annotate.paths << engine.config.root.join('app/assets').to_s
-  end
-  
-  config.ng_annotate.ignore_paths = [
-    '/vendor/',
-  ]
 
 
   # Use Sendgrid if username available

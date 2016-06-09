@@ -1,4 +1,4 @@
-<header class="header container" ng-controller="HeaderCtrl as header">
+<header class="header" ng-controller="HeaderCtrl as header">
   <div class="header__nav">
     <nav class="navbar navbar-light header__nav__navbar">
       <div class="header__nav__navbar__hamburger">
@@ -11,10 +11,6 @@
       <div class="navbar-brand header__nav__navbar__brand">
         <a href="/">jQuest</a>
       </div>
-      <div class="nav header__nav__navbar__title" ng-style="{ background: header.menu.getPrimaryColor() }" ng-if="header.menu.hasTitle()">
-        {{ header.menu.getTitle() }}
-      </div>
-
 
       <div class="nav navbar-nav pull-xs-right">
         <li class="nav-item header__nav__navbar__user" uib-dropdown ng-show="main.user">
@@ -37,7 +33,7 @@
         </li>
       </div>
 
-      <form class="form-inline nav-item header__nav__navbar__search pull-xs-right">
+      <form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-xs-down">
         <div class="form-group">
           <div class="input-group">
             <input class="form-control  header__nav__navbar__search__input" type="search" placeholder="{{ navbar.search | translate }}" id="input-search">
@@ -64,10 +60,17 @@
       </div>
     </div>
   </div>
-  <div class="header__activity" ng-if="main.user && main.season">
-    <div class="header__activity__wrapper" ng-style="{ background: header.menu.getPrimaryColor() }">
-      <span ng-bind-html=" 'header.activity.points' | translate:{ points: main.user.points[main.season.id] }"></span>
-      <i class="fa fa-trophy"></i>
+  <div class="header__activity" ng-if="main.user && main.season" ng-style="{ background: header.menu.getPrimaryColor() }">
+    <div class="header__activity__wrapper row">
+      <div class="col-xs-6">
+        <span class="header__activity__wrapper__title">
+          {{ header.menu.getTitle() }}
+        </span>
+      </div>
+      <div class="col-xs-6 text-xs-right">
+        <span ng-bind-html=" 'header.activity.points' | translate:{ points: main.user.points[main.season.id] }"></span>
+        <i class="fa fa-trophy"></i>
+      </div>
     </div>
   </div>
 </header>

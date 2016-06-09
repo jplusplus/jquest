@@ -13,7 +13,6 @@
     position: fixed;
   }
 
-
   &__nav {
     background: $card-bg;
 
@@ -87,10 +86,10 @@
       @include media-breakpoint-down(xs) {
         position: fixed;
         right: 20%;
-        top:calc(#{$navbar-height} + 1px);
+        top:0;
         bottom:0;
         overflow: auto;
-        border-top:$card-border-color 1px solid;
+        @include box-shadow(2px 0 2px darken($card-border-color, 5));
       }
 
       &.ng-hide {

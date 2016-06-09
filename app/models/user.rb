@@ -22,7 +22,10 @@ class User < ActiveRecord::Base
   end
 
   def points
-    activities.group(:season_id).sum(:points)
+    # All seasons with 0 points by default
+    season_ids = Season.all.map { |s| [s.id, 0] }.to_h
+    # Merge seasons hash witht the point by season for this user
+    season_ids.merge activities.group(:season_id).sum(:points).to_h
   end
 
   def password=(p)

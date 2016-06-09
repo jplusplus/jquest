@@ -81,7 +81,7 @@ $input-box-shadow-focus:         rgba($input-border-focus, .3);
 
 // External
 //
-@import "bootstrap";
+@import "bootstrap/scss/bootstrap.scss";
 // bower:css
 @import "angular-growl-v2/build/angular-growl";
 @import "filament-sticky/fixedsticky";

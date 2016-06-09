@@ -18,4 +18,5 @@
 //= require "jquery/dist/jquery.js"
 //= require "filament-fixed/fixedfixed.js"
 //= require "filament-sticky/fixedsticky.js"
+//= require "bootstrap/dist/js/bootstrap.js"
 // endbower

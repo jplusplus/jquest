@@ -1,2 +1,2 @@
 # Without root, the default
-ActiveModel::Serializer.config.adapter = :flatten_json
+ActiveModel::Serializer.config.adapter = :attributes

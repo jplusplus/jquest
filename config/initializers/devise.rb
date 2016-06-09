@@ -10,7 +10,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = 'bc686ac689b65526b52f37da771126eaeb22d8ca0b1fe9a297fdfa8fedba00410546cb36476011d2d5df3eeff5bc828f168ef12e359b0c6dcb9e3fc90a380a1b'
+  # config.secret_key = 'bc686ac689b65526b52f37da771126eaeb22d8ca0b1fe9a297fdfa8fedba00410546cb36476011d2d5df3eeff5bc828f168ef12e359b0c6dcb9e3fc90a380a1b'
 
   config.warden do |manager|
     manager.default_strategies(:scope => :user).unshift :two_factor_authenticatable

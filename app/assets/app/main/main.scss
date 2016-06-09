@@ -1,3 +1,5 @@
 .main {
-  
+  @include media-breakpoint-down(xs) {
+    padding-top:$navbar-height * 2;
+  }
 }

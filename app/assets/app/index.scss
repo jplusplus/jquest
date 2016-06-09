@@ -17,17 +17,16 @@
 
 .body {
 
-  @include media-breakpoint-down(xs) {
-    padding-top:$navbar-height * 2;
-    &--has-overlay {
+  &--has-overlay {
+    @include media-breakpoint-down(xs) {
       overflow: hidden;
     }
   }
 
   &__overlay {
-    position: fixed;
     z-index: $zindex-navbar-fixed;
-    top:100px;
+    position: fixed;
+    top:0;
     left:0;
     right:0;
     bottom:0;

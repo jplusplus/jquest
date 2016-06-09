@@ -52,7 +52,6 @@
     <%= yield :javascript_includes %>
   <% end %>
 
-  <div class="body__overlay" ng-click="menu.hide()" ng-show="menu.isVisible()"></div>
   <div growl></div>
   <div class="flash container">
     <% flash.each do |name, msg| -%>

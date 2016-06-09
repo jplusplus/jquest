@@ -18,7 +18,7 @@
 .body {
 
   &--has-overlay {
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       overflow: hidden;
     }
   }
@@ -38,7 +38,7 @@
       opacity: 0;
     }
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       background: rgba(darken($card-border-color, 5), .7);
     }
 

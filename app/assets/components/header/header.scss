@@ -9,7 +9,7 @@
   z-index:$zindex-navbar-fixed + 10;
   @include box-shadow(0 1px 2px 0 darken($card-border-color, 5));
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     position: fixed;
   }
 
@@ -83,7 +83,7 @@
       @include box-shadow(0 2px 2px darken($card-border-color, 5));
       @include transition(.4s);
 
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(sm) {
         position: fixed;
         right: 20%;
         top:0;
@@ -96,7 +96,7 @@
         opacity: 0;
         @include vendor-prefix(transform, translateY(-2rem));
 
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
           @include vendor-prefix(transform, translateX(-100%));
         }
       }
@@ -120,7 +120,7 @@
           animation:slideindown 300ms forwards;
           @include animation-delay-loop(0, 20, 150ms);
 
-          @include media-breakpoint-down(xs) {
+          @include media-breakpoint-down(sm) {
             animation:slideinright 300ms forwards;
           }
 

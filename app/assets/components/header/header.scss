@@ -3,9 +3,16 @@
   overflow: visible;
   height: auto;
   width:100%;
+  top:0;
+  left:0;
   position: relative;
   z-index:$zindex-navbar-fixed + 10;
   @include box-shadow(0 1px 2px 0 darken($card-border-color, 5));
+
+  @include media-breakpoint-down(xs) {
+    position: fixed;
+  }
+
 
   &__nav {
     background: $card-bg;
@@ -77,9 +84,22 @@
       @include box-shadow(0 2px 2px darken($card-border-color, 5));
       @include transition(.4s);
 
+      @include media-breakpoint-down(xs) {
+        position: fixed;
+        right: 20%;
+        top:calc(#{$navbar-height} + 1px);
+        bottom:0;
+        overflow: auto;
+        border-top:$card-border-color 1px solid;
+      }
+
       &.ng-hide {
         opacity: 0;
         @include vendor-prefix(transform, translateY(-2rem));
+
+        @include media-breakpoint-down(xs) {
+          @include vendor-prefix(transform, translateX(-100%));
+        }
       }
 
       &__links {
@@ -100,6 +120,10 @@
           opacity:0;
           animation:slideindown 300ms forwards;
           @include animation-delay-loop(0, 20, 150ms);
+
+          @include media-breakpoint-down(xs) {
+            animation:slideinright 300ms forwards;
+          }
 
           &--active .card {
             background: $brand-primary;

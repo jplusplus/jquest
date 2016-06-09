@@ -46,7 +46,7 @@
   <meta itemprop="description" content="">
   <meta itemprop="image" content="http://www.jquestapp.com/assets/images/share.png">
 </head>
-<body class="<%= yield (:body_class) %> body">
+<body class="<%= yield (:body_class) %> body" ng-class="{ 'body--has-overlay': menu.isVisible() }">
   <%= yield %>
   <% if content_for?(:javascript_includes) %>
     <%= yield :javascript_includes %>

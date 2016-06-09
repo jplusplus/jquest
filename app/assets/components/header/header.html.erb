@@ -49,7 +49,7 @@
       <div ng-repeat="category in header.menu.getCategories()">
         <h4 class="header__nav__menu__links__heading"  ng-if="category">{{ category }}</h4>
         <ul class="list-inline row header__nav__menu__links">
-          <li class="header__nav__menu__links__item col-md-3"
+          <li class="header__nav__menu__links__item col-sm-6 col-md-4 col-lg-3"
               ng-class="{ 'header__nav__menu__links__item--active': item.isActive() }"
               ng-repeat="item in ::header.menu.getItems(category)">
             <a class="card card-block" ng-href="{{ :: item.getHref() }}">

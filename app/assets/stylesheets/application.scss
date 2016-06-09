@@ -35,6 +35,7 @@ $state-danger-text: #fff;
 
 // Fonts
 //
+$line-height: 1.5 !default;
 $font-family-sans-serif: "Fira Sans", "Droid Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", Arial, sans-serif;
 
 // Cards
@@ -69,7 +70,8 @@ $nav-tabs-justified-active-link-border-color: $body-bg;
 // Navbar
 //
 $navbar-padding-vertical: 1rem;
-$navbar-padding-vertical: 1rem;
+$navbar-height: ($navbar-padding-vertical * 2) + $line-height + .425rem * 2;
+
 
 // Forms
 //
@@ -82,6 +84,7 @@ $input-box-shadow-focus:         rgba($input-border-focus, .3);
 // External
 //
 @import "bootstrap/scss/bootstrap.scss";
+
 // bower:css
 @import "angular-growl-v2/build/angular-growl";
 @import "filament-sticky/fixedsticky";

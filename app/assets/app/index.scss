@@ -16,23 +16,16 @@
 }
 
 .body {
-  &:after {
-    content:"";
+
+  &__overlay {
     position: fixed;
     z-index: $zindex-navbar-fixed;
     top:100px;
     left:0;
     right:0;
     bottom:0;
-    opacity:0;
-    pointer-events: none;
     $bg: $body-bg;
     @include gradient-vertical( rgba($bg, 0), $bg);
     @include transition(700ms);
-  }
-
-  &--has-menu-overlay:after {
-    opacity:1;
-    pointer-events: auto;
   }
 }

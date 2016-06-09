@@ -46,12 +46,13 @@
   <meta itemprop="description" content="">
   <meta itemprop="image" content="http://www.jquestapp.com/assets/images/share.png">
 </head>
-<body class="<%= yield (:body_class) %> body" ng-class="{ 'body--has-menu-overlay': menu.isVisible() }">
+<body class="<%= yield (:body_class) %> body">
   <%= yield %>
   <% if content_for?(:javascript_includes) %>
     <%= yield :javascript_includes %>
   <% end %>
 
+  <div class="body__overlay" ng-click="menu.hide()" ng-show="menu.isVisible()"></div>
   <div growl></div>
   <div class="flash container">
     <% flash.each do |name, msg| -%>

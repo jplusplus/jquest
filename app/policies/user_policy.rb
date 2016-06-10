@@ -18,7 +18,7 @@ class UserPolicy  < ApplicationPolicy
     def resolve
       case @user.role.to_sym
         when :teacher
-          scope.where role: :student
+          scope.where group: @user.group
         else
           scope.all
       end

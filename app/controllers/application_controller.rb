@@ -25,6 +25,14 @@ class ApplicationController < ActionController::Base
     @current_user ||= warden.user
   end
 
+  # Disable yet
+  def must_be_admin
+    unless current_user.role? :admin, :teacher
+      redirect_to '/', :alert => "You don't have the permission to see this."
+    end
+  end
+
+
   protected
 
   def configure_permitted_parameters

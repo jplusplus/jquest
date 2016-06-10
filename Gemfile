@@ -23,7 +23,7 @@ gem 'grape'
 gem 'grape-active_model_serializers'
 gem 'active_model_serializers', "~> 0.10.0"
 # Backend Interface
-gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_theme'
 gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 # Specials fields

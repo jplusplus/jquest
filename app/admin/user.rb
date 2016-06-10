@@ -41,6 +41,11 @@ ActiveAdmin.register User do
       f.input :school_id, :as => :select,  collection: School.all
       f.input :group_id, :as => :select,  collection: Group.all
     end
+
+    f.inputs "Password" do
+      f.input :password
+      f.input :password_confirmation
+    end
     f.actions
   end
 

@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def password_required?
-    new_record? ? false : super
+    false
   end
 
   def role?(*roles)

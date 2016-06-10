@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          # :database_authenticatable,
 
   has_many :activities
+  belongs_to :group
   enum role: { admin: 'admin', teacher: 'teacher', student: 'student' }
 
   def to_s

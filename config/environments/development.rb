@@ -42,6 +42,11 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # Avoid annotation angular apps
+  config.ng_annotate.process = false
+
+  # Disable logger for assets
+  config.middleware.insert_before Rails::Rack::Logger, DisableAssetsLogger
   # LiveReload
   config.middleware.insert_before Rack::Lock, Rack::LiveReload
 end

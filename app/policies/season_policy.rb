@@ -48,7 +48,20 @@ class SeasonPolicy  < ApplicationPolicy
     end
 
     def resolve
-      scope.all
+      # Anonymous users can't see anything
+      if not @user
+        scope.none
+      # Admin user can see everything
+      elsif @user.role? :admin
+        scope.all
+      # Other user can only see season there are member of
+      elsif @user.group
+        # Must return a collection
+        scope.where id: @user.group.season
+      # Every user not member of any group can't see anything
+      else
+        scope.none
+      end
     end
   end
 

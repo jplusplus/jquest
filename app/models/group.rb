@@ -1,4 +1,4 @@
 class Group < ActiveRecord::Base
   has_many :users
-  belongs_to :seasons
+  belongs_to :season
 end

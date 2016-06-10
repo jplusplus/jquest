@@ -13,7 +13,7 @@ angular.module 'jquest'
       text =  element.text()
       switch element.attr('data-type').toLowerCase()
         when 'success' then growl.success text
-        when 'info', 'notice' then growl.info text
+        when 'warning' then growl.warning text
         when 'error', 'danger' then growl.error text
-        when 'warning', 'alert' then growl.warning text
+        when 'info', 'notice','alert'  then growl.info text
         else growl.info element.text()

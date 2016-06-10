@@ -1,4 +1,4 @@
-class SchoolPolicy  < ApplicationPolicy
+class SchoolPolicy  < AdminPolicy
 
   attr_reader :user, :model
 
@@ -11,28 +11,6 @@ class SchoolPolicy  < ApplicationPolicy
 
   def create?
     @user and @user.role? :admin
-  end
-
-  def import?
-    create?
-  end
-
-  def update?
-    create?
-  end
-
-  def destroy?
-    @user and @user.role? :teacher, :admin
-  end
-
-  # Reading...
-
-  def index?
-    @user and @user.role? :teacher, :admin
-  end
-
-  def show?
-    @user and @user.role? :teacher, :admin
   end
 
 end

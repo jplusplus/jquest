@@ -1,4 +1,4 @@
-class SeasonPolicy  < ApplicationPolicy
+class SeasonPolicy  < AdminPolicy
 
   attr_reader :user, :model
 
@@ -11,18 +11,6 @@ class SeasonPolicy  < ApplicationPolicy
 
   def create?
     @user and @user.role? :admin
-  end
-
-  def import?
-    create?
-  end
-
-  def update?
-    create?
-  end
-
-  def destroy?
-    create?
   end
 
   # Reading...

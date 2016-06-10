@@ -1,34 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card" ng-repeat="i in [1,2,3]">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-block">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
+<div class="main__season">
+
+  <div class="main__season__activity" ng-if="main.user && main.season" ng-style="{ background: main.season.primary_color }">
+    <div class="main__season__activity__wrapper row">
+      <div class="col-xs-6">
+        <span class="main__season__activity__wrapper__title">
+          {{ main.season.name }}
+        </span>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-block">
-          <h3 class="card-title">{{ 'main.title' | translate }}</h3>
-          Lorem ispum
-        </div>
-        <div class="card-footer text-xs-right">
-          <button class="btn btn-primary">
-            Do nothing
-          </button>
-        </div>
+      <div class="col-xs-6 text-xs-right">
+        <span ng-bind-html=" 'header.activity.points' | translate:{ points: main.user.points[main.season.id] }"></span>
+        <i class="fa fa-trophy"></i>
       </div>
     </div>
   </div>
+
+  <div ui-view></div>
 </div>

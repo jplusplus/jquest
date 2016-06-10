@@ -1,0 +1,38 @@
+.main__season {
+
+  &__activity {
+    position: relative;
+    z-index:50;
+    overflow: hidden;
+    @include box-shadow(0 1px 2px 0 rgba(black, .1));
+
+    &__wrapper {
+      padding: 0 $navbar-padding-horizontal;
+      color:$card-bg;
+      top:0;
+      font-size: .9rem;
+      height:2rem;
+      line-height:2rem;
+      white-space: nowrap;
+
+      &__title {
+        font-size: 1rem;
+        font-weight: 100;
+        position: relative;
+        &:after {
+          width:2rem;
+          height:2rem;
+          display: block;
+          content:"";
+          position: absolute;
+          left:100%;
+          top:50%;
+          border:1px solid $card-bg;
+          border-left:0;
+          border-bottom:0;
+          @include vendor-prefix(transform, translate(-50%, -50%) rotate(45deg) );
+        }
+      }
+    }
+  }
+}

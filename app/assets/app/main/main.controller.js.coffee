@@ -1,9 +1,11 @@
 angular.module 'jquest'
-  .controller 'MainCtrl', (Auth, seasons, $scope)->
+  .controller 'MainCtrl', (Auth, Menu, seasons, $scope)->
     'ngInject'
     new class MainCtrl
       # Current season must be available
       season: seasons.current()
+      # Configurable menu instance
+      menu: Menu
       # Constructor
       constructor: ->
         # after a login, a hard refresh, a new tab

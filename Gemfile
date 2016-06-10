@@ -16,6 +16,7 @@ gem 'puma'
 # User authentication
 gem 'devise'
 gem 'devise-two-factor'
+gem 'devise_invitable'
 # Permissions helper
 gem 'pundit'
 # Build smart AP

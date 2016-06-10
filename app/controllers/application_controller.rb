@@ -40,6 +40,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: [
       :password, :password_confirmation, :current_password
     ]
+    devise_parameter_sanitizer.permit :accept_invitation, keys: [
+      :password, :password_confirmation, :current_password, :invitation_token
+    ]
   end
 
   def verified_request?

@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
   permit_params :email, :phone_number, :password, :password_confirmation,
                 :otp_required_for_login,
-                :role, :created_at, :updated_at, :confirmed_at,
+                :role, :created_at, :updated_at, :confirmed_at, :invitable,
                 :school_id, :group_id
 
   belongs_to :group, :optional => true

@@ -1,5 +1,6 @@
 class Season < ActiveRecord::Base
-  enum statuses: { open: 'open', close: 'close', draft: 'draft' }
+  extend Enumerize
+  enumerize :status, in: [ :open, :close, :draft ], default: :draft
 
   def engine_info
     if index = Season::engines_name.index { |e| e == engine }
@@ -8,6 +9,10 @@ class Season < ActiveRecord::Base
         :name => Season::engines()[index].name
       }
     end
+  end
+
+  def path
+    engine_info[:root_path] if engine
   end
 
   def self.engines

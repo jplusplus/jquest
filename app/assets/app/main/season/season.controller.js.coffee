@@ -1,8 +1,8 @@
 angular.module 'jquest'
-  .controller 'MainSeasonCtrl', (activity)->
+  .controller 'MainSeasonCtrl', (seasons)->
     'ngInject'
     new class MainSeasonCtrl
-      # User activity for this season
-      activity: activity
       # Constructor
       constructor: ->
+        # User activities for this season
+        angular.extend @, seasons.current()

@@ -16,12 +16,10 @@ module API
             authenticate!
             # Token isnt a positive integer
             if !/\A\d+\z/.match(params[:token])
-              season = policy_scope(Season).find_by_engine(params[:token])
+              policy_scope(Season).find_by_engine(params[:token])
             else
-              season = policy_scope(Season).find(params[:token].to_i)
+              policy_scope(Season).find(params[:token].to_i)
             end
-
-            season
           end
         end
       end

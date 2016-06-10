@@ -7,7 +7,3 @@ angular.module 'jquest'
         controller: 'MainSeasonCtrl'
         controllerAs: 'season'
         url: 'learn'
-        resolve:
-          activity: (seasons)->
-            'ngInject'
-            seasons.current().user_activity

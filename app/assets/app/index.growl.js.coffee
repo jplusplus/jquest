@@ -2,7 +2,7 @@ angular.module 'jquest'
   .config (growlProvider)->
     'ngInject'
     growlProvider.globalDisableIcons yes
-    growlProvider.globalTimeToLive 8000
+    growlProvider.globalTimeToLive 8000e3
     growlProvider.globalDisableCountDown yes
     growlProvider.globalPosition 'top-center'
   .run (growl)->

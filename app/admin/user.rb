@@ -11,14 +11,24 @@ ActiveAdmin.register User do
     validate: false
   })
 
+
+  batch_action :invite do |ids, inputs|
+    User.find(ids).each do |user|
+      user.invite!
+    end
+    redirect_to collection_path, :flash =>{
+      :notice =>  ids.length.to_s + ' user'.pluralize(ids.length) + ' invited.'
+    }
+  end
+
   index do
     selectable_column
     id_column
     column :email
     column :phone_number
+    column :group
     column :current_sign_in_at
     column :sign_in_count
-    column :created_at
     actions
   end
 
@@ -36,7 +46,7 @@ ActiveAdmin.register User do
     f.inputs "Details" do
       f.input :email
       f.input :phone_number
-      f.input :role, as: :select, collection: User.roles.keys
+      f.input :role, as: :radio
       f.input :otp_required_for_login, as: :boolean
       f.input :confirmed_at, as: :datepicker
       f.input :school_id, :as => :select,  collection: School.all

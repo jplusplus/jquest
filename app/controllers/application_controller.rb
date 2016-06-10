@@ -32,6 +32,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_in_path_for(resource)
+    path = super
+    # Find the root path
+    root_path = Rails.application.routes.url_helpers.root_path
+    # Redirect to the group's season when the user try to reach the hompage
+    # after she signed in.
+    if path == root_path and resource.group and resource.group.season
+      resource.group.season.path
+    else
+      path
+    end
+  end
 
   protected
 

@@ -4,6 +4,7 @@ ActiveAdmin.register User do
                 :role, :created_at, :updated_at, :confirmed_at,
                 :school_id, :group_id
 
+  belongs_to :group, :optional => true
   menu label: 'Users', parent: 'Team'
 
   active_admin_import({

@@ -20,23 +20,23 @@ class AdminPolicy  < ApplicationPolicy
   end
 
   def import?
-    index?
+    create?
   end
 
   def new?
-    index?
+    create?
   end
 
   def update?
-    index?
+    create?
   end
 
   def destroy?
-    index?
+    create?
   end
 
   def destroy_all?
-    index?
+    destroy?
   end
 
 end

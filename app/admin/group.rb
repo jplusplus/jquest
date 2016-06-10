@@ -13,4 +13,11 @@ ActiveAdmin.register Group do
     end
     f.actions
   end
+
+
+  sidebar "Group users", only: [:show, :edit] do
+    ul do
+      li link_to "Users",  admin_group_users_path(group)
+    end
+  end
 end

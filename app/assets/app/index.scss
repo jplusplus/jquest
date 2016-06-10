@@ -1,5 +1,5 @@
 .card {
-  @include box-shadow(0 1px 2px darken($card-border-color, 5));
+@include box-shadow(0 1px 2px 0 rgba(black, .1));
 }
 
 .flash {
@@ -11,7 +11,7 @@
   z-index: $zindex-navbar-fixed + 20;
   &-container > &-item {
     padding-right:10px;
-    @include box-shadow(0 1px 2px rgba($body-color, .5));
+    @include box-shadow(0 1px 2px 0 rgba(black, .1));
   }
 }
 

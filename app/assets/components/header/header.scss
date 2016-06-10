@@ -79,7 +79,7 @@
       background:inherit;
       padding:1rem;
       overflow: hidden;
-      @include box-shadow(0 2px 2px darken($card-border-color, 5));
+      @include box-shadow(0 1px 2px 0 rgba(black, .1));
       @include transition(.4s);
 
       @include media-breakpoint-down(sm) {
@@ -88,7 +88,7 @@
         top:0;
         bottom:0;
         overflow: auto;
-        @include box-shadow(2px 0 2px darken($card-border-color, 5));
+        @include box-shadow(2px 0 2px rgba(black, .1));
       }
 
       &.ng-hide {

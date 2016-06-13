@@ -20,7 +20,7 @@ module API
           end
 
           desc 'Add user activity to know we saw the intro'
-          get :intro do
+          put :intro do
             authenticate!
             # And create an activity with the right taxonomy
             Activity.create! user: @current_user, season_id: params[:id], taxonomy: 'INTRO'

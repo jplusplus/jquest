@@ -5,7 +5,10 @@ angular.module 'jquest'
       _current: null
       constructor: ->
         # Load season to inject into  the menu
-        @_seasons = Restangular.all('seasons').getList().then (seasons)=>
+        @_seasons = do @reload
+        # Reload
+      reload: =>
+        Restangular.all('seasons').getList().then (seasons)=>
           for season in seasons
             if season.engine.root_path is $window.location.pathname
               @_current = season

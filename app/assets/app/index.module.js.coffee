@@ -13,5 +13,6 @@ angular.module 'jquest', [
   'pascalprecht.translate',
   'jquest.template',
   'angular-growl',
-  'Devise'
+  'Devise',
+  'cfp.hotkeys',
 ]

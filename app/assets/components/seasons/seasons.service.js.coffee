@@ -14,3 +14,4 @@ angular.module 'jquest'
       ready: =>  @_seasons.then => @
       current: => @_current
       hasCurrent: => @_current?
+      activities: => @_seasons.then => @current().activities

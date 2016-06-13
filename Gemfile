@@ -19,7 +19,7 @@ gem 'devise-two-factor'
 gem 'devise_invitable'
 # Permissions helper
 gem 'pundit'
-# Build smart AP
+# Build smart API
 gem 'grape'
 gem 'grape-active_model_serializers'
 gem 'active_model_serializers', "~> 0.10.0"
@@ -30,6 +30,8 @@ gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 # Specials fields
 gem 'country_select'
 gem 'enumerize'
+# Allowing validation from observer
+gem 'rails-observers'
 # Rich text editor
 # gem 'rich', github: 'kreativgebiet/rich'
 # gem 'paperclip'

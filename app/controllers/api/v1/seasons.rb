@@ -2,25 +2,30 @@ module API
   module V1
     class Seasons < Grape::API
       resource :seasons do
+
         desc "Return list of seasons"
         get do
           policy_scope Season
         end
 
         params do
-          requires :token, type: String, desc: 'Page id or engine name.'
+          requires :id, type: Integer, desc: 'Season id.'
         end
-        route_param :token do
-          desc 'Return a page using its slug or its id.'
+        route_param :id do
+
+          desc 'Return a page using its id.'
           get do
             authenticate!
-            # Token isnt a positive integer
-            if !/\A\d+\z/.match(params[:token])
-              policy_scope(Season).find_by_engine(params[:token])
-            else
-              policy_scope(Season).find(params[:token].to_i)
-            end
+            policy_scope(Season).find(params[:id])
           end
+
+          desc 'Add user activity to know we saw the intro'
+          get :intro do
+            authenticate!
+            # And create an activity with the right taxonomy
+            Activity.create! user: @current_user, season_id: params[:id], taxonomy: 'INTRO'
+          end
+
         end
       end
     end

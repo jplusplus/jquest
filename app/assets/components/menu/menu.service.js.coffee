@@ -5,12 +5,12 @@ angular.module 'jquest'
       constructor: (attributes={})->
         @name     = attributes.name
         @state    = attributes.state or null
-        @href     = attributes.href
+        @href     = attributes.href or null
         @category = attributes.category or null
         @priority = attributes.priority or 0
-      getHref: (params={})=>
-        href  = @href or ''
-        href += $state.href(@state, params) or ''
+        @click    = attributes.click or @click
+      click: =>
+        $state.go @state if @state?
       isActive: =>
         $state.current.name is @state if @state?
     class Menu

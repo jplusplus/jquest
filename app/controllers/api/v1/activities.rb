@@ -4,7 +4,7 @@ module API
       resource :activities do
         desc "Return the user activities"
         get do
-          authenticate!
+          authenticate!          
           policy_scope(Activity).where user: current_user
         end
       end

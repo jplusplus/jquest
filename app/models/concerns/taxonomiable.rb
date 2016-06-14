@@ -1,9 +1,7 @@
 module Taxonomiable
   extend ActiveSupport::Concern
-  include Pundit
 
   included do
-    after_validation :validate_policy
     after_validation :validate_taxonomy
 
     validates_associated :season
@@ -15,12 +13,8 @@ module Taxonomiable
   end
 
   private
-    def validate_policy
-      ActivityPolicy.new(user, self).create?
-    end
-
     def validate_taxonomy
-      case taxonomy
+      case taxonomy.upcase
       # Taxonomy used to remember that the user seen the introduction
       when 'INTRO'
         # Look for the very same activity

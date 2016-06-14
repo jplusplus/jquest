@@ -1,6 +1,6 @@
 class CreateActivities < ActiveRecord::Migration
   def change
-    # Activities are used to record user actions such as viewing a tutorial
+    # Activities are used to record user's actions such as viewing a tutorial
     # or adding a contribtion during a season. The sum of there point gives
     # you the total points a user accumulate during for each season.
     create_table :activities do |t|

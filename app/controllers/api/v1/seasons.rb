@@ -23,7 +23,9 @@ module API
           put :intro do
             authenticate!
             # And create an activity with the right taxonomy
-            Activity.create! user: @current_user, season_id: params[:id], taxonomy: 'INTRO'
+            Activity.create! user: @current_user,
+                             season_id: params[:id],
+                             taxonomy: 'INTRO'
           end
 
         end

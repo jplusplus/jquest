@@ -7,6 +7,7 @@ module API
       formatter :json, Grape::Formatter::ActiveModelSerializers
 
       mount Activities
+      mount Assignments
       mount Schools
       mount Seasons
       mount Users

@@ -14,7 +14,7 @@ class CreateAssignments < ActiveRecord::Migration
       # Type of the resource this assignment might be related to
       t.string :resource_type
       # This assignment may have an expiration date
-      t.datetime :expires_at, null: true
+      t.datetime :expires_at, index: true, null: true
       # This assignment may have a label
       t.string :label, null: true
 

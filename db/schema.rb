@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160614152411) do
     t.datetime "updated_at",    null: false
   end
 
+  add_index "assignments", ["expires_at"], name: "index_assignments_on_expires_at"
   add_index "assignments", ["season_id"], name: "index_assignments_on_season_id"
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
 

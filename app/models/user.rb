@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
          # :database_authenticatable,
 
   has_many :activities
+  has_many :assignments
+  
   belongs_to :group
   enumerize :role, in: [ :admin, :teacher, :student ], default: :student
 

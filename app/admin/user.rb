@@ -60,9 +60,10 @@ ActiveAdmin.register User do
     f.actions
   end
 
-  sidebar "User activity", only: [:show, :edit] do
+  sidebar "Shortcuts", only: [:show, :edit] do
     ul do
       li link_to "Activities",  admin_user_activities_path(user)
+      li link_to "Assignments",  admin_user_assignments_path(user)
     end
   end
 end

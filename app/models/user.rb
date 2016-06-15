@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   def home_country
     @home_country = read_attribute(:home_country)
-    if (not @home_country or @home_country == '') and school
+    if @home_country.blank? and school
       @home_country = school.country
     end
     @home_country
@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
 
   def spoken_language
     @spoken_language = read_attribute(:spoken_language)
-    if (not @spoken_language or @spoken_language == '') and school
+    if @spoken_language.blank? and school
       @spoken_language = school.language
     end
     @spoken_language

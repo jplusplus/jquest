@@ -1,15 +1,15 @@
 class User < ActiveRecord::Base
   extend Enumerize
   # Include default devise modules. Others available are:
-  devise :invitable, :confirmable, :lockable,
+  devise :invitable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable,
          :two_factor_authenticatable,
          :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
-         # :database_authenticatable,
+         # :confirmable, :database_authenticatable,
 
   has_many :activities
   has_many :assignments
-  
+
   belongs_to :group
   enumerize :role, in: [ :admin, :teacher, :student ], default: :student
 

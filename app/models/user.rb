@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   extend Enumerize
   # Include default devise modules. Others available are:
-  devise :invitable, :lockable,
+  devise :invitable, :confirmable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable,
          :two_factor_authenticatable,
          :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
@@ -12,6 +12,11 @@ class User < ActiveRecord::Base
 
   belongs_to :group
   enumerize :role, in: [ :admin, :teacher, :student ], default: :student
+
+  # Ensure the confirmable_at value is set to default
+  before_validation(on: :create) do
+    self.confirmed_at = DateTime.new
+  end
 
   def to_s
     email || phone_number

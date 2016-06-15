@@ -48,7 +48,6 @@ ActiveAdmin.register User do
       f.input :phone_number
       f.input :role, as: :radio
       f.input :otp_required_for_login, as: :boolean
-      f.input :confirmed_at, as: :datepicker
       f.input :school_id, :as => :select,  collection: School.all
       f.input :group_id, :as => :select,  collection: Group.all
     end

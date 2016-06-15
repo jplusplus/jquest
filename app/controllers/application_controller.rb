@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   # See https://github.com/airblade/paper_trail/blob/master/doc/warning_about_not_setting_whodunnit.md
   before_filter :set_paper_trail_whodunnit
   skip_after_action :warn_about_not_setting_whodunnit
+  # Current user has to be available in serializers as scope
+  serialization_scope :view_context
 
   def index
     render './index'

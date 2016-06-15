@@ -31,6 +31,22 @@ class User < ActiveRecord::Base
     (email || '').gsub /[^@.]/, '*'
   end
 
+  def home_country
+    @home_country = read_attribute(:home_country)
+    if (not @home_country or @home_country == '') and school
+      @home_country = school.country
+    end
+    @home_country
+  end
+
+  def spoken_language
+    @spoken_language = read_attribute(:spoken_language)
+    if (not @spoken_language or @spoken_language == '') and school
+      @spoken_language = school.language
+    end
+    @spoken_language
+  end
+
   def points
     # All seasons with 0 points by default
     season_ids = Season.all.map { |s| [s.id, 0] }.to_h

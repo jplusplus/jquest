@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   permit_params :email, :phone_number, :password, :password_confirmation,
-                :otp_required_for_login,
+                :otp_required_for_login, :home_country, :spoken_language,
                 :role, :created_at, :updated_at, :confirmed_at, :invitable,
                 :school_id, :group_id
 
@@ -27,8 +27,8 @@ ActiveAdmin.register User do
     column :email
     column :phone_number
     column :group
-    column :current_sign_in_at
-    column :sign_in_count
+    column :home_country
+    column :spoken_language
     actions
   end
 
@@ -48,6 +48,8 @@ ActiveAdmin.register User do
       f.input :phone_number
       f.input :role, as: :radio
       f.input :otp_required_for_login, as: :boolean
+      f.input :home_country
+      f.input :spoken_language
       f.input :school_id, :as => :select,  collection: School.all
       f.input :group_id, :as => :select,  collection: Group.all
     end

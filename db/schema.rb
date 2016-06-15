@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615114731) do
+ActiveRecord::Schema.define(version: 20160615142942) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -123,12 +123,12 @@ ActiveRecord::Schema.define(version: 20160615114731) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                     default: "",    null: false
-    t.string   "encrypted_password",        default: "",    null: false
+    t.string   "email",                               default: "",    null: false
+    t.string   "encrypted_password",                  default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",             default: 0,     null: false
+    t.integer  "sign_in_count",                       default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -137,20 +137,20 @@ ActiveRecord::Schema.define(version: 20160615114731) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",           default: 0,     null: false
+    t.integer  "failed_attempts",                     default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "encrypted_otp_secret"
     t.string   "encrypted_otp_secret_iv"
     t.string   "encrypted_otp_secret_salt"
-    t.integer  "consumed_timestep",         default: 0,     null: false
-    t.boolean  "otp_required_for_login",    default: false, null: false
-    t.string   "role",                      default: "",    null: false
-    t.string   "phone_number",              default: "",    null: false
+    t.integer  "consumed_timestep",                   default: 0,     null: false
+    t.boolean  "otp_required_for_login",              default: false, null: false
+    t.string   "role",                                default: "",    null: false
+    t.string   "phone_number",                        default: "",    null: false
     t.integer  "school_id"
     t.integer  "group_id"
     t.string   "invitation_token"
@@ -160,7 +160,10 @@ ActiveRecord::Schema.define(version: 20160615114731) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
-    t.integer  "invitations_count",         default: 0
+    t.integer  "invitations_count",                   default: 0
+    t.string   "language"
+    t.string   "home_country",              limit: 3
+    t.string   "spoken_language"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

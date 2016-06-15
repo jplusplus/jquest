@@ -4,7 +4,7 @@ module API
       resource :users do
         desc "Return list of users"
         get do
-          policy_scope User
+          policy_scope(User).paginate(:page => params[:page])
         end
       end
     end

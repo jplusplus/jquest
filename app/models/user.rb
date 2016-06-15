@@ -5,12 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :two_factor_authenticatable,
          :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
-         # :confirmable, :database_authenticatable,
+         # :database_authenticatable,
 
   has_many :activities
   has_many :assignments
 
   belongs_to :group
+  belongs_to :school
   enumerize :role, in: [ :admin, :teacher, :student ], default: :student
 
   # Ensure the confirmable_at value is set to default

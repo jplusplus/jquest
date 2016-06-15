@@ -1,18 +1,31 @@
 class Season < ActiveRecord::Base
   extend Enumerize
   enumerize :status, in: [ :open, :close, :draft ], default: :draft
+  validates :engine_name, presence: true
+
+  def path
+    engine_info[:root_path] if engine
+  end
 
   def engine_info
-    if index = Season::engines_name.index { |e| e == engine }
+    if engine
       {
-        :root_path => Season::engines()[index].root_path,
-        :name => Season::engines()[index].name
+        :root_path => engine.root_path,
+        :name => engine.name
       }
     end
   end
 
-  def path
-    engine_info[:root_path] if engine
+  def engine
+    @engine ||= begin
+      if index = Season::engines_name.index { |e| e == engine_name }
+        Season::engines()[index]
+      end
+    end
+  end
+
+  def controller
+    @controller ||= engine::JquestPg::ApplicationController.new
   end
 
   def self.engines

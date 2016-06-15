@@ -46,7 +46,7 @@ Rails.application.configure do
   config.ng_annotate.process = false
 
   # Disable logger for assets
-  config.middleware.insert_before Rails::Rack::Logger, DisableAssetsLogger
+  # config.middleware.insert_before Rails::Rack::Logger, DisableAssetsLogger
   # LiveReload
   config.middleware.insert_before Rack::Lock, Rack::LiveReload
 end

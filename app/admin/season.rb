@@ -1,5 +1,5 @@
 ActiveAdmin.register Season do
-  permit_params :name, :primary_color, :status, :engine
+  permit_params :name, :primary_color, :status, :engine_name
   menu label: 'Seasons', priority: 2
 
   filter :name
@@ -9,7 +9,7 @@ ActiveAdmin.register Season do
       f.input :name
       f.input :primary_color
       f.input :status, as: :radio
-      f.input :engine, as: :select,  collection: Season::engines_name
+      f.input :engine_name, as: :select,  collection: Season::engines_name
     end
     f.actions
   end

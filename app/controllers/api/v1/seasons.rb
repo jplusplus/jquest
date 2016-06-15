@@ -22,10 +22,20 @@ module API
           desc 'Add user activity to know we saw the intro'
           put :intro do
             authenticate!
+            # Find season
+            season = policy_scope(Season).find(params[:id])
             # And create an activity with the right taxonomy
             Activity.create! user: current_user,
-                             season_id: params[:id],
+                             season: season,
                              taxonomy: 'INTRO'
+          end
+
+          desc 'Add user activity to know we saw the intro'
+          get :progression do
+            # Get current season controller (implemented by its engine)
+            controller = policy_scope(Season).find(params[:id]).controller
+            # Returns the user's progression
+            controller.progression current_user
           end
 
         end

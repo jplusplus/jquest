@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614152411) do
+ActiveRecord::Schema.define(version: 20160615074223) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20160614152411) do
     t.string   "name"
     t.string   "primary_color", default: "#373a3c"
     t.string   "status",        default: "open"
-    t.string   "engine"
+    t.string   "engine_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

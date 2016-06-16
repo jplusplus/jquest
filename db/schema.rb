@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615144927) do
+ActiveRecord::Schema.define(version: 20160616104701) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160615144927) do
     t.string   "taxonomy"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "value"
   end
 
   add_index "activities", ["resource_type", "resource_id"], name: "index_activities_on_resource_type_and_resource_id"

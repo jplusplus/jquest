@@ -19,6 +19,8 @@ gem 'devise-two-factor'
 gem 'devise_invitable'
 # Permissions helper
 gem 'pundit'
+# Batch record creation
+gem 'activerecord-import'
 # Build smart API
 gem 'grape'
 gem 'grape-active_model_serializers'
@@ -65,6 +67,9 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Tool to generate diagram from models
+  # You must install `graphviz` to use this gem. Then run: rake erd
+  gem "rails-erd"
 end
 
 group :production do

@@ -54,6 +54,14 @@ class User < ActiveRecord::Base
     season_ids.merge activities.group(:season_id).sum(:points).to_h
   end
 
+  def member_of
+    @member_of ||= begin
+      unless group.nil?
+        group.season
+      end
+    end
+  end
+
   def password=(p)
     if p
       super

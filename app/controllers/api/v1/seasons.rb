@@ -30,12 +30,14 @@ module API
                              taxonomy: 'INTRO'
           end
 
-          desc 'Add user activity to know we saw the intro'
+          desc 'Find user progression for this season'
           get :progression do
+            authenticate!
+            season = policy_scope(Season).find(params[:id])
             # Get current season controller (implemented by its engine)
-            controller = policy_scope(Season).find(params[:id]).controller
+            controller = season.controller
             # Returns the user's progression
-            controller.progression current_user
+            controller.new.progression current_user
           end
 
         end

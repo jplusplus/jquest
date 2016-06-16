@@ -25,7 +25,7 @@ class Season < ActiveRecord::Base
   end
 
   def controller
-    @controller ||= engine::JquestPg::ApplicationController.new
+    @controller ||= Object.const_get(engine_name)::ApplicationController
   end
 
   def self.engines

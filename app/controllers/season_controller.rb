@@ -7,8 +7,10 @@ class SeasonController < ApplicationController
   end
 
   def can!
-    # A season module must be found
-    raise Pundit::NotAuthorizedError.new "You don't have the permission to see this." unless season
+    unless policy(season).show?
+      # A season module must be found
+      raise Pundit::NotAuthorizedError.new "You don't have the permission to see this."
+    end
   end
 
   # Current controller engine
@@ -18,7 +20,7 @@ class SeasonController < ApplicationController
 
   # Current season
   def season
-    @season ||= policy_scope(Season).find_by_engine_name(engine_name)
+    @season ||= Season.find_by_engine_name(engine_name)
   end
 
   # User progression
@@ -26,7 +28,6 @@ class SeasonController < ApplicationController
     # This method must be implemented in a child controller
     raise NotImplementedError
   end
-
 
   protected
     def deny_access(e)

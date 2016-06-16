@@ -3,6 +3,17 @@ ActiveAdmin.register Activity do
   belongs_to :user, :optional => true
 
 
+  index do
+    selectable_column
+    id_column
+    column :user
+    column :taxonomy
+    column :points
+    column :resource
+    column :season
+    actions
+  end
+
   form do |f|
     f.inputs "Details" do
       f.input :user

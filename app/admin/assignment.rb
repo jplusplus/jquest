@@ -2,6 +2,18 @@ ActiveAdmin.register Assignment do
   permit_params :user_id, :season_id, :resource_id, :resource_type, :expires_at
   belongs_to :user, :optional => true
 
+
+  index do
+    selectable_column
+    id_column
+    column :user
+    column :label
+    column :resource
+    column :season
+    column :expires_at
+    actions
+  end
+
   form do |f|
     f.inputs "Details" do
       f.input :user

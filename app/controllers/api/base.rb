@@ -3,8 +3,10 @@ module API
     helpers AuthenticableHelpers
 
     before do
-      # Allow us to track change on model
-      PaperTrail.whodunnit = current_user.id
+      unless current_user.nil?
+        # Allow us to track change on model
+        PaperTrail.whodunnit = current_user.id
+      end
     end
 
     mount V1::Base

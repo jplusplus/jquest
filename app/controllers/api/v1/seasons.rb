@@ -13,7 +13,7 @@ module API
         end
         route_param :id do
 
-          desc 'Return a page using its id.'
+          desc 'Return a season using its id.'
           get do
             authenticate!
             policy_scope(Season).find(params[:id])

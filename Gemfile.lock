@@ -27,9 +27,8 @@ GIT
       sass-rails
       sprockets (< 4)
 
-GIT
-  remote: git://github.com/jplusplus/jquest-pg.git
-  revision: bbf0a26ef28aff188dbfec99a9cd0d368a49971d
+PATH
+  remote: ../jquest-pg
   specs:
     jquest_pg (0.0.7)
       rails (~> 4.2.6)

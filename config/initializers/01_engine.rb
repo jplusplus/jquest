@@ -13,7 +13,7 @@ module Rails
         gemspec and gemspec.metadata['season']
       end
 
-      def root_path(suffix='/season/')
+      def root_path(suffix='/')
         if gemspec and gemspec.metadata['root_path']
           path = suffix + gemspec.metadata['root_path']
           path = path + '/' if not path.end_with? '/'

@@ -32,9 +32,6 @@ gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 # Specials fields
 gem 'country_select'
 gem 'enumerize'
-# Rich text editor
-# gem 'rich', github: 'kreativgebiet/rich'
-# gem 'paperclip'
 # ActiveRecord versioning
 gem 'paper_trail'
 # Better assets support

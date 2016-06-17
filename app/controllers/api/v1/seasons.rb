@@ -29,17 +29,6 @@ module API
                              season: season,
                              taxonomy: 'INTRO'
           end
-
-          desc 'Find user progression for this season'
-          get :progression do
-            authenticate!
-            season = policy_scope(Season).find(params[:id])
-            # Get current season controller (implemented by its engine)
-            controller = season.controller
-            # Returns the user's progression
-            controller.new.progression current_user
-          end
-
         end
       end
     end

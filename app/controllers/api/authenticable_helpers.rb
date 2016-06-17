@@ -1,6 +1,7 @@
 module API
   module AuthenticableHelpers
     include Pundit
+
     def warden
       env['warden']
     end

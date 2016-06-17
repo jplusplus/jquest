@@ -81,6 +81,10 @@ $navbar-height: ($navbar-padding-vertical * 2) + $line-height + .425rem * 2;
 $input-border-focus:             #FEB24C;
 $input-box-shadow-focus:         rgba($input-border-focus, .3);
 
+// Thumbnails
+//
+$thumbnail-border-color: $card-border-color;
+
 // Bootstrap variables
 @import "bootstrap/scss/variables.scss";
 // Bootstrap mixins

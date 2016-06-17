@@ -27,7 +27,7 @@ module API
             # And create an activity with the right taxonomy
             Activity.create! user: current_user,
                              season: season,
-                             taxonomy: 'INTRO'
+                             taxonomy: 'intro'
           end
         end
       end

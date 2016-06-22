@@ -54,6 +54,11 @@ class User < ActiveRecord::Base
     season_ids.merge activities.group(:season_id).sum(:points).to_h
   end
 
+  def season_points(season)
+    # Merge seasons hash witht the point by season for this user
+    activities.where(season: season).sum(:points)
+  end
+
   def member_of
     @member_of ||= begin
       unless group.nil?

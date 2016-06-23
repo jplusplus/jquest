@@ -11,8 +11,17 @@ angular.module 'jquest'
       reload: =>
         Restangular.all('seasons').getList().then (seasons)=>
           changed = no
+          # Check every seasons
           for season in seasons
-            if season.engine.root_path is $window.location.pathname
+            # Valid seasons pathnames
+            pathnames = [
+              # Check for the season's engine path
+              season.engine.root_path,
+              # And the same engine path without tailing slash
+              season.engine.root_path.slice(0, -1)
+            ]
+            # Current path mmust match
+            if -1 isnt pathnames.indexOf $window.location.pathname
               # Check that the progression have changed
               changed = @_current.progression? and _.some ['level', 'round'], (f)=>
                 # Both are still equal

@@ -3,6 +3,9 @@ ActiveAdmin.register Assignment do
   belongs_to :user, :optional => true
 
 
+  filter :season
+  filter :resource_type
+
   index do
     selectable_column
     id_column

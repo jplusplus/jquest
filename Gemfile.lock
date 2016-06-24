@@ -31,6 +31,8 @@ PATH
   remote: ../jquest-pg
   specs:
     jquest_pg (0.0.7)
+      active_model_serializers (~> 0.10.0)
+      grape-active_model_serializers
       rails (~> 4.2.6)
       schema_plus_foreign_keys
 

@@ -16,7 +16,7 @@ class AdminPolicy  < ApplicationPolicy
   end
 
   def create?
-    index?
+    @user and @user.role? :teacher, :admin
   end
 
   def import?

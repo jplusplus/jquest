@@ -41,7 +41,16 @@
     @include media-breakpoint-down(sm) {
       background: rgba(darken($card-border-color, 5), .7);
     }
+  }
 
-
+  #loading-bar{
+    .peg {
+      @include box-shadow($brand-primary .5vh 0 6px .5vh);
+    }
+    .bar {
+      height: .5vh;
+      background-color: $brand-primary;
+      z-index: $zindex-navbar-fixed + 1000;
+    }
   }
 }

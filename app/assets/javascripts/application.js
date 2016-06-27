@@ -19,4 +19,5 @@
 //= require "filament-fixed/fixedfixed.js"
 //= require "filament-sticky/fixedsticky.js"
 //= require "angular-hotkeys/build/hotkeys.js"
+//= require "angular-loading-bar/build/loading-bar.js"
 // endbower

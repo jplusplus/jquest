@@ -13,6 +13,7 @@ angular.module 'jquest', [
   'pascalprecht.translate',
   'jquest.template',
   'angular-growl',
+  'angular-loading-bar',
   'Devise',
   'cfp.hotkeys',
 ]

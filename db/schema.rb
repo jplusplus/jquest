@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623113944) do
+ActiveRecord::Schema.define(version: 20160628125959) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20160623113944) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "value"
+    t.integer  "assignment_id"
   end
 
+  add_index "activities", ["assignment_id"], name: "index_activities_on_assignment_id"
   add_index "activities", ["resource_type", "resource_id"], name: "index_activities_on_resource_type_and_resource_id"
   add_index "activities", ["season_id"], name: "index_activities_on_season_id"
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"

@@ -5,6 +5,7 @@ class Activity < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :season
+  belongs_to :assignment
   belongs_to :resource, polymorphic: true
 
 

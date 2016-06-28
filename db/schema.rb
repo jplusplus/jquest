@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628125959) do
+ActiveRecord::Schema.define(version: 20160628152351) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -54,6 +54,18 @@ ActiveRecord::Schema.define(version: 20160628125959) do
   end
 
   add_index "groups", ["season_id"], name: "index_groups_on_season_id"
+
+  create_table "jquest_pg_diversities", force: :cascade do |t|
+    t.integer  "resource_a_id"
+    t.integer  "resource_b_id"
+    t.string   "type"
+    t.integer  "value"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "jquest_pg_diversities", ["resource_a_id"], name: "index_jquest_pg_diversities_on_resource_a_id"
+  add_index "jquest_pg_diversities", ["resource_b_id"], name: "index_jquest_pg_diversities_on_resource_b_id"
 
   create_table "jquest_pg_legislatures", force: :cascade do |t|
     t.string   "name"

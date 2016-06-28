@@ -57,15 +57,13 @@ ActiveRecord::Schema.define(version: 20160628152351) do
 
   create_table "jquest_pg_diversities", force: :cascade do |t|
     t.integer  "resource_a_id"
+    t.string   "resource_a_type"
     t.integer  "resource_b_id"
-    t.string   "type"
+    t.string   "resource_b_type"
     t.integer  "value"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
-
-  add_index "jquest_pg_diversities", ["resource_a_id"], name: "index_jquest_pg_diversities_on_resource_a_id"
-  add_index "jquest_pg_diversities", ["resource_b_id"], name: "index_jquest_pg_diversities_on_resource_b_id"
 
   create_table "jquest_pg_legislatures", force: :cascade do |t|
     t.string   "name"

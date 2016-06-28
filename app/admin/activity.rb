@@ -10,6 +10,8 @@ ActiveAdmin.register Activity do
     column :taxonomy
     column :points
     column :resource
+    column :assignment
+    column :value
     column :season
     actions
   end

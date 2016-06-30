@@ -18,7 +18,7 @@ class SeasonSerializer < ActiveModel::Serializer
       # Get current season controller (implemented by its engine)
       controller = object.controller
       # Returns the user's progression
-      controller.new.progression current_user, object
+      controller.new.progression(current_user, object).to_h
     end
   end
 end

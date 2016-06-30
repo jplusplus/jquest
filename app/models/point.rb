@@ -10,4 +10,8 @@ class Point < ActiveRecord::Base
   def set_value
     write_attribute :value, user.activities.where(season: season).sum(:points).to_i
   end
+
+  def position
+    Point.where(season: season).where('value < ?', value).distinct.pluck(:value).length + 1
+  end
 end

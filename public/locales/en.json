@@ -4,5 +4,5 @@
   "header.nav.user-display": "Connected as <strong>{{ email }}</strong>",
   "header.nav.logout": "Log Out",
   "header.nav.login": "Log In",
-  "header.activity.points": "<strong>{{ points }} pts</strong> / 12th"
+  "header.activity.points": "<strong>{{ points }} pts</strong>"
 }

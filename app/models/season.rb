@@ -3,6 +3,10 @@ class Season < ActiveRecord::Base
   enumerize :status, in: [ :open, :close, :draft ], default: :draft
   validates :engine_name, presence: true
 
+  has_many :users
+  has_many :activities
+  has_many :assignments
+
   def path
     engine_info[:root_path] if engine
   end

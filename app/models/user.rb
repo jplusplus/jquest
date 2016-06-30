@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :activities
   has_many :assignments
+  has_many :points
 
   belongs_to :group
   belongs_to :school
@@ -45,13 +46,6 @@ class User < ActiveRecord::Base
       @spoken_language = school.language
     end
     @spoken_language
-  end
-
-  def points
-    # All seasons with 0 points by default
-    season_ids = Season.all.map { |s| [s.id, 0] }.to_h
-    # Merge seasons hash witht the point by season for this user
-    season_ids.merge activities.group(:season_id).sum(:points).to_h
   end
 
   def season_points(season)

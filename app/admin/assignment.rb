@@ -2,6 +2,9 @@ ActiveAdmin.register Assignment do
   permit_params :user_id, :season_id, :resource_id, :resource_type, :expires_at
   belongs_to :user, :optional => true
 
+  scope :all
+  scope :pending, ->(scope){ scope.pending }
+  scope :done, ->(scope){ scope.done }
 
   filter :season
   filter :resource_type

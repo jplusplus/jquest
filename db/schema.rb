@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628152351) do
+ActiveRecord::Schema.define(version: 20160630085217) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,14 +32,15 @@ ActiveRecord::Schema.define(version: 20160628152351) do
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "assignments", force: :cascade do |t|
-    t.integer  "user_id",       null: false
-    t.integer  "season_id",     null: false
+    t.integer  "user_id",                           null: false
+    t.integer  "season_id",                         null: false
     t.integer  "resource_id"
     t.string   "resource_type"
     t.datetime "expires_at"
     t.string   "label"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "status",        default: "pending", null: false
   end
 
   add_index "assignments", ["expires_at"], name: "index_assignments_on_expires_at"

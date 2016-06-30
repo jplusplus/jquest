@@ -23,13 +23,14 @@ angular.module 'jquest'
             # Current path mmust match
             if -1 isnt pathnames.indexOf $window.location.pathname
               # Check that the progression have changed
-              changed = @_current.progression? and _.some ['level', 'round'], (f)=>
-                # Both are still equal
-                @_current.progression[f] isnt season.progression[f]
+              levelChanged = @_current.progression?.level isnt season.progression.level
+              roundChanged = @_current.progression?.round isnt season.progression.round
               # Extend the current season value
               angular.extend @_current, season
           # Broadcast an event if the progression (level or round) changed
-          $rootScope.$broadcast 'progression:changed', @_current.progression if changed
+          if levelChanged or roundChanged
+            # Broadcast an event that received an array describing what changed
+            $rootScope.$broadcast 'progression:changed', [levelChanged, roundChanged]
           # Extend the seasons array
           angular.extend @_seasons, seasons
       all: => @_promise

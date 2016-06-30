@@ -13,9 +13,10 @@ ActiveAdmin.register Assignment do
     selectable_column
     id_column
     column :user
-    column :label
+    column :status    
     column :resource
     column :season
+    column :label
     column :expires_at
     actions
   end

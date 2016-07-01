@@ -16,4 +16,5 @@ angular.module 'jquest', [
   'angular-loading-bar',
   'Devise',
   'cfp.hotkeys',
+  'infinite-scroll',
 ]

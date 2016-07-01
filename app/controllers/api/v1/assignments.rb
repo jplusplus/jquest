@@ -5,7 +5,7 @@ module API
         desc "Return the user assignments"
         get do
           authenticate!
-          policy_scope(Assignment).where user: current_user
+          policy_scope(Assignment).where(user: current_user).page(params[:page])
         end
       end
     end

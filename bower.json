@@ -37,7 +37,8 @@
     "filament-sticky": "^0.1.7",
     "bootstrap": "v4.0.0-alpha.2",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0",
-    "angular-loading-bar": "^0.9.0"
+    "angular-loading-bar": "^0.9.0",
+    "flatpickr": "flatpickr-calendar#^1.8.8"
   },
   "resolutions": {
     "angular": "~1.5.*"

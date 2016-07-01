@@ -20,4 +20,5 @@
 //= require "filament-sticky/fixedsticky.js"
 //= require "angular-hotkeys/build/hotkeys.js"
 //= require "angular-loading-bar/build/loading-bar.js"
+//= require "flatpickr/dist/flatpickr.min.js"
 // endbower

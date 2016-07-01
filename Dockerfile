@@ -16,5 +16,5 @@ RUN npm install bower -g
 # annotate angular DI and compress every files
 RUN bundle exec rake assets:precompile
 
-ENTRYPOINT ["bash", "/usr/src/app/bin/init"]
-CMD ["bundle", "exec", "puma -C config/puma.rb"]
+# ENTRYPOINT ["bash", "/usr/src/app/bin/init"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

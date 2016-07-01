@@ -4,6 +4,7 @@ class Assignment < ActiveRecord::Base
   # NOT IMPLEMENTED
   include Expirable
   include InSeason
+  include Filterable
 
   belongs_to :user
   belongs_to :season
@@ -12,8 +13,10 @@ class Assignment < ActiveRecord::Base
 
   enumerize :status, :in => [:pending, :done, :rejected], :default => :pending
 
-  scope :done, ->{ where(:status => :done) }
-  scope :pending, ->{ where(:status => :pending) }
+  scope :done, ->{ status :done }
+  scope :pending, ->{ status :pending }
+  scope :status, -> (status) { where status: status }
+
 
   def self.resource_types
     ActiveRecord::Base.send(:subclasses).map(&:name)

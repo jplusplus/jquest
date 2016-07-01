@@ -5,7 +5,12 @@ module API
         desc "Return the user assignments"
         get do
           authenticate!
-          policy_scope(Assignment).where(user: current_user).page(params[:page])
+          policy_scope(Assignment).
+            where(user: current_user).
+            # We allow filtering by status from params
+            filter(params.slice(:status)).
+            # Paginates
+            page(params[:page])
         end
       end
     end

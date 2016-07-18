@@ -1,10 +1,12 @@
 class Assignment < ActiveRecord::Base
   extend Enumerize
+  # External concerns
+  include InSeason
+  # Add a filter method to the scope
+  include Filterable
   # Concern to check expiration field
   # NOT IMPLEMENTED
   include Expirable
-  include InSeason
-  include Filterable
 
   belongs_to :user
   belongs_to :season

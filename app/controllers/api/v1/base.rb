@@ -8,6 +8,7 @@ module API
 
       mount Activities
       mount Assignments
+      mount CourseMaterials
       mount Schools
       mount Seasons
       mount Users

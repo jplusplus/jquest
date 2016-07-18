@@ -42,6 +42,8 @@ gem "bower-rails", "~> 0.10.0"
 # Email prerendering
 gem 'premailer-rails'
 gem 'nokogiri'
+# Markdown parser
+gem 'redcarpet'
 # This won't work if you didn't checkout the gem repository in the parent directory.
 gem 'jquest_pg', path: '../jquest-pg'
 #gem 'jquest_pg', github: 'jplusplus/jquest-pg'

@@ -23,6 +23,10 @@
     }
   }
 
+  &--has-course-material {
+    overflow: hidden;
+  }
+
   &__overlay {
     z-index: $zindex-navbar-fixed;
     position: fixed;

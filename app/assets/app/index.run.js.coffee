@@ -1,4 +1,5 @@
 angular.module 'jquest'
-  .run ($rootScope, Menu)->
+  .run ($rootScope, Menu, CourseMaterials)->
     'ngInject'
     $rootScope.menu = Menu
+    $rootScope.courseMaterials = CourseMaterials

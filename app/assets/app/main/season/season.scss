@@ -19,7 +19,7 @@
         font-size: 1rem;
         font-weight: 100;
         position: relative;
-        
+
         a { color:inherit; }
 
         &:after {
@@ -35,6 +35,63 @@
           border-bottom:0;
           @include vendor-prefix(transform, translate(-50%, -50%) rotate(45deg) );
         }
+      }
+    }
+  }
+
+  &__course-materials {
+    position: fixed;
+    top:calc(100% - 4px);
+    bottom:0;
+    left:0;
+    right:0;
+    background: $brand-primary;
+    min-height: 1rem;
+    z-index:$zindex-navbar-fixed;
+    @include box-shadow(0 1px 2px 0 rgba(black, .1));
+    @include vendor-prefix(transition, .6s);
+
+    &--open {
+      top:200px;
+      @include box-shadow(0 0 100px 0 rgba(black, .6));
+    }
+
+    &__tabs {
+      position: absolute;
+      bottom:100%;
+      left:1rem * $line-height;
+      margin:0;
+
+      li {
+        padding:0;
+
+        a {
+          cursor: pointer;
+          font-weight: lighter;
+          color:white;
+          background: $brand-primary;
+          display: inline-block;
+          padding: $navbar-padding-vertical/2 $navbar-padding-horizontal;
+          border-radius: $navbar-border-radius $navbar-border-radius 0 0;
+        }
+      }
+
+    }
+
+    &__selection {
+      position: absolute;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+      padding: $line-height * 2rem 0;
+      overflow: auto;
+
+      .container {
+        padding: $card-spacer-y $card-spacer-x;
+        background:white;
+        border-radius: $card-border-radius;
+        @include box-shadow(0 1px 2px 0 rgba(black, .1));
       }
     }
   }

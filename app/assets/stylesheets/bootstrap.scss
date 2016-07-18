@@ -85,6 +85,11 @@ $input-box-shadow-focus:         rgba($input-border-focus, .3);
 //
 $thumbnail-border-color: $card-border-color;
 
+// Tables
+//
+$table-bg-accent: mix($card-bg, $card-border-color);
+$table-border-color: $card-border-color;
+
 // Bootstrap variables
 @import "bootstrap/scss/variables.scss";
 // Bootstrap mixins

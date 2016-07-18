@@ -2,7 +2,7 @@ class CourseMaterialSerializer < ActiveModel::Serializer
   # Do build hypermedia link
   include Rails.application.routes.url_helpers
 
-  attributes :id, :title, :state_name, :body_html, :created_at
+  attributes :id, :title, :state_name, :body_html, :category
   attribute :state_params do
     # Parse the state_params string
     JSON.parse object.state_params unless object.state_params.blank?

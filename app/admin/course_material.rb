@@ -1,5 +1,5 @@
 ActiveAdmin.register CourseMaterial do
-  permit_params :title, :state_name, :state_params, :body, :status
+  permit_params :title, :state_name, :state_params, :body, :status, :category
 
   active_admin_import
 

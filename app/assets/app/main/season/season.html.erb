@@ -31,16 +31,16 @@
 
   <div ui-view></div>
 
-  <div class="main__season__course-materials"
+  <div class="main__season__course-materials-panel"
        ng-show="courseMaterials.hasSelected()"
-       ng-class="{ 'main__season__course-materials--open': courseMaterials.isVisible() }">
-    <div class="main__season__course-materials__tabs">
+       ng-class="{ 'main__season__course-materials-panel--open': courseMaterials.isVisible() }">
+    <div class="main__season__course-materials-panel__tabs">
       <div class="container">
         <ul class="list-inline">
           <li ng-repeat="courseMaterial in courseMaterials.getSelected()"
-              class="main__season__course-materials__tabs__item"
+              class="main__season__course-materials-panel__tabs__item"
               ng-class="{
-                'main__season__course-materials__tabs__item--active': courseMaterials.isOpen(courseMaterial)
+                'main__season__course-materials-panel__tabs__item--active': courseMaterials.isOpen(courseMaterial)
               }">
             <a ng-click="courseMaterials.select(courseMaterial)">
               {{ courseMaterial.title }}
@@ -49,7 +49,7 @@
         </ul>
       </div>
     </div>
-    <div class="main__season__course-materials__selection">
+    <div class="main__season__course-materials-panel__selection">
       <div class="container" ng-bind-html="courseMaterials.getOpen().body_html"></div>
     </div>
   </div>

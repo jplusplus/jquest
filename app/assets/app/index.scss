@@ -19,6 +19,10 @@
 
   padding-bottom:1.5rem * $line-height;
 
+  a[ng-click] {
+    cursor: pointer;
+  }
+
   &--has-overlay {
     @include media-breakpoint-down(sm) {
       overflow: hidden;

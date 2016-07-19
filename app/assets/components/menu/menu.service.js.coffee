@@ -1,5 +1,5 @@
 angular.module 'jquest'
-  .service 'Menu', ($state, CourseMaterials)->
+  .service 'Menu', ($state, $rootScope, CourseMaterials)->
     'ngInject'
     class MenuItem
       constructor: (attributes={})->
@@ -20,9 +20,16 @@ angular.module 'jquest'
       isVisible: =>
         @_visible
       toggle: (visible)=>
+        # Save the previous state
+        previous = @_visible
+        # Do we receive a value? If not, we take the opposite of the current one
         @_visible = if visible? then visible else not @_visible
         # Hide course materials panel
         do CourseMaterials.hide
+        # The visibility changed
+        if previous isnt @_visible
+          # Broadcast an event
+          $rootScope.$broadcast 'menu:' + (if @_visible then 'show' else 'hide')
       show: =>
         @toggle yes
       hide: =>

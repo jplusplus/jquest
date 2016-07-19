@@ -32,17 +32,25 @@
   <div ui-view></div>
 
   <div class="main__season__course-materials"
-       ng-show="courseMaterials.getItems().length"
+       ng-show="courseMaterials.hasSelected()"
        ng-class="{ 'main__season__course-materials--open': courseMaterials.isVisible() }">
-    <ul class="main__season__course-materials__tabs list-inline">
-      <li ng-repeat="courseMaterial in courseMaterials.getItems()">
-        <a ng-click="courseMaterials.select(courseMaterial)">
-          {{ courseMaterial.title }}
-        </a>
-      </li>
-    </ul>
+    <div class="main__season__course-materials__tabs">
+      <div class="container">
+        <ul class="list-inline">
+          <li ng-repeat="courseMaterial in courseMaterials.getSelected()"
+              class="main__season__course-materials__tabs__item"
+              ng-class="{
+                'main__season__course-materials__tabs__item--active': courseMaterials.isOpen(courseMaterial)
+              }">
+            <a ng-click="courseMaterials.select(courseMaterial)">
+              {{ courseMaterial.title }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="main__season__course-materials__selection">
-      <div class="container" ng-bind-html="courseMaterials.getOpened().body_html"></div>
+      <div class="container" ng-bind-html="courseMaterials.getOpen().body_html"></div>
     </div>
   </div>
 </div>

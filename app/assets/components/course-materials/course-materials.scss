@@ -1,0 +1,13 @@
+.course-materials {
+  background:$brand-primary;
+  color:white;
+
+  a {
+    color:white;
+    cursor: pointer;
+
+    &:hover em { 
+      text-decoration: none;
+    }
+  }
+}

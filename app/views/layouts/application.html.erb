@@ -47,7 +47,7 @@
   <meta itemprop="image" content="http://www.jquestapp.com/assets/images/share.png">
 </head>
 <body class="<%= yield (:body_class) %> body" ng-class="{
-  'body--has-overlay': menu.isVisible(),
+  'body--has-overlay': menu.isVisible() || courseMaterials.isVisible(),
   'body--has-course-material': courseMaterials.isVisible()
   }">
   <%= yield %>

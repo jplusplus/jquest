@@ -1,4 +1,4 @@
-.main__season {
+  .main__season {
 
   &__activity {
     position: relative;
@@ -47,35 +47,71 @@
     right:0;
     background: $brand-primary;
     min-height: 1rem;
-    z-index:$zindex-navbar-fixed;
+    z-index:$zindex-navbar-fixed + 20;
     @include box-shadow(0 1px 2px 0 rgba(black, .1));
-    @include vendor-prefix(transition, .6s);
+    @include vendor-prefix(transition, .4s);
 
     &--open {
-      top:200px;
+      top:$navbar-height + $line-height * 1.4rem;
+      top: 20vh;
       @include box-shadow(0 0 100px 0 rgba(black, .6));
     }
 
     &__tabs {
       position: absolute;
       bottom:100%;
-      left:1rem * $line-height;
-      margin:0;
+      left:0;
+      right:0;
+      pointer-events: none;
 
-      li {
+      &:after {
+        content:"";
+        position: absolute;
+        left:1rem;
+        right:1rem;
+        border-top: $brand-primary 4px solid;
+        height:.5rem;
+        z-index:100;
+        @include gradient-vertical($brand-primary, rgba($brand-primary, 0));
+      }
+
+      ul {
+        margin:0;
         padding:0;
+      }
+
+      &__item {
+        padding:0;
+        display: inline;
+        margin-right:.5rem;
+        font-weight: lighter;
+        pointer-events: auto;
+
+        &--active {
+          font-weight: bolder;
+        }
+
+        ul &--active a {
+          @include box-shadow(none);
+          background: $brand-primary;
+        }
 
         a {
           cursor: pointer;
-          font-weight: lighter;
           color:white;
-          background: $brand-primary;
+          background: darken($brand-primary, 5);
           display: inline-block;
           padding: $navbar-padding-vertical/2 $navbar-padding-horizontal;
           border-radius: $navbar-border-radius $navbar-border-radius 0 0;
+
+          @include box-shadow(0 -3px 2px 0 rgba(black, .1) inset);
         }
       }
 
+    }
+
+    &--open &__selection {
+      overflow: auto;
     }
 
     &__selection {
@@ -85,13 +121,21 @@
       left:0;
       right:0;
       padding: $line-height * 2rem 0;
-      overflow: auto;
+      overflow: hidden;
 
       .container {
         padding: $card-spacer-y $card-spacer-x;
         background:white;
         border-radius: $card-border-radius;
         @include box-shadow(0 1px 2px 0 rgba(black, .1));
+
+        h1 {
+          padding-top: .5em;
+          padding-bottom:1em;
+          margin-bottom:1em;
+
+          border-bottom:1px solid $gray-lighter;
+        }
       }
     }
   }

@@ -1,0 +1,20 @@
+<div class="course-materials card card-inverse"  ng-show="courseMaterials.hasCourseMaterials()">
+  <div class="card-block card-text">
+    <h3 class="card-title">
+      <i class="fa fa-graduation-cap"></i> Course Materials
+    </h3>
+    <p>Those documents help you to achieve your mission by learning the best datajournalism techniques.</p>
+    <ul>
+      <li ng-repeat="courseMaterial in courseMaterials.getAll()">
+        <a ng-click="courseMaterials.select(courseMaterial)">
+          <div>
+            {{ courseMaterial.title }}
+          </div>
+          <div class="small" ng-show="courseMaterial.category">
+            <em>{{ courseMaterial.category }}</em>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

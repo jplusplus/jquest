@@ -1,5 +1,5 @@
 angular.module 'jquest'
-  .service 'Menu', ($state)->
+  .service 'Menu', ($state, CourseMaterials)->
     'ngInject'
     class MenuItem
       constructor: (attributes={})->
@@ -19,12 +19,14 @@ angular.module 'jquest'
         @_visible = no
       isVisible: =>
         @_visible
-      toggle: =>
-        @_visible = not @_visible
+      toggle: (visible)=>
+        @_visible = if visible? then visible else not @_visible
+        # Hide course materials panel
+        do CourseMaterials.hide
       show: =>
-        @_visible = yes
+        @toggle yes
       hide: =>
-        @_visible = no
+        @toggle no
       hasTitle: =>
         @_title?
       getTitle: =>

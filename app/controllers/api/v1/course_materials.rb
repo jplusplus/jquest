@@ -11,6 +11,17 @@ module API
             # Paginates
             page(params[:page])
         end
+
+        params do
+          requires :id, type: Integer, desc: 'Course Material id.'
+        end
+        route_param :id do
+          get serializer: CourseMaterialSerializer, include_body: true do
+            authenticate!
+            # Retreive the course material
+            policy_scope(CourseMaterial).find(params[:id])
+          end
+        end
       end
     end
   end

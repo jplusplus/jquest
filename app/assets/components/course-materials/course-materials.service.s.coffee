@@ -8,14 +8,14 @@ angular.module 'jquest'
         @_visible = no
         # Open course material
         @_open = null
+        # Restangular API endpoint
+        @_api = Restangular.all('course_materials')
         # Watch for state changes
-        $rootScope.$on "$stateChangeSuccess", (ev, current)=>
+        $rootScope.$on "$stateChangeSuccess", =>
           # Close the panel
           do @hide
-          # Restangular with cache
-          api = Restangular.all('course_materials').withHttpConfig cache: yes
           # Get material for this state
-          api.getList(state_name: current.name).then (courseMaterials)=>
+          @_api.withHttpConfig(cache: yes).getList().then (courseMaterials)=>
             # Set the scope attribute filtered according the current state
             @_all = @filterCourseMaterials courseMaterials
       # Filter course materials according to the current state
@@ -38,7 +38,7 @@ angular.module 'jquest'
         # Display the panel if the selected item is different or the panel is not visible
         @toggle not @isOpen(selected) or not @isVisible()
         # Set if active
-        @_open = selected
+        @_open = Restangular.one('course_materials', selected.id).withHttpConfig(cache: yes).get().$object
       getOpen: =>
         @_open
       isOpen: (item)=>

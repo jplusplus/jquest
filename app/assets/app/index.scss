@@ -17,12 +17,14 @@
 
 .body {
 
+  padding-bottom:1.5rem * $line-height;
+
   &--has-overlay {
     @include media-breakpoint-down(sm) {
       overflow: hidden;
     }
   }
-  
+
   &--has-course-material {
     overflow: hidden;
   }
@@ -35,7 +37,7 @@
     right:0;
     bottom:0;
     $bg: $body-bg;
-    @include gradient-vertical( rgba($bg, 0), $bg);
+    @include gradient-vertical( rgba($bg, .4), $bg);
     @include transition(700ms);
 
     &.ng-hide {

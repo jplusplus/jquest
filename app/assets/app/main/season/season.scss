@@ -103,6 +103,9 @@
           color:white;
           margin:0;
           padding: $navbar-padding-vertical/2 $navbar-padding-horizontal;
+          &:hover {
+            text-decoration: none;
+          }
         }
       }
 

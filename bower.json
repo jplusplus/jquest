@@ -28,7 +28,7 @@
     "angular-translate-loader-static-files": "~2.11.*",
     "angular-translate-storage-cookie": "~2.11.*",
     "angular-ui-router": "~0.2.18",
-    "angular-bootstrap": "~1.2.5",
+    "angular-bootstrap": "~2.0.0",
     "lodash": "~4.6.*",
     "restangular": "1.5.2",
     "css-hamburgers": "~0.3.0",

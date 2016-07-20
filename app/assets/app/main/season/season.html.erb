@@ -42,11 +42,11 @@
               ng-class="{
                 'main__season__course-materials-panel__tabs__item--active': courseMaterials.isOpen(courseMaterial)
               }">
-            <button class="btn btn-link" ng-click="courseMaterials.select(courseMaterial)">
+            <button class="btn btn-link" ng-click="courseMaterials.select(courseMaterial)" uib-tooltip="Toggle this course">
               {{ courseMaterial.title }}
             </button>
-            <button class="btn btn-link" ng-click="courseMaterials.unselect(courseMaterial)">
-              <i class="fa fa-times small"></i>
+            <button class="btn btn-link" ng-click="courseMaterials.unselect(courseMaterial)" uib-tooltip="Close this course">
+              <span class="sr-only">Close this course</span>✕
             </button>
           </li>
         </ul>

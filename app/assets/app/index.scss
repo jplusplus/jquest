@@ -15,6 +15,36 @@
   }
 }
 
+.tooltip{
+
+  &-arrow {
+    left:50%;
+    top:100%;
+    border-color: transparent;
+    border-width: $tooltip-arrow-width;
+  }
+
+  &.top, &.bottom {
+    .tooltip-arrow {
+      @include vendor-prefix(transform, translateX(-50%));
+    }
+  }
+
+  &.top {
+    margin-top:$line-height * -.25rem;
+    .tooltip-arrow {
+      border-top-color: $tooltip-arrow-color;
+    }
+  }
+
+  &.bottom {
+    margin-top:$line-height * .25rem;
+    .tooltip-arrow {
+      border-bottom-color: $tooltip-arrow-color;
+    }
+  }
+}
+
 .body {
 
   padding-bottom:1.5rem * $line-height;

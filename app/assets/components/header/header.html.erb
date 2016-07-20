@@ -13,7 +13,7 @@
       </div>
 
       <div class="nav navbar-nav pull-xs-right">
-        <li class="nav-item header__nav__navbar__user" uib-dropdown ng-show="main.user">
+        <li class="nav-item header__nav__navbar__user" uib-dropdown ng-if="main.user">
           <a href uib-dropdown-toggle>
             <img src="//www.gravatar.com/avatar/{{ main.user.email_md5 }}?d=retro" class="img-circle header__nav__navbar__user__avatar" />
           </a>
@@ -44,7 +44,7 @@
         </div>
       </form-->
 
-      <div class="header__nav__navbar__slack nav-item pull-xs-right" ng-show="main.slackStatus">
+      <div class="header__nav__navbar__slack nav-item pull-xs-right" ng-if="main.user && main.slackStatus">
         <h4 class="header__nav__navbar__slack__heading">
           <i class="fa fa-slack"></i>
           <a href="{{ main.slackStatus.hostname }}" target="_blank">Ask for help</a>

@@ -14,9 +14,11 @@
             <td>
               <a ui-sref="main.season.course-materials.show({ id: material.id })">
                 {{ material.title }}
+                <span ng-show="courseMaterials.isSeen(material)" class="text-success small">
+                  <i class="fa fa-check"></i>
+                  Seen
+                </span>
               </a>
-            </td>
-            <td class="text-xs-right">
             </td>
           </tr>
         </tbody>

@@ -21,6 +21,17 @@ module API
             # Retreive the course material
             policy_scope(CourseMaterial).find(params[:id])
           end
+
+          desc 'Add user activity to know we saw this course material'
+          put :seen do
+            authenticate!
+            # Retreive the course material
+            course_material = policy_scope(CourseMaterial).find(params[:id])            
+            # And create an activity with the right taxonomy
+            Activity.find_or_create_by! user: current_user,
+                                        resource: course_material,
+                                        taxonomy: 'seen'
+          end
         end
       end
     end

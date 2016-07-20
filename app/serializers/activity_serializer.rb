@@ -2,6 +2,10 @@ class ActivitySerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
   attributes :id, :user, :season, :resource, :resource_type,
              :points, :taxonomy, :created_at
+
+  # Use associated resources' serializers
+  has_one :resource
+  has_one :user
   # JSON Linked Data Identifier
   # see https://www.w3.org/TR/json-ld/#node-identifiers
   attribute :@id do

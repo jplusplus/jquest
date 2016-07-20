@@ -87,24 +87,22 @@
         font-weight: lighter;
         pointer-events: auto;
 
+        background: darken($brand-primary, 5);
+        display: inline-block;
+        border-radius: $navbar-border-radius $navbar-border-radius 0 0;
+        @include box-shadow(0 -3px 2px 0 rgba(black, .1) inset);
+
         &--active {
           font-weight: bolder;
-        }
-
-        ul &--active a {
           @include box-shadow(none);
           background: $brand-primary;
         }
 
-        a {
+        .btn {
           cursor: pointer;
           color:white;
-          background: darken($brand-primary, 5);
-          display: inline-block;
+          margin:0;
           padding: $navbar-padding-vertical/2 $navbar-padding-horizontal;
-          border-radius: $navbar-border-radius $navbar-border-radius 0 0;
-
-          @include box-shadow(0 -3px 2px 0 rgba(black, .1) inset);
         }
       }
 
@@ -123,10 +121,16 @@
       padding: $line-height * 2rem 0;
       overflow: hidden;
 
+      html body &--loading .container {
+        background:white image-url("text-placeholder.svg") no-repeat 20px 20px;
+        background-size: auto 150px;
+      }
+
       .container {
         padding: $card-spacer-y $card-spacer-x;
-        background:white;
         border-radius: $card-border-radius;
+        background:white;
+        min-height: 300px;
         @include box-shadow(0 1px 2px 0 rgba(black, .1));
 
         h1 {

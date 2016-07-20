@@ -12,16 +12,16 @@ angular.module 'jquest'
       # Restangular API endpoint
       _api: Restangular.all 'course_materials'
       constructor: ->
+        # Get materials
+        @load().then (courseMaterials)=>
+          # Set the scope attribute filtered according the current state
+          @_all = courseMaterials
         # Watch for state changes
         $rootScope.$on "$stateChangeSuccess", =>
           # Close the panel
           do @hide
-          # Get material for this state
-          @load().then (courseMaterials)=>
-            # Set the scope attribute filtered according the current state
-            @_all = courseMaterials
       # Load all
-      load: => @_api.withHttpConfig(cache: yes).getList()
+      load: => @_api.getList()
       # Filter course materials according to the current state
       filterCourseMaterials: (courseMaterials)=>
         _.filter courseMaterials, (courseMaterial)=>
@@ -41,14 +41,27 @@ angular.module 'jquest'
         if selected = @addSelected selected
           # Display the panel if the selected item is different or the panel is not visible
           @toggle not @isOpen(selected) or not @isVisible()
-          # Set if active
-          @_open = Restangular.one('course_materials', selected.id).withHttpConfig(cache: yes).get().$object
+          # Do not any additional resource if the panel is not visible anymore
+          if @isVisible()
+            # Mark it as "seen" virtually (not affecting the real data)
+            selected.seen = yes
+            # Mark it as "seen" on server side
+            Restangular.one('course_materials', selected.id).one('seen').put().finally =>
+              # Set the "_open" attribute with the right course material from the server
+              @_open = Restangular.one('course_materials', selected.id).get().$object
+      unselect: (selected)=>
+        # Close the panel if it is open on the selected item
+        do @hide if @isOpen selected
+        # Find the item
+        _.remove @_selected, id: selected.id
       getOpen: =>
         @_open
       isOpen: (item)=>
         @_open?.id is item.id
       isVisible: =>
         @_visible
+      isSeen: (item)=>
+        item.seen or _.find(@_all, id: item.id)?.seen
       toggle: (visible)=>
         # Save the previous state
         previous = @_visible

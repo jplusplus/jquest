@@ -18,4 +18,9 @@ class CourseMaterial < ActiveRecord::Base
   def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
+
+  # True if the course has been seen by a given user
+  def seenBy?(user)
+    user.activities.exists?(resource: self, taxonomy: 'seen')
+  end
 end

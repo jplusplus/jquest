@@ -15,6 +15,11 @@ class CourseMaterialSerializer < ActiveModel::Serializer
     # Parse the state_params string
     JSON.parse object.state_params unless object.state_params.blank?
   end
+
+  attribute :seen do
+    object.seenBy? scope.current_user
+  end
+
   # JSON Linked Data Identifier
   # see https://www.w3.org/TR/json-ld/#node-identifiers
   attribute :@id do

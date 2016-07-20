@@ -109,6 +109,10 @@
             text-decoration: none;
           }
 
+          &:focus {
+            outline:none;
+          }
+
           &:after {
             content:"";
             height:1.2rem;

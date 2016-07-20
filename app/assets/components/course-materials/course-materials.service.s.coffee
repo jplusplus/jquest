@@ -86,7 +86,7 @@ angular.module 'jquest'
       getAll: =>
         @_all
       hasCourseMaterials: =>
-        !!@_all.length
+        !! @getFiltered().length
       getFiltered: =>
          @filterCourseMaterials @_all
       getSavedSelection: =>

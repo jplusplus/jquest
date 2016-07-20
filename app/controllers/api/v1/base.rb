@@ -7,13 +7,14 @@ module API
       format :json
       formatter :json, Grape::Formatter::ActiveModelSerializers
 
-      mount Activities
-      mount Assignments
-      mount Channels
-      mount CourseMaterials
-      mount Schools
-      mount Seasons
-      mount Users
+      mount API::V1::Activities
+      mount API::V1::Assignments
+      mount API::V1::Channels      
+      mount API::V1::Countries
+      mount API::V1::CourseMaterials
+      mount API::V1::Schools
+      mount API::V1::Seasons
+      mount API::V1::Users
     end
   end
 end

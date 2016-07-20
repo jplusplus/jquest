@@ -17,4 +17,5 @@ angular.module 'jquest', [
   'Devise',
   'cfp.hotkeys',
   'infinite-scroll',
+  'LocalStorageModule'
 ]

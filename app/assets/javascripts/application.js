@@ -22,4 +22,5 @@
 //= require "angular-loading-bar/build/loading-bar.js"
 //= require "flatpickr/dist/flatpickr.min.js"
 //= require "ngInfiniteScroll/build/ng-infinite-scroll.js"
+//= require "angular-local-storage/dist/angular-local-storage.js"
 // endbower

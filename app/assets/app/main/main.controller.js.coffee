@@ -1,5 +1,5 @@
 angular.module 'jquest'
-  .controller 'MainCtrl', (Auth, Menu, seasons, $state, $log, $scope)->
+  .controller 'MainCtrl', (Auth, Menu, Restangular, seasons, $state, $log, $scope, $timeout)->
     'ngInject'
     new class MainCtrl
       # State helpers
@@ -9,6 +9,15 @@ angular.module 'jquest'
       season: seasons.current()
       # Configurable menu instance
       menu: Menu
+      initSlackStatus: =>
+        # Get status from the API
+        Restangular.one('channels').one('status')
+          # Avoid display loading bar for this request
+          .withHttpConfig(ignoreLoadingBar: yes).get().then (status)=>
+            # Status available within the scope
+            @slackStatus = status
+        # Trigger a refresh after a short delay
+        $timeout @initSlackStatus, 30*1000
       # Constructor
       constructor: ->
         # Print out every states
@@ -20,3 +29,5 @@ angular.module 'jquest'
           # User was logged in, or Devise returned
           # previously authenticated session.
           @user = user
+        # Get channel status from the API
+        do @initSlackStatus

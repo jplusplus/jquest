@@ -48,6 +48,23 @@
         }
       }
 
+      &__slack {
+        font-size: 1.1rem;
+        padding-right: $navbar-padding-vertical;
+        height:0;
+        padding-top:.1rem;
+
+        &__heading {
+          font-size:inherit;
+          margin:0;
+        }
+
+        &__details {
+          font-size:.9rem;
+          color:$text-muted;
+        }
+      }
+
       &__search {
         margin-left:1rem;
 

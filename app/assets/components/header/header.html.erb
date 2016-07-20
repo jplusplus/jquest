@@ -33,7 +33,7 @@
         </li>
       </div>
 
-      <form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-xs-down">
+      <!--form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-xs-down">
         <div class="form-group">
           <div class="input-group">
             <input class="form-control  header__nav__navbar__search__input" type="search" placeholder="{{ navbar.search | translate }}" id="input-search">
@@ -42,7 +42,17 @@
             </label>
           </div>
         </div>
-      </form>
+      </form-->
+
+      <div class="header__nav__navbar__slack nav-item pull-xs-right" ng-show="main.slackStatus">
+        <h4 class="header__nav__navbar__slack__heading">
+          <i class="fa fa-slack"></i>
+          <a href="{{ main.slackStatus.hostname }}" target="_blank">Ask for help</a>
+        </h4>
+        <div class="header__nav__navbar__slack__details">
+          {{ main.slackStatus.total }} members, {{ main.slackStatus.active }} online
+        </div>
+      </div>
     </nav>
 
     <div class="header__nav__menu" ng-show="menu.isVisible()">

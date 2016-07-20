@@ -1,0 +1,16 @@
+.flatpickr {
+  color:$body-color;
+
+  &-day.today {
+    border-color:$input-border-focus;
+    &:hover {
+      border-color:$input-border-focus;
+      background:$input-border-focus;
+    }
+  }
+
+  &-day.selected {
+    border-color:$brand-primary;
+    background:$brand-primary;
+  }
+}

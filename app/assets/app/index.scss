@@ -41,6 +41,8 @@
     margin-top:$line-height * .25rem;
     .tooltip-arrow {
       border-bottom-color: $tooltip-arrow-color;
+      bottom:100%;
+      top:auto;
     }
   }
 }

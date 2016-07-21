@@ -1,6 +1,12 @@
 .course-materials {
   background:$brand-primary;
   color:white;
+  @include transition(0.7s);
+
+  &.ng-hide {
+    opacity:0;
+    @include vendor-prefix(transform, translateY(50%) );
+  }
 
   a {
     color:white;

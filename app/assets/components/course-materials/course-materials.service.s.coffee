@@ -27,11 +27,13 @@ angular.module 'jquest'
         @_selected = _.filter @_all, @isSaved
       # Filter course materials according to the current state
       filterCourseMaterials: (courseMaterials)=>
-        _.filter courseMaterials, (courseMaterial)=>
+        _.filter courseMaterials, (item)=>
           # Check the state name
-          courseMaterial.state_name is $state.current.name and
+          item.state_name is $state.current.name and
           # And check the state params
-          @stateContains(courseMaterial.state_params or {})
+          @stateContains(item.state_params or {}) and
+          # Not already selected!
+          not @isSelected item
       # True if the current state contains the given params
       stateContains: (params)->
         for k,value of params
@@ -106,6 +108,13 @@ angular.module 'jquest'
         _.map @_selected, 'id'
       hasSelected: =>
         !!@_selected.length
+      findSelected: (item)=>
+        # Item can be an id or an object
+        id = parseInt(if isNaN(item) then item.id else item)
+        # Find it!
+        _.find @_selected, id: id
+      isSelected: (item)=>
+        !! @findSelected item
       removeSelected: (selected)=>
         # Selected can be an id or an object
         id = if isNaN(selected) then selected.id else selected
@@ -115,7 +124,7 @@ angular.module 'jquest'
         # If we use an ID, we retreive the course
         selected = _.find(@_all, id: parseInt(selected)) unless isNaN selected
         # We add new item
-        @_selected.push(selected) unless not selected? or _.find(@_selected, id: selected.id)
+        @_selected.push(selected) unless not selected? or @isSelected(selected)
         # We return the object
         selected
 

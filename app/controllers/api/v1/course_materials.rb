@@ -9,7 +9,9 @@ module API
             # We allow filtering by status from params
             filter(params.slice(:state_name)).
             # Paginates
-            page(params[:page])
+            page(params[:page]).
+            # Default limit is 25
+            per(params[:limit])
         end
 
         params do
@@ -26,7 +28,7 @@ module API
           put :seen do
             authenticate!
             # Retreive the course material
-            course_material = policy_scope(CourseMaterial).find(params[:id])            
+            course_material = policy_scope(CourseMaterial).find(params[:id])
             # And create an activity with the right taxonomy
             Activity.find_or_create_by! user: current_user,
                                         resource: course_material,

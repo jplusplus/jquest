@@ -36,9 +36,8 @@ Rails.application.configure do
   config.assets.digest = true
 
   config.ng_annotate.process = true
-
   config.ng_annotate.ignore_paths = [
-    Rails.root.join('vendor/').to_s
+    Rails.root.join('vendor').to_s
   ]
 
   # Specifies the header that your server uses for sending files.

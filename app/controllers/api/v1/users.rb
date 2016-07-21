@@ -4,7 +4,11 @@ module API
       resource :users do
         desc "Return list of users"
         get do
-          policy_scope(User).page(params[:page])
+          policy_scope(User).
+            # Paginate
+            page(params[:page]).
+            # Default limit is 25
+            per(params[:limit])
         end
 
         params do

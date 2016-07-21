@@ -10,7 +10,9 @@ module API
             # We allow filtering by status from params
             filter(params.slice(:status)).
             # Paginates
-            page(params[:page])
+            page(params[:page]).
+            # Default limit is 25
+            per(params[:limit])
         end
       end
     end

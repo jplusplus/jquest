@@ -47,10 +47,12 @@ angular.module 'jquest'
           if @toggle( not @isOpen(selected) or not @isVisible() )
             # Mark it as "seen" virtually (not affecting the real data)
             selected.seen = yes
+            # Pre-open the course material (with a partial resource)
+            @_open = selected
             # Mark it as "seen" on server side
             Restangular.one('course_materials', selected.id).one('seen').put().finally =>
               # Set the "_open" attribute with the right course material from the server
-              @_open = Restangular.one('course_materials', selected.id).get().$object
+              @_open.get().then (material)=> @_open = material
           # Update saved selection
           do @saveSelection
       unselect: (selected)=>

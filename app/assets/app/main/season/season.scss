@@ -20,7 +20,12 @@
         font-weight: 100;
         position: relative;
 
-        a { color:inherit; }
+        a {
+          color:inherit;
+          &:before {
+            display: none;
+          }
+        }
 
         &:after {
           width:2rem;

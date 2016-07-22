@@ -16,5 +16,9 @@
     &:hover em {
       text-decoration: none;
     }
+
+    &:before {
+      display: none;
+    }
   }
 }

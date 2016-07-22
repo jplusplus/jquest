@@ -15,6 +15,10 @@
   &__nav {
     background: $card-bg;
 
+    &__brand {
+      font-family: $headings-font-family;
+    }
+
     &__navbar {
 
       &__hamburger {

@@ -62,6 +62,10 @@
     border-left:  .25rem solid $blockquote-border-color;
   }
 
+  .lead {
+    font-family: $lead-font-family;
+  }
+
   &--has-overlay {
     @include media-breakpoint-down(sm) {
       overflow: hidden;

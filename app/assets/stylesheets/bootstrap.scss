@@ -22,9 +22,6 @@ $brand-warning: #FFD582;
 $brand-danger:#9E484F;
 $link-color: #3D1C3D;
 
-// Headings
-//
-$headings-font-weight: 500;
 
 // States
 //
@@ -43,7 +40,17 @@ $state-danger-text: #fff;
 // Fonts
 //
 $line-height: 1.5 !default;
-$font-family-sans-serif: "Fira Sans", "Droid Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", Arial, sans-serif;
+$font-family-sans-serif: "Helvetica Neue", Arial, sans-serif;
+
+// Headings
+//
+$headings-font-weight: 500;
+$headings-font-family: "Fira Sans", "Droid Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", Arial, sans-serif;
+
+// Lead
+//
+$lead-font-family: $headings-font-family;
+
 
 // Cards
 //

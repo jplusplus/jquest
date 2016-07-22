@@ -30,6 +30,8 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_theme'
 gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
 gem "active_admin-sortable_tree"
+# Advanced search
+gem 'ransack'
 # Specials fields
 gem 'country_select'
 gem 'enumerize'

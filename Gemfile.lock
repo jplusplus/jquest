@@ -455,6 +455,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails-erd
   rails_12factor
+  ransack
   redcarpet
   sass-css-importer
   sass-rails (= 5.0.4)

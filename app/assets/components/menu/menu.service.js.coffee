@@ -29,8 +29,8 @@ angular.module 'jquest'
         previous = @_visible
         # Do we receive a value? If not, we take the opposite of the current one
         @_visible = if visible? then visible else not @_visible
-        # Hide course materials panel
-        do CourseMaterials.hide
+        # Hide menu when showing course materials panel
+        $rootScope.$on 'course-materials:show', @hide
         # The visibility changed
         if previous isnt @_visible
           # Broadcast an event

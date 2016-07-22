@@ -18,6 +18,8 @@ angular.module 'jquest'
         @load().then @save
         # Watch for state changes to close the panel
         $rootScope.$on "$stateChangeSuccess", @hide
+        # Hide panel when showing menu
+        $rootScope.$on 'menu:show', @hide
       # Load all
       load: =>
         @_api.getList()

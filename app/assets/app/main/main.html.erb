@@ -40,5 +40,5 @@
 <div class="body__overlay"
      ng-swipe-left="menu.hide()"
      ng-swipe-down="courseMaterials.hide()"
-     ng-click="menu.hide() && courseMaterials.hide()"
-     ng-show="menu.isVisible() || courseMaterials.isVisible() "></div>
+     ng-click="menu.hide(); courseMaterials.hide()"
+     ng-show="menu.isVisible() || courseMaterials.isVisible()"></div>

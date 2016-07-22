@@ -59,6 +59,10 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_admin-sortable_tree (0.2.1)
+      activeadmin (>= 0.6)
+      jquery-ui-rails (~> 5.0)
+      rails (>= 3.2)
     active_admin_theme (1.0.3)
     active_model_serializers (0.10.0)
       actionpack (>= 4.0)
@@ -418,6 +422,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_admin-sortable_tree
   active_admin_import!
   active_admin_theme
   active_model_serializers (~> 0.10.0)

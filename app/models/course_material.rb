@@ -14,6 +14,14 @@ class CourseMaterial < ActiveRecord::Base
     markdown.render body
   end
 
+  def sortable_title
+    if category
+      "#{title}&nbsp;<em class='small'>#{category}</em>".html_safe
+    else
+      title
+    end
+  end
+
   # Create a markdown rendered (once by class instance)
   def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)

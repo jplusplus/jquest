@@ -17,5 +17,6 @@ angular.module 'jquest', [
   'Devise',
   'cfp.hotkeys',
   'infinite-scroll',
-  'LocalStorageModule'
+  'LocalStorageModule',
+  'gridshore.c3js.chart'
 ]

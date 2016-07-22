@@ -23,4 +23,7 @@
 //= require "flatpickr/dist/flatpickr.min.js"
 //= require "ngInfiniteScroll/build/ng-infinite-scroll.js"
 //= require "angular-local-storage/dist/angular-local-storage.js"
+//= require "d3/d3.js"
+//= require "c3/c3.js"
+//= require "c3-angular/c3-angular.min.js"
 // endbower

@@ -22,7 +22,7 @@ angular.module 'jquest'
         $rootScope.$on 'menu:show', @hide
       # Load all
       load: =>
-        @_api.getList()
+        @_api.getList(limit: 100)
       save: (all)=>
         # Set the scope attribute filtered according the current state
         @_all = all

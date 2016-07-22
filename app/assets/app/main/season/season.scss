@@ -74,6 +74,11 @@
         height:.5rem;
         z-index:100;
         @include gradient-vertical($brand-primary, rgba($brand-primary, 0));
+
+        @media (max-width: 720px) {
+          left:0;
+          right:0;
+        }
       }
 
       ul {
@@ -164,6 +169,12 @@
           margin-bottom:1em;
 
           border-bottom:1px solid $gray-lighter;
+        }
+
+        img {
+          max-width: 80%;
+          display: block;
+          margin:auto;
         }
       }
     }

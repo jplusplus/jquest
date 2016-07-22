@@ -17,6 +17,11 @@ angular.module 'jquest'
       constructor: ->
         @_items = []
         @_visible = no
+        @_has_search = no
+      search: angular.noop
+      hasSearch: => @_has_search
+      setSearchFn:  (fn)=>
+        @_has_search = !!(@search = fn)
       isVisible: =>
         @_visible
       toggle: (visible)=>

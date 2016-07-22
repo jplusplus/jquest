@@ -33,16 +33,21 @@
         </li>
       </div>
 
-      <!--form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-xs-down">
+      <form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-xs-down"
+            ng-submit="menu.search(header.q)"
+            ng-if="menu.hasSearch()">
         <div class="form-group">
           <div class="input-group">
-            <input class="form-control  header__nav__navbar__search__input" type="search" placeholder="{{ navbar.search | translate }}" id="input-search">
+            <input class="form-control  header__nav__navbar__search__input"
+                   type="text"
+                   ng-model="header.q"
+                   placeholder="{{ navbar.search | translate }}" id="input-search">
             <label class="input-group-addon header__nav__navbar__search__addon" for="input-search">
               <i class="fa fa-search"></i>
             </label>
           </div>
         </div>
-      </form-->
+      </form>
 
       <div class="header__nav__navbar__slack nav-item pull-xs-right" ng-if="main.user && main.slackStatus">
         <h4 class="header__nav__navbar__slack__heading">

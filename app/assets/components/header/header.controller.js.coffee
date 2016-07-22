@@ -1,5 +1,5 @@
 angular.module 'jquest'
-  .controller 'HeaderCtrl', (Menu, Seasons, $scope)->
+  .controller 'HeaderCtrl', (Menu, Seasons, $scope, $state)->
     'ngInject'
     new class HeaderCtrl
       constructor: ->

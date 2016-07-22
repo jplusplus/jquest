@@ -7,10 +7,10 @@
       </p>
     </div>
     <div>
-      <table ng-repeat="(category, materials) in cm.categories" class="table table-striped">
-        <caption class="text-xs-center">{{ category || 'Other' }}</caption>
+      <table ng-repeat="category in cm.categories" class="table table-striped">
+        <caption class="text-xs-center">{{ category[0] || 'Other' }}</caption>
         <tbody class="">
-          <tr ng-repeat="material in materials">
+          <tr ng-repeat="material in category[1]">
             <td>
               <a ui-sref="main.season.course-materials.show({ id: material.id })">
                 {{ material.title }}

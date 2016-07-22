@@ -1,7 +1,7 @@
 class CourseMaterialSerializer < ActiveModel::Serializer
   # Do build hypermedia link
   include Rails.application.routes.url_helpers
-  attributes :id, :title, :state_name, :body_html, :category
+  attributes :id, :title, :state_name, :body_html, :category, :position
 
   def attributes(*args)
     if instance_options[:include_body]

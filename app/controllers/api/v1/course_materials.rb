@@ -6,6 +6,8 @@ module API
         get do
           authenticate!
           policy_scope(CourseMaterial).
+            # Sort by position
+            order(:position).
             # We allow filtering by status from params
             filter(params.slice(:state_name)).
             # Paginates

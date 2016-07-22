@@ -2,6 +2,7 @@ class CourseMaterial < ActiveRecord::Base
   extend Enumerize
   # Add a filter method to the scope
   include Filterable
+  
   enumerize :status, :in => [:draft, :published], :default => :draft
   serialize :state_params, JSON
 

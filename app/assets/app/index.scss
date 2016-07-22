@@ -55,6 +55,13 @@
     cursor: pointer;
   }
 
+  blockquote {
+    padding: 0 $spacer;
+    margin-bottom: $spacer;
+    font-size: $blockquote-font-size;
+    border-left:  .25rem solid $blockquote-border-color;
+  }
+
   &--has-overlay {
     @include media-breakpoint-down(sm) {
       overflow: hidden;

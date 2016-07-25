@@ -1,12 +1,32 @@
 <div class="main__season__course-materials container">
   <div class="card">
     <div class="card-block">
-      <h3 class="card-title">Course materials</h3>
+      <div class="row">
+        <div class="card-title col-xs-9">
+          <h3>Course materials</h3>
+        </div>
+        <form class="col-xs-3 main__season__course-materials__search">
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control form-control-sm" placeholder="Find a course material" ng-model="cm.search" />
+            <label class="input-group-addon main__season__course-materials__search__addon" for="input-search">
+              <i class="fa fa-search"></i>
+            </label>
+          </div>
+        </form>
+      </div>
       <p class="lead">
         Those documents help you to achieve your mission by learning the best datajournalism techniques.
       </p>
     </div>
     <div>
+      <div class="alert alert-warning main__season__course-materials__filter-warning" ng-if="cm.search">
+        Those course materials are filtered.
+        <a class="alert-link" ng-click="cm.search = null">
+          <i class="fa fa-times"></i>
+          Reset
+        </a>
+      </div>
+
       <table ng-repeat="category in cm.categories" class="table table-striped">
         <caption class="text-xs-center">{{ category[0] || 'Other' }}</caption>
         <tbody class="">

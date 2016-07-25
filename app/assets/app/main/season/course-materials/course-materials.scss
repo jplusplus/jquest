@@ -1,7 +1,27 @@
 .main__season__course-materials {
 
   padding-top:1rem * $line-height;
-  
+
+  &__search {
+    display: block;
+
+    & &__input {
+      border-radius:2rem;
+      z-index:5;
+      position:relative;
+      padding-right:2em;
+    }
+
+    & &__addon {
+      border:0;
+      background:0;
+      position:absolute;
+      z-index:10;
+      right:1em;
+      top:50%;
+    }
+  }
+
   &__filter-warning {
     text-align: center;
     margin:0;

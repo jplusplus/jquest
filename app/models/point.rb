@@ -14,4 +14,12 @@ class Point < ActiveRecord::Base
   def position
     Point.where(season: season).where('value < ?', value).distinct.pluck(:value).length + 1
   end
+
+  def next_level
+    update level: level + 1, round: 1
+  end
+
+  def next_round
+    update round: round + 1
+  end
 end

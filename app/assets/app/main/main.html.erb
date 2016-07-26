@@ -7,7 +7,7 @@
         <div class="col-sm-6 main__intro__headline">
           <h1>Enroll in jQuest</h1>
           <p class="lead">
-            jQuest is a platform for journalism schools to teach datajournalism. It let hundreds of students across Europe come together and join forces to investigate. 
+            jQuest is a platform for journalism schools to teach datajournalism. It let hundreds of students across Europe come together and join forces to investigate.
           </p>
         </div>
         <div class="col-sm-5 col-sm-push-1 main__intro__form" ng-init="main.iam = 'school'">
@@ -22,15 +22,17 @@
           <div ng-switch="main.iam" class="text-muted">
             <div ng-switch-when="school">
               <p>You can use jQuest either as a stand-alone datajournalism module, as support for your current datajournalism class or as an introduction. jQuest comes with 40+ courses that you can share with your students.</p>
-              <a class="btn btn-secondary" href="mailto:enroll@jquestapp.com">
-                <i class="fa fa-envelope-o"></i>&nbsp;
-                enroll@jquestapp.com
-              </a>
             </div>
             <div ng-switch-when="student">
               <p>Curious about jQuest? Want to connect with hundreds of fellow future journalists in 15+ countries? Ask us for an account or lobby your school to get you in!</p>
             </div>
           </div>
+          <p>
+            <a class="btn btn-secondary" href="mailto:enroll@jquestapp.com">
+              <i class="fa fa-envelope-o"></i>&nbsp;
+              enroll@jquestapp.com
+            </a>
+          </p>
         </div>
       </div>
     </div>

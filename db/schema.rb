@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722080318) do
+ActiveRecord::Schema.define(version: 20160726114608) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -136,6 +136,8 @@ ActiveRecord::Schema.define(version: 20160722080318) do
     t.integer "user_id"
     t.integer "season_id"
     t.integer "value",     default: 0
+    t.integer "level",     default: 1
+    t.integer "round",     default: 1
   end
 
   add_index "points", ["season_id"], name: "index_points_on_season_id"

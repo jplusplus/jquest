@@ -1,42 +1,43 @@
 <div ng-include="'header/header.html'"></div>
+
 <div class="main" ui-view>
-  <br />
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card" ng-repeat="i in [1,2,3]">
-          <div class="card-block">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-block">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
+  <div class="main__intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 main__intro__headline">
+          <h1>Enroll in jQuest</h1>
+          <p class="lead">
+            Thousands of students already join jQuest: the best place to aquire
+            the basics of datajournalism with a learn-as-you-go platform.
+          </p>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-block">
-            <h3 class="card-title">{{ 'main.title' | translate }}</h3>
-            Lorem ispum
-          </div>
-          <div class="card-footer text-xs-right">
-            <button class="btn btn-primary">
-              Do nothing
-            </button>
+        <div class="col-sm-5 col-sm-push-1 main__intro__form" ng-init="main.iam = 'school'">
+          <label class="lead">
+            <input type="radio" ng-model="main.iam" value="school" />
+            I'm representing a school
+          </label>
+          <label class="lead">
+            <input type="radio" ng-model="main.iam" value="student" />
+            I'm a student
+          </label>
+          <div ng-switch="main.iam" class="text-muted">
+            <div ng-switch-when="school">
+              <p>Lando solo moff skywalker hutt. Greedo gonk secura leia mandalore skywalker. Antilles skywalker c-3po utapau zabrak. Darth anakin ponda jabba calamari padmé.</p>
+              <button class="btn btn-secondary">
+                <i class="fa fa-envelope-o"></i>&nbsp;
+                enroll@jquestapp.org
+              </button>
+            </div>
+            <div ng-switch-when="student">
+              <p>Jinn jade wicket r2-d2 obi-wan cade hutt padmé antilles. Wicket moff solo kenobi. Solo zabrak coruscant twi'lek mandalore skywalker wedge yoda. Calrissian luke wampa luke luuke yoda organa sidious qui-gon. Solo lando obi-wan yoda moff jinn dooku.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
+
 <div class="body__overlay"
      ng-swipe-left="menu.hide()"
      ng-swipe-down="courseMaterials.hide()"

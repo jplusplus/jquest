@@ -24,4 +24,56 @@
       }
     }
   }
+
+  &__intro {
+    padding-top:calc(#{$navbar-height} + 15vh);
+    color: white;
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+
+    &:before {
+      content: "";
+      z-index:0;
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background: black url("http://static.jquestapp.com/images/red-school-blur-factory.jpg") center center;
+      background-size:cover;
+      @include vendor-prefix(filter, brightness(.6));
+    }
+
+    &__headline {
+      background:image-url("arrow-separator-reverse-white.svg") no-repeat right center;
+      background-size:10px auto;
+    }
+
+    &__form {
+      padding-top:$spacer;
+      padding-bottom:$spacer;
+      background: rgba(#511D1F, .5);
+      @include box-shadow(0 2px 5px 1px rgba(black, .3));
+
+      .text-muted {
+        color:rgba(white, .5);
+      }
+
+      .btn.btn-secondary {
+        background:none;
+        border:2px solid white;
+        color:white;
+        border-radius: $line-height * 1em;
+        margin-top: $line-height * 1em;
+      }
+    }
+
+    label {
+      margin-right:1em;
+    }
+  }
+
 }

@@ -45,7 +45,8 @@
         text-transform:uppercase;
         font-weight: 800;
         font-size: .9rem;
-        margin-top: .1rem;
+        @include vendor-prefix(transform, translateY(.1rem) );
+
         li.nav-item a.nav-link {
           padding-bottom: 0;
         }

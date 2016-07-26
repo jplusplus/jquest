@@ -33,8 +33,10 @@
     bottom:0;
     left:0;
     right:0;
+    background: $brand-primary;
 
     &:before {
+      opacity:.6;
       content: "";
       z-index:0;
       position: absolute;
@@ -44,7 +46,7 @@
       bottom:0;
       background: black url("http://static.jquestapp.com/images/red-school-blur-factory.jpg") center center;
       background-size:cover;
-      @include vendor-prefix(filter, brightness(.6));
+      @include vendor-prefix(filter, brightness(.5));
     }
 
     &__headline {
@@ -53,10 +55,10 @@
     }
 
     &__form {
+      position: relative;
+      z-index:10;
       padding-top:$spacer;
       padding-bottom:$spacer;
-      background: rgba(#511D1F, .5);
-      @include box-shadow(0 2px 5px 1px rgba(black, .3));
 
       .text-muted {
         color:rgba(white, .5);

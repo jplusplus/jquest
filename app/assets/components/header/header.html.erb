@@ -8,11 +8,20 @@
           </span>
         </a>
       </div>
+      
       <div class="navbar-brand header__nav__navbar__brand">
         <a href="/">jQuest</a>
       </div>
 
-      <div class="nav navbar-nav pull-xs-right">
+      <ul class="nav navbar-nav header__nav__navbar__links">
+        <li class="nav-item">
+          <a href="http://blog.jquestapp.com" target="_blank"  class="nav-link">
+            Blog
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item header__nav__navbar__user" uib-dropdown ng-if="main.user">
           <a href uib-dropdown-toggle>
             <img src="//www.gravatar.com/avatar/{{ main.user.email_md5 }}?d=retro" class="img-circle header__nav__navbar__user__avatar" />
@@ -29,9 +38,9 @@
           </div>
         </li>
         <li class="nav-item" ng-hide="main.user">
-          <a class="nav-link" href="/users/sign_in" translate>header.nav.login</a>
+          <a class="nav-link btn btn-warning" href="/users/sign_in" translate>header.nav.login</a>
         </li>
-      </div>
+      </ul>
 
       <form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-xs-down"
             ng-submit="menu.search(header.q)"

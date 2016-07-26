@@ -15,9 +15,6 @@
   &__nav {
     background: $card-bg;
 
-    &__brand {
-      font-family: $headings-font-family;
-    }
 
     &__navbar {
 
@@ -25,6 +22,33 @@
         float:left;
         transform: translateY(.5rem);
         padding-right:2rem;
+      }
+
+      &__brand {
+        font-family: $headings-font-family;
+        padding-right:1rem;
+        position: relative;
+
+        &:before {
+          content:"";
+          position: absolute;
+          left:100%;
+          top:50%;
+          height: $line-height * 1rem;
+          width:1px;
+          background: $navbar-light-color;
+          @include vendor-prefix(transform, translateY(-50%));
+        }
+      }
+
+      &__links {
+        text-transform:uppercase;
+        font-weight: 800;
+        font-size: .9rem;
+        margin-top: .1rem;
+        li.nav-item a.nav-link {
+          padding-bottom: 0;
+        }
       }
 
       &__user {

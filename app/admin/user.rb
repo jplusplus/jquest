@@ -11,7 +11,6 @@ ActiveAdmin.register User do
     validate: false
   })
 
-
   batch_action :invite do |ids, inputs|
     User.find(ids).each do |user|
       user.invite!

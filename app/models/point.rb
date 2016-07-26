@@ -21,5 +21,17 @@ class Point < ActiveRecord::Base
 
   def next_round
     update round: round + 1
+    puts '>>>>>>>>>>>>>>>>>>>> UPDATE ROUND', round
+  end
+
+  def reset
+    # Remove all activities
+    Activity.destroy_all user: user, season: season
+    # Remove all assignments
+    Assignment.destroy_all user: user, season: season
+    # Start over
+    update level: 1, round: 1
+    # Get new assignments
+    season.controller.new.new_assignments! user
   end
 end

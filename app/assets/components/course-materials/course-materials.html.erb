@@ -1,9 +1,9 @@
 <div class="course-materials card card-inverse"  ng-show="courseMaterials.hasCourseMaterials()">
   <div class="card-block card-text">
     <h3 class="card-title">
-      <i class="fa fa-graduation-cap"></i> Course Materials
+      <i class="fa fa-graduation-cap"></i> Course Material
     </h3>
-    <p>Those documents help you to achieve your mission by learning the best datajournalism techniques.</p>
+    <p>Those links contain topical information on a specific aspect of datajournalism, they'll help you carry out your mission.</p>
     <ul>
       <li ng-repeat="courseMaterial in courseMaterials.getFiltered()">
         <a ng-click="courseMaterials.select(courseMaterial)">

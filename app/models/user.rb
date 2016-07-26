@@ -70,6 +70,12 @@ class User < ActiveRecord::Base
     roles.map(&:to_sym).include? role.to_sym
   end
 
+  def reset!
+    points.each do |point|
+      point.reset!
+    end
+  end
+
   def send_two_factor_authentication_code
     #send sms with code!
     p "=> Your OTP code for #{email}:  #{otp_code}"

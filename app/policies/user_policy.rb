@@ -46,6 +46,10 @@ class UserPolicy  < ApplicationPolicy
     create? or @user == @model
   end
 
+  def reset?
+    @user and @user.role? :teacher, :admin
+  end
+
   def destroy?
     @user and @user.role? :admin
   end

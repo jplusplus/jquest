@@ -20,12 +20,36 @@ ActiveAdmin.register User do
     }
   end
 
+  batch_action :reset, confirm: "This will remove every activities for the selected user(s)" do |ids, inputs|
+    User.find(ids).each do |user|
+      user.reset!
+    end
+    redirect_to collection_path, :flash =>{
+      :notice =>  ids.length.to_s + ' user'.pluralize(ids.length) + ' restored.'
+    }
+  end
+
+  member_action :reset, method: :get do
+    resource.reset!
+    redirect_to resource_path, notice: "Restored to initial state"
+  end
+
+  action_item :reset, only: :show do
+    link_to 'Reset User', reset_admin_user_path
+  end
+
   index do
     selectable_column
     id_column
     column :email
     column :phone_number
     column :group
+    column :level do |user|
+      user.points.find_or_create_by(season: user.member_of).level
+    end
+    column :round do |user|
+      user.points.find_or_create_by(season: user.member_of).round
+    end
     column :home_country
     column :spoken_language
     actions

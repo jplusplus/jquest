@@ -10,3 +10,6 @@ angular.module 'jquest'
           seasons: (Seasons)->
             'ngInject'
             Seasons.ready()
+          seasonRestangular: (seasonRestangular)->
+            'ngInject'
+            seasonRestangular.ready()

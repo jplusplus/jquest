@@ -8,23 +8,26 @@
         </span>
       </div>
       <div class="col-xs-6 text-xs-right">
-        <span ng-bind-html=" 'header.activity.points' | translate:{ points: main.season.progression.points }"></span>
-        <span>&nbsp;/&nbsp;{{ main.season.progression.position }}</span>
-        <span ng-switch="position[ position.length - 1 ]" ng-init="position = main.season.progression.position + ''">
-          <sup ng-switch-when="1">
-            st
-          </sup>
-          <sup ng-switch-when="2">
-            nd
-          </sup>
-          <sup ng-switch-when="3">
-            rd
-          </sup>
-          <sup ng-switch-default>
-            th
-          </sup>
+        <span class="animated"
+             ng-class="{ 'rubberBand': season.seeksAttentionOnPoint(main.season.progression.points) }">
+          <span ng-bind-html=" 'header.activity.points' | translate:{ points: main.season.progression.points }"></span>
+          <span>&nbsp;/&nbsp;{{ main.season.progression.position }}</span>
+          <span ng-switch="position[ position.length - 1 ]" ng-init="position = main.season.progression.position + ''">
+            <sup ng-switch-when="1">
+              st
+            </sup>
+            <sup ng-switch-when="2">
+              nd
+            </sup>
+            <sup ng-switch-when="3">
+              rd
+            </sup>
+            <sup ng-switch-default>
+              th
+            </sup>
+          </span>
+          <i class="fa fa-trophy"></i>
         </span>
-        <i class="fa fa-trophy"></i>
       </div>
     </div>
   </div>

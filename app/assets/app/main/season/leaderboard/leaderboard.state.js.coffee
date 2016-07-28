@@ -8,6 +8,7 @@ angular.module 'jquest'
         controller: 'MainSeasonLeaderboardCtrl'
         controllerAs: 'leaderboard'
         resolve:
+          $title: -> 'Leaderboard'
           seasonId: (seasons)->
             'ngInject'
             # Get current season id

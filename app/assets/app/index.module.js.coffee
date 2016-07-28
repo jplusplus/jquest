@@ -9,6 +9,7 @@ angular.module 'jquest', [
   'ngAria',
   'restangular',
   'ui.router',
+  'ui.router.title',
   'ui.bootstrap',
   'pascalprecht.translate',
   'jquest.template',

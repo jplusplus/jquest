@@ -26,4 +26,5 @@
 //= require "d3/d3.js"
 //= require "c3/c3.js"
 //= require "c3-angular/c3-angular.min.js"
+//= require "angular-ui-router-title/angular-ui-router-title.js"
 // endbower

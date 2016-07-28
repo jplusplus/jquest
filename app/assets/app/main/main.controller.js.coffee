@@ -9,6 +9,15 @@ angular.module 'jquest'
       season: seasons.current()
       # Configurable menu instance
       menu: Menu
+      positionAbbr: (position)=>
+        # Position to string
+        position = position + ''
+        # Choose according the last char
+        switch position[ position.length - 1 ]
+          when '1' then 'st'
+          when '2' then 'nd'
+          when '3' then 'rd'
+          else 'th'
       initSlackStatus: =>
         # Get status from the API
         Restangular.one('channels').one('status')

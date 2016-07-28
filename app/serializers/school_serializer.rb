@@ -1,6 +1,6 @@
 class SchoolSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :name, :country, :country_name
+  attributes :id, :name, :country, :country_name, :points_sum_by_season
   # JSON Linked Data Identifier
   # see https://www.w3.org/TR/json-ld/#node-identifiers
   attribute :@id do

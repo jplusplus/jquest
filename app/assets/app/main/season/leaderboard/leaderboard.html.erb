@@ -6,8 +6,50 @@
           <h3>Leaderboard</h3>
         </div>
         <p class="lead">
-          Vader owen jinn ackbar amidala moff luuke dantooine boba.
+          You are {{ main.season.progression.position }}{{ main.positionAbbr(main.season.progression.position) }}.
+          Your schoolmates are in brown.
+        </p>
+        <div class="main__season__leaderboard__overview">
+          <div ng-repeat="point in leaderboard.points track by $index"
+               class="main__season__leaderboard__overview__user"
+               ng-class="{
+                 'main__season__leaderboard__overview__user--schoolmate': leaderboard.isSchoolmate(point),
+                 'main__season__leaderboard__overview__user--you': leaderboard.isYou(point)
+               }">
+            <div class="main__season__leaderboard__overview__user__label">
+              <span ng-if="leaderboard.isYou(point)">You with</span>
+              {{ point.value }} pts
+            </div>
+          </div>
+        </div>
+        <p class="lead">
+          Your school is {{ leaderboard.userSchool.position }}{{ main.positionAbbr(leaderboard.userSchool.position) }}
+          out of {{ leaderboard.schools.length }}.
         </p>
       </div>
+      <table class="small table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 1vw"></th>
+            <th>School</th>
+            <th>Total points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="school in leaderboard.schools" ng-class="{ 'table-warning': school.id == leaderboard.userSchool.id }">
+            <td>
+              {{ school.position }}{{ main.positionAbbr(school.position) }}
+            </td>
+            <td>
+              <strong>{{ school.id }}</strong>
+              <strong>{{ school.name }}</strong>
+            </td>
+            <td>
+              {{ school.points }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

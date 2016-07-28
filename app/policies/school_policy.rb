@@ -13,4 +13,8 @@ class SchoolPolicy  < AdminPolicy
     @user and @user.role? :admin
   end
 
+  def index?
+    @user
+  end
+
 end

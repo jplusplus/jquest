@@ -7,3 +7,16 @@ angular.module 'jquest'
         url: 'leaderboard'
         controller: 'MainSeasonLeaderboardCtrl'
         controllerAs: 'leaderboard'
+        resolve:
+          seasonId: (seasons)->
+            'ngInject'
+            # Get current season id
+            seasons.current().id
+          schools: (Restangular, seasonId)->
+            'ngInject'
+            # Get all schools for this season
+            Restangular.all('schools').getList limit: 1e4
+          points: (Restangular, seasonId)->
+            'ngInject'
+            # Get all point for this season
+            Restangular.all('points').getList limit: 1e4, season_id_eq: seasonId

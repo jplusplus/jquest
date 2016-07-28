@@ -1,9 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :email_md5, :role, :points, :school
+  attributes :id, :email_md5, :role, :points, :school_id
   attribute :email, if: :is_current_user?
-
-  has_one :school
 
   def is_current_user?
     object == scope.current_user

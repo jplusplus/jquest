@@ -2,4 +2,59 @@
   padding:1rem * $line-height 0;
   margin-bottom:-1.5rem * $line-height;
   min-height: calc(100vh - #{$navbar-height} - 2rem - 1px);
+
+  &__overview {
+    display: table;
+    table-layout: fixed;
+    height:10vh;
+    width: 100%;
+    margin-bottom: $line-height * 2rem;
+
+    &__user {
+      display: table-cell;
+      position: relative;
+      background:$card-cap-bg;
+
+      &--schoolmate {
+        background:$body-color;
+      }
+
+      &--you {
+        z-index:10;
+        background:$brand-warning;
+
+        &:after {
+          content:"";
+          position: absolute;
+          left:-.2em;
+          right:-.2em;
+          bottom:-.2em;
+          top:-.2em;
+          background:rgba($brand-warning, .5)
+        }
+      }
+
+      &__label {
+        border-radius:.5rem;
+        background: inherit;
+        position: absolute;
+        top:100%;
+        left:50%;
+        margin-top:1vh;
+        padding:.2em .4em;
+        font-size:.9em;
+        white-space: nowrap;
+        display: none;
+        @include vendor-prefix(transform, translateX(-50%) );
+      }
+
+      &--schoolmate &__label {
+        color: $card-cap-bg;
+      }
+
+      &:hover &__label, &--you &__label {
+        display: block;
+      }
+    }
+  }
 }

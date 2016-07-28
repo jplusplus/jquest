@@ -34,18 +34,22 @@
         font-weight: 100;
         position: relative;
 
-        &:after {
-          width:.7rem;
-          height:.7rem;
-          display: block;
-          content:"";
-          position: absolute;
-          left:100%;
-          top:50%;
-          border:2px solid rgba($card-bg, .2);
-          border-left:0;
-          border-bottom:0;
-          @include vendor-prefix(transform, translate(.5rem, -50%) rotate(45deg) );
+        &:not(:last-child) {
+          margin-right: 2em;
+
+          &:after {
+            width:.7rem;
+            height:.7rem;
+            display: block;
+            content:"";
+            position: absolute;
+            left:100%;
+            top:50%;
+            border:2px solid rgba($card-bg, .2);
+            border-left:0;
+            border-bottom:0;
+            @include vendor-prefix(transform, translate(.5rem, -50%) rotate(45deg) );
+          }
         }
       }
     }

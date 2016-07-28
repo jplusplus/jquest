@@ -7,6 +7,8 @@ angular.module 'jquest'
         url: 'course-materials'
         controller: 'MainSeasonCourseMaterialsCtrl'
         controllerAs: 'cm'
+        resolve:
+          $title: -> 'Course Materials'
       .state 'main.season.course-materials.show',
         url: '/:id'
         controller: ($scope, $stateParams, $state, CourseMaterials)->

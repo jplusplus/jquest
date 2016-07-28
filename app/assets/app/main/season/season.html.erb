@@ -6,6 +6,9 @@
         <span class="main__season__activity__wrapper__title">
           <a ng-href="{{ main.season.engine.root_path }}">{{ main.season.name }}</a>
         </span>
+        <span class="main__season__activity__wrapper__title" ng-repeat="crumb in $breadcrumbs">
+          {{ crumb.title }}
+        </span>
       </div>
       <div class="col-xs-6 text-xs-right">
         <a class="animated"

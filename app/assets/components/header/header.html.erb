@@ -13,17 +13,17 @@
         <a href="/">jQuest</a>
       </div>
 
-      <ul class="nav navbar-nav header__nav__navbar__links">
+      <ul class="nav navbar-nav header__nav__navbar__links hidden-xs-down">
         <li class="nav-item">
           <a href="http://www.jplusplus.org/en/paris-berlin" target="_blank"  class="nav-link">
             by Journalism++
           </a>
         </li>
-          <li class="nav-item">
-            <a href="http://blog.jquestapp.com" target="_blank"  class="nav-link">
-              Blog
-            </a>
-          </li>
+        <li class="nav-item">
+          <a href="http://blog.jquestapp.com" target="_blank"  class="nav-link">
+            Blog
+          </a>
+        </li>
       </ul>
 
       <ul class="nav navbar-nav pull-xs-right">
@@ -63,7 +63,7 @@
         </div>
       </form>
 
-      <div class="header__nav__navbar__slack nav-item pull-xs-right" ng-if="main.user && main.slackStatus">
+      <div class="header__nav__navbar__slack nav-item pull-xs-right hidden-xs-down" ng-if="main.user && main.slackStatus">
         <h4 class="header__nav__navbar__slack__heading">
           <i class="fa fa-slack"></i>
           <a href="{{ main.slackStatus.hostname }}" target="_blank">Ask for help</a>

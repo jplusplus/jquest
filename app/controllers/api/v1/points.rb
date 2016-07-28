@@ -9,7 +9,9 @@ module API
           optional :user_school_id_eq, type: Integer
         end
         get do
-          policy_scope(Point).
+          policy_scope(Point).        
+            # Only positive points
+            where('value > ?', 0).
             # We allow filtering
             search(declared params).
             result.

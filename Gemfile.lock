@@ -27,8 +27,9 @@ GIT
       sass-rails
       sprockets (< 4)
 
-PATH
-  remote: ../jquest-pg
+GIT
+  remote: git://github.com/jplusplus/jquest-pg.git
+  revision: f90830e9a2c77ef1fb834637aa701a3db8f04366
   specs:
     jquest_pg (0.0.8)
       active_model_serializers (~> 0.10.0)

@@ -12,7 +12,7 @@ class Point < ActiveRecord::Base
   end
 
   def position
-    Point.where(season: season).where('value < ?', value).distinct.pluck(:value).length + 1
+    Point.where(season: season).where('value > ?', value).distinct.pluck(:value).length + 1
   end
 
   def next_level

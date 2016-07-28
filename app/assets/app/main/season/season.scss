@@ -6,8 +6,6 @@
     position: relative;
     z-index:50;
     overflow: hidden;
-    @include box-shadow(0 1px 2px 0 rgba(black, .1));
-
     span.animated {
       display: inline-block;
     }
@@ -37,17 +35,17 @@
         }
 
         &:after {
-          width:2rem;
-          height:2rem;
+          width:.7rem;
+          height:.7rem;
           display: block;
           content:"";
           position: absolute;
           left:100%;
           top:50%;
-          border:1px solid $card-bg;
+          border:2px solid rgba($card-bg, .2);
           border-left:0;
           border-bottom:0;
-          @include vendor-prefix(transform, translate(-50%, -50%) rotate(45deg) );
+          @include vendor-prefix(transform, translate(.5rem, -50%) rotate(45deg) );
         }
       }
     }

@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   permit_params :email, :phone_number, :password, :password_confirmation,
                 :otp_required_for_login, :home_country, :spoken_language,
                 :role, :created_at, :updated_at, :confirmed_at, :invitable,
-                :school_id, :group_id
+                :school_id, :group_id, :firstname, :lastname
 
   belongs_to :group, :optional => true
   menu label: 'Users', parent: 'Team'
@@ -42,6 +42,8 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :email
+    column :firstname
+    column :lastname
     column :phone_number
     column :group
     column :level do |user|
@@ -58,10 +60,8 @@ ActiveAdmin.register User do
   show :title => proc{|user| user.email }
 
   filter :email
-  filter :phone_number
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
+  filter :firstname
+  filter :lastname
   filter :school
   filter :group
 
@@ -69,6 +69,8 @@ ActiveAdmin.register User do
     f.inputs "Details" do
       f.input :email
       f.input :phone_number
+      f.input :firstname
+      f.input :lastname
       f.input :role, as: :radio
       f.input :otp_required_for_login, as: :boolean
       f.input :home_country

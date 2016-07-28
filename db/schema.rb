@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726114608) do
+ActiveRecord::Schema.define(version: 20160728083455) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -216,6 +216,8 @@ ActiveRecord::Schema.define(version: 20160726114608) do
     t.string   "language"
     t.string   "home_country",              limit: 3
     t.string   "spoken_language"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

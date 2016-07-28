@@ -19,20 +19,20 @@
       line-height:2rem;
       white-space: nowrap;
 
+      .main & a {
+        color:inherit;
+        &:before {
+          background:rgba($card-bg, .2);
+        }
+        &:hover:before {
+          border-color:rgba($card-bg, .4);
+        }
+      }
+
       &__title {
         font-size: 1rem;
         font-weight: 100;
         position: relative;
-
-        .main & a {
-          color:inherit;
-          &:before {
-            background:rgba($card-bg, .2);
-          }
-          &:hover:before {
-            border-color:$card-bg;
-          }
-        }
 
         &:after {
           width:.7rem;

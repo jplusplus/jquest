@@ -26,10 +26,13 @@
         font-weight: 100;
         position: relative;
 
-        a {
+        .main & a {
           color:inherit;
           &:before {
-            display: none;
+            background:rgba($card-bg, .2);
+          }
+          &:hover:before {
+            border-color:$card-bg;
           }
         }
 

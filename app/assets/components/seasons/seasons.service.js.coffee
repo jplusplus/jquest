@@ -43,7 +43,6 @@ angular.module 'jquest'
         $q (resolve, reject)=>
           # Wait for the service to be ready
           @ready().then =>
-            console.log @hasCurrent()
             # Resolve with the current season only if we found one!
             if @hasCurrent() then resolve(do @current) else reject()
           # Unable to resolve promise

@@ -6,15 +6,13 @@ angular.module 'jquest'
         controller: 'MainCtrl'
         controllerAs: 'main'
         url: '/'
-        data:
-          unauthorized: ($state, growl)->
-            # Closure function
-            ->
-              # Redirect to the parent state
-              $state.transitionTo '^'
-              # And notify the user
-              growl.error 'You are not allowed to do this'
         resolve:
+          unauthorized: ($state)->
+            'ngInject'
+            # Closure function that redirect to the 403 state
+            ->
+              # Redirect to error 403 page
+              $state.go 'main.403'
           seasons: (Seasons)->
             'ngInject'
             Seasons.ready()

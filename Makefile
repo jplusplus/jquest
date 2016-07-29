@@ -1,4 +1,5 @@
 DOCKER_NAME := jquest
+HEROKU_APP := jquest
 
 run:
 		rails server
@@ -10,7 +11,9 @@ install:
 
 deploy:
 		bundle install
-		heroku container:push -a jquest
+		make build-docker
+		docker tag $(DOCKER_NAME) registry.heroku.com/$(HEROKU_APP)/web
+		docker push registry.heroku.com/$(HEROKU_APP)/web
 
 build-docker:
 		docker build -t $(DOCKER_NAME) .

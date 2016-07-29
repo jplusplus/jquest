@@ -48,6 +48,11 @@
     }
 
     &__headline {
+      h1 img {
+        margin-left:.2em;
+        @include vendor-prefix(transform, translateY(-.1em));
+        height: 1em;
+      }
     }
 
     &__form {

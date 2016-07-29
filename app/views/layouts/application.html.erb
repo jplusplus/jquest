@@ -24,27 +24,33 @@
     document.write("<base href='" + href + "' />");
   </script>
 
+  <%= favicon_link_tag 'favicon.ico' %>
+
   <meta name="fragment" content="!">
   <meta name="description" content="">
+
+  <link rel="apple-touch-icon" href="<%= image_url('apple-touch-icon.png') %>" />
 
   <meta property="og:title" content="">
   <meta property="og:description" content="">
   <meta property="og:url" content="http://www.jquestapp.com/">
-  <meta property="og:image" content="http://www.jquestapp.com/assets/images/share.png">
+  <meta property="og:image" content="<%= image_url('banner-photo-1020x630.png') %>">
+  <meta property="og:image" content="<%= image_url('banner-flat-1020x630.png') %>">
   <meta property="og:type" content="website">
   <meta property="fb:app_id" content="">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="" />
-  <meta name="twitter:creator" content="@jplusplus_">
   <meta name="twitter:title" content="" />
   <meta name="twitter:description" content="" />
-  <meta name="twitter:image" content="http://www.jquestapp.com/assets/images/share.png" />
+  <meta name="twitter:creator" content="@jquestapp">
+  <meta name="twitter:image" content="<%= image_url('banner-photo-1020x630.png') %>" />
+  <meta name="twitter:image" content="<%= image_url('banner-flat-1020x630.png') %>" />
   <meta name="twitter:url" content="http://www.jquestapp.com/" />
 
   <meta itemprop="name" content="">
   <meta itemprop="description" content="">
-  <meta itemprop="image" content="http://www.jquestapp.com/assets/images/share.png">
+  <meta itemprop="image" content="<%= image_url('banner-photo-1020x630.png') %>">
 </head>
 <body class="<%= yield (:body_class) %> body" ng-class="{
   'body--has-overlay': menu.isVisible() || courseMaterials.isVisible(),

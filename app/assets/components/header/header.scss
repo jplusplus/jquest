@@ -29,6 +29,10 @@
         padding-right:1rem;
         position: relative;
 
+        img {
+          height:$line-height * 1em;
+        }
+
         &:before {
           content:"";
           position: absolute;

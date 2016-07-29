@@ -1,5 +1,5 @@
 angular.module 'jquest'
-  .service 'Seasons', (Restangular, $window, $rootScope)->
+  .service 'Seasons', (Restangular, $window, $rootScope, $q)->
     'ngInject'
     new class Seasons
       _current: {}
@@ -35,6 +35,16 @@ angular.module 'jquest'
           angular.extend @_seasons, seasons
       all: => @_promise
       ready: =>  @_promise.then => @
-      current: => @_current
-      hasCurrent: => @_current?
       activities: => @_promise.then => @current().activities
+      current: => @_current
+      hasCurrent: => @_current? and _.keys(@_current).length > 0
+      getCurrent: =>
+        # Create and return a promise
+        $q (resolve, reject)=>
+          # Wait for the service to be ready
+          @ready().then =>
+            console.log @hasCurrent()
+            # Resolve with the current season only if we found one!
+            if @hasCurrent() then resolve(do @current) else reject()
+          # Unable to resolve promise
+          , reject

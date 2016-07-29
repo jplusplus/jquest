@@ -1,0 +1,29 @@
+.main__403 {
+  padding:5vh;
+  margin-bottom:-1.5rem * $line-height;
+  min-height: calc(100vh - #{$navbar-height} - 1px);
+
+  $main-403-bg: darken($brand-primary, 20);
+  background: $main-403-bg image-url('stardust.png');
+  color:$card-bg;
+
+  &__body {
+    max-width:660px;
+    padding:10vh 10vh;
+    margin:auto;
+
+    a {
+      color:white;
+      white-space: nowrap;
+    }
+
+    &__btn {
+      margin-top:2em;
+      font-weight: bolder;
+      border:2px white solid;
+      color:white;
+      background: none;
+      border-radius: 1em * $line-height;
+    }
+  }
+}

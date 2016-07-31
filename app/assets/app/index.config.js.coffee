@@ -1,8 +1,15 @@
 angular.module 'jquest'
-  .config ($logProvider, $httpProvider, RestangularProvider, AuthProvider, hotkeysProvider)->
+  .config ($logProvider, $httpProvider, RestangularProvider, AuthProvider, hotkeysProvider, favicoProvider)->
     'ngInject'
-    # Enable log
-    $logProvider.debugEnabled yes
+    # Are we in production
+    if -1 is location.hostname.indexOf 'jquestapp.com'
+      # Enable log
+      $logProvider.debugEnabled yes
+      # Configure a favicon
+      favicoProvider.setOptions
+        textColor: '#54462b'
+        bgColor: '#FFD582'
+        type: 'rectangle'
     # Set API root
     RestangularProvider.setBaseUrl '/api/v1'
     RestangularProvider.setRestangularFields selfLink: '@id'

@@ -43,7 +43,8 @@
     "angular-local-storage": "^0.2.7",
     "c3-angular": "^1.2.0",
     "animate.css": "^3.5.2",
-    "angular-ui-router-title": "^0.0.4"
+    "angular-ui-router-title": "^0.0.4",
+    "favico.js": "^0.3.10"
   },
   "resolutions": {
     "angular": "~1.5.*"

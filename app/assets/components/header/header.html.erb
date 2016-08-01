@@ -69,6 +69,7 @@
         <div uib-popover-template="'header/slack/slack.html'"
              popover-placement="bottom-right"
              popover-enable="!main.slackStatus.is_member"
+             popover-trigger="{ 'outsideClick': 'outsideClick' }"
              popover-is-open="main.showSlackPopover">
           <h4 class="header__nav__navbar__slack__heading">
             <a href="{{ main.slackStatus.hostname }}" target="_blank" ng-if="main.slackStatus.is_member">

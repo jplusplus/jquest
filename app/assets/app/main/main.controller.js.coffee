@@ -1,5 +1,5 @@
 angular.module 'jquest'
-  .controller 'MainCtrl', (Auth, Menu, Restangular, seasons, $state, $log, $scope, $timeout)->
+  .controller 'MainCtrl', (Auth, Menu, Restangular, seasons, $state, $log, $scope, $timeout, growl)->
     'ngInject'
     new class MainCtrl
       # State helpers
@@ -18,15 +18,27 @@ angular.module 'jquest'
           when '2' then 'nd'
           when '3' then 'rd'
           else 'th'
+      requestSlackInvite: =>
+        @slackLoading = yes
+        # Invite using the API
+        Restangular.one('channels').one('invite')
+          # Avoid display loading bar for this request
+          .withHttpConfig(ignoreLoadingBar: yes).get().then (res)=>
+            # Status available within the scope
+            if not res.error and res.ok
+              do @initSlackStatus
+            else
+              growl.error res.error or 'Unbale to get an invite yet.'
+              @slackLoading = no
       initSlackStatus: =>
+        # Trigger a refresh after a short delay
+        $timeout @initSlackStatus, 30*1000
         # Get status from the API
         Restangular.one('channels').one('status')
           # Avoid display loading bar for this request
           .withHttpConfig(ignoreLoadingBar: yes).get().then (status)=>
             # Status available within the scope
             @slackStatus = status
-        # Trigger a refresh after a short delay
-        $timeout @initSlackStatus, 30*1000
       # Constructor
       constructor: ->
         # Print out every states

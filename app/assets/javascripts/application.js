@@ -1,3 +1,4 @@
+//= require "jquery/dist/jquery.js"
 // bower:js
 //= require "angular/angular.js"
 //= require "angular-animate/angular-animate.js"
@@ -15,9 +16,9 @@
 //= require "restangular/dist/restangular.js"
 //= require "angular-devise/lib/devise.js"
 //= require "angular-growl-v2/build/angular-growl.js"
-//= require "jquery/dist/jquery.js"
 //= require "filament-fixed/fixedfixed.js"
 //= require "filament-sticky/fixedsticky.js"
+//= require "tether/dist/js/tether.js"
 //= require "angular-hotkeys/build/hotkeys.js"
 //= require "angular-loading-bar/build/loading-bar.js"
 //= require "flatpickr/dist/flatpickr.min.js"

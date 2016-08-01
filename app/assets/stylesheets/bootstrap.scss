@@ -103,6 +103,10 @@ $blockquote-font-size: 1em;
 $table-bg-accent: mix($card-bg, $card-border-color);
 $table-border-color: $card-border-color;
 
+// Popover
+//
+$popover-max-width: 425px;
+
 // Bootstrap variables
 @import "bootstrap/scss/variables.scss";
 // Bootstrap mixins

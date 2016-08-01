@@ -1,0 +1,31 @@
+<div ng-switch="main.slackStatus.is_invited" class="header__nav__navbar__slack__popover">
+  <div ng-switch-when="true">
+    <p>
+      We invited you to the Slack Team.
+      <strong>An email have been sent to <mark>{{ main.user.email }}</mark></strong>.
+    </p>
+    <div class="small text-muted">
+      Once you'll activated your Slack account, you'll be able to ask for help.
+    </div>
+  </div>
+  <div ng-switch-when="false" class="row">
+    <div class="col-xs-4 text-xs-center text-muted header__nav__navbar__slack__popover__slack-logo">
+      <img src="<%= image_path('slack.svg') %>" alt="" width="90%" />
+    </div>
+    <div class="col-xs-8">
+      <p>
+        We set up a Slack team to be able to communicate with you and the other students.
+        <strong>Request an invitation to join the team:</strong>
+      </p>
+      <div class="text-xs-right" ng-init="main.showSlackPopover = true">
+        <a ng-click="main.showSlackPopover = false">
+          Not now
+        </a>
+        &nbsp;
+        <button class="btn btn-primary" ng-disabled="main.slackLoading" ng-click="main.requestSlackInvite()">
+          Get my invite
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

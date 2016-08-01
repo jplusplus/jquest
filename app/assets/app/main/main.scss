@@ -3,28 +3,6 @@
     padding-top:$navbar-height;
   }
 
-  a:not(.btn) {
-    position: relative;
-
-    &:before {
-      content:"";
-      position:absolute;
-      bottom:-1px;
-      left:0;
-      right:0;
-      height:2px;
-      background: mix($link-color, white, 20);
-    }
-
-    &:hover {
-      text-decoration: none;
-      &:before {
-        border-top:1px solid $link-color;
-        height:3px;
-      }
-    }
-  }
-
   &__intro {
     padding-top:15vh;
     min-height:75vh;

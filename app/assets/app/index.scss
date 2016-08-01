@@ -17,6 +17,28 @@
     cursor: pointer;
   }
 
+  a:not(.btn):not(.nav-link):not(.hamburger):not(.a-unstyled):not(.dropdown-item) {
+    position: relative;
+
+    &:before {
+      content:"";
+      position:absolute;
+      bottom:-1px;
+      left:0;
+      right:0;
+      height:2px;
+      background: mix($link-color, white, 20);
+    }
+
+    &:hover {
+      text-decoration: none;
+      &:before {
+        border-top:1px solid $link-color;
+        height:3px;
+      }
+    }
+  }
+
   blockquote {
     padding: 0 $spacer;
     margin-bottom: $spacer;

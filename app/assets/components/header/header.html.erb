@@ -10,7 +10,7 @@
       </div>
 
       <div class="navbar-brand header__nav__navbar__brand">
-        <a href="#!/">
+        <a href="#!/" class="a-unstyled">
           <img alt="jQuest" ng-src="<%= image_url('jquest-purple.svg') %>" height="30px" />
         </a>
       </div>
@@ -30,7 +30,7 @@
 
       <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item header__nav__navbar__user" uib-dropdown ng-if="main.user">
-          <a href uib-dropdown-toggle>
+          <a href uib-dropdown-toggle class="a-unstyled">
             <img src="//www.gravatar.com/avatar/{{ main.user.email_md5 }}?d=retro" class="img-circle header__nav__navbar__user__avatar" />
           </a>
           <div class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
@@ -66,12 +66,23 @@
       </form>
 
       <div class="header__nav__navbar__slack nav-item pull-xs-right hidden-xs-down" ng-if="main.user && main.slackStatus">
-        <h4 class="header__nav__navbar__slack__heading">
-          <i class="fa fa-slack"></i>
-          <a href="{{ main.slackStatus.hostname }}" target="_blank">Ask for help</a>
-        </h4>
-        <div class="header__nav__navbar__slack__details">
-          {{ main.slackStatus.total }} members, {{ main.slackStatus.active }} online
+        <div uib-popover-template="'header/slack/slack.html'"
+             popover-placement="bottom-right"
+             popover-enable="!main.slackStatus.is_member"
+             popover-is-open="main.showSlackPopover">
+          <h4 class="header__nav__navbar__slack__heading">
+            <a href="{{ main.slackStatus.hostname }}" target="_blank" ng-if="main.slackStatus.is_member">
+              <i class="fa fa-slack"></i>
+              Ask for help
+            </a>
+            <span ng-if="!main.slackStatus.is_member">
+              <i class="fa fa-lock"></i>
+              Ask for help
+            </span>
+          </h4>
+          <div class="header__nav__navbar__slack__details">
+            {{ main.slackStatus.total }} members, {{ main.slackStatus.active }} online
+          </div>
         </div>
       </div>
     </nav>
@@ -80,10 +91,10 @@
       <div ng-repeat="category in header.menu.getCategories()">
         <h4 class="header__nav__menu__links__heading"  ng-if="category">{{ category }}</h4>
         <ul class="list-inline row header__nav__menu__links">
-          <li class="header__nav__menu__links__item col-sm-6 col-md-4 col-lg-3"
+          <li class="header__nav__menu__links__item a-unstyled col-sm-6 col-md-4 col-lg-3"
               ng-class="{ 'header__nav__menu__links__item--active': item.isActive() }"
               ng-repeat="item in header.menu.getItems(category)">
-            <a class="card card-block" ng-click="item.click()" ng-href="{{ :: item.href }}">
+            <a class="card card-block a-unstyled" ng-click="item.click()" ng-href="{{ :: item.href }}">
               {{ item.name | translate }}
             </a>
           </li>

@@ -13,7 +13,7 @@ wiredep({
     "app/assets/javascripts/application.js",
     "app/assets/stylesheets/application.scss"
   ],
-  exclude: [ /bootstrap\/dist/ ],
+  exclude: [ /bootstrap\/dist/, /jquery\/dist/ ],
   ignorePath: "../../../vendor/assets/bower_components/",
   fileTypes: {
     js: {

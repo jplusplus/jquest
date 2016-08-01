@@ -26,7 +26,7 @@ $link-color: #3D1C3D;
 // States
 //
 $state-warning-bg: $brand-warning;
-$state-warning-text: #7A6C54;
+$state-warning-text: #3b311e;
 
 $state-success-bg: $brand-success;
 $state-success-text: #fff;
@@ -125,6 +125,38 @@ a.btn:not(.btn-reverse) {
 }
 
 .tooltip{
+
+  &-danger {
+
+    .tooltip-inner {
+      background:  $state-danger-bg;
+      color: $state-danger-text;
+    }
+
+    &.tooltip.top .tooltip-arrow {
+      border-top-color: $state-danger-bg !important;
+    }
+
+    &.tooltip.bottom .tooltip-arrow {
+      border-bottom-color: $state-danger-bg !important;
+    }
+  }
+
+  &-warning {
+
+    .tooltip-inner {
+      background:  $state-warning-bg;
+      color: $state-warning-text;
+    }
+
+    &.tooltip.top .tooltip-arrow {
+      border-top-color: $state-warning-bg !important;
+    }
+
+    &.tooltip.bottom .tooltip-arrow {
+      border-bottom-color: $state-warning-bg !important;
+    }
+  }
 
   &-arrow {
     left:50%;

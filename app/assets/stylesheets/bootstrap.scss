@@ -1,5 +1,5 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
-@import url('//fonts.googleapis.com/css?family=Fira+Sans:400,300,500,700&subset=latin,latin-ext');
+@import url('//fonts.googleapis.com/css?family=Montserrat:400,700|Fira+Sans:300&subset=latin,latin-ext');
 
 // Options
 //
@@ -40,16 +40,15 @@ $state-danger-text: #fff;
 // Fonts
 //
 $line-height: 1.5 !default;
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 // Headings
 //
 $headings-font-weight: 500;
-$headings-font-family: "Fira Sans", "Droid Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", Arial, sans-serif;
+$headings-font-family: "Montserrat", "Fira Sans", "Droid Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", Arial, sans-serif;
 
 // Lead
 //
-$lead-font-family: $headings-font-family;
+$leads-font-family: "Fira Sans", $headings-font-family;
 
 
 // Cards

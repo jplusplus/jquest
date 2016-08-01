@@ -25,7 +25,8 @@
   }
 
   .lead {
-    font-family: $lead-font-family;
+    font-family: $leads-font-family;
+    font-weight: 300;
   }
 
   &--has-overlay {

@@ -30,7 +30,8 @@
   <div class="main__season__course-materials-panel"
        ng-show="courseMaterials.hasSelected()"
        ng-class="{ 'main__season__course-materials-panel--open': courseMaterials.isVisible() }">
-    <div class="main__season__course-materials-panel__tabs">
+    <div class="main__season__course-materials-panel__tabs"
+         ng-class="{ 'main__season__course-materials-panel__tabs--reduced': courseMaterials.getSelected().length >= 5 }">
       <div class="container">
         <ul class="list-inline">
           <li ng-repeat="courseMaterial in courseMaterials.getSelected()"
@@ -38,10 +39,10 @@
               ng-class="{
                 'main__season__course-materials-panel__tabs__item--active': courseMaterials.isOpen(courseMaterial)
               }">
-            <button class="btn btn-link" ng-click="courseMaterials.select(courseMaterial)" uib-tooltip="Toggle this course">
+            <button class="btn btn-link" ng-click="courseMaterials.select(courseMaterial)" uib-tooltip="Toggle this course" tooltip-append-to-body="true">
               {{ courseMaterial.title }}
             </button>
-            <button class="btn btn-link" ng-click="courseMaterials.unselect(courseMaterial)" uib-tooltip="Close this course">
+            <button class="btn btn-link" ng-click="courseMaterials.unselect(courseMaterial)" uib-tooltip="Close this course" tooltip-append-to-body="true">
               <span class="sr-only">Close this course</span>✕
             </button>
           </li>

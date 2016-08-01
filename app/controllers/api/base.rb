@@ -18,15 +18,15 @@ module API
         end
       end
 
-      def slack_members        
+      def slack_members
         # Get user list
         res = slack_client.users_list(presence: 1)
         # Something when wrong?
         error! 'Unable to get information about the slack channels' unless res[:ok]
         # Get members for result
-        members = res.members
+        members = res.members or []
         # Remove deleted members
-        members.select! { |u| not u['deleted'] }
+        members.select { |u| not u['deleted'] }
       end
     end
 

@@ -28,7 +28,7 @@
 
           <% if devise_mapping.rememberable? -%>
             <div class="form-group row small">
-              <label class="col-sm-9 col-sm-offset-3">
+              <label class="col-sm-9 offset-sm-3">
                 <%= f.check_box :remember_me %>
                 <%= f.label :remember_me %>
               </label>
@@ -38,7 +38,7 @@
             <div class="col-sm-4 push-sm-8 text-sm-right">
               <%= f.submit "Login", :class => 'btn btn-primary' %>
             </div>
-            <div class="col-sm-8 col-sm-pull-4 small">
+            <div class="col-sm-8 pull-sm-4 small">
               <%= render "devise/shared/links" %>
             </div>
           </div>

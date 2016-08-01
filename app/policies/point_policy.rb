@@ -17,17 +17,14 @@ class PointPolicy  < AdminPolicy
 
     def resolve
       # Anonymous users can't see anything
-      if not @user
+      if not @user or @user.member_of.nil?
         scope.none
       # Admin user can see everything
       elsif @user.role? :admin
         scope.all
-      # Teacher can only see their student points
-      elsif @user.role? :teacher
-        scope.where season: @user.group.season
-      # Others can only see their own points
+      # Other can only see user from the season there are member of
       else
-        scope.where user: @user
+        scope.where season: @user.member_of
       end
     end
   end

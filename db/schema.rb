@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729160757) do
+ActiveRecord::Schema.define(version: 20160801144528) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -218,6 +218,7 @@ ActiveRecord::Schema.define(version: 20160729160757) do
     t.string   "spoken_language"
     t.string   "firstname"
     t.string   "lastname"
+    t.datetime "invited_to_channel_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

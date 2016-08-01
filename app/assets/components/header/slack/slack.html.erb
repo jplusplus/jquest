@@ -4,7 +4,7 @@
       We invited you to the Slack Team.
       <strong>An email have been sent to <mark>{{ main.user.email }}</mark></strong>.
     </p>
-    <div class="small text-muted">
+    <div class="small text-muted text-xs-center">
       Once you'll activated your Slack account, you'll be able to ask for help.
     </div>
   </div>
@@ -15,9 +15,9 @@
     <div class="col-xs-8">
       <p>
         We set up a Slack team to be able to communicate with you and the other students.
-        <strong>Request an invitation to join the team:</strong>
+        <strong>Request an invitation to join the team.</strong>
       </p>
-      <div class="text-xs-right" ng-init="main.showSlackPopover = true">
+      <p class="text-xs-right" ng-init="main.showSlackPopover = true">
         <a ng-click="main.showSlackPopover = false">
           Not now
         </a>
@@ -25,7 +25,10 @@
         <button class="btn btn-primary" ng-disabled="main.slackLoading" ng-click="main.requestSlackInvite()">
           Get my invite
         </button>
-      </div>
+      </p>
+    </div>
+    <div class="small text-muted text-xs-center">
+      The invitation will be send to {{ main.user.email }}
     </div>
   </div>
 </div>

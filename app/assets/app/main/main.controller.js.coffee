@@ -20,16 +20,12 @@ angular.module 'jquest'
           else 'th'
       requestSlackInvite: =>
         @slackLoading = yes
-        # Invite using the API
-        Restangular.one('channels').one('invite')
-          # Avoid display loading bar for this request
-          .withHttpConfig(ignoreLoadingBar: yes).get().then (res)=>
-            # Status available within the scope
-            if not res.error and res.ok
-              do @initSlackStatus
-            else
-              growl.error res.error or 'Unbale to get an invite yet.'
-              @slackLoading = no
+        # Invite using the API and refresg status
+        Restangular.one('channels').one('invite').get().then @initSlackStatus, (res)=>
+          # Display error
+          growl.error res.error or 'Unbale to get an invite. Try again.'
+          # Disable loading state
+          @slackLoading = no
       initSlackStatus: =>
         # Trigger a refresh after a short delay
         $timeout @initSlackStatus, 30*1000

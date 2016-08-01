@@ -50,7 +50,6 @@ $headings-font-family: "Montserrat", "Fira Sans", "Droid Sans", "Segoe UI", "Rob
 //
 $leads-font-family: "Fira Sans", $headings-font-family;
 
-
 // Cards
 //
 $card-bg: #fffbf5;
@@ -115,6 +114,10 @@ $table-border-color: $card-border-color;
 //
 .input-group select:not([size]):not([multiple]).form-control {
   height:$line-height * 1.6em;
+}
+
+a.btn:not(.btn-reverse) {
+  color:#fff;
 }
 
 .card {

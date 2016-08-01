@@ -62,7 +62,8 @@
       padding-bottom:$spacer;
 
       .text-muted {
-        color:rgba(white, .5);
+        // !important presence is due to the one in bootstrap source code!
+        color:rgba(white, .5) !important;
       }
 
       .btn.btn-secondary {
@@ -143,6 +144,11 @@
 
         &__heading {
           text-transform: uppercase;
+        }
+
+        &__description {
+          // !important presence is due to the one in bootstrap source code!
+          color:rgba(white, .5) !important;
         }
       }
     }

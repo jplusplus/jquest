@@ -58,8 +58,8 @@
       }
 
       &__user {
-        height: $input-height + $input-padding-y/2rem;
-        line-height: $input-height + $input-padding-y/2rem;
+        height: $navbar-height - (2 * $navbar-padding-y);
+        line-height: $navbar-height - (2 * $navbar-padding-y);
         border:1px solid $input-border-color;
         padding:2px;
         border-radius: $input-height;
@@ -78,13 +78,13 @@
 
         .dropdown-menu {
           margin-top:1px; // Cover the navbar bottom border
-          transform: translate(0, $navbar-padding-vertical);
+          transform: translate(0, $navbar-padding-y);
         }
       }
 
       &__slack {
         font-size: 1.1rem;
-        padding-right: $navbar-padding-vertical;
+        padding-right: $navbar-padding-y;
         height:0;
         padding-top:.1rem;
 
@@ -174,7 +174,7 @@
             animation:slideinright 300ms forwards;
           }
 
-          &--active .card {
+          &--active a.card {
             background: $brand-primary;
             border-color: darken($brand-primary, 5%);
             color: white;

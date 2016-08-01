@@ -46,7 +46,7 @@
     right:0;
     bottom:0;
     $bg: $body-bg;
-    @include gradient-vertical( rgba($bg, .4), $bg);
+    @include gradient-y( rgba($bg, .4), $bg);
     @include transition(700ms);
 
     &.ng-hide {

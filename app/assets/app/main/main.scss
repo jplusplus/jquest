@@ -96,7 +96,7 @@
       left:0;
       right:0;
       height:50vh;
-      @include gradient-vertical( rgba($main-features-bg, 0), $main-features-bg);
+      @include gradient-y( rgba($main-features-bg, 0), $main-features-bg);
     }
 
     &__steps {

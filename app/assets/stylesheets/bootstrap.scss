@@ -83,8 +83,8 @@ $nav-tabs-justified-active-link-border-color: $body-bg;
 
 // Navbar
 //
-$navbar-padding-vertical: 1rem;
-$navbar-height: ($navbar-padding-vertical * 2) + $line-height + .425rem * 2;
+$navbar-padding-y: 1rem;
+$navbar-height: ($navbar-padding-y * 2) + $line-height + .425rem * 2;
 
 
 // Forms
@@ -114,7 +114,7 @@ $table-border-color: $card-border-color;
 
 // Fix
 //
-.input-group select.form-control {
+.input-group select:not([size]):not([multiple]).form-control {
   height:$line-height * 1.6em;
 }
 

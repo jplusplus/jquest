@@ -1,10 +1,18 @@
 class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :email_md5, :role, :points, :school_id
+  attributes :id, :email_md5, :role, :points, :school, :home_country
   attribute :email, if: :is_current_user?
+
+  has_one :school
 
   def is_current_user?
     object == scope.current_user
+  end
+
+
+
+  attribute :home_country_name do
+    object.home_country_data['name']
   end
 
   # JSON Linked Data Identifier

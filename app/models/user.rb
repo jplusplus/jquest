@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
     @home_country
   end
 
+  def home_country_data
+    ISO3166::Data.new(home_country).call or {}
+  end
+
   def spoken_language
     @spoken_language = read_attribute(:spoken_language)
     if @spoken_language.blank? and school

@@ -9,8 +9,11 @@ install:
 		npm install
 		bower install
 
-deploy:
-		make build-docker
+migrate-heroku: DATABASE_URL := $(shell heroku config:get DATABASE_URL -a ${HEROKU_APP})
+migrate-heroku:
+		docker run -e DATABASE_URL=${DATABASE_URL} -it ${HEROKU_APP} bin/init
+
+deploy: build-docker migrate-heroku
 		docker tag $(DOCKER_NAME) registry.heroku.com/$(HEROKU_APP)/web
 		docker push registry.heroku.com/$(HEROKU_APP)/web
 

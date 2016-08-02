@@ -10,7 +10,6 @@ install:
 		bower install
 
 deploy:
-		bundle install
 		make build-docker
 		docker tag $(DOCKER_NAME) registry.heroku.com/$(HEROKU_APP)/web
 		docker push registry.heroku.com/$(HEROKU_APP)/web

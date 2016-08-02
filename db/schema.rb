@@ -219,6 +219,7 @@ ActiveRecord::Schema.define(version: 20160801144528) do
     t.string   "firstname"
     t.string   "lastname"
     t.datetime "invited_to_channel_at"
+    t.string   "invited_to_channel_as",               default: ""
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

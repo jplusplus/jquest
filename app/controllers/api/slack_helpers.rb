@@ -29,7 +29,7 @@ module API
         # Check body
         body = JSON.parse response.body
         # Mark the user as invited
-        user.update_attribute :invited_to_channel_at, Time.now
+        user.update invited_to_channel_at: Time.now
         # Throw an error if not ok
         raise body['error'] unless body['ok']
       else
@@ -61,13 +61,17 @@ module API
 
     def slack_status_for(user)
       members = slack_members
+      # Find the current user among the member
+      as_member = members.bsearch do |u|
+        u.profile.email == current_user.invited_to_channel_as_or_email
+      end
       # Return a hash
       OpenStruct.new(
         total: members.length,
         active: members.select { |u| u.presence == 'active' }.length,
         hostname: slack_hostname,
-        is_member: members.select { |u| u.profile.email == current_user.email }.length > 0,
-        is_invited: !current_user.invited_to_channel_at.nil?)
+        is_member: !as_member.nil?,
+        is_invited: current_user.invited_to_channel?)
     end
   end
 end

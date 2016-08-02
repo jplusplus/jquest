@@ -24,6 +24,19 @@ class User < ActiveRecord::Base
     email || phone_number
   end
 
+  def invited_to_channel_at=(value)
+    write_attribute :invited_to_channel_as, email
+    super
+  end
+
+  def invited_to_channel_as_or_email
+    invited_to_channel_as || email
+  end
+
+  def invited_to_channel?
+    invited_to_channel_at? or invited_to_channel_as?
+  end
+
   def email_md5
     Digest::MD5.hexdigest email
   end

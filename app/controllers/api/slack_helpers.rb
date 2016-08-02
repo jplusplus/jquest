@@ -28,10 +28,10 @@ module API
       if response.code.to_i == 200
         # Check body
         body = JSON.parse response.body
+        # Throw an error if not ok 
+        raise body['error'] unless body['ok'] or body['error'] == 'already_invited'
         # Mark the user as invited
         user.update invited_to_channel_at: Time.now
-        # Throw an error if not ok
-        raise body['error'] unless body['ok']
       else
         raise "Unable to reach Slack or invite user (#{response.code})."
       end
@@ -49,28 +49,32 @@ module API
     end
 
     def slack_members
-      # Get user list
-      res = slack_client.users_list(presence: 1)
-      # Something when wrong?
-      error! 'Unable to get information about the slack channels' unless res[:ok]
-      # Get members for result
-      members = res.members or []
-      # Remove deleted members
-      members.select { |u| not u['deleted'] }
+      @slack_members ||=begin
+        # Get user list
+        res = slack_client.users_list(presence: 1)
+        # Something when wrong?
+        error! 'Unable to get information about the slack channels' unless res[:ok]
+        # Get members for result
+        members = res.members or []
+        # Remove deleted members
+        members.select { |u| not u['deleted'] }
+      end
+    end
+
+    def as_slack_member(user)
+      @as_slack_member ||= slack_members.bsearch do |u|
+        u.profile.email == user.invited_to_channel_as_or_email
+      end
     end
 
     def slack_status_for(user)
-      members = slack_members
-      # Find the current user among the member
-      as_member = members.bsearch do |u|
-        u.profile.email == current_user.invited_to_channel_as_or_email
-      end
       # Return a hash
       OpenStruct.new(
-        total: members.length,
-        active: members.select { |u| u.presence == 'active' }.length,
+        total: slack_members.length,
+        active: slack_members.select { |u| u.presence == 'active' }.length,
         hostname: slack_hostname,
-        is_member: !as_member.nil?,
+        # Find the current user among the member
+        is_member: as_slack_member(current_user).present?,
         is_invited: current_user.invited_to_channel?)
     end
   end

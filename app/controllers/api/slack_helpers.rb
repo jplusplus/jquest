@@ -28,7 +28,7 @@ module API
       if response.code.to_i == 200
         # Check body
         body = JSON.parse response.body
-        # Throw an error if not ok 
+        # Throw an error if not ok
         raise body['error'] unless body['ok'] or body['error'] == 'already_invited'
         # Mark the user as invited
         user.update invited_to_channel_at: Time.now
@@ -62,9 +62,11 @@ module API
     end
 
     def as_slack_member(user)
-      @as_slack_member ||= slack_members.bsearch do |u|
-        u.profile.email == user.invited_to_channel_as_or_email
+      @as_slack_member ||= slack_members.select do |m|
+        m.profile.email == user.invited_to_channel_as_or_email
       end
+      # Returns first element (if any)
+      @as_slack_member.first
     end
 
     def slack_status_for(user)

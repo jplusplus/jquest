@@ -23,4 +23,8 @@ class Assignment < ActiveRecord::Base
   def self.resource_types
     ActiveRecord::Base.send(:subclasses).map(&:name)
   end
+
+  def self.unassigned_to(user, season=user.member_of)
+    where(season: season).where.not(user: user)
+  end
 end

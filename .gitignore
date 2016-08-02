@@ -25,3 +25,4 @@ local-env.yml
 *.log
 jquest.tar
 erd.pdf
+google-session.json

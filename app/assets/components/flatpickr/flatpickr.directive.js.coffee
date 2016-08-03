@@ -22,4 +22,4 @@ angular.module 'jquest'
       # Validate the model value
       ngModel.$validators.validDate = (modelValue, viewValue)->
         # We must be able to parse the date
-        not isNaN Date.parse modelValue
+        ngModel.$isEmpty(modelValue) or not isNaN Date.parse modelValue 

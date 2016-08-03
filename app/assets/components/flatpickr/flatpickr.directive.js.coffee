@@ -5,12 +5,12 @@ angular.module 'jquest'
     link: (scope, element, attrs, ngModel)->
       fp = flatpickr element[0]
       # Helper to sync the flatpickr with modelValue
-      syncModelValue =  ->
+      syncModelValue = ->
         if ngModel.$modelValue?
           # We change the calendar date
-          fp.setDate ngModel.$modelValue
+          fp.setDate(new Date ngModel.$modelValue)
       # Sync the modelValue with flatpickr
-      element.on 'focus', ->
+      element.on 'click', ->
         scope.$apply ->
           ngModel.$setViewValue fp.selectedDateObj
       # We leave the input

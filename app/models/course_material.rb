@@ -1,8 +1,14 @@
+class CourseMaterialRenderer < Redcarpet::Render::HTML
+  def initialize(extensions = {})
+    super extensions.merge(link_attributes: { target: "_blank" })
+  end
+end
+
 class CourseMaterial < ActiveRecord::Base
   extend Enumerize
   # Add a filter method to the scope
   include Filterable
-  
+
   enumerize :status, :in => [:draft, :published], :default => :draft
   serialize :state_params, JSON
 
@@ -25,7 +31,7 @@ class CourseMaterial < ActiveRecord::Base
 
   # Create a markdown rendered (once by class instance)
   def markdown
-    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    @markdown ||= Redcarpet::Markdown.new(CourseMaterialRenderer, autolink: true, tables: true)
   end
 
   # True if the course has been seen by a given user

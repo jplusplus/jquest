@@ -21,7 +21,7 @@
 //= require "tether/dist/js/tether.js"
 //= require "angular-hotkeys/build/hotkeys.js"
 //= require "angular-loading-bar/build/loading-bar.js"
-//= require "flatpickr/dist/flatpickr.min.js"
+//= require "flatpickr-calendar/dist/flatpickr.min.js"
 //= require "ngInfiniteScroll/build/ng-infinite-scroll.js"
 //= require "angular-local-storage/dist/angular-local-storage.js"
 //= require "d3/d3.js"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801144528) do
+ActiveRecord::Schema.define(version: 20160803065133) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 20160801144528) do
     t.string   "twitter"
     t.string   "facebook"
     t.string   "gender"
-    t.string   "birthdate"
+    t.date     "birthdate"
     t.string   "birthplace"
     t.string   "phone"
     t.datetime "created_at",          null: false

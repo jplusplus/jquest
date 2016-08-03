@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
          :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
          # :database_authenticatable,
 
-  has_many :activities
-  has_many :assignments
-  has_many :points
+  has_many :activities, :dependent => :delete_all
+  has_many :assignments, :dependent => :delete_all
+  has_many :points, :dependent => :delete_all
 
   belongs_to :group
   belongs_to :school

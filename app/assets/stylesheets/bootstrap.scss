@@ -120,7 +120,7 @@ $popover-max-width: 425px;
   height:$line-height * 1.6em;
 }
 
-a.btn:not(.btn-reverse) {
+a.btn:not(.btn-reverse):not(.btn-secondary) {
   color:#fff;
 }
 

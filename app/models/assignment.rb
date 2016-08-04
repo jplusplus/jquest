@@ -19,14 +19,14 @@ class Assignment < ActiveRecord::Base
   scope :pending, ->{ status :pending }
   scope :status, -> (status) { where status: status }
 
-  before_save :set_level
+  after_initialize :set_level
 
   def set_level
-    if not user.nil? and level.blank?
+    if not user.nil? and not level?
       # Get point instance for this season
-      point = user.points.find_or_create_by season: season
+      point = user.points.find_by season: season
       # Use the point level
-      update_attribute :level, point.level
+      update_attribute :level, point.nil? ? 1 : point.level
     end
   end
 

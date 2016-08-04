@@ -33,3 +33,7 @@ save-docker: build-docker
 
 bundle-docker: save-docker
 		gzip $(DOCKER_NAME).tar
+
+run-docker: DATABASE_URL := $(shell heroku config:get DATABASE_URL -a ${HEROKU_APP})
+run-docker:
+		docker run -e DATABASE_URL=${DATABASE_URL} -it ${HEROKU_APP} bash

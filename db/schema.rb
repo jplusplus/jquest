@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803065133) do
+ActiveRecord::Schema.define(version: 20160804114026) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160803065133) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "status",        default: "pending", null: false
+    t.integer  "level"
   end
 
   add_index "assignments", ["expires_at"], name: "index_assignments_on_expires_at"

@@ -1,6 +1,6 @@
 class AssignmentSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :user, :season, :resource, :resource_type, :status,
+  attributes :id, :user, :season, :resource, :resource_type, :status, :level,
              :expires_at, :created_at
   # Use associated resources' serializers
   has_one :resource

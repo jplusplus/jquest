@@ -19,7 +19,7 @@ class Assignment < ActiveRecord::Base
   scope :pending, ->{ status :pending }
   scope :status, -> (status) { where status: status }
 
-  after_initialize :set_level
+  before_save :set_level
 
   def set_level
     if not user.nil? and level.blank?

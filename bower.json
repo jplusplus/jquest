@@ -45,7 +45,8 @@
     "animate.css": "^3.5.2",
     "angular-ui-router-title": "^0.0.4",
     "favico.js": "^0.3.10",
-    "jquery": "^2.1"
+    "jquery": "^2.1",
+    "angular-svg-round-progressbar": "^0.4.6"
   },
   "resolutions": {
     "angular": "~1.5.*"

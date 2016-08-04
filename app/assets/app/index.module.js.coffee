@@ -19,5 +19,6 @@ angular.module 'jquest', [
   'cfp.hotkeys',
   'infinite-scroll',
   'LocalStorageModule',
-  'gridshore.c3js.chart'
+  'gridshore.c3js.chart',
+  'angular-svg-round-progressbar'
 ]

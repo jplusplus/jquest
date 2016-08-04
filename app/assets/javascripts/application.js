@@ -29,4 +29,5 @@
 //= require "c3-angular/c3-angular.min.js"
 //= require "angular-ui-router-title/angular-ui-router-title.js"
 //= require "favico.js/favico.js"
+//= require "angular-svg-round-progressbar/build/roundProgress.min.js"
 // endbower

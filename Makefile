@@ -2,20 +2,18 @@ DOCKER_NAME := jquest
 HEROKU_APP := jquest
 
 run:
-		rails server
+		bundle exec rails server
 
 install:
 		bundle install
 		npm install
 		bower install
 
-migrate-with-docker: DATABASE_URL := $(shell heroku config:get DATABASE_URL -a ${HEROKU_APP})
 migrate-with-docker:
-		docker run -e DATABASE_URL=${DATABASE_URL} -it ${HEROKU_APP} bin/init
+		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${HEROKU_APP}) -it ${HEROKU_APP} bin/init
 
-migrate-with-local: DATABASE_URL := $(shell heroku config:get DATABASE_URL -a ${HEROKU_APP})
 migrate-with-local:
-		DATABASE_URL=${DATABASE_URL} \
+		DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${HEROKU_APP}) \
 		RACK_ENV=production \
 		RAILS_ENV=production \
 		SECRET_KEY_BASE=$(shell openssl rand -base64 32) \
@@ -34,6 +32,8 @@ save-docker: build-docker
 bundle-docker: save-docker
 		gzip $(DOCKER_NAME).tar
 
-run-docker: DATABASE_URL := $(shell heroku config:get DATABASE_URL -a ${HEROKU_APP})
 run-docker:
-		docker run -e DATABASE_URL=${DATABASE_URL} -it ${HEROKU_APP} bash
+		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${HEROKU_APP}) -it ${HEROKU_APP} bash
+
+sync:
+		rake jquest_pg:sync

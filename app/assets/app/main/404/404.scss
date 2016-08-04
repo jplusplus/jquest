@@ -1,9 +1,9 @@
-.main__403 {
-  $main-403-bg: darken($brand-primary, 20);
+.main__404 {
+  $main-404-bg: darken($brand-primary, 20);
   padding:5vh;
   margin-bottom:-1.5rem * $line-height;
   min-height: calc(100vh - #{$navbar-height} - 2px);
-  background: $main-403-bg image-url('stardust.png');
+  background: $main-404-bg image-url('stardust.png');
   color:$card-bg;
 
   &__body {

@@ -31,7 +31,9 @@
       </div>
 
       <table ng-repeat="category in cm.categories" class="table table-striped">
-        <caption class="text-xs-center">{{ category[0] || 'Other' }}</caption>
+        <caption class="text-xs-center">
+          <i class="fa fa-tag"></i>&nbsp;{{ category[0] || 'Other' }}
+        </caption>
         <tbody class="">
           <tr ng-repeat="material in category[1]">
             <td>

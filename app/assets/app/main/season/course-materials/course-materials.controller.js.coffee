@@ -18,8 +18,10 @@ angular.module 'jquest'
         if @search?
           # Filter according to a search token
           filtered = _.filter @all, (c)=>
-            # Search the token with normalized chars
-            c.title.toLowerCase().indexOf(@search.toLowerCase()) isnt -1
+            # Search the token with normalized chars in the title
+            c.title.toLowerCase().indexOf(@search.toLowerCase()) isnt -1 or
+            # Search also in the category name
+            c.category.toLowerCase().indexOf(@search.toLowerCase()) isnt -1
         else
           filtered = @all
         # Group materials by category

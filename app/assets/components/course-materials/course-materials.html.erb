@@ -4,14 +4,14 @@
       <i class="fa fa-graduation-cap"></i> Course Material
     </h3>
     <p>Those links contain topical information on a specific aspect of datajournalism, they'll help you carry out your mission.</p>
-    <ul>
+    <ul class="list-unstyled">
       <li ng-repeat="courseMaterial in courseMaterials.getFiltered()">
         <a ng-click="courseMaterials.select(courseMaterial)">
           <div>
             {{ courseMaterial.title }}
           </div>
           <div class="small" ng-show="courseMaterial.category">
-            <em>{{ courseMaterial.category }}</em>
+            <i class="fa fa-tag"></i>&nbsp;<em>{{ courseMaterial.category }}</em>
           </div>
         </a>
       </li>

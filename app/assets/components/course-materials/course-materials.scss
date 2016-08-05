@@ -8,17 +8,34 @@
     @include vendor-prefix(transform, translateY(50%) );
   }
 
-  a {
-    color:white;
-    cursor: pointer;
-    display: block;
+  ul {
+    margin:0;
+  }
 
-    &:hover em {
-      text-decoration: none;
+  li {
+    padding:$spacer-y 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px dashed rgba(white, 0.2);
     }
 
-    &:before {
-      display: none;
+    html body .main .main__season .pg & a {
+      color:white;
+      cursor: pointer;
+      display: block;
+
+      &:hover em {
+        text-decoration: none;
+      }
+
+      &:before {
+        display: none;
+      }
+
+      .small {
+        color:rgba(white, 0.65);
+      }
     }
   }
+
 }

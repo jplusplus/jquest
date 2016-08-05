@@ -20,13 +20,13 @@
       line-height:2rem;
       white-space: nowrap;
 
-      .main & a {
+      .main .main__season & a {
         color:inherit;
         &:before {
-          background:rgba($card-bg, .2);
+          background:rgba($card-bg, .4) !important;
         }
         &:hover:before {
-          border-color:rgba($card-bg, .4);
+          border-color:rgba($card-bg, 6)  !important;
         }
       }
 

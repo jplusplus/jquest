@@ -189,15 +189,36 @@
             animation:slideinright 300ms forwards;
           }
 
+          a, a:active, a:hover, a:focus {
+            text-decoration: none;
+          }
+
           &--active a.card {
             background: $brand-primary;
             border-color: darken($brand-primary, 5%);
             color: white;
+
+            .text-muted {
+              color:rgba(white, .7) !important;
+            }
+
+            &:hover {
+              color:white;
+            }
           }
 
           .card {
             height:100%;
             @include transition(700ms);
+
+            p:first-child {
+              font-weight:bold;
+            }
+
+            .text-muted {
+              font-size:.9em;
+              color:rgba($body-color, .7) !important;
+            }
           }
         }
       }

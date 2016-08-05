@@ -1,7 +1,7 @@
 <header class="header" ng-controller="HeaderCtrl as header" ng-swipe-left="menu.hide()" ng-swipe-right="menu.show()">
   <div class="header__nav">
     <nav class="navbar navbar-light header__nav__navbar">
-      <div class="header__nav__navbar__hamburger" ng-if="main.user">
+      <div class="header__nav__navbar__hamburger" ng-if="menu.hasItems()">
         <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': menu.isVisible() }" ng-click="menu.toggle()">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -96,7 +96,8 @@
               ng-class="{ 'header__nav__menu__links__item--active': item.isActive() }"
               ng-repeat="item in header.menu.getItems(category)">
             <a class="card card-block a-unstyled" ng-click="item.click()" ng-href="{{ :: item.href }}">
-              {{ item.name | translate }}
+              <p>{{ item.name | translate }}</p>
+              <p class="text-muted">{{ item.desc | translate }}</p>
             </a>
           </li>
         </ul>

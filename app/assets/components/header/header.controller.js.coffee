@@ -8,6 +8,7 @@ angular.module 'jquest'
         # Load season to inject into  the menu
         Seasons.all().then (seasons)=>
           for season in seasons
+            console.log season
             @menu.addItem name: season.name, href: season.engine.root_path
         # Watch for state changes
         $scope.$on '$stateChangeStart', Menu.hide

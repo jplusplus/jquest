@@ -4,6 +4,7 @@ angular.module 'jquest'
     class MenuItem
       constructor: (attributes={})->
         @name     = attributes.name
+        @desc     = attributes.desc
         @state    = attributes.state or null
         @href     = attributes.href or null
         @category = attributes.category or null
@@ -57,6 +58,8 @@ angular.module 'jquest'
         # Move empty category to the top
         categories.unshift(categories.pop())
         categories
+      hasItems: =>
+        !!@_items.length
       getItems: (category=null)=>
         _.chain(@_items).filter(category: category).sortBy('priority').reverse().value()
       addItem: (item)=>

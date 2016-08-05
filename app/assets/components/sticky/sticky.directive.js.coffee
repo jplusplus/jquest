@@ -1,5 +1,5 @@
 angular.module 'jquest'
   .directive 'sticky', ->
-    restrict: 'C'
-    link: (scope, el)->      
-      $(el[0]).fixedsticky()
+    restrict: 'AC'
+    link: (scope, el)->
+      angular.element(el).addClass('sticky').Stickyfill()

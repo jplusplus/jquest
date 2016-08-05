@@ -2,11 +2,12 @@
 
   padding-bottom:1.5rem * $line-height;
 
+
   &__activity {
     position: relative;
     z-index:50;
     overflow: hidden;
-
+    
     span.animated {
       display: inline-block;
     }

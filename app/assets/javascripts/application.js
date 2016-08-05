@@ -16,8 +16,6 @@
 //= require "restangular/dist/restangular.js"
 //= require "angular-devise/lib/devise.js"
 //= require "angular-growl-v2/build/angular-growl.js"
-//= require "filament-fixed/fixedfixed.js"
-//= require "filament-sticky/fixedsticky.js"
 //= require "tether/dist/js/tether.js"
 //= require "angular-hotkeys/build/hotkeys.js"
 //= require "angular-loading-bar/build/loading-bar.js"
@@ -30,4 +28,5 @@
 //= require "angular-ui-router-title/angular-ui-router-title.js"
 //= require "favico.js/favico.js"
 //= require "angular-svg-round-progressbar/build/roundProgress.min.js"
+//= require "Stickyfill/dist/stickyfill.js"
 // endbower

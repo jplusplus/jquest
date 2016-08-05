@@ -34,8 +34,17 @@ ActiveAdmin.register User do
     redirect_to resource_path, notice: "Restored to initial state"
   end
 
+  member_action :invite, method: :get do
+    resource.invite!
+    redirect_to resource_path, notice: "Invited to jQuest"
+  end
+
   action_item :reset, only: :show do
     link_to 'Reset User', reset_admin_user_path
+  end
+
+  action_item :reset, only: :show do
+    link_to 'Invite User', invite_admin_user_path
   end
 
   index do

@@ -34,7 +34,6 @@
     "css-hamburgers": "~0.3.0",
     "angular-devise": "angular-devise#~1.3.0",
     "angular-growl-v2": "~0.7.5",
-    "filament-sticky": "^0.1.7",
     "bootstrap": "v4.0.0-alpha.3",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0",
     "angular-loading-bar": "^0.9.0",
@@ -46,7 +45,8 @@
     "angular-ui-router-title": "^0.0.4",
     "favico.js": "^0.3.10",
     "jquery": "^2.1",
-    "angular-svg-round-progressbar": "^0.4.6"
+    "angular-svg-round-progressbar": "^0.4.6",
+    "Stickyfill": "^1.1.4"
   },
   "resolutions": {
     "angular": "~1.5.*"

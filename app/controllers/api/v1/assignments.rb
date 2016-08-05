@@ -7,6 +7,8 @@ module API
           authenticate!
           policy_scope(Assignment).
             where(user: current_user).
+            # Sort by resource's id
+            order(:resource_id).
             # We allow filtering by status from params
             filter(params.slice(:status)).
             # Paginates

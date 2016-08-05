@@ -33,9 +33,9 @@ angular.module 'jquest'
           # Check the state name
           item.state_name is $state.current.name and
           # And check the state params
-          @stateContains(item.state_params or {}) and
+          @stateContains(item.state_params or {})
           # Not already selected!
-          not @isSelected item
+          # not @isSelected item
       # True if the current state contains the given params
       stateContains: (params)->
         for k,value of params

@@ -8,7 +8,7 @@ angular.module 'jquest'
   .run ($rootScope, $location, $window, $state) ->
     'ngInject'
     $rootScope.$on "$stateChangeError", ->
-      $state.go 'main.403'
+      $state.go 'main.404'
     $rootScope.$on "$stateChangeSuccess", ->
       # Send 'pageview' to Google Analytics
       $window.ga('send', 'pageview', page: $location.url()) if $window.ga?

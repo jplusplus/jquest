@@ -6,6 +6,8 @@ module API
         get do
           authenticate!
           policy_scope(Assignment).
+            # Join to related tables
+            includes(:resource).
             where(user: current_user).
             # Sort by resource's id
             order(:resource_id).

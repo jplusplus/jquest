@@ -16,7 +16,11 @@ module API
           desc 'Return a season using its id.'
           get do
             authenticate!
-            policy_scope(Season).find(params[:id])
+            policy_scope(Season).
+              # Eager load activities
+              eager_load(:activities).
+              # Find season
+              find(params[:id])
           end
 
           desc 'Add user activity to know we saw the intro'

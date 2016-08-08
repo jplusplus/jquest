@@ -7,7 +7,8 @@ angular.module 'jquest'
     cfpLoadingBarProvider.includeSpinner = no
   .run ($rootScope, $location, $window, $state) ->
     'ngInject'
-    $rootScope.$on "$stateChangeError", ->
+    $rootScope.$on "$stateChangeError", (ev, e)->
+      console.log ev, e
       $state.go 'main.404'
     $rootScope.$on "$stateChangeSuccess", ->
       # Send 'pageview' to Google Analytics

@@ -22,7 +22,6 @@ class Assignment < ActiveRecord::Base
   before_create :set_level
 
   def set_level
-    puts 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww'
     if not user.nil? and level.blank?
       # Get point instance for this season
       point = user.points.find_by season: season

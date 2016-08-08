@@ -1,5 +1,5 @@
 angular.module 'jquest'
-  .config ($logProvider, $httpProvider, RestangularProvider, AuthProvider, hotkeysProvider, favicoProvider)->
+  .config ($logProvider, $httpProvider,$uibTooltipProvider, RestangularProvider, AuthProvider, hotkeysProvider, favicoProvider)->
     'ngInject'
     # Are we in production
     if -1 is location.hostname.indexOf 'jquestapp.com'
@@ -10,6 +10,9 @@ angular.module 'jquest'
         textColor: '#54462b'
         bgColor: '#FFD582'
         type: 'rectangle'
+    # Configure tooltips and popover
+    $uibTooltipProvider.setTriggers 'outsideClick': 'outsideClick'
+    $uibTooltipProvider.options appendToBody: yes
     # Set API root
     RestangularProvider.setBaseUrl '/api/v1'
     RestangularProvider.setRestangularFields selfLink: '@id'

@@ -3,9 +3,16 @@ module API
     class Assignments < Grape::API
       resource :assignments do
         desc "Return the user assignments"
+        params do
+          optional :season_id_eq, type: Integer
+          optional :status_eq, type: String
+        end
         get do
           authenticate!
           policy_scope(Assignment).
+            # We allow filtering
+            search(declared params).
+            result.
             # Join to related tables
             includes(:resource).
             where(user: current_user).

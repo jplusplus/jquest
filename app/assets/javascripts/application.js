@@ -29,4 +29,5 @@
 //= require "favico.js/favico.js"
 //= require "angular-svg-round-progressbar/build/roundProgress.min.js"
 //= require "Stickyfill/dist/stickyfill.js"
+//= require "Autolinker.js/dist/Autolinker.js"
 // endbower

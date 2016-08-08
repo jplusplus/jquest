@@ -90,7 +90,7 @@
         margin-top:-2px;
 
         & > div:first-child {
-          height:$navbar-height - $navbar-padding-y;
+          height:calc(#{$navbar-height - $navbar-padding-y} - #{$popover-arrow-width});
         }
 
         &__heading {

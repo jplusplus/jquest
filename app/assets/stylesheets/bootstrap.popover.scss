@@ -1,0 +1,132 @@
+// Arrows
+//
+
+.popover {
+
+  // Popover directions
+
+  &.top,
+  &.bs-tether-element-attached-bottom {
+    margin-top: -$popover-arrow-width;
+
+    &.popover .arrow {
+      bottom: -$popover-arrow-outer-width;
+      left: 50%;
+      margin-left: -$popover-arrow-outer-width;
+      border-top-color: $popover-arrow-outer-color;
+      border-bottom-width: 0;
+      &::after {
+        bottom: 1px;
+        margin-left: -$popover-arrow-width;
+        content: "";
+        border-top-color: $popover-arrow-color;
+        border-bottom-width: 0;
+      }
+    }
+  }
+
+  &.right,
+  &.bs-tether-element-attached-left {
+    margin-left: $popover-arrow-width;
+
+    &.popover .arrow {
+      top: 50%;
+      left: -$popover-arrow-outer-width;
+      margin-top: -$popover-arrow-outer-width;
+      border-right-color: $popover-arrow-outer-color;
+      border-left-width: 0;
+      &::after {
+        bottom: -$popover-arrow-width;
+        left: 1px;
+        content: "";
+        border-right-color: $popover-arrow-color;
+        border-left-width: 0;
+      }
+    }
+  }
+
+  &.bottom,
+  &.bs-tether-element-attached-top {
+    margin-top: $popover-arrow-width;
+
+    &.popover .arrow {
+      top: -$popover-arrow-outer-width;
+      left: 50%;
+      margin-left: -$popover-arrow-outer-width;
+      border-top-width: 0;
+      border-bottom-color: $popover-arrow-outer-color;
+      &::after {
+        top: 1px;
+        margin-left: -$popover-arrow-width;
+        content: "";
+        border-top-width: 0;
+        border-bottom-color: $popover-arrow-color;
+      }
+    }
+  }
+
+  &.left,
+  &.bs-tether-element-attached-right {
+    margin-left: -$popover-arrow-width;
+
+    &.popover .arrow {
+      top: 50%;
+      right: -$popover-arrow-outer-width;
+      margin-top: -$popover-arrow-outer-width;
+      border-right-width: 0;
+      border-left-color: $popover-arrow-outer-color;
+      &::after {
+        right: 1px;
+        bottom: -$popover-arrow-width;
+        content: "";
+        border-right-width: 0;
+        border-left-color: $popover-arrow-color;
+      }
+    }
+  }
+}
+
+
+
+
+// Arrows
+//
+// .popover .arrow is outer, .popover .arrow::after is inner
+
+.popover .arrow {
+  &,
+  &::after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+}
+.popover .arrow {
+  border-width: $popover-arrow-outer-width;
+}
+.popover .arrow::after {
+  content: "";
+  border-width: $popover-arrow-width;
+}
+
+.popover .arrow {
+  &,
+  &::after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+}
+.popover .arrow {
+  border-width: $popover-arrow-outer-width;
+}
+.popover .arrow::after {
+  content: "";
+  border-width: $popover-arrow-width;
+}

@@ -113,6 +113,10 @@ $popover-max-width: 425px;
 @import "bootstrap/scss/mixins.scss";
 // Internal mixins
 @import "./mixins";
+// Bootstrap Popover compatibility
+@import "bootstrap.popover.scss";
+// Bootstrap Tooltip compatibility
+@import "bootstrap.tooltip.scss";
 
 // Fix
 //
@@ -126,68 +130,4 @@ a.btn:not(.btn-reverse):not(.btn-secondary):not(.btn-link) {
 
 .card {
   @include box-shadow(0 1px 2px 0 rgba(black, .1));
-}
-
-.tooltip{
-
-  &-danger {
-
-    .tooltip-inner {
-      background:  $state-danger-bg;
-      color: $state-danger-text;
-    }
-
-    &.tooltip.top .tooltip-arrow {
-      border-top-color: $state-danger-bg !important;
-    }
-
-    &.tooltip.bottom .tooltip-arrow {
-      border-bottom-color: $state-danger-bg !important;
-    }
-  }
-
-  &-warning {
-
-    .tooltip-inner {
-      background:  $state-warning-bg;
-      color: $state-warning-text;
-    }
-
-    &.tooltip.top .tooltip-arrow {
-      border-top-color: $state-warning-bg !important;
-    }
-
-    &.tooltip.bottom .tooltip-arrow {
-      border-bottom-color: $state-warning-bg !important;
-    }
-  }
-
-  &-arrow {
-    left:50%;
-    top:100%;
-    border-color: transparent;
-    border-width: $tooltip-arrow-width;
-  }
-
-  &.top, &.bottom {
-    .tooltip-arrow {
-      @include vendor-prefix(transform, translateX(-50%));
-    }
-  }
-
-  &.top {
-    margin-top:$line-height * -.25rem;
-    .tooltip-arrow {
-      border-top-color: $tooltip-arrow-color;
-    }
-  }
-
-  &.bottom {
-    margin-top:$line-height * .25rem;
-    .tooltip-arrow {
-      border-bottom-color: $tooltip-arrow-color;
-      bottom:100%;
-      top:auto;
-    }
-  }
 }

@@ -54,7 +54,23 @@
     </div>
     <div class="main__season__course-materials-panel__selection"
          ng-class="{ 'main__season__course-materials-panel__selection--loading': !courseMaterials.getOpen().body_html }">
-      <div class="container" ng-bind-html="courseMaterials.getOpen().body_html"></div>
+      <div class="container main__season__course-materials-panel__selection__body" ng-bind-html="courseMaterials.getOpen().body_html"></div>
+      <div class="container main__season__course-materials-panel__selection__further-readings" ng-hide=" 'main.season.course-materials' | isState ">
+        <div class="row">
+          <div class="col-md-4 hidden-down-md text-md-right">
+            <i class="fa fa-graduation-cap fa-4x"></i>
+          </div>
+          <div class="col-md-8">
+            <h3>Like this reading?</h3>
+            <p>
+              jQuest comes with a large number of resource about topical
+              information on a specific aspect of datajournalism and
+              to help you carry out your mission.
+            </p>
+            <a ui-sref="main.season.course-materials" class="btn btn-link">See all course materials</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

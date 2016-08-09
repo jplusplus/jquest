@@ -7,7 +7,7 @@
     position: relative;
     z-index:50;
     overflow: hidden;
-    
+
     span.animated {
       display: inline-block;
     }
@@ -195,12 +195,12 @@
       padding: $line-height * 2rem 0;
       overflow: hidden;
 
-      html body &--loading .container {
+      html body &--loading &__body {
         background:white image-url("text-placeholder.svg") no-repeat 20px 20px;
         background-size: auto 150px;
       }
 
-      .container {
+      &__body {
         padding: $card-spacer-y $card-spacer-x;
         border-radius: $card-border-radius;
         background:white;
@@ -219,6 +219,25 @@
           max-width: 80%;
           display: block;
           margin:auto;
+        }
+      }
+
+      &__further-readings {
+        padding-top:5vh;
+        padding-bottom:5vh;
+        color:white;
+
+        a {
+          color:white;
+
+          &.btn.btn-link,
+          &.btn.btn-link:hover,
+          &.btn.btn-link:focus {
+            color:white;
+            margin-top: $line-height;
+            border:2px  white solid;
+            border-radius: $line-height * 1em;
+          }
         }
       }
     }

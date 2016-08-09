@@ -57,9 +57,6 @@
   'body--has-course-material': courseMaterials.isVisible()
   }">
   <%= yield %>
-  <% if content_for?(:javascript_includes) %>
-    <%= yield :javascript_includes %>
-  <% end %>
 
   <div growl></div>
   <div class="flash container">
@@ -67,5 +64,21 @@
       <div class="alert flash__item" data-type="<%= name %>"><%= msg %></div>
     <% end -%>
   </div>
+
+  <% if content_for?(:javascript_includes) %>
+    <%= yield :javascript_includes %>
+  <% end %>
+
+  <script>
+    (function(p,i,r,h,o,O){p.GoogleAnalyticsObject=h;p[h]||(p[h]=
+    function(){(p[h].q=p[h].q||[]).push(arguments)});p[h].h=+new Date;
+    o=i.createElement(r);O=i.getElementsByTagName(r)[0];
+    o.src='//www.google-analytics.com/analytics.js';
+    O.parentNode.insertBefore(o,O)}(window,document,'script','ga'));
+    ga('create', 'UA-35984661-8', 'auto')
+    <% unless current_user.nil? %>
+      ga('set', 'userId', <%= current_user.id %>);
+    <% end %>
+  </script>
 </body>
 </html>

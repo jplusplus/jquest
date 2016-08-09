@@ -20,5 +20,6 @@ angular.module 'jquest', [
   'infinite-scroll',
   'LocalStorageModule',
   'gridshore.c3js.chart',
-  'angular-svg-round-progressbar'
+  'angular-svg-round-progressbar',
+  'angularMoment'
 ]

@@ -30,4 +30,6 @@
 //= require "angular-svg-round-progressbar/build/roundProgress.min.js"
 //= require "Stickyfill/dist/stickyfill.js"
 //= require "Autolinker.js/dist/Autolinker.js"
+//= require "moment/moment.js"
+//= require "angular-moment/angular-moment.js"
 // endbower

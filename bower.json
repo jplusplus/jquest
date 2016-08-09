@@ -47,7 +47,8 @@
     "jquery": "^2.1",
     "angular-svg-round-progressbar": "^0.4.6",
     "Stickyfill": "^1.1.4",
-    "Autolinker.js": "^0.27.0"
+    "Autolinker.js": "^0.27.0",
+    "angular-moment": "^0.10.3"
   },
   "resolutions": {
     "angular": "~1.5.*"

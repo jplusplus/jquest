@@ -1,9 +1,10 @@
 angular.module 'jquest'
-  .service 'Seasons', (Restangular, $window, $rootScope, $q)->
+  .service 'Seasons', (Restangular, $window, $rootScope, $q, $translate)->
     'ngInject'
     new class Seasons
       _current: {}
       _seasons: []
+      _humanTaxonomies: {}
       constructor: ->
         # Load season to inject into  the menu
         @_promise = do @reload
@@ -35,6 +36,10 @@ angular.module 'jquest'
           angular.extend @_seasons, seasons
       all: => @_promise
       ready: =>  @_promise.then => @
+      addHumanTaxonomy: (taxonomy, token)=>
+        @_humanTaxonomies[taxonomy] = token
+      getHumanTaxonomy: (activitiy)=>
+        $translate.instant @_humanTaxonomies[activitiy.taxonomy] or activitiy.taxonomy, activitiy
       activities: => @_promise.then => @current().activities
       current: => @_current
       hasCurrent: => @_current? and _.keys(@_current).length > 0

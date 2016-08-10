@@ -48,7 +48,8 @@
     "angular-svg-round-progressbar": "^0.4.6",
     "Stickyfill": "^1.1.4",
     "Autolinker.js": "^0.27.0",
-    "angular-moment": "^0.10.3"
+    "angular-moment": "^0.10.3",
+    "angular-ui-validate": "^1.2.2"
   },
   "resolutions": {
     "angular": "~1.5.*"

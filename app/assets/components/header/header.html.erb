@@ -40,7 +40,7 @@
             <div ng-show="main.user.role === 'admin'">
               <a class="dropdown-item" href="/admin" translate>header.nav.admin</a>
             </div>
-            <a class="dropdown-item" ui-sref="main.season.activities" ng-show="main.season" translate>header.nav.activities</a>
+            <a class="dropdown-item" ui-sref="main.season.activities" ng-show="main.inSeason" translate>header.nav.activities</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/users/sign_out" translate>header.nav.logout</a>
           </div>

@@ -7,6 +7,7 @@ angular.module 'jquest'
       stateParams: -> $state.params
       # Current season must be available
       season: seasons.current()
+      inSeason: !angular.equals({}, seasons.current())
       # Configurable menu instance
       menu: Menu
       positionAbbr: (position)=>

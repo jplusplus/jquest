@@ -30,4 +30,4 @@ angular.module 'jquest'
         # Save the current user
         Auth.currentUser().then (user)=>
           @user = user
-          @userSchool = _.find @schools, id: user.school_id
+          @userSchool = _.find @schools, id: user.school.id

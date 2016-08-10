@@ -50,7 +50,7 @@
         </li>
       </ul>
 
-      <form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-xs-down"
+      <form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-md-down"
             ng-submit="menu.search(header.q)"
             ng-if="menu.hasSearch()">
         <div class="form-group">
@@ -66,7 +66,7 @@
         </div>
       </form>
 
-      <div class="header__nav__navbar__slack nav-item pull-xs-right hidden-xs-down" ng-if="main.user && main.slackStatus">
+      <div class="header__nav__navbar__slack nav-item pull-xs-right hidden-sm-down" ng-if="main.user && main.slackStatus">
         <div uib-popover-template="'header/slack/slack.html'"
              popover-placement="bottom"
              popover-enable="!main.slackStatus.is_member"

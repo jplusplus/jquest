@@ -2,11 +2,19 @@
   <div class="container">
     <div class="card">
       <div class="card-block">
-        <div class="card-title">
-          <h3>
-          <i class="fa fa-trophy"></i>
-            Leaderboard
-          </h3>
+        <div class="row">
+          <div class="card-title col-sm-8">
+            <h3>
+              <i class="fa fa-trophy"></i>
+              Leaderboard
+            </h3>
+          </div>
+          <div class="col-sm-4 text-xs-left text-sm-right">
+            <a class="btn btn-link btn-outline" ui-sref="main.season.activities">
+              <i class="fa fa-list-alt"></i>
+              View activity log
+            </a>
+          </div>
         </div>
         <p class="lead">
           You are {{ main.season.progression.position }}{{ main.positionAbbr(main.season.progression.position) }}.
@@ -25,7 +33,7 @@
             </div>
           </div>
         </div>
-        <p class="lead">
+        <p class="lead" ng-show="leaderboard.userSchool">
           Your school is {{ leaderboard.userSchool.position }}{{ main.positionAbbr(leaderboard.userSchool.position) }}
           out of {{ leaderboard.schools.length }}.
         </p>

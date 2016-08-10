@@ -1,11 +1,19 @@
 <div class="main__season__activities container">
   <div class="card">
     <div class="card-block">
-      <div class="card-title">
-        <h3>
-          <i class="fa fa-log"></i>
-          Activity logs
-        </h3>
+      <div class="row">
+        <div class="card-title col-sm-8">
+          <h3>
+            <i class="fa fa-list-alt"></i>
+            Activity logs
+          </h3>
+        </div>
+        <div class="col-sm-4 text-xs-left text-sm-right">
+          <a class="btn btn-link btn-outline" ui-sref="main.season.leaderboard">
+            <i class="fa fa-trophy"></i>
+            View leaderboard
+          </a>
+        </div>
       </div>
     </div>
     <table class="table small table table-striped"  infinite-scroll="activities.all.next()" infinite-scroll-disabled='activities.all.busy'>
@@ -13,9 +21,7 @@
         <tr ng-repeat="activity in activities.all.objects">
           <td>
             <span ng-bind-html="activities.toHuman(activity)"></span>
-          </td>
-          <td class="text-muted">
-            <ng-pluralize count="activity.points" when="{ '0': '', 'one': '1 point', 'other': '{} points'}"></ng-pluralize>
+            <ng-pluralize class="tag tag-info" count="activity.points" when="{ '0': '', 'one': '1 point', 'other': '{} points'}"></ng-pluralize>
           </td>
           <td class="text-muted text-xs-right">
             <span am-time-ago="activity.created_at" uib-tooltip="{{ activity.created_at | date:'medium' }}"></span>

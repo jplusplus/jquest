@@ -25,7 +25,7 @@ angular.module 'jquest'
         @_api.getList(limit: 100)
       save: (all)=>
         # Set the scope attribute filtered according the current state
-        @_all = all
+        @_all = _.each all, (item)-> item.randomToken = Math.random()
         @_selected = _.filter @_all, @isSaved
       # Filter course materials according to the current state
       filterCourseMaterials: (courseMaterials)=>
@@ -33,9 +33,9 @@ angular.module 'jquest'
           # Check the state name
           item.state_name is $state.current.name and
           # And check the state params
-          @stateContains(item.state_params or {})
-          # Not already selected!
-          # not @isSelected item
+          @stateContains(item.state_params or {}) and
+          # Not seen!
+          not item.seen
       # True if the current state contains the given params
       stateContains: (params)->
         for k,value of params

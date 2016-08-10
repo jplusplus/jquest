@@ -5,7 +5,7 @@
     </h4>
     <p>Those links contain topical information on a specific aspect of datajournalism, they'll help you carry out your mission.</p>
     <ul class="list-unstyled">
-      <li ng-repeat="courseMaterial in courseMaterials.getFiltered()">
+      <li ng-repeat="courseMaterial in courseMaterials.getFiltered() | orderBy:'randomToken' | limitTo:3">
         <a ng-click="courseMaterials.select(courseMaterial)">
           <div>
             {{ courseMaterial.title }}

@@ -11,6 +11,7 @@ angular.module 'jquest', [
   'ui.router',
   'ui.router.title',
   'ui.bootstrap',
+  'ui.validate',
   'pascalprecht.translate',
   'jquest.template',
   'angular-growl',

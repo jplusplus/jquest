@@ -1,0 +1,34 @@
+<div class="form-group row">
+  <label for="firstname-input" class="col-sm-4 col-form-label text-sm-right">Firstname</label>
+  <div class="col-sm-6">
+    <input class="form-control" type="text" ng-model="settings.user.firstname" id="firstname-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="lastname-input" class="col-sm-4 col-form-label text-sm-right">Lastname</label>
+  <div class="col-sm-6">
+    <input class="form-control" type="text" ng-model="settings.user.lastname" id="lastname-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="email-input" class="col-sm-4 col-form-label text-sm-right">Email</label>
+  <div class="col-sm-6">
+    <input class="form-control" required type="email" ng-model="settings.user.email" id="email-input">
+    <div class="text-muted form-text small">
+      <p ng-if="settings.user.unconfirmed_email">
+        Check your email (<strong>{{ settings.user.unconfirmed_email }}</strong>) to confirm your new address.
+        Until you confirm, you'll have to login with your current email address.
+      </p>
+      <div>Email will not be publicly displayed.</div>
+    </div>
+  </div>
+</div>
+<div class="form-group row">
+  <label for="email-input" class="col-sm-4 col-form-label text-sm-right">Phone number</label>
+  <div class="col-sm-6">
+    <input class="form-control" type="text" ng-model="settings.user.phone_number" id="phonenumber-input">
+    <div class="text-muted form-text small">
+      Phone number will not be publicly displayed.
+    </div>
+  </div>
+</div>

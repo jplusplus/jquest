@@ -2,6 +2,8 @@ module API
   module AuthenticableHelpers
     include Pundit
 
+    delegate :session, to: :request
+    
     def warden
       env['warden']
     end
@@ -23,5 +25,10 @@ module API
       parameters.permit( *policy(object).permitted_attributes )
     end
 
+    def devise_mapping
+      @devise_mapping ||= env['devise.mapping']
+    end
+
+    include ::Devise::Controllers::SignInOut
   end
 end

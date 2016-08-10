@@ -16,6 +16,9 @@ class UserPolicy  < ApplicationPolicy
     end
 
     def resolve
+      # No user!
+      return scope.none if @user.nil?
+      # According to the role
       case @user.role.to_sym
         when :teacher
           scope.where group: @user.group

@@ -1,0 +1,39 @@
+<div class="form-group row">
+  <label for="current-password-input" class="col-sm-4 col-form-label text-sm-right">Current password</label>
+  <div class="col-sm-6">
+    <input class="form-control" type="password" ng-model="settings.user.current_password" required id="current-password-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="password-input" class="col-sm-4 col-form-label text-sm-right">New password</label>
+  <div class="col-sm-6">
+    <input class="form-control"
+           type="password"
+           id="password-input"
+           name="password"
+           ng-model="settings.user.password"
+           required
+           minlength="8">
+    <div class="text-danger small"
+         ng-show="form.password.$touched && form.password.$invalid">
+      Too short
+    </div>
+  </div>
+</div>
+<div class="form-group row">
+  <label for="password-confirmation-input" class="col-sm-4 col-form-label text-sm-right">Verify password</label>
+  <div class="col-sm-6">
+    <input class="form-control"
+           type="password"
+           id="password-confirmation-input"
+           name="password_confirmation"
+           ng-model="settings.user.password_confirmation"
+           ui-validate="'settings.user.password === $value'"
+           ui-validate-watch=" 'settings.user.password' "
+           required>
+    <div class="text-danger small"
+         ng-show="form.password.$valid && form.password_confirmation.$invalid && form.password_confirmation.$touched">
+      Passwords don't match
+    </div>
+  </div>
+</div>

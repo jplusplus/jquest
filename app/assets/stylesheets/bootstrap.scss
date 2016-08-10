@@ -79,6 +79,10 @@ $nav-tabs-active-link-hover-border-color:     darken($card-border-color, 5);
 $nav-tabs-justified-link-border-color:        darken($card-border-color, 5);
 $nav-tabs-justified-active-link-border-color: $body-bg;
 
+$nav-tabs-active-link-hover-bg: $card-bg;
+$nav-tabs-active-link-hover-color: $body-color;
+$nav-tabs-link-hover-border-color: rgba($body-color, .1);
+
 // Navbar
 //
 $navbar-padding-y: 1rem;

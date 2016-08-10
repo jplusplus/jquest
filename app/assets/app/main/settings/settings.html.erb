@@ -1,0 +1,41 @@
+<div class="main__settings container">
+  <div class="row">
+    <div class="col-sm-9">
+      <form class="card" ng-submit="settings.save()" name="form">
+        <div class="card-header">
+          <div class="card-title">
+            <h3>Settings</h3>
+          </div>
+          <ul class="nav nav-tabs card-header-tabs pull-xs-left">
+            <li class="nav-item">
+              <a class="nav-link" ui-sref-active-eq="active" ui-sref="main.settings.account">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" ui-sref-active-eq="active" ui-sref="main.settings.security">Security</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-block" ui-view></div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-sm-6 offset-sm-4">
+              <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <img class="card-img-top" ng-src="//www.gravatar.com/avatar/{{ main.user.email_md5 }}?d=retro&s=500" width="100%" alt="Profile picture">
+        <div class="card-block">
+          <p class="card-text text-xs-center">
+            Your profile picture is provided <a href="https://secure.gravatar.com/" target="_blank">by Gravatar</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

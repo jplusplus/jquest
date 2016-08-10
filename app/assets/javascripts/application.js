@@ -32,4 +32,5 @@
 //= require "Autolinker.js/dist/Autolinker.js"
 //= require "moment/moment.js"
 //= require "angular-moment/angular-moment.js"
+//= require "angular-ui-validate/dist/validate.js"
 // endbower

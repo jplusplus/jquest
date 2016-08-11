@@ -1,0 +1,43 @@
+<% content_for :stylesheet_includes do %>
+  <%= stylesheet_link_tag 'app', media: 'all' %>
+<% end %>
+
+<% content_for :content do %>
+  <div class="devise--bg">
+    <div class="devise__form">
+      <div class="card container-fluid">
+        <div class="row">
+          <div class="col-sm-4 devise__form__sidebar">
+            <div class="devise__form__sidebar__wrapper">
+              <h5 class="devise__form__sidebar__wrapper__heading">
+                <a href="/" class="a-unstyled">
+                  <img src="<%= image_path("jquest-white.svg") %>" width="70%" alt="jQuest" />
+                </a>
+              </h5>
+              <% if content_for?(:description) %>
+                <%= yield(:description) %>
+              <% else %>
+                <p class="small">
+                  jQuest is a platform for journalism schools to teach datajournalism.
+                  It let hundreds of students across Europe come together and join forces to investigate.
+                </p>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+
+      <% if flash[:alert] %>
+        <p class="alert-warning alert"><%= flash[:alert] %></p>
+      <% end %>
+      <% if flash[:notice] %>
+        <p class="alert-info alert"><%= flash[:notice] %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= render :file => 'layouts/application' %>

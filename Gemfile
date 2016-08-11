@@ -38,7 +38,8 @@ gem 'enumerize'
 # ActiveRecord versioning
 gem 'paper_trail'
 # Better assets support
-gem 'angular-rails-templates'
+gem 'sprockets', '3.6.3'
+gem 'angular-rails-templates', "~> 1.0.1"
 gem 'ngannotate-rails'
 gem 'sass-css-importer'
 gem "bower-rails", "~> 0.10.0"
@@ -50,7 +51,7 @@ gem 'redcarpet'
 # Slack integration
 gem 'slack-ruby-client', "~> 0.7.5"
 # This won't work if you didn't checkout the gem repository in the parent directory.
-#gem 'jquest_pg', path: '../jquest-pg'
+# gem 'jquest_pg', path: '../jquest-pg'
 gem 'jquest_pg', github: 'jplusplus/jquest-pg'
 
 group :development, :test do

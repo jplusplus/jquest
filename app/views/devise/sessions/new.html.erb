@@ -1,56 +1,33 @@
-<% content_for :stylesheet_includes do %>
-  <%= stylesheet_link_tag 'app', media: 'all' %>
-<% end %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+  <div class="card-block">
+    <h5 class="card-title">Login</h5>
 
-<div class="devise--sign-in">
-  <div class="devise__form">
-    <div class="card container-fluid">
-      <div class="row">
-        <div class="col-sm-4 devise__form__sidebar">
-          <div class="devise__form__sidebar__wrapper">
-            <h5 class="devise__form__sidebar__wrapper__heading">
-              <img src="<%= image_path("jquest-white.svg") %>" width="70%" alt="jQuest" />
-            </h5>
-          </div>
-        </div>
-        <div class="col-sm-8">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
-            <div class="card-block">
-              <h5 class="card-title">Login</h5>
-
-              <div class="form-group">
-                <%= f.label :email %>
-                <div>
-                  <%= f.email_field :email, class: 'form-control', autofocus: true %>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <%= f.label :password %>
-                <div>
-                  <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
-                </div>
-              </div>
-              <div>
-                <%= f.submit "Login", :class => 'btn btn-primary' %>
-                <% if devise_mapping.rememberable? -%>
-                  <span class="small checkbox">
-                    <%= f.check_box :remember_me %>
-                    <%= f.label :remember_me %>
-                  </span>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <div>
+        <%= f.email_field :email, class: 'form-control', autofocus: true %>
       </div>
     </div>
 
-    <% if flash[:alert] %>
-      <p class="alert-warning alert"><%= flash[:alert] %></p>
-    <% end %>
-    <% if flash[:notice] %>
-      <p class="alert-info alert"><%= flash[:notice] %></p>
+    <div class="form-group">
+      <%- if devise_mapping.recoverable? %>
+        <%= link_to "Forgot?", new_password_path(resource_name), class: 'pull-xs-right small' %>
+      <% end -%>
+      <%= f.label :password %>
+      <div>
+        <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-block">
+    <%= f.submit "Login", :class => 'btn btn-primary' %>
+    &nbsp;
+    <% if devise_mapping.rememberable? -%>
+      <span class="small checkbox">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </span>
     <% end %>
   </div>
-</div>
+<% end %>

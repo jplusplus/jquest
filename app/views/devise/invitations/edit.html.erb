@@ -1,48 +1,22 @@
-<% content_for :stylesheet_includes do %>
-  <%= stylesheet_link_tag 'app', media: 'all' %>
-<% end %>
-
-<div class="devise">
-  <div class="devise__form">
-    <div class="card">
-      <h5 class="card-header"><%= t 'devise.invitations.edit.header' %></h5>
-      <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
-        <div class="card-block">
-          <%= devise_error_messages! %>
-          <%= f.hidden_field :invitation_token %>
-          <div class="form-group row">
-            <label class="col-sm-3 text-sm-right">
-              <%= f.label :password %>
-            </label>
-            <div class="col-sm-9">
-              <%= f.password_field :password, class: 'form-control', autofocus: true %>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-3 text-sm-right">
-              <%= f.label :password_confirmation %>
-            </label>
-            <div class="col-sm-9">
-              <%= f.password_field :password_confirmation, class: 'form-control' %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-5 push-sm-7 text-sm-right">
-              <%= f.submit t("devise.invitations.edit.submit_button"), :class => 'btn btn-primary' %>
-            </div>
-            <div class="col-sm-7 pull-sm-5 small">
-              <%= render "devise/shared/links" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+  <div class="card-block">
+    <h5 class="card-title"><%= t 'devise.invitations.edit.header' %></h5>
+    <%= f.hidden_field :invitation_token %>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control', autofocus: true %>
     </div>
-
-    <% if flash[:alert] %>
-      <p class="alert-warning alert"><%= flash[:alert] %></p>
-    <% end %>
-    <% if flash[:notice] %>
-      <p class="alert-info alert"><%= flash[:notice] %></p>
-    <% end %>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+    <div class="row">
+      <div class="col-sm-5 push-sm-7 text-sm-right">
+        <%= f.submit t("devise.invitations.edit.submit_button"), :class => 'btn btn-primary' %>
+      </div>
+      <div class="col-sm-7 pull-sm-5 small">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>

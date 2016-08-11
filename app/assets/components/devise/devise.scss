@@ -1,6 +1,8 @@
 .devise {
 
-  &--sign-in {
+  &--bg {
+
+    padding-top:10%;
 
     &:after {
       content:image-url("people-coffee-notes-tea-high-contrast.jpg");
@@ -27,11 +29,11 @@
           color: #9dd0c0;
           margin-bottom: $spacer-y * 2;
         }
+
       }
 
       &__sidebar {
         overflow: visible;
-        text-align: center;
         padding:$card-spacer-y $card-spacer-x;
         padding-top: $card-spacer-y * 3;
 
@@ -59,7 +61,12 @@
         &__wrapper {
           position: relative;
           z-index:10;
+          color:white;
+          text-align: center;
 
+          h5 {
+            margin-bottom:$spacer-y * 3;
+          }
         }
       }
     }

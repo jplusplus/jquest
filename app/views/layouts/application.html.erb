@@ -56,7 +56,11 @@
   'body--has-overlay': menu.isVisible() || courseMaterials.isVisible(),
   'body--has-course-material': courseMaterials.isVisible()
   }">
-  <%= yield %>
+  <% if content_for?(:content) %>
+    <%= yield(:content) %>
+  <% else %>
+    <%= yield %>
+  <% end %>
 
   <div growl></div>
   <div class="flash container">

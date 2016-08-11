@@ -1,5 +1,70 @@
 .devise {
 
+  &--sign-in {
+
+    &:after {
+      content:image-url("people-coffee-notes-tea-high-contrast.jpg");
+      position: fixed;
+      top:50%;
+      left:50%;
+      min-width:100%;
+      min-height:100%;
+      z-index:-1;
+      @include vendor-prefix(transform, translate(-50%, -50%));
+    }
+
+    .devise__form {
+      width: auto;
+      max-width:770px;
+      @include box-shadow(0 0 5px 0 rgba(#000, 1) );
+
+      .card {
+        overflow: hidden;
+        border:0;
+        border-radius: 3px;
+
+        &-title {
+          color: #9dd0c0;
+          margin-bottom: $spacer-y * 2;
+        }
+      }
+
+      &__sidebar {
+        overflow: visible;
+        text-align: center;
+        padding:$card-spacer-y $card-spacer-x;
+        padding-top: $card-spacer-y * 3;
+
+        &:after, &:before {
+          content:"";
+          position: absolute;
+          top:0;
+          right:0;
+          bottom:-100vh;
+        }
+
+        &:after {
+          z-index:0;
+          background:center image-url("people-coffee-notes-tea-high-contrast-green.jpg");
+          background-size: 200% auto;
+          width:100%;
+        }
+
+        &:before {
+          z-index:1;
+          width:5px;
+          @include gradient-x( rgba(#000, 0), rgba(#000, .1) );
+        }
+
+        &__wrapper {
+          position: relative;
+          z-index:10;
+
+        }
+      }
+    }
+  }
+
   &__form {
     width:600px;
     max-width:90%;

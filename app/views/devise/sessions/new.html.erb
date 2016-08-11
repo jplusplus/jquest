@@ -2,48 +2,48 @@
   <%= stylesheet_link_tag 'app', media: 'all' %>
 <% end %>
 
-<div class="devise">
-  <div class="devise__form devise__form--sign-up">
-    <div class="card">
-      <h5 class="card-header">jQuest login</h5>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
-        <div class="card-block">
-          <div class="form-group row">
-            <label class="col-sm-3 text-sm-right">
-              <%= f.label :email %>
-            </label>
-            <div class="col-sm-9">
-              <%= f.email_field :email, class: 'form-control', autofocus: true %>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-sm-3 text-sm-right">
-              <%= f.label :password %>
-            </label>
-            <div class="col-sm-9">
-              <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
-            </div>
-          </div>
-
-          <% if devise_mapping.rememberable? -%>
-            <div class="form-group row small">
-              <label class="col-sm-9 offset-sm-3">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
-              </label>
-            </div>
-          <% end %>
-          <div class="row">
-            <div class="col-sm-4 push-sm-8 text-sm-right">
-              <%= f.submit "Login", :class => 'btn btn-primary' %>
-            </div>
-            <div class="col-sm-8 pull-sm-4 small">
-              <%= render "devise/shared/links" %>
-            </div>
+<div class="devise--sign-in">
+  <div class="devise__form">
+    <div class="card container-fluid">
+      <div class="row">
+        <div class="col-sm-4 devise__form__sidebar">
+          <div class="devise__form__sidebar__wrapper">
+            <h5 class="devise__form__sidebar__wrapper__heading">
+              <img src="<%= image_path("jquest-white.svg") %>" width="70%" alt="jQuest" />
+            </h5>
           </div>
         </div>
-      <% end %>
+        <div class="col-sm-8">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+            <div class="card-block">
+              <h5 class="card-title">Login</h5>
+
+              <div class="form-group">
+                <%= f.label :email %>
+                <div>
+                  <%= f.email_field :email, class: 'form-control', autofocus: true %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password %>
+                <div>
+                  <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+                </div>
+              </div>
+              <div>
+                <%= f.submit "Login", :class => 'btn btn-primary' %>
+                <% if devise_mapping.rememberable? -%>
+                  <span class="small checkbox">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+                  </span>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
 
     <% if flash[:alert] %>

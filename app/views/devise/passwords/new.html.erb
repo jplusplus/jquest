@@ -1,7 +1,7 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <div class="card-block">
     <h5 class="card-title">Forgot your password?</h5>
-    <%= devise_error_messages! %>
+    
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control', autofocus: true %>

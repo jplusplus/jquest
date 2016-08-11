@@ -1,7 +1,7 @@
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <div class="card-block">
     <h5 class="card-title">Resend unlock instructions</h5>
-    <%= devise_error_messages! %>
+    
     <div class="form-group row">
       <label class="col-sm-3 text-sm-right">
         <%= f.label :email %>

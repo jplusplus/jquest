@@ -36,6 +36,12 @@
       <% if flash[:notice] %>
         <p class="alert-info alert"><%= flash[:notice] %></p>
       <% end %>
+
+      <% devise_error_messages!.each do |key, value| %>
+        <p class="alert alert-danger">
+          <strong><%= key.capitalize %></strong> <%= value %>
+        </p>
+      <% end %>
     </div>
   </div>
 <% end %>

@@ -24,5 +24,6 @@ local-env.yml
 .byebug_history
 *.log
 jquest.tar
+jquest.tar.gz
 erd.pdf
 google-session.json

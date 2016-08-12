@@ -33,6 +33,6 @@ RUN bundle exec rake assets:precompile
 RUN chown -R nobody:nogroup /usr/src/app
 USER nobody
 # Entrypoint script that setup or migrate db if needed
-# RUN chmod +x /usr/src/app/bin/init
+RUN chmod +x /usr/src/app/bin/*
 # ENTRYPOINT ["/usr/src/app/bin/init"]
-CMD ["bundle exec puma -C config/puma.rb"]
+CMD /usr/src/app/bin/web

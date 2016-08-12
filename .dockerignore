@@ -15,4 +15,6 @@ local-env.yml
 .byebug_history
 .git
 jquest.tar
-google-session.json
+jquest.tar.gz
+config/google-session.json
+docker-compose.yml

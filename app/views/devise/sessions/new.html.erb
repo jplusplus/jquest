@@ -5,27 +5,27 @@
     <div class="form-group">
       <%= f.label :email %>
       <div>
-        <%= f.email_field :email, class: 'form-control', autofocus: true %>
+        <%= f.email_field :email, class: 'form-control', autofocus: true, tabindex: 1 %>
       </div>
     </div>
 
     <div class="form-group">
       <%- if devise_mapping.recoverable? %>
-        <%= link_to "Forgot?", new_password_path(resource_name), class: 'pull-xs-right small' %>
+        <%= link_to "Forgot?", new_password_path(resource_name), class: 'pull-xs-right small', tabindex: 5 %>
       <% end -%>
       <%= f.label :password %>
       <div>
-        <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+        <%= f.password_field :password, class: 'form-control', autocomplete: "off", tabindex: 2 %>
       </div>
     </div>
 
   </div>
   <div class="card-block">
-    <%= f.submit "Login", :class => 'btn btn-primary' %>
+    <%= f.submit "Login", :class => 'btn btn-primary', tabindex: 4 %>
     &nbsp;
     <% if devise_mapping.rememberable? -%>
       <span class="small checkbox">
-        <%= f.check_box :remember_me %>
+        <%= f.check_box :remember_me, tabindex: 3 %>
         <%= f.label :remember_me %>
       </span>
     <% end %>

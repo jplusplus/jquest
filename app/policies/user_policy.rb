@@ -33,6 +33,10 @@ class UserPolicy  < ApplicationPolicy
     @user and @user.role? :teacher, :admin
   end
 
+  def invite?
+    @user and @user.role? :teacher, :admin
+  end
+
   def import?
     create?
   end

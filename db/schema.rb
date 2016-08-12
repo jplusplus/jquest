@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804114026) do
+ActiveRecord::Schema.define(version: 20160812124940) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -157,11 +157,12 @@ ActiveRecord::Schema.define(version: 20160804114026) do
 
   create_table "seasons", force: :cascade do |t|
     t.string   "name"
-    t.string   "primary_color", default: "#373a3c"
-    t.string   "status",        default: "open"
+    t.string   "primary_color",          default: "#373a3c"
+    t.string   "status",                 default: "open"
     t.string   "engine_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "invitation_description"
   end
 
   create_table "sources", force: :cascade do |t|

@@ -1,3 +1,9 @@
+<% if resource.member_of.present? %>
+  <% content_for :description do %>
+    <p class="small"><%= resource.member_of.invitation_description %></p>
+  <% end %>
+<% end %>
+
 <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
   <div class="card-block">
     <h5 class="card-title"><%= t 'devise.invitations.edit.header' %></h5>
@@ -10,13 +16,8 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
-    <div class="row">
-      <div class="col-sm-5 push-sm-7 text-sm-right">
-        <%= f.submit t("devise.invitations.edit.submit_button"), :class => 'btn btn-primary' %>
-      </div>
-      <div class="col-sm-7 pull-sm-5 small">
-        <%= render "devise/shared/links" %>
-      </div>
-    </div>
+  </div>
+  <div class="card-block">
+    <%= f.submit t("devise.invitations.edit.submit_button"), :class => 'btn btn-primary' %>
   </div>
 <% end %>

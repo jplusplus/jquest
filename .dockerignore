@@ -1,13 +1,13 @@
-/.bundle
+.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+db/*.sqlite3
+db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
-/tmp
+log/*
+!log/.keep
+tmp
 
 bower_components
 public/assets/*

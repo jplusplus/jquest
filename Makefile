@@ -19,8 +19,12 @@ migrate-with-local:
 		SECRET_KEY_BASE=$(shell openssl rand -base64 32) \
 		rake db:version
 
-deploy: build-docker migrate-with-docker
+deploy: build-docker migrate-with-docker tag-docker push-docker
+
+tag-docker:
 		docker tag $(DOCKER_NAME) registry.heroku.com/$(HEROKU_APP)/web
+
+push-docker:
 		docker push registry.heroku.com/$(HEROKU_APP)/web
 
 build-docker:

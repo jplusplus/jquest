@@ -29,7 +29,8 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: 895d8eb73becb65436f87e3627804ea12e0496be
+  revision: 480cc9cdcdb9e2be6eac70b04b56b3f88eb7f7a7
+  branch: master
   specs:
     jquest_pg (0.0.9)
       active_model_serializers (~> 0.10.0)

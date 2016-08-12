@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
     self.confirmed_at = DateTime.new
   end
 
+
   def to_s
     email || phone_number
   end

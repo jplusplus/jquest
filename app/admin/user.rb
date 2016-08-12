@@ -2,7 +2,7 @@ ActiveAdmin.register User do
   permit_params :email, :phone_number, :password, :password_confirmation,
                 :otp_required_for_login, :home_country, :spoken_language,
                 :role, :created_at, :updated_at, :confirmed_at, :invitable,
-                :school_id, :group_id, :firstname, :lastname
+                :school_id, :group_id, :firstname, :lastname, :level
 
   belongs_to :group, :optional => true
   menu label: 'Users', parent: 'Team'

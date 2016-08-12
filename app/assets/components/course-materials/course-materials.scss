@@ -1,5 +1,6 @@
 .course-materials {
-  background:$brand-primary;
+  background:$brand-primary image-url("people-coffee-notes-tea-high-contrast.jpg") center center;
+  background-size: cover;
   color:white;
   @include transition(0.7s);
 

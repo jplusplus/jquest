@@ -1,6 +1,7 @@
 FROM alpine:3.2
 RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake bash git \
-    ruby-bigdecimal ruby-io-console libstdc++ tzdata postgresql-client nodejs
+    ruby-bigdecimal ruby-io-console libstdc++ tzdata postgresql-client nodejs && \
+    rm -rf /var/cache/apk/*
 # Manage front dependencies with bower
 RUN npm install bower -g
 # Configure env
@@ -19,11 +20,15 @@ COPY Gemfile* ./
 # Adds all the build dependencies as a virtual group named build-dependencies.
 RUN apk --update add --virtual build-dependencies build-base ruby-dev \
     openssl-dev postgresql-dev libc-dev linux-headers && \
+# Project root must be a git repository since many Gems use `git ls-files`
+# @see https://github.com/bundler/bundler/issues/2039
+    git init && \
 # Second part installs bundler and runs bundle install command that installs all our application dependencies.
     gem install bundler && \
     bundle install --without development test && \
 # After all gems are installed we finally remove virtual package group.
-    apk del build-dependencies
+    apk del build-dependencies && \
+    rm -rf /var/cache/apk/*
 # Copy all file
 ADD . .
 # This will prepare every assets, download dependencies

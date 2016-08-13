@@ -1,9 +1,6 @@
 FROM alpine:3.2
 RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake bash git \
     ruby-bigdecimal ruby-io-console libstdc++ tzdata postgresql-client nodejs
-# Adds all the build dependencies as a virtual group named build-dependencies.
-RUN apk --update add --virtual build-dependencies build-base ruby-dev \
-    openssl-dev postgresql-dev libc-dev linux-headers
 # Manage front dependencies with bower
 RUN npm install bower -g
 # Configure env
@@ -19,11 +16,14 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # Copy Gemfile and install dependencies
 COPY Gemfile* ./
+# Adds all the build dependencies as a virtual group named build-dependencies.
+RUN apk --update add --virtual build-dependencies build-base ruby-dev \
+    openssl-dev postgresql-dev libc-dev linux-headers && \
 # Second part installs bundler and runs bundle install command that installs all our application dependencies.
-RUN gem install bundler && \
-    bundle install --without development test
+    gem install bundler && \
+    bundle install --without development test && \
 # After all gems are installed we finally remove virtual package group.
-RUN apk del build-dependencies
+    apk del build-dependencies
 # Copy all file
 ADD . .
 # This will prepare every assets, download dependencies
@@ -35,5 +35,5 @@ USER nobody
 # Entrypoint script that setup or migrate db if needed
 RUN chmod +x /usr/src/app/bin/*
 # Entrypoint must be a login shell to load .profile
-ENTRYPOINT ["/bin/sh", "-l", "-c"]
+# ENTRYPOINT ["/bin/sh", "-l", "-c"]
 CMD /usr/src/app/bin/web

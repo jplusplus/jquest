@@ -3,7 +3,7 @@
     <h4 class="card-title">
       <i class="fa fa-graduation-cap fa-fw"></i>&nbsp;Course Material
     </h4>
-    <p>Those links contain topical information on a specific aspect of datajournalism, they'll help you carry out your mission.</p>
+    <p>These items from the course cover specific aspects of datajournalism techniques and tools. They'll help you carry out your missions.</p>
     <ul class="list-unstyled">
       <li ng-repeat="courseMaterial in courseMaterials.getFiltered() | orderBy:'randomToken' | limitTo:3">
         <a ng-click="courseMaterials.select(courseMaterial)">

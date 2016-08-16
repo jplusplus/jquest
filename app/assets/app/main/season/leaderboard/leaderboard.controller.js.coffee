@@ -15,7 +15,7 @@ angular.module 'jquest'
       points: points
       schools: schools
       isSchoolmate: (point)=>
-        not @isYou(point) and point.school_id is @user?.school_id
+        not @isYou(point) and point.school_id is @user?.school.id
       isYou: (point)=>
         point.user_id is @user?.id
       constructor: ->
@@ -29,5 +29,5 @@ angular.module 'jquest'
           s1.position = _.filter(@schools, (s2)-> s2.points > s1.points).length + 1
         # Save the current user
         Auth.currentUser().then (user)=>
-          @user = user
           @userSchool = _.find @schools, id: user.school.id
+          @user = user

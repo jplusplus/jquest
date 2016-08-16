@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="jquest">
 <head>
-  <title>
+  <title ng-bind=" ($title || 'Welcome') + ' - jQuest' ">
     <% if content_for?(:page_title) %>
       <%= yield(:page_title) %>
     <% else %>

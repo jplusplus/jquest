@@ -9,7 +9,7 @@
         <span class="main__season__activity__wrapper__title">
           <a ng-href="{{ main.season.engine.root_path }}">Your missions</a>
         </span>
-        <span class="main__season__activity__wrapper__title" ng-repeat="crumb in $breadcrumbs">
+        <span class="main__season__activity__wrapper__title" ng-repeat="crumb in $breadcrumbs.slice(1)">
           {{ crumb.title }}
         </span>
       </div>
@@ -63,8 +63,8 @@
           <div class="col-md-8">
             <h3>Like this piece?</h3>
             <p>
-              jQuest comes with a large number of resources on 
-              specific aspects of datajournalism. Read them, 
+              jQuest comes with a large number of resources on
+              specific aspects of datajournalism. Read them,
               they'll help you carry out your missions!
             </p>
             <a ui-sref="main.season.course-materials" class="btn btn-link">See all course materials</a>

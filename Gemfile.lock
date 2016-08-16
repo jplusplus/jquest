@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: 6fdc829314e66e11a82943213571af172f670bd6
+  revision: 80a33d4701093833bce1459536aa9802f110b116
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -237,7 +237,7 @@ GEM
     hashie (3.4.4)
     htmlentities (4.3.4)
     http_parser.rb (0.6.0)
-    httpclient (2.8.1)
+    httpclient (2.8.2.2)
     hurley (0.2)
     i18n (0.7.0)
     i18n_data (0.7.0)

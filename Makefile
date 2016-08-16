@@ -38,6 +38,3 @@ bundle-docker: save-docker
 
 run-docker:
 		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${HEROKU_APP}) -it ${HEROKU_APP} bash
-
-sync:
-		rake jquest_pg:sync

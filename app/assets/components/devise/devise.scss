@@ -5,6 +5,7 @@
     padding-top:10%;
 
     &:after {
+      background:$brand-primary;
       content:image-url("people-coffee-notes-tea-high-contrast.jpg");
       position: fixed;
       top:50%;
@@ -47,7 +48,7 @@
 
         &:after {
           z-index:0;
-          background:center image-url("people-coffee-notes-tea-high-contrast-green.jpg");
+          background:center image-url("people-coffee-notes-tea-high-contrast-green.jpg") $brand-success;
           background-size: 200% auto;
           width:100%;
         }

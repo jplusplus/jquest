@@ -2,7 +2,6 @@ ActiveAdmin.register Activity do
   permit_params :user_id, :season_id, :resource_id, :resource_type, :points, :taxonomy
   belongs_to :user, :optional => true
 
-
   index do
     selectable_column
     id_column

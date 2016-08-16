@@ -11,6 +11,7 @@ class CourseMaterial < ActiveRecord::Base
 
   enumerize :status, :in => [:draft, :published], :default => :draft
   serialize :state_params, JSON
+  has_paper_trail :on => [:update]
 
   scope :draft, ->{ status :draft }
   scope :published, ->{ status :published }

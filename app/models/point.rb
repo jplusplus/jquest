@@ -16,7 +16,9 @@ class Point < ActiveRecord::Base
   end
 
   def next_level
-    update level: level + 1, round: 1
+    update level: level + 1, round: 1    
+    # Mark all pending assignments as done
+    user.assignments.pending.where(season: season).update_all status: :done
     # Set new assignments
     season.controller.new.new_assignments! user
   end

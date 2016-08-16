@@ -1,11 +1,13 @@
 .main {
+  $main-features-bg: darken($brand-primary, 10);
+
   @include media-breakpoint-down(sm) {
     padding-top:$navbar-height;
   }
 
   &__intro {
     padding-top:15vh;
-    min-height:75vh;
+    min-height:65vh;
     margin:0;
     color: white;
     position: relative;
@@ -59,11 +61,11 @@
   }
 
   &__features {
-    $main-features-bg: darken($brand-primary, 20);
     min-height: 20vh;
     background: $main-features-bg;
     color:white;
-    padding:5vh 0;
+    padding-top:5vh;
+    padding-bottom: 10vh;
     position: relative;
     text-align: center;
 
@@ -132,4 +134,25 @@
     }
   }
 
+  &__supports {
+    padding:6vh 0;
+    background: $main-features-bg;
+    background: $brand-success;
+    background:center image-url("people-coffee-notes-tea-high-contrast-green.jpg") $brand-success;
+    background-size:cover;
+    color:white;
+    text-align: center;
+
+    &__heading {
+      padding-bottom:5vh;
+    }
+
+    &__bubble {
+      margin-bottom:$spacer-y;
+    }
+
+    &__logo img {
+      max-width: 100%;
+    }
+  }
 }

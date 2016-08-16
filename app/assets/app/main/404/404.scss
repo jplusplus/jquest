@@ -1,5 +1,5 @@
 .main__404 {
-  $main-404-bg: darken($brand-primary, 20);
+  $main-404-bg: darken($brand-primary, 10);
   padding:5vh;
   margin-bottom:-1.5rem * $line-height;
   min-height: calc(100vh - #{$navbar-height} - 2px);

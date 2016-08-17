@@ -1,5 +1,9 @@
 .main__season__leaderboard {
   padding:1rem * $line-height;
+  
+  caption {
+    caption-side: top;
+  }
 
   &__overview {
     display: table;

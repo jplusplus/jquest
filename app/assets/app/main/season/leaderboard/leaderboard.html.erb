@@ -28,8 +28,9 @@
                  'main__season__leaderboard__overview__user--you': leaderboard.isYou(point)
                }">
             <div class="main__season__leaderboard__overview__user__label">
-              <span ng-if="leaderboard.isYou(point)">You with</span>
-              {{ point.value }} pts
+              <span ng-if=" leaderboard.isYou(point)">You with</span>
+              <span ng-if="!leaderboard.isYou(point)">{{ ::point.user_display_name }}</span>
+              {{ ::point.value }} pts
             </div>
           </div>
         </div>
@@ -39,6 +40,7 @@
         </p>
       </div>
       <table class="small table table-striped">
+        <caption class="text-xs-center">Schools ranking</caption>
         <thead>
           <tr>
             <th style="width: 1vw"></th>
@@ -57,6 +59,34 @@
             </td>
             <td>
               {{ school.points }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="small table table-striped">
+        <caption class="text-xs-center">Participants ranking</caption>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>School</th>
+            <th class="text-xs-right">Points</th>
+            <th class="text-xs-right">Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="point in leaderboard.points track by $index" ng-class="{ 'table-warning': leaderboard.isYou(point) }">
+            <td>
+              {{ point.user_display_name }}
+            </td>
+            <td>
+              {{ ::leaderboard.schoolIdToName(point.school_id) }}
+            </td>
+            <td class="text-xs-right">
+              {{ point.value }}
+            </td>
+            <td class="text-xs-right">
+              {{ point.position }}{{ main.positionAbbr(point.position) }}
             </td>
           </tr>
         </tbody>

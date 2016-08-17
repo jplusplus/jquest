@@ -18,6 +18,10 @@ angular.module 'jquest'
         not @isYou(point) and point.school_id is @user?.school.id
       isYou: (point)=>
         point.user_id is @user?.id
+      schoolIdToName: (id)=>
+        @schoolsHash ||= _.keyBy(@schools, 'id');
+        # Gets the right school its name
+        @schoolsHash[id]?.name
       constructor: ->
         # Extract points sum for this season
         _.map @schools, (s)-> s.points = s.points_sum_by_season[seasonId] or 0

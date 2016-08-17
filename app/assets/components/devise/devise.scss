@@ -19,12 +19,16 @@
     .devise__form {
       width: auto;
       max-width:770px;
-      @include box-shadow(0 0 5px 0 rgba(#000, 1) );
+
+      & > * { 
+        @include box-shadow(0 0 5px 0 rgba(#000, 1) );
+      }
 
       .card {
         overflow: hidden;
         border:0;
         border-radius: 3px;
+
 
         &-title {
           color: #9dd0c0;

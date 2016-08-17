@@ -23,3 +23,4 @@ test:
 production:
   <<: *default
   adapter: postgresql
+  pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>

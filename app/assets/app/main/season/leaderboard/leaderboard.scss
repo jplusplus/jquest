@@ -1,6 +1,6 @@
 .main__season__leaderboard {
   padding:1rem * $line-height;
-  
+
   &__overview {
     display: table;
     table-layout: fixed;
@@ -12,6 +12,7 @@
       display: table-cell;
       position: relative;
       background:$card-cap-bg;
+      max-width: 2em;
 
       &--schoolmate {
         background:$body-color;

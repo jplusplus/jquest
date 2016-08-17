@@ -46,6 +46,16 @@ class User < ActiveRecord::Base
     (email || '').gsub /[^@.]/, '*'
   end
 
+  def display_name
+    fullname_anonymised || email_anonymised
+  end
+
+  def fullname_anonymised
+    if firstname.present? and lastname.present?
+      firstname.titleize + " " + lastname[0].titleize + "."
+    end
+  end
+
   def home_country
     @home_country = read_attribute(:home_country)
     if @home_country.blank? and school

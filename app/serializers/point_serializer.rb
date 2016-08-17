@@ -4,4 +4,8 @@ class PointSerializer < ActiveModel::Serializer
   attribute :school_id do
     object.user.school_id
   end
+
+  attribute :user_display_name do
+    object.user.display_name
+  end
 end

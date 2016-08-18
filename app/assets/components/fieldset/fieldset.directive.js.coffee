@@ -6,5 +6,6 @@ angular.module 'jquest'
       if angular.isUndefined( element.prop 'disabled' )
         # Watch for changes on disable attribute
         scope.$watch (-> element.attr 'disabled' ), (disabled)->
+          console.log disabled
           # Propagate the same state on child inputs
           element.find('input, select, textarea').prop 'disabled', disabled

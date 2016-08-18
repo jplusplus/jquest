@@ -1,5 +1,6 @@
 angular.module 'jquest'
-  .directive 'sticky', ->
+  .directive 'sticky', ($window)->
     restrict: 'AC'
     link: (scope, el)->
-      angular.element(el).addClass('sticky').Stickyfill()
+      unless /internet explorer/i.test $window.navigator.userAgent
+        angular.element(el).addClass('sticky').Stickyfill()

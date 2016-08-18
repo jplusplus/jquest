@@ -29,11 +29,6 @@
         padding-right:1rem;
         position: relative;
 
-        img {
-          height:$line-height * 1em;
-          width:$line-height * (200/781);
-        }
-
         &:before {
           content:"";
           position: absolute;
@@ -146,8 +141,8 @@
       background:inherit;
       padding:1rem;
       overflow: hidden;
+      transition:400ms;
       @include box-shadow(0 1px 2px 0 rgba(black, .1));
-      @include transition(.4s);
 
       @include media-breakpoint-down(sm) {
         position: fixed;
@@ -160,10 +155,10 @@
 
       &.ng-hide {
         opacity: 0;
-        @include vendor-prefix(transform, translateY(-2rem));
+        transform: translateY(-2rem);
 
         @include media-breakpoint-down(sm) {
-          @include vendor-prefix(transform, translateX(-100%));
+          transform: translateX(-100%);
         }
       }
 

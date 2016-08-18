@@ -35,7 +35,7 @@ module API
             Activity.find_or_create_by! user: current_user,
                                         resource: course_material,
                                         taxonomy: 'seen',
-                                        value: 75
+                                        points: 75
           end
         end
       end

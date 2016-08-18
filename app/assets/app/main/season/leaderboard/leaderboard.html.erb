@@ -49,7 +49,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="school in leaderboard.schools" ng-class="{ 'table-warning': school.id == leaderboard.userSchool.id }">
+          <tr ng-repeat="school in :: leaderboard.schools | orderBy:'position'" ng-class="{ 'table-warning': school.id == leaderboard.userSchool.id }">
             <td>
               {{ school.position }}{{ main.positionAbbr(school.position) }}
             </td>
@@ -74,7 +74,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="point in leaderboard.points track by $index" ng-class="{ 'table-warning': leaderboard.isYou(point) }">            
+          <tr ng-repeat="point in :: leaderboard.points | orderBy:'position' track by $index" ng-class="{ 'table-warning': leaderboard.isYou(point) }">
             <td class="text-xs-right">
               {{ point.position }}{{ main.positionAbbr(point.position) }}
             </td>

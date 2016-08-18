@@ -31,6 +31,7 @@
 
         img {
           height:$line-height * 1em;
+          width:$line-height * (200/781);
         }
 
         &:before {

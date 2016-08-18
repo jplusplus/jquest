@@ -22,7 +22,7 @@
       left:0;
       right:0;
       bottom:0;
-      background: black url("http://static.jquestapp.com/images/people-coffee-notes-tea-min.jpg") center center;
+      background: black url("//static.jquestapp.com/images/people-coffee-notes-tea-min.jpg") center center;
       background-size:cover;
       @include vendor-prefix(filter, brightness(.5));
     }

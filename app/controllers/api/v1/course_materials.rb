@@ -34,7 +34,8 @@ module API
             # And create an activity with the right taxonomy
             Activity.find_or_create_by! user: current_user,
                                         resource: course_material,
-                                        taxonomy: 'seen'
+                                        taxonomy: 'seen',
+                                        value: 75
           end
         end
       end

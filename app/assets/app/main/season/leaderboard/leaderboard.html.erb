@@ -54,7 +54,6 @@
               {{ school.position }}{{ main.positionAbbr(school.position) }}
             </td>
             <td>
-              <strong>{{ school.id }}</strong>
               <strong>{{ school.name }}</strong>
             </td>
             <td>
@@ -68,25 +67,27 @@
         <caption class="text-xs-center">Participants ranking</caption>
         <thead>
           <tr>
+            <th style="width: 1vw"></th>
             <th>User</th>
             <th>School</th>
             <th class="text-xs-right">Points</th>
-            <th class="text-xs-right">Position</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="point in leaderboard.points track by $index" ng-class="{ 'table-warning': leaderboard.isYou(point) }">
+          <tr ng-repeat="point in leaderboard.points track by $index" ng-class="{ 'table-warning': leaderboard.isYou(point) }">            
+            <td class="text-xs-right">
+              {{ point.position }}{{ main.positionAbbr(point.position) }}
+            </td>
             <td>
-              {{ point.user_display_name }}
+              <strong>
+                {{ point.user_display_name }}
+              </strong>
             </td>
             <td>
               {{ ::leaderboard.schoolIdToName(point.school_id) }}
             </td>
             <td class="text-xs-right">
               {{ point.value }}
-            </td>
-            <td class="text-xs-right">
-              {{ point.position }}{{ main.positionAbbr(point.position) }}
             </td>
           </tr>
         </tbody>

@@ -2,8 +2,12 @@ FROM alpine:3.2
 RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake bash git \
     ruby-bigdecimal ruby-io-console libstdc++ tzdata postgresql-client nodejs && \
     rm -rf /var/cache/apk/*
+# Adds all the build dependencies as a virtual group named build-dependencies.
+RUN apk --update add --virtual build-dependencies build-base ruby-dev \
+    openssl-dev postgresql-dev libc-dev linux-headers
 # Manage front dependencies with bower
 RUN npm install bower -g
+RUN gem install bundler
 # Configure env
 ENV PATH /usr/src/app/bin/:$PATH
 ENV RACK_ENV production
@@ -15,17 +19,13 @@ RUN bash -l -c 'echo export SECRET_KEY_BASE="$(openssl rand -hex 64)" > /etc/pro
 # Switch to workdir
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-# Copy Gemfile and install dependencies
-COPY Gemfile* ./
-# Adds all the build dependencies as a virtual group named build-dependencies.
-RUN apk --update add --virtual build-dependencies build-base ruby-dev \
-    openssl-dev postgresql-dev libc-dev linux-headers && \
 # Project root must be a git repository since many Gems use `git ls-files`
 # @see https://github.com/bundler/bundler/issues/2039
-    git init && \
+RUN git init
+# Copy Gemfile and install dependencies
+COPY Gemfile* ./
 # Second part installs bundler and runs bundle install command that installs all our application dependencies.
-    gem install bundler && \
-    bundle install --without development test && \
+RUN bundle install --without development test && \
 # After all gems are installed we finally remove virtual package group.
     apk del build-dependencies && \
     rm -rf /var/cache/apk/*

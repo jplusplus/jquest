@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: c912b84d1883293452dc250cb8d450c5efed89e7
+  revision: 91877f7ed930a4a80abe82a3346341f6a3cbfb17
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -118,6 +118,7 @@ GEM
     bower-rails (0.10.0)
     builder (3.2.2)
     byebug (9.0.5)
+    callsite (0.0.11)
     choice (0.2.0)
     coderay (1.1.1)
     coercible (1.0.0)
@@ -178,10 +179,11 @@ GEM
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    git-version-bump (0.15.1)
     gli (2.14.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    google-api-client (0.9.11)
+    google-api-client (0.9.12)
       addressable (~> 2.3)
       googleauth (~> 0.5)
       httpclient (~> 2.7)
@@ -279,6 +281,10 @@ GEM
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     memoist (0.14.0)
+    meta_request (0.4.0)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.1.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -332,6 +338,9 @@ GEM
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
+    rack-contrib (1.4.0)
+      git-version-bump (~> 0.15)
+      rack (~> 1.4)
     rack-livereload (0.3.16)
       rack
     rack-test (0.6.3)
@@ -540,6 +549,7 @@ DEPENDENCIES
   guard-livereload (~> 2.5)
   jbuilder (~> 2.0)
   jquest_pg!
+  meta_request
   ngannotate-rails
   nokogiri
   paper_trail

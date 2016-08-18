@@ -75,6 +75,7 @@ group :development do
   # Tool to generate diagram from models
   # You must install `graphviz` to use this gem. Then run: rake erd
   gem "rails-erd"
+  gem 'meta_request'
 end
 
 group :production do

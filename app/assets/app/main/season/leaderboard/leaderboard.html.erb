@@ -43,9 +43,10 @@
         <caption class="text-xs-center">Schools ranking</caption>
         <thead>
           <tr>
-            <th style="width: 1vw"></th>
-            <th>School</th>
-            <th>Total points</th>
+            <th style="width: 5%"></th>
+            <th style="width: 50%">School</th>
+            <th>Country</th>
+            <th class="text-xs-right">Total points</th>
           </tr>
         </thead>
         <tbody>
@@ -56,7 +57,10 @@
             <td>
               <strong>{{ school.name }}</strong>
             </td>
-            <td>
+            <td class="text-muted">
+              {{ school.country_name }}
+            </td>
+            <td class="text-xs-right">
               {{ school.points }}
             </td>
           </tr>
@@ -67,8 +71,8 @@
         <caption class="text-xs-center">Participants ranking</caption>
         <thead>
           <tr>
-            <th style="width: 1vw"></th>
-            <th>User</th>
+            <th style="width: 5%"></th>
+            <th style="width: 50%">User</th>
             <th>School</th>
             <th class="text-xs-right">Points</th>
           </tr>
@@ -84,7 +88,7 @@
               </strong>
             </td>
             <td>
-              {{ ::leaderboard.schoolIdToName(point.school_id) }}
+              {{ :: leaderboard.schoolIdToName(point.school_id) }}
             </td>
             <td class="text-xs-right">
               {{ point.value }}

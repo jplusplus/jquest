@@ -33,5 +33,5 @@ angular.module 'jquest'
           s1.position = _.filter(@schools, (s2)-> s2.points > s1.points).length + 1
         # Save the current user
         Auth.currentUser().then (user)=>
-          @userSchool = _.find @schools, id: user.school.id
           @user = user
+          @userSchool = _.find(@schools, id: user.school.id) if user.school?

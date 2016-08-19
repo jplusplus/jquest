@@ -10,7 +10,7 @@ install:
 		bower install
 
 migrate-with-docker:
-		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${APP}) -it ${APP} bin/init
+		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${APP}) -it ${DOCKER_NAME} bin/init
 
 migrate-with-local:
 		DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${APP}) \
@@ -37,4 +37,4 @@ bundle-docker: save-docker
 		gzip $(DOCKER_NAME).tar
 
 run-docker:
-		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${APP}) -it ${APP} bash
+		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${APP}) -it ${DOCKER_NAME} bash

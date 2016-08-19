@@ -10,7 +10,7 @@ angular.module 'jquest'
         @_promise = do @reload
       # Reload
       reload: =>
-        Restangular.all('seasons').getList().then (seasons)=>
+        Restangular.all('seasons').withHttpConfig(ignoreLoadingBar: yes).getList().then (seasons)=>
           changed = no
           # Check every seasons
           for season in seasons

@@ -1,5 +1,5 @@
 angular.module 'jquest'
-  .service 'CourseMaterials', ($state, $rootScope, $sce, Restangular, localStorageService)->
+  .service 'CourseMaterials', ($state, $rootScope, $sce, Restangular, Seasons, localStorageService)->
     'ngInject'
     class CourseMaterials
       ### Pirvate attributes
@@ -55,6 +55,8 @@ angular.module 'jquest'
             @_open = selected
             # Mark it as "seen" on server side
             Restangular.one('course_materials', selected.id).one('seen').put().finally =>
+              # Reload user points
+              Seasons.reload()
               # Set the "_open" attribute with the right course material from the server
               @_open.get().then (material)=>
                 # Set the instance attribute

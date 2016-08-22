@@ -101,4 +101,13 @@ ActiveAdmin.register User do
       li link_to "Assignments",  admin_user_assignments_path(user)
     end
   end
+
+  sidebar "Progression", only: :show do
+    table_for user.points do
+      column :season
+      column :level
+      column :round
+      column "Points", :value
+    end
+  end
 end

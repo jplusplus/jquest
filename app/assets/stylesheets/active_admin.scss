@@ -21,3 +21,12 @@ $skinMainFirstColor: #3D303D !default;
 $skinMainSecondColor: #211a21 !default;
 
 @import "wigu/active_admin_theme";
+
+#active_admin_content #sidebar {
+  width: 330px;
+  margin-left: -330px;
+}
+
+#active_admin_content #main_content_wrapper #main_content {
+  margin-right: 360px;
+}

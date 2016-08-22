@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: e664c4c699a61d40b5826de6bbd08deba96f8088
+  revision: 6ba5d485136648f652110d23314e1620575c0485
   branch: master
   specs:
     jquest_pg (0.0.9)

@@ -83,7 +83,7 @@
 
   #loading-bar{
     .peg {
-      @include box-shadow($brand-primary .5vh 0 6px .5vh);
+      display: none;
     }
     .bar {
       height: .5vh;

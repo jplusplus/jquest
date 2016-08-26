@@ -18,7 +18,9 @@
         </div>
         <p class="lead">
           You are {{ main.season.progression.position }}{{ main.positionAbbr(main.season.progression.position) }}.
-          Your schoolmates are in brown.
+          <span ng-if="leaderboard.userSchool">
+            Your schoolmates are in brown.
+          </span>
         </p>
         <div class="main__season__leaderboard__overview">
           <div ng-repeat="point in leaderboard.points track by $index"
@@ -34,12 +36,12 @@
             </div>
           </div>
         </div>
-        <p class="lead" ng-show="leaderboard.userSchool">
+        <p class="lead" ng-if="leaderboard.userSchool">
           Your school is {{ leaderboard.userSchool.position }}{{ main.positionAbbr(leaderboard.userSchool.position) }}
           out of {{ leaderboard.schools.length }}.
         </p>
       </div>
-      <table class="small table table-striped">
+      <table class="small table table-striped" ng-if="leaderboard.schools.length">
         <caption class="text-xs-center">Schools ranking</caption>
         <thead>
           <tr>

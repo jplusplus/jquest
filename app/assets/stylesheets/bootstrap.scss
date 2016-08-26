@@ -140,3 +140,7 @@ a.btn:not(.btn-reverse):not(.btn-secondary):not(.btn-link) {
   border:2px solid;
   border-radius: $line-height * 1em;
 }
+
+button.btn[type=submit] {
+  font-weight: bold;
+}

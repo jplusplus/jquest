@@ -11,5 +11,7 @@ angular.module 'jquest'
       $log.error toState.name, error
       $state.go 'main.404'
     $rootScope.$on "$stateChangeSuccess", ->
+      # Scroll to the top
+      $window.scrollTo 0, 0
       # Send 'pageview' to Google Analytics
       $window.ga('send', 'pageview', page: $location.url()) if $window.ga?

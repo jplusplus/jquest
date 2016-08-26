@@ -1,16 +1,6 @@
 angular.module 'jquest'
   .controller 'MainSeasonLeaderboardCtrl', (Auth, points, schools, seasonId)->
     'ngInject'
-
-    ###
-    for i in [1..200]
-      points.push
-        user_id: i*100,
-        school_id: 1 + Math.round(Math.random() * 1)
-        value: 1 + Math.round(Math.random() * 60)
-    points = _.orderBy points, (p)-> -p.value
-    ###
-
     new class MainSeasonLeaderboardCtrl
       points: points
       schools: schools

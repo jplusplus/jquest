@@ -1,6 +1,6 @@
 .main__season__leaderboard {
   padding:1rem * $line-height;
-  
+
   caption {
     caption-side: top;
   }
@@ -53,6 +53,10 @@
 
       &--schoolmate &__label {
         color: $card-cap-bg;
+      }
+
+      &:hover {
+        z-index:20;        
       }
 
       &:hover &__label, &--you &__label {

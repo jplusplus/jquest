@@ -7,6 +7,14 @@ ActiveAdmin.register User do
   belongs_to :group, :optional => true
   menu label: 'Users', parent: 'Team'
 
+  before_create do |user|
+    user.skip_confirmation!
+  end
+
+  before_update do |user|
+    user.skip_reconfirmation!
+  end
+
   active_admin_import({
     validate: false
   })

@@ -9,8 +9,8 @@ install:
 		npm install
 		bower install
 
-migrate-with-docker:
-		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${APP}) -it ${DOCKER_NAME} bin/init
+migrate-with-docker: config-env
+		docker run ${CONFIG} -it ${DOCKER_NAME} bin/init
 
 migrate-with-local:
 		DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${APP}) \
@@ -36,5 +36,8 @@ save-docker: build-docker
 bundle-docker: save-docker
 		gzip $(DOCKER_NAME).tar
 
-run-docker:
-		docker run -e DATABASE_URL=$(shell heroku config:get DATABASE_URL -a ${APP}) -it ${DOCKER_NAME} bash
+config-env:
+		$(eval CONFIG := $(shell heroku config -s -a ${APP} | awk '{print "-e " $$0 }') )
+
+run-docker: config-env
+		docker run ${CONFIG} -it ${DOCKER_NAME} bash

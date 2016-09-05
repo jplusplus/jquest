@@ -5,6 +5,9 @@ RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake bash git \
 # Adds all the build dependencies as a virtual group named build-dependencies.
 RUN apk --update add --virtual build-dependencies build-base ruby-dev \
     openssl-dev postgresql-dev libc-dev linux-headers
+# Fix trusted certificates erro
+# @see https://gist.github.com/mislav/5026283
+RUN curl https://curl.haxx.se/ca/cacert.pem -o "$(ruby -ropenssl -e 'puts OpenSSL::X509::DEFAULT_CERT_FILE')"
 # Manage front dependencies with bower
 RUN npm install bower -g
 RUN gem install bundler

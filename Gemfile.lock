@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: 5f13cfdf117d9464081dc4f6ac40d544a2dedf39
+  revision: 2319b4845810eab87c443fa37f9221db4feb8c9c
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -40,6 +40,7 @@ GIT
       rails (~> 4.2.6)
       schema_plus_foreign_keys
       tty
+      whenever
 
 GEM
   remote: https://rubygems.org/
@@ -101,12 +102,12 @@ GEM
     arel (6.0.3)
     attr_encrypted (3.0.1)
       encryptor (~> 3.0.0)
-    aws-sdk (2.5.7)
-      aws-sdk-resources (= 2.5.7)
-    aws-sdk-core (2.5.7)
+    aws-sdk (2.5.8)
+      aws-sdk-resources (= 2.5.8)
+    aws-sdk-core (2.5.8)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.5.7)
-      aws-sdk-core (= 2.5.7)
+    aws-sdk-resources (2.5.8)
+      aws-sdk-core (= 2.5.8)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -126,6 +127,7 @@ GEM
     byebug (9.0.5)
     callsite (0.0.11)
     choice (0.2.0)
+    chronic (0.10.2)
     coderay (1.1.1)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -454,7 +456,7 @@ GEM
     sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.1.1)
+    sprockets-rails (3.2.0)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
@@ -509,7 +511,7 @@ GEM
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
     unicode_utils (1.4.0)
-    valuable (0.9.12)
+    valuable (0.9.13)
     verse (0.4.0)
       unicode_utils (~> 1.4.0)
     virtus (1.0.5)
@@ -527,6 +529,8 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    whenever (0.9.7)
+      chronic (>= 0.6.3)
     wisper (1.6.1)
 
 PLATFORMS

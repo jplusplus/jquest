@@ -40,4 +40,4 @@ config-env:
 		$(eval CONFIG := $(shell heroku config -s -a ${APP} | awk '{print "-e " $$0 }') )
 
 run-docker: config-env
-		docker run ${CONFIG} -it ${DOCKER_NAME} bash
+		docker run ${CONFIG} --user=root --dns=8.8.8.8 -it ${DOCKER_NAME} bash

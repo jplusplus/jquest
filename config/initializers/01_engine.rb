@@ -21,12 +21,6 @@ module Rails
         File.exist? schedule_path
       end
 
-      def load_schedule
-        if has_schedule?
-          instance_eval File.read(schedule_path), schedule_path
-        end
-      end
-
       def root_path(suffix='/')
         if gemspec and gemspec.metadata['root_path']
           path = suffix + gemspec.metadata['root_path']

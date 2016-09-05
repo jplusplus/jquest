@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # Load Rails
-ENV['RAILS_ENV'] = ARGV[0] || 'development'
+ENV['RAILS_ENV'] = ENV['RAILS_ENV'] || ARGV[0] || 'development'
 DIR = File.dirname(__FILE__)
 require_relative 'environment'
 
@@ -15,3 +15,5 @@ Season.engines.each do |engine|
     instance_eval File.read(file), file
   end
 end
+
+# Learn more: http://github.com/javan/whenever

@@ -34,6 +34,8 @@ RUN bundle install --without development test && \
     rm -rf /var/cache/apk/*
 # Copy all file
 ADD . .
+# Update the crontab for automated jobs
+RUN bundle exec whenever --update-crontab
 # This will prepare every assets, download dependencies
 # with bower and annotate angular DI
 RUN bundle exec rake assets:precompile

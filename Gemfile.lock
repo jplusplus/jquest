@@ -349,6 +349,7 @@ GEM
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
+    rack-cors (0.4.0)
     rack-livereload (0.3.16)
       rack
     rack-test (0.6.3)
@@ -568,6 +569,7 @@ DEPENDENCIES
   premailer-rails
   puma
   pundit
+  rack-cors
   rack-livereload
   rails (= 4.2.6)
   rails-erd

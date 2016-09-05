@@ -25,6 +25,8 @@ gem 'activerecord-import'
 gem 'grape'
 gem 'grape-active_model_serializers'
 gem 'active_model_serializers', "~> 0.10.0"
+# Allow CORS
+gem 'rack-cors', :require => 'rack/cors'
 # Backend Interface
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_theme'

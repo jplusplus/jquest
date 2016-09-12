@@ -37,6 +37,9 @@ class CourseMaterial < ActiveRecord::Base
 
   # True if the course has been seen by a given user
   def seenBy?(user)
-    user.activities.exists?(resource: self, taxonomy: 'seen')
+    # Low level caching
+    Rails.cache.fetch("#{cache_key}/seen_by/#{user.id}", expires_in: 1.minutes) do
+      user.activities.exists?(resource: self, taxonomy: 'seen')
+    end
   end
 end

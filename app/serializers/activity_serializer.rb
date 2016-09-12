@@ -1,6 +1,6 @@
 class ActivitySerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :resource_id, :user_id, :resource_type, :resource,
+  attributes :id, :resource_id, :user_id, :resource_type,
              :points, :taxonomy, :created_at
 
 
@@ -13,7 +13,7 @@ class ActivitySerializer < ActiveModel::Serializer
   end
 
   has_one :resource, if: ->{ instance_options[:include_resource] }
-  
+
   # JSON Linked Data Identifier
   # see https://www.w3.org/TR/json-ld/#node-identifiers
   attribute :@id do

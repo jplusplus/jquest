@@ -19,6 +19,10 @@ migrate-with-local:
 		SECRET_KEY_BASE=$(shell openssl rand -base64 32) \
 		rake db:version
 
+pg-pull:
+		dropdb jquest
+		heroku pg:pull DATABASE_URL jquest -a ${APP}
+
 deploy: build-docker tag-docker push-docker
 
 tag-docker:

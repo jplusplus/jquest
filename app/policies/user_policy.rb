@@ -37,6 +37,10 @@ class UserPolicy  < ApplicationPolicy
     @user and @user.role? :teacher, :admin
   end
 
+  def sign_in_as?
+    @user and @user.role? :admin
+  end
+
   def import?
     create?
   end

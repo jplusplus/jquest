@@ -9,7 +9,7 @@ RUN apk --update add --virtual build-dependencies build-base ruby-dev \
 # @see https://gist.github.com/mislav/5026283
 RUN curl https://curl.haxx.se/ca/cacert.pem -o "$(ruby -ropenssl -e 'puts OpenSSL::X509::DEFAULT_CERT_FILE')"
 # Manage front dependencies with bower
-RUN npm install bower -g
+RUN npm install bower -g --silent --progress=false
 RUN gem install bundler
 # Configure env
 ENV PATH /usr/src/app/bin/:$PATH

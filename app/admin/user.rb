@@ -47,12 +47,19 @@ ActiveAdmin.register User do
     redirect_to resource_path, notice: "Invited to jQuest"
   end
 
-  action_item :reset, only: :show do
-    link_to 'Reset User', reset_admin_user_path
+  member_action :sign_in_as, method: :get do
+    # Sign in with devise
+    sign_in resource, { :bypass => true }
+    # Redirect to root
+    redirect_to root_path
   end
 
-  action_item :reset, only: :show do
-    link_to 'Invite User', invite_admin_user_path
+  action_item :invite, only: :show do
+    link_to 'Invite User', invite_admin_user_path, :confirm => "Are you sure?"
+  end
+
+  action_item :sign_in_as, only: :show do
+    link_to "Sign in as User", sign_in_as_admin_user_path
   end
 
   index do
@@ -117,5 +124,6 @@ ActiveAdmin.register User do
       column :round
       column "Points", :value
     end
+    link_to "See more details",  admin_user_points_path(user)
   end
 end

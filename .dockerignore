@@ -10,13 +10,13 @@ log/*
 tmp
 
 bower_components
-public/assets/*
-local-env.yml
+public/assets/
 .byebug_history
 .git
 jquest.tar
 jquest.tar.gz
 config/google-session.json
+config/local-env.yml
 docker-compose.yml
 Dockerfile
 .dockerignore

@@ -54,12 +54,12 @@ gem 'redcarpet'
 gem 'aws-sdk', '~> 2'
 # Slack integration
 gem 'slack-ruby-client', "~> 0.7.5"
-# Custom engine
-gem 'jquest_pg', github: 'jplusplus/jquest-pg', branch: 'master'
 # Scheduler
 gem 'whenever', require: false
+# Custom engine
 # Developpers may want to override this value locally. Please read:
 # http://bundler.io/v1.2/man/bundle-config.1.html#LOCAL-GIT-REPOS
+gem 'jquest_pg', github: 'jplusplus/jquest-pg', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

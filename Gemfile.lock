@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: ec70e078d542367d78391e1bd51455643da51b77
+  revision: 60b5f85a3fe534835a3e9dcad49cd1fc5b8784f2
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -246,7 +246,7 @@ GEM
     hashie (3.4.4)
     htmlentities (4.3.4)
     http_parser.rb (0.6.0)
-    httpclient (2.8.2.3)
+    httpclient (2.8.2.4)
     hurley (0.2)
     i18n (0.7.0)
     i18n_data (0.7.0)
@@ -424,14 +424,18 @@ GEM
     schema_monkey (2.1.5)
       activerecord (>= 4.2)
       modware (~> 0.1)
+    schema_plus_compatibility (0.2.0)
+      activerecord (>= 4.2, < 5.1)
+      schema_monkey (~> 2.1)
     schema_plus_core (1.0.2)
       activerecord (~> 4.2)
       its-it (~> 1.2)
       schema_monkey (~> 2.1)
-    schema_plus_foreign_keys (0.1.6)
-      activerecord (~> 4.2)
+    schema_plus_foreign_keys (0.1.7)
+      activerecord (>= 4.2, < 5.1)
       its-it (~> 1.2)
-      schema_plus_core (~> 1.0)
+      schema_plus_compatibility (~> 0.2)
+      schema_plus_core
       valuable
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)

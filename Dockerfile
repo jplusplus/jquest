@@ -32,6 +32,10 @@ RUN bundle install --without development test && \
 # After all gems are installed we finally remove virtual package group.
     apk del build-dependencies && \
     rm -rf /var/cache/apk/*
+# Copy bower config
+COPY .bowerrc bower.json ./
+# Install packages before static precompilation
+RUN bower install --production --silent --config.interactive=false
 # Copy all file
 ADD . .
 # Update the crontab for automated jobs

@@ -5,7 +5,7 @@ angular.module 'jquest'
       points: points
       schools: schools
       isSchoolmate: (point)=>
-        not @isYou(point) and point.school_id is @user?.school.id
+        not @isYou(point) and point.school_id is @user?.school?.id
       isYou: (point)=>
         point.user_id is @user?.id
       schoolIdToName: (id)=>

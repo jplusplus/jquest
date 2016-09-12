@@ -1,7 +1,10 @@
+require "garner/mixins/rack"
+
 module API
   class Base < Grape::API
     helpers AuthenticableHelpers
     helpers SlackHelpers
+    helpers Garner::Mixins::Rack
 
     before do
       unless current_user.nil?

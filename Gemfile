@@ -27,6 +27,8 @@ gem 'grape-active_model_serializers'
 gem 'active_model_serializers', "~> 0.10.0"
 # Allow CORS
 gem 'rack-cors', :require => 'rack/cors'
+# Cache strategies for Ruby & Rake apps
+gem "garner"
 # Backend Interface
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_theme'

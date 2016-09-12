@@ -5,8 +5,10 @@ module API
         desc "Return stats about connected users"
         get :status do
           authenticate!
-          # Get Slack status as the current user
-          slack_status_for(current_user).to_h
+          garner.options(expires_in: 2.minutes) do
+            # Get Slack status as the current user
+            slack_status_for(current_user).to_h
+          end
         end
 
         desc "Invite the current user to slack"

@@ -18,7 +18,10 @@ module API
         route_param :id do
           desc 'Return a user using its id.'
           get do
-            policy_scope(User).find(params[:id])
+            authenticate!
+            garner.options(expires_in: 5.minutes) do
+              policy_scope(User).find(params[:id])
+            end
           end
 
           desc 'Update a user using its id.'

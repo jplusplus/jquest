@@ -77,9 +77,22 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = {
-    host: ENV['HOSTNAME'] ||'jquestapp.com', 
+    host: ENV['HOSTNAME'] ||'jquestapp.com',
     port: 80
   }
+
+  # Use Memcachier
+  if ENV.has_key?("MEMCACHIER_SERVERS")
+    config.cache_store = :dalli_store,
+                      (ENV["MEMCACHIER_SERVERS"] or "").split(","),
+                      {:username => ENV["MEMCACHIER_USERNAME"],
+                       :password => ENV["MEMCACHIER_PASSWORD"],
+                       :failover => true,
+                       :socket_timeout => 1.5,
+                       :socket_failure_delay => 0.2,
+                       :down_retry_delay => 60
+                      }
+  end
 
 
   # Use Sendgrid if username available

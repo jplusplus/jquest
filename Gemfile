@@ -25,6 +25,8 @@ gem 'activerecord-import'
 gem 'grape'
 gem 'grape-active_model_serializers'
 gem 'active_model_serializers', "~> 0.10.0"
+# Cache with memcached
+gem 'dalli'
 # Allow CORS
 gem 'rack-cors', :require => 'rack/cors'
 # Cache strategies for Ruby & Rake apps
@@ -95,8 +97,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  # Key/value Redis manager
-  gem 'redis'
-  # Cache store with redis
-  gem 'redis-rails'
 end

@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: 346f2c0644a8ce3e9f7802a30cc9a3e8e8a27561
+  revision: 130861f0f08b40d8b628bc0b976ff5280e7e319a
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -411,20 +411,6 @@ GEM
       json (~> 1.4)
     redcarpet (3.3.4)
     redis (3.3.1)
-    redis-actionpack (5.0.0)
-      actionpack (>= 4.0.0, < 6)
-      redis-rack (~> 2.0.0.pre)
-      redis-store (~> 1.2.0.pre)
-    redis-activesupport (5.0.1)
-      activesupport (>= 3, < 6)
-      redis-store (~> 1.2.0)
-    redis-rack (2.0.0.pre)
-      rack (> 1.5, < 3)
-      redis-store (~> 1.2.0.pre)
-    redis-rails (5.0.1)
-      redis-actionpack (~> 5.0.0)
-      redis-activesupport (~> 5.0.0)
-      redis-store (~> 1.2.0)
     redis-store (1.2.0)
       redis (>= 2.2)
     representable (2.3.0)
@@ -609,7 +595,7 @@ DEPENDENCIES
   ransack
   redcarpet
   redis
-  redis-rails
+  redis-store
   sass-css-importer
   sass-rails (= 5.0.4)
   sdoc (~> 0.4.0)

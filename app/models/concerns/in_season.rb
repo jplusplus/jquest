@@ -2,7 +2,8 @@ module InSeason
   extend ActiveSupport::Concern
 
   included do
-    before_create :find_season
+    before_validation :find_season
+    validates :season, presence: true
   end
 
   private

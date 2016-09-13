@@ -58,4 +58,17 @@ Rails.application.configure do
     Bullet.rails_logger = true
     Bullet.add_whitelist :type => :unused_eager_loading, :class_name => "User", :association => :group
   end
+
+  # Use Memcachier
+  if ENV.has_key?("MEMCACHIER_SERVERS")
+    config.cache_store = :dalli_store,
+                      (ENV["MEMCACHIER_SERVERS"] or "").split(","),
+                      {:username => ENV["MEMCACHIER_USERNAME"],
+                       :password => ENV["MEMCACHIER_PASSWORD"],
+                       :failover => true,
+                       :socket_timeout => 1.5,
+                       :socket_failure_delay => 0.2,
+                       :down_retry_delay => 60
+                      }
+  end
 end

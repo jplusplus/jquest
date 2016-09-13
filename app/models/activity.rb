@@ -9,7 +9,6 @@ class Activity < ActiveRecord::Base
   belongs_to :resource, polymorphic: true
 
   validates :user, presence: true
-  validates :season, presence: true
 
   after_create :set_user_points
   after_destroy :set_user_points

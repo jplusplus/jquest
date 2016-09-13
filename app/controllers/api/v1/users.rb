@@ -6,6 +6,9 @@ module API
         desc "Return list of users"
         get do
           policy_scope(User).
+            # Eager load points
+            includes(:points).
+            includes(:school).
             # Paginate
             page(params[:page]).
             # Default limit is 25
@@ -20,7 +23,12 @@ module API
           get do
             authenticate!
             garner.options(expires_in: 5.minutes) do
-              policy_scope(User).find(params[:id])
+              policy_scope(User).
+                # Eager load points
+                includes(:points).
+                includes(:school).
+                # Find the user
+                find(params[:id])
             end
           end
 

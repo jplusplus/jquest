@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :two_factor_authenticatable,
          :otp_secret_encryption_key => ENV['OTP_SECRET_ENCRYPTION_KEY']
-         # :database_authenticatable,
+  # Eager load user's group
+  default_scope { includes(:group) }
 
   has_many :activities, :dependent => :delete_all
   has_many :assignments, :dependent => :delete_all

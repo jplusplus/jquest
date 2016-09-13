@@ -63,6 +63,10 @@ gem 'whenever', require: false
 # http://bundler.io/v1.2/man/bundle-config.1.html#LOCAL-GIT-REPOS
 gem 'jquest_pg', github: 'jplusplus/jquest-pg', branch: 'master'
 
+group :development, :production do
+  gem 'pg'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -85,12 +89,14 @@ group :development do
   # You must install `graphviz` to use this gem. Then run: rake erd
   gem "rails-erd"
   gem 'meta_request'
+  # Kill all the N+1 queries, as well as unnecessarily eager loaded relations
+  gem "bullet"
 end
 
 group :production do
   gem 'rails_12factor'
-end
-
-group :development, :production do
-  gem 'pg'
+  # Key/value Redis manager
+  gem 'redis'
+  # Cache store with redis
+  gem 'redis-rails'
 end

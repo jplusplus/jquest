@@ -2,7 +2,7 @@ module InSeason
   extend ActiveSupport::Concern
 
   included do
-    after_initialize :find_season
+    before_create :find_season
   end
 
   private

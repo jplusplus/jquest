@@ -5,7 +5,9 @@ module API
 
         desc "Return list of seasons"
         get do
-          policy_scope Season
+          policy_scope(Season).
+            # Eager load activities
+            eager_load(:activities)
         end
 
         params do

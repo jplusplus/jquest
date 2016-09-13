@@ -14,7 +14,7 @@ module API
             search(declared params).
             result.
             # Join to related tables
-            includes(:resource).
+            includes(:resource, resource: :sources).
             where(user: current_user).
             # Sort by resource's id
             order(:resource_id).

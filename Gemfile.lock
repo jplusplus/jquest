@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: 8607696bf12f51f063939bf2f5cfd60cd2a2568c
+  revision: 999a29053a6338b9e56edf082510a4939665e514
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -97,6 +97,7 @@ GEM
       railties (>= 4.2, < 6)
       sprockets (>= 3.0, < 5)
       tilt
+    api-pagination (4.4.0)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
@@ -559,6 +560,7 @@ DEPENDENCIES
   activeadmin!
   activerecord-import
   angular-rails-templates (~> 1.0.1)
+  api-pagination
   aws-sdk (~> 2)
   better_errors
   binding_of_caller

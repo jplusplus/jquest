@@ -25,6 +25,7 @@ gem 'activerecord-import'
 gem 'grape'
 gem 'grape-active_model_serializers'
 gem 'active_model_serializers', "~> 0.10.0"
+gem 'api-pagination'
 # Cache with memcached
 gem 'dalli'
 # Allow CORS

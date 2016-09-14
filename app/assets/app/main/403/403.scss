@@ -11,6 +11,10 @@
     padding:10vh 10vh;
     margin:auto;
 
+    h2 {
+      margin-bottom:$spacer;
+    }
+
     a {
       color:white;
       white-space: nowrap;

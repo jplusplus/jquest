@@ -46,6 +46,8 @@ angular.module 'jquest'
       select: (selected)=>
         # So add it to the list
         if selected = @addSelected selected
+          # Did we see this before?
+          seen_before = selected.seen
           # Display the panel if the selected item is different or the panel is not visible.
           # We do not get additional resource if the panel is not visible anymore.
           if @toggle( not @isOpen(selected) or not @isVisible() )
@@ -53,16 +55,16 @@ angular.module 'jquest'
             selected.seen = yes
             # Pre-open the course material (with a partial resource)
             @_open = selected
-            # Mark it as "seen" on server side
-            Restangular.one('course_materials', selected.id).one('seen').put().finally =>
-              # Reload user points
-              Seasons.reload()
-              # Set the "_open" attribute with the right course material from the server
-              @_open.get().then (material)=>
-                # Set the instance attribute
-                @_open = material
-                # Trust body_html!
-                @_open.body_html = $sce.trustAsHtml @_open.body_html
+            # Did we see this course before?
+            unless seen_before
+              # Mark it as "seen" on server side
+              Restangular.one('course_materials', selected.id).one('seen').put().finally Seasons.reload
+            # Set the "_open" attribute with the right course material from the server
+            @_open.get().then (material)=>
+              # Set the instance attribute
+              @_open = material
+              # Trust body_html!
+              @_open.body_html = $sce.trustAsHtml @_open.body_html
           # Update saved selection
           do @saveSelection
       unselect: (selected)=>

@@ -39,7 +39,7 @@ angular.module 'jquest'
       # Constructor
       constructor: ->
         # Print out every states
-        $log.info "Mounted states: ", _.map($state.get(), 'name').join("\n")
+        # $log.info "Mounted states: ", _.map($state.get(), 'name').join("\n")
         # after a login, a hard refresh, a new tab
         $scope.$on 'devise:login', (event, user)=>
           @user = user

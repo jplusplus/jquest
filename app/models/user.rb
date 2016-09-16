@@ -79,9 +79,17 @@ class User < ActiveRecord::Base
 
   def member_of
     @member_of ||= begin
-      unless group.nil?
-        group.season
+      # Get value from the cache
+      if ( season = Rails.cache.read "#{cache_key}/member_of" ).nil?
+        # Get the season for this group
+        season = group.present? ? group.season : nil
+        # Different timeout
+        expires_in = season ? 10.minutes : 1.minutes
+        # Write in cache only for seen course
+        Rails.cache.write "#{cache_key}/member_of", season, expires_in: expires_in
       end
+      # Return the value
+      season
     end
   end
 

@@ -17,7 +17,7 @@
             search(declared params).
             result.
             # Join resources
-            includes(:user).
+            eager_load(:user).
             # Order by position
             order(value: :desc)
         end

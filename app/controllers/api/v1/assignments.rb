@@ -7,23 +7,30 @@ module API
           optional :season_id_eq, type: Integer
           optional :status_eq, type: String
         end
+        paginate
         get do
           authenticate!
-          policy_scope(Assignment).
+          paginate policy_scope(Assignment).
             # We allow filtering
             search(declared params).
             result.
-            # Join to related tables
-            includes(:resource, resource: :sources).
             where(user: current_user).
             # Sort by resource's id
             order(:resource_id).
             # We allow filtering by status from params
-            filter(params.slice(:status)).
-            # Paginates
-            page(params[:page]).
-            # Default limit is 25
-            per(params[:limit])
+            filter params.slice(:status)
+        end
+
+        params do
+          requires :id, type: Integer, desc: 'assignement id'
+        end
+        route_param :id do
+          desc "Return a user assignment"
+          get each_serializer: AssignmentSerializer, include_resource: true do
+            authenticate!
+            # Join to related tables
+            current_user.assignments.includes(:resource).find(params[:id])
+          end
         end
       end
     end

@@ -1,4 +1,4 @@
-module API
+ module API
   module V1
     class Points < Grape::API
       resource :points do
@@ -8,8 +8,9 @@ module API
           optional :season_id_eq, type: Integer
           optional :user_school_id_eq, type: Integer
         end
+        paginate
         get do
-          policy_scope(Point).
+          paginate policy_scope(Point).
             # Only positive points
             where('value > ?', 0).
             # We allow filtering
@@ -18,11 +19,7 @@ module API
             # Join resources
             includes(:user).
             # Order by position
-            order(value: :desc).
-            # Paginate
-            page(params[:page]).
-            # Default limit is 25
-            per(params[:limit])
+            order(value: :desc)
         end
       end
     end

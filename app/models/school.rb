@@ -11,8 +11,8 @@ class School < ActiveRecord::Base
 
   def points_by_user
     # Low level caching
-    Rails.cache.fetch("#{cache_key}/points_by_user", expires_in: 10.minutes) do      
-      users.includes(:points).map(&:points).flatten
+    Rails.cache.fetch("#{cache_key}/points_by_user", expires_in: 10.minutes) do
+      Point.joins(:user).where(users: { school_id: id })
     end
   end
 
@@ -20,11 +20,7 @@ class School < ActiveRecord::Base
     # Low level caching
     Rails.cache.fetch("#{cache_key}/points_sum_by_season", expires_in: 10.minutes) do
       # Get all points by season
-      points_by_season = points_by_user.group_by(&:season_id)
-      # Summerize points value by season
-      points_by_season.each do |key, points|
-        points_by_season[key] = points.inject(0){ |sum, point| sum + point.value }
-      end
+      points_by_season = points_by_user.group(:season_id).sum(:value)
     end
   end
 end

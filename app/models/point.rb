@@ -8,17 +8,19 @@ class Point < ActiveRecord::Base
   before_save :set_value
 
   def set_value
-    write_attribute :value, user.activities.where(season: season).sum(:points).to_i
+    write_attribute :value, user.activities.where(season_id: season_id).sum(:points).to_i
   end
 
   def position
-    Point.where(season: season).where('value > ?', value).distinct.pluck(:value).length + 1
+    Rails.cache.fetch("#{cache_key}/position", expires_in: 10.minutes) do
+      Point.where(season_id: season_id).where('value > ?', value).distinct.pluck(:value).length + 1
+    end
   end
 
   def next_level
-    update level: level + 1, round: 1    
+    update level: level + 1, round: 1
     # Mark all pending assignments as done
-    user.assignments.pending.where(season: season).update_all status: :done
+    user.assignments.pending.where(season_id: season_id).update_all status: :done
     # Set new assignments
     season.controller.new.new_assignments! user
   end
@@ -29,9 +31,9 @@ class Point < ActiveRecord::Base
 
   def reset!
     # Remove all activities
-    Activity.destroy_all user: user, season: season
+    Activity.destroy_all user: user, season_id: season_id
     # Remove all assignments
-    Assignment.destroy_all user: user, season: season
+    Assignment.destroy_all user: user, season_id: season_id
     # Start over
     update level: 1, round: 1
     # Get new assignments

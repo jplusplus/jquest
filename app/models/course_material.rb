@@ -12,6 +12,7 @@ class CourseMaterial < ActiveRecord::Base
   enumerize :status, :in => [:draft, :published], :default => :draft
   serialize :state_params, JSON
   has_paper_trail :on => [:update]
+  has_many :activities, as: :resource
 
   scope :draft, ->{ status :draft }
   scope :published, ->{ status :published }
@@ -36,13 +37,13 @@ class CourseMaterial < ActiveRecord::Base
   end
 
   # True if the course has been seen by a given user
-  def seenBy?(user)
+  def seen_by?(user)
     # Get value from the cache
     if ( seen = Rails.cache.read "#{cache_key}/seen_by/#{user.id}" ).nil?
       # Is it seen?
-      seen = user.activities.exists?(resource: self, taxonomy: 'seen')
+      seen = user.seen_course_material? self
       # Different timeout
-      expires_in = seen ? 24.hours : 1.minutes
+      expires_in = seen ? 24.seconds : 1.seconds
       # Write in cache only for seen course
       Rails.cache.write "#{cache_key}/seen_by/#{user.id}", seen, expires_in: expires_in
     end

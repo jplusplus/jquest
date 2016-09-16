@@ -23,7 +23,7 @@ module API
           get serializer: CourseMaterialSerializer, include_body: true do
             authenticate!
             # Retreive the course material
-            policy_scope(CourseMaterial).find(params[:id])
+            policy_scope(CourseMaterial).eager_load(:activities).find(params[:id])
           end
 
           desc 'Add user activity to know we saw this course material'

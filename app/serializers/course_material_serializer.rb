@@ -17,7 +17,7 @@ class CourseMaterialSerializer < ActiveModel::Serializer
   end
 
   attribute :seen do
-    object.seenBy? scope.current_user
+    object.seen_by? scope.current_user
   end
 
   # JSON Linked Data Identifier

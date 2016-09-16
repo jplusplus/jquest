@@ -93,6 +93,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def seen_course_materials
+    # Get value from the cache
+    Rails.cache.fetch "#{cache_key}/seen_course_materials", expires_in: 30.seconds do
+      CourseMaterial.joins(:activities).where(activities: { taxonomy: :seen, user: self })
+    end
+  end
+
+  def seen_course_material?(course_material)
+    # Offline lookup since `seen_course_materials` has limited length
+    seen_course_materials.include? course_material
+  end
+
   def password=(p)
     if p
       super

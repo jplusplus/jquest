@@ -34,6 +34,10 @@ Rails.application.configure do
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
+  config.assets.enabled = true
+
+  # Some initialization are needed during precompile
+  config.assets.initialize_on_precompile = true
 
   config.ng_annotate.process = true
   config.ng_annotate.ignore_paths = [
@@ -61,7 +65,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  config.action_controller.asset_host = ENV['ASSET_HOST'] || '//:assets.jquestapp.com'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

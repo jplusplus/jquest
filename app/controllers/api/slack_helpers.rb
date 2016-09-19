@@ -38,7 +38,8 @@ module API
     end
 
     def slack_hostname
-      @slack_hostname ||= begin
+      # Get value from the cache
+      Rails.cache.fetch "slack/hostname", expires_in: 48.hours do
         # Get team info
         res = slack_client.team_info
         # Something is wrong!

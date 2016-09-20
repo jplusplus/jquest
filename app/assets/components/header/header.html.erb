@@ -77,7 +77,7 @@
              popover-is-open="main.showSlackPopover">
           <h4 class="header__nav__navbar__slack__heading">
             <a href="{{ main.slackStatus.hostname }}" target="_blank" ng-if="main.slackStatus.is_member" class="a-unstyled">
-              <img src="<%= image_path('slack.svg') %>" alt="" height="16px" />
+              <img src="<%= image_url('slack.svg') %>" alt="" height="16px" />
               Ask for help
             </a>
             <span ng-if="!main.slackStatus.is_member">

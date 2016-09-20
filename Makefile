@@ -32,7 +32,7 @@ push-docker:
 		docker push registry.heroku.com/$(APP)/web
 
 build-docker:
-		docker build -t $(DOCKER_NAME) .
+		docker build -t $(DOCKER_NAME) --build-arg ASSET_HOST=$(shell heroku config:get ASSET_HOST  -a ${APP}) .
 
 save-docker: build-docker
 		docker save $(DOCKER_NAME) > $(DOCKER_NAME).tar

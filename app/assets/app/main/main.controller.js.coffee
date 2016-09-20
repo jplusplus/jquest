@@ -47,5 +47,5 @@ angular.module 'jquest'
           # User was logged in, or Devise returned
           # previously authenticated session.
           @user = user
-        # Get channel status from the API
-        do @initSlackStatus
+          # Get channel status from the API
+          do @initSlackStatus

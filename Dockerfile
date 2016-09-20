@@ -42,6 +42,7 @@ ADD . .
 RUN bundle exec whenever --update-crontab
 # This will prepare every assets, download dependencies
 # with bower and annotate angular DI
+ARG ASSET_HOST
 RUN bundle exec rake assets:precompile
 # Switch to non-root- user
 RUN chown -R nobody:nogroup /usr/src/app

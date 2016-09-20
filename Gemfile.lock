@@ -254,6 +254,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.5)
+    hodel_3000_compliant_logger (0.1.1)
     htmlentities (4.3.4)
     http_parser.rb (0.6.0)
     httpclient (2.8.2.4)
@@ -327,6 +328,9 @@ GEM
     notiffany (0.1.0)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    oink (0.10.1)
+      activerecord
+      hodel_3000_compliant_logger
     orm_adapter (0.5.0)
     os (0.9.6)
     paper_trail (5.1.1)
@@ -583,6 +587,7 @@ DEPENDENCIES
   meta_request
   ngannotate-rails
   nokogiri
+  oink
   paper_trail
   pg
   premailer-rails

@@ -94,6 +94,7 @@ group :development do
   gem 'meta_request'
   # Kill all the N+1 queries, as well as unnecessarily eager loaded relations
   gem "bullet"
+  # Track memory usage and ActiveRecord instances
   gem "oink"
 end
 

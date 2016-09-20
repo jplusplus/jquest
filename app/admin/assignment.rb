@@ -30,4 +30,10 @@ ActiveAdmin.register Assignment do
     end
     f.actions
   end
+
+  controller do
+    def scoped_collection
+      super.includes :resource, :season, :user
+    end
+  end
 end

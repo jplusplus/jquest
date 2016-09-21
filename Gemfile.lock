@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: a8fdeb2657bf08ca53698af2ad27db4c9f09ecc2
+  revision: bdff5f06b2f4adccc5ffcdcea8e104cb7f94fe81
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -201,7 +201,7 @@ GEM
     gli (2.14.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    google-api-client (0.9.14)
+    google-api-client (0.9.15)
       addressable (~> 2.3)
       googleauth (~> 0.5)
       httpclient (~> 2.7)

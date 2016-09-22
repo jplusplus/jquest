@@ -42,7 +42,7 @@ ADD . .
 RUN bundle exec whenever --update-crontab
 # This will prepare every assets, download dependencies
 # with bower and annotate angular DI
-ARG ASSET_HOST
+ARG ASSET_HOST=//assets.jquestapp.com
 RUN bundle exec rails assets:precompile
 # Switch to non-root- user
 RUN chown -R nobody:nogroup /usr/src/app

@@ -19,7 +19,7 @@ Name | Description | Examples
 --- | --- | ---
 DB_ADAPTER | The database adapter to use | `postgresql`, `sqlite3`
 DATABASE_URL | The database URI to use | `postgres://user:password@localhost:5432/jquest`, `db/development.sqlite3`
-SLACK_API_TOKEN | User API token to connect to Slack | `xoxp-XXXXXXXXXXX-XXXXXXXXXXX-XXXXXXXXXXX-XXXXXXXXXXX`
+SLACK_API_TOKEN | User API token to connect to Slack you can get [from here](https://api.slack.com/web). | `xoxp-XXXXXXXXXXX-XXXXXXXXXXX-XXXXXXXXXXX-XXXXXXXXXXX`
 
 For instance, to use the app with SQLite:
 
@@ -33,11 +33,36 @@ SLACK_API_TOKEN: xoxp-whatever-you-got-from-slack
 
     rails db:setup
 
+If you use PostgreSQL, an alternative way to setup the database is to get a copy from the production. **This is a destructive action** since it remove your local database to fill it with real-life data. Use the following command:
+
+    make pg-pull
+
 ### 4. Run
 
 The app autoreloads when changing ruby files, or assets.
 
     make run
+
+## Boot inside a Docker for production
+
+### Build the container
+
+To ease the deployment of jQuest, we provide a Docerfile to build the app
+and get ready for production with a single command line:
+
+    docker build -t jquest .
+
+Use environments variables within your Docker host to configure the app. Any existing `config/local-env.yml` file will be ignored.
+
+### Run the instance
+
+Assuming you named your container `jquest` as above, simply run:
+
+    docker run -p 3333:3000 --build-arg ASSET_HOST=//www.jquestapp.com -it jquest bin/web
+
+Here we build the assets using the default but it can be your own server or a CDN. Your app is now listening on [localhost:3333](http://localhost:3333)
+
+
 
 
 [Ruby]: https://www.ruby-lang.org/en/documentation/installation/

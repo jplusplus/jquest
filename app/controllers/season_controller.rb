@@ -1,5 +1,5 @@
 class SeasonController < ApplicationController
-  before_filter :can!
+  before_action :can!
   rescue_from Pundit::NotAuthorizedError, with: :deny_access
 
   def index

@@ -17,7 +17,7 @@ migrate-with-local:
 		RACK_ENV=production \
 		RAILS_ENV=production \
 		SECRET_KEY_BASE=$(shell openssl rand -base64 32) \
-		rake db:version
+		rails db:version
 
 pg-pull:
 		dropdb jquest

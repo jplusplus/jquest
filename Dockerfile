@@ -15,7 +15,7 @@ RUN gem install bundler
 ENV PATH /usr/src/app/bin/:$PATH
 ENV RACK_ENV production
 ENV RAILS_ENV production
-ENV RAILS_VERSION 4.2.6
+ENV RAILS_VERSION 5.0.0
 # Create a secret key dynamicly.
 # Files in /etc/profile.d/ that end by .sh are loaded automaticly
 RUN bash -l -c 'echo export SECRET_KEY_BASE="$(openssl rand -hex 64)" > /etc/profile.d/docker.sh'
@@ -43,7 +43,7 @@ RUN bundle exec whenever --update-crontab
 # This will prepare every assets, download dependencies
 # with bower and annotate angular DI
 ARG ASSET_HOST
-RUN bundle exec rake assets:precompile
+RUN bundle exec rails assets:precompile
 # Switch to non-root- user
 RUN chown -R nobody:nogroup /usr/src/app
 USER nobody

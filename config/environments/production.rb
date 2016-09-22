@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -59,7 +59,14 @@ Rails.application.configure do
   # config.log_tags = [ :subdomain, :uuid ]
 
   # Use a different logger for distributed setups.
-  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  end
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -98,7 +105,6 @@ Rails.application.configure do
                       }
   end
 
-
   # Use Sendgrid if username available
   if ENV.has_key?("SENDGRID_USERNAME")
     ActionMailer::Base.smtp_settings = {
@@ -110,26 +116,5 @@ Rails.application.configure do
       :domain         => 'heroku.com',
       :enable_starttls_auto => true
     }
-  # Or use mailtrap if available
-  elsif ENV.has_key?("MAILTRAP_API_TOKEN")
-    # Get Mailtrap SMTP details using its API
-    url = "https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}"
-    begin
-      response = RestClient.get url, {:accept => :json}
-      # Get first inbox
-      inbox = JSON.parse(response)[0]
-
-      config.action_mailer.delivery_method = :smtp
-      config.action_mailer.smtp_settings = {
-        :user_name => inbox['username'],
-        :password => inbox['password'],
-        :address => inbox['domain'],
-        :domain => inbox['domain'],
-        :port => inbox['smtp_ports'][0],
-        :authentication => :plain
-      }
-    rescue RestClient::Unauthorized
-      p 'Unable to configure Mailtrap'
-    end
   end
 end

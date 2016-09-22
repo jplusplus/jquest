@@ -50,9 +50,9 @@ The app autoreloads when changing ruby files, or assets.
 To ease the deployment of jQuest, we provide a Dockerfile to build the app
 and get ready for production with a single command line:
 
-    docker build --build-arg ASSET_HOST=//www.jquestapp.com  -t jquest .
+    docker build --build-arg ASSET_HOST=//assets.jquestapp.com -t jquest .
 
-**Note:** Here we build the assets using the default but it can be your own server or a CDN.
+**Note:** Here we build the assets using the default host but it must be your own server or a CDN.
 
 ### Run the instance
 

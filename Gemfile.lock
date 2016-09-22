@@ -320,6 +320,7 @@ GEM
       enumerable-lazy
     necromancer (0.3.0)
     nenv (0.3.0)
+    newrelic_rpm (3.16.2.321)
     ngannotate-rails (1.2.2)
       execjs
       rails (>= 3.1)
@@ -585,6 +586,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquest_pg!
   meta_request
+  newrelic_rpm
   ngannotate-rails
   nokogiri
   oink

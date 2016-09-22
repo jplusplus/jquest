@@ -31,9 +31,9 @@ module API
             # Find season
             season = policy_scope(Season).find(params[:id])
             # And create an activity with the right taxonomy
-            Activity.create! user: current_user,
-                             season: season,
-                             taxonomy: 'intro'
+            Activity.create user: current_user,
+                            season: season,
+                            taxonomy: 'intro'
           end
         end
       end

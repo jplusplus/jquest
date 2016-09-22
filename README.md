@@ -47,7 +47,7 @@ The app autoreloads when changing ruby files, or assets.
 
 ### Build the container
 
-To ease the deployment of jQuest, we provide a Docerfile to build the app
+To ease the deployment of jQuest, we provide a Dockerfile to build the app
 and get ready for production with a single command line:
 
     docker build -t jquest .

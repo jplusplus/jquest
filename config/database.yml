@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  adapter: postgresql
+  adapter: <%= ENV["DB_ADAPTER"] || 'postgresql' %>
   pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
 
 # Warning: The database defined as "test" will be erased and

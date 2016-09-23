@@ -47,7 +47,7 @@ The app autoreloads when changing ruby files, or assets.
 
 ## Install inside a Docker for `production`
 
-![](http://imgur.com/3RL2VnQ.png)
+![](http://imgur.com/lFvhAEH.png)
 
 ### Build the container
 

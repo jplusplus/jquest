@@ -1,6 +1,6 @@
 # jQuest
 
-![](http://imgur.com/9dGzq2d.png)
+[![](http://imgur.com/zwhZfsd.png)](http://www.jquestapp.com)
 
 ## Install in `development`
 

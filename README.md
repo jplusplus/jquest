@@ -1,5 +1,7 @@
 # jQuest
 
+![](http://imgur.com/9dGzq2d.png)
+
 ## Install in `development`
 
 The following guide explain how to install jQuest for development purpose.
@@ -44,6 +46,8 @@ The app autoreloads when changing ruby files, or assets.
     make run
 
 ## Install inside a Docker for `production`
+
+![](http://imgur.com/3RL2VnQ.png)
 
 ### Build the container
 

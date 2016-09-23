@@ -13,7 +13,7 @@ class Point < ActiveRecord::Base
 
   def position
     Rails.cache.fetch("#{cache_key}/position", expires_in: 10.minutes) do
-      Point.where(season_id: season_id).where('value > ?', value).distinct.pluck(:value).length + 1
+      Point.select('DISTINCT(value)').where(season_id: season_id).where('value > ?', value).count() + 1
     end
   end
 

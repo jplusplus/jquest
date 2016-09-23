@@ -1,6 +1,6 @@
 # jQuest
 
-## Install in development
+## Install in `development`
 
 The following guide explain how to install jQuest for development purpose.
 
@@ -43,7 +43,7 @@ The app autoreloads when changing ruby files, or assets.
 
     make run
 
-## Boot inside a Docker for production
+## Install inside a Docker for `production`
 
 ### Build the container
 
@@ -64,8 +64,32 @@ Assuming you named your container `jquest` as above, simply run:
 
 Your app is now listening on [localhost:3333](http://localhost:3333)
 
+## Environment variables in `production`
 
+As mentioned above, jQuest can be configured with environment variables:
 
+Name | Description | Examples
+--- | --- | ---
+DB_ADAPTER | The database adapter to use. | `postgresql`, `sqlite3`
+DATABASE_URL | The database URI to use. | `postgres://user:password@localhost:5432/jquest`, `db/development.sqlite3`
+SLACK_API_TOKEN | User API token to connect to Slack you can get [from here](https://api.slack.com/web). | `xoxp-XXXXXXXXXXX-XXXXXXXXXXX-XXXXXXXXXXX-XXXXXXXXXXX`
+ASSET_HOST | Hostname that distribute the assets. | `//asset.jquestapp.com`
+HOSTNAME | Hostname of the app (needed by mailers). |  `http://www.jquestapp.com`
+S3_BUCKET | Bucket name to upload files to. | `static.jquestapp.com`
+AWS_ACCESS_KEY_ID | AWS access key id. |
+AWS_SECRET_ACCESS_KEY | AWS secret key. |
+AWS_REGION |  AWS region to distribute files. | `eu-west-1`
+RAILS_SERVE_STATIC_FILES | Should Rails serve assets? | `1`
+RAILS_LOG_TO_STDOUT | Should Rails print logs to stdout? | `1`
+MEMCACHIER_SERVERS | If present, activates cache with Memcahier. List Memcahier servers. | `something.ec2.memcachier.com:11211`
+MEMCACHIER_USERNAME | Memcachier username. |
+MEMCACHIER_PASSWORD | Memcachier password. |
+NEW_RELIC_APP_NAME | If present, activates RPM measure with New Relic. | `jquest`
+NEW_RELIC_LICENSE_KEY | New Relic Licence key. |
+NEW_RELIC_LOG | New Relic source. | `stdout`
+SENDGRID_USERNAME | If present, uses SendGrid as mailer. | `contact@jplusplus.org`
+SENDGRID_PASSWORD | SendGrid passowrd. |
+WEB_CONCURRENCY | Number of concurrent process to start with Puma | `1`
 
 [Ruby]: https://www.ruby-lang.org/en/documentation/installation/
 [Bower]: http://bower.io/#install-bower

@@ -10,7 +10,7 @@
         end
         paginate
         get do
-          garner do
+          garner.options(expires_in: 10.minutes) do
             paginate policy_scope(Point).
               # Only positive points
               where('value > ?', 0).

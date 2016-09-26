@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: b3606f05811c9a230eb01fc9a9536e0b9e6738c1
+  revision: a0c62651664871591c1eb76450fd35413dcf0704
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -310,7 +310,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     modware (0.1.3)
       key_struct (~> 0.4)
     multi_json (1.12.1)

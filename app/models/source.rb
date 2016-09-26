@@ -10,7 +10,7 @@ class Source < ActiveRecord::Base
 
   def self.update_or_create(attrs)
     source = where(field: attrs.field, resource: attrs.resource).first_or_initialize
-    source.update_attributes attrs
+    source.update_attributes attrs.except(:id)
     source
   end
 

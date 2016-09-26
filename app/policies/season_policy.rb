@@ -20,7 +20,7 @@ class SeasonPolicy  < AdminPolicy
   end
 
   def show?
-    index? or @user and @user.member_of == @model
+    index? or @user and @user.member_of.id == @model.id
   end
 
   def scope

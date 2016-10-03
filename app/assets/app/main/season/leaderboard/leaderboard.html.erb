@@ -81,7 +81,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="point in :: leaderboard.points | orderBy:'position' track by $index" ng-class="{ 'table-warning': leaderboard.isYou(point) }">
-            <td class="text-xs-right">
+            <td class="text-xs-left">
               {{ point.position }}{{ main.positionAbbr(point.position) }}
             </td>
             <td>

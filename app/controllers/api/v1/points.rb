@@ -10,20 +10,16 @@
         end
         paginate
         get do
-          garner.options(expires_in: 10.minutes) do
-            paginate policy_scope(Point).
-              # Only positive points
-              where('value > ?', 0).
-              # We allow filtering
-              search(declared params).
-              result.
-              # Join resources
-              eager_load(:user).
-              # Order by position
-              order(value: :desc).
-              # Allow caching
-              to_a
-          end
+          paginate policy_scope(Point).
+            # Only positive points
+            where('value > ?', 0).
+            # We allow filtering
+            search(declared params).
+            result.
+            # Join resources
+            eager_load(:user).
+            # Order by position
+            order(value: :desc)
         end
       end
     end

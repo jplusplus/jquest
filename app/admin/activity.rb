@@ -2,6 +2,9 @@ ActiveAdmin.register Activity do
   permit_params :user_id, :season_id, :resource_id, :resource_type, :points, :taxonomy
   belongs_to :user, :optional => true
 
+  filter :season
+  filter :user
+
   index do
     selectable_column
     id_column
@@ -25,5 +28,12 @@ ActiveAdmin.register Activity do
       f.input :taxonomy
     end
     f.actions
+  end
+
+
+  controller do
+    def scoped_collection
+      super.includes :assignment, :season, :user
+    end
   end
 end

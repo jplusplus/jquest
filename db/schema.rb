@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920101002) do
+ActiveRecord::Schema.define(version: 20161003133144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +26,12 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.datetime "updated_at",                null: false
     t.string   "value"
     t.integer  "assignment_id"
+    t.index ["assignment_id"], name: "index_activities_on_assignment_id", using: :btree
+    t.index ["resource_type", "resource_id"], name: "fk__activities_resource_id", using: :btree
+    t.index ["resource_type", "resource_id"], name: "index_activities_on_resource_type_and_resource_id", using: :btree
+    t.index ["season_id"], name: "index_activities_on_season_id", using: :btree
+    t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
   end
-
-  add_index "activities", ["assignment_id"], name: "index_activities_on_assignment_id", using: :btree
-  add_index "activities", ["resource_type", "resource_id"], name: "fk__activities_resource_id", using: :btree
-  add_index "activities", ["resource_type", "resource_id"], name: "index_activities_on_resource_type_and_resource_id", using: :btree
-  add_index "activities", ["season_id"], name: "index_activities_on_season_id", using: :btree
-  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id",                           null: false
@@ -46,11 +44,10 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.datetime "updated_at",                        null: false
     t.string   "status",        default: "pending", null: false
     t.integer  "level"
+    t.index ["expires_at"], name: "index_assignments_on_expires_at", using: :btree
+    t.index ["season_id"], name: "index_assignments_on_season_id", using: :btree
+    t.index ["user_id"], name: "index_assignments_on_user_id", using: :btree
   end
-
-  add_index "assignments", ["expires_at"], name: "index_assignments_on_expires_at", using: :btree
-  add_index "assignments", ["season_id"], name: "index_assignments_on_season_id", using: :btree
-  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id", using: :btree
 
   create_table "course_materials", force: :cascade do |t|
     t.string   "title"
@@ -62,18 +59,16 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.datetime "updated_at",                     null: false
     t.string   "category"
     t.integer  "position",     default: 0
+    t.index ["state_name"], name: "index_course_materials_on_state_name", using: :btree
   end
-
-  add_index "course_materials", ["state_name"], name: "index_course_materials_on_state_name", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.integer  "season_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["season_id"], name: "index_groups_on_season_id", using: :btree
   end
-
-  add_index "groups", ["season_id"], name: "index_groups_on_season_id", using: :btree
 
   create_table "jquest_pg_diversities", force: :cascade do |t|
     t.integer  "resource_a_id"
@@ -113,11 +108,10 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "age_range"
+    t.index ["legislature_id", "person_id"], name: "index_jquest_pg_mandatures_on_legislature_id_and_person_id", unique: true, using: :btree
+    t.index ["legislature_id"], name: "index_jquest_pg_mandatures_on_legislature_id", using: :btree
+    t.index ["person_id"], name: "index_jquest_pg_mandatures_on_person_id", using: :btree
   end
-
-  add_index "jquest_pg_mandatures", ["legislature_id", "person_id"], name: "index_jquest_pg_mandatures_on_legislature_id_and_person_id", unique: true, using: :btree
-  add_index "jquest_pg_mandatures", ["legislature_id"], name: "index_jquest_pg_mandatures_on_legislature_id", using: :btree
-  add_index "jquest_pg_mandatures", ["person_id"], name: "index_jquest_pg_mandatures_on_person_id", using: :btree
 
   create_table "jquest_pg_people", force: :cascade do |t|
     t.string   "fullname"
@@ -134,8 +128,10 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.date     "birthdate"
     t.string   "birthplace"
     t.string   "phone"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "diversity_positive",  default: 0
+    t.integer  "diversity_count",     default: 0
   end
 
   create_table "points", force: :cascade do |t|
@@ -144,11 +140,10 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.integer "value",     default: 0
     t.integer "level",     default: 1
     t.integer "round",     default: 1
+    t.index ["season_id"], name: "index_points_on_season_id", using: :btree
+    t.index ["user_id", "season_id"], name: "index_points_on_user_id_and_season_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_points_on_user_id", using: :btree
   end
-
-  add_index "points", ["season_id"], name: "index_points_on_season_id", using: :btree
-  add_index "points", ["user_id", "season_id"], name: "index_points_on_user_id_and_season_id", unique: true, using: :btree
-  add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
@@ -177,9 +172,8 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.text     "value"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["resource_type", "resource_id", "field"], name: "index_sources_on_resource_type_and_resource_id_and_field", using: :btree
   end
-
-  add_index "sources", ["resource_type", "resource_id", "field"], name: "index_sources_on_resource_type_and_resource_id_and_field", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                               default: "",    null: false
@@ -226,19 +220,18 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.string   "lastname"
     t.datetime "invited_to_channel_at"
     t.string   "invited_to_channel_as",               default: ""
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["group_id"], name: "index_users_on_group_id", using: :btree
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+    t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+    t.index ["provider"], name: "index_users_on_provider", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["school_id"], name: "index_users_on_school_id", using: :btree
+    t.index ["uid"], name: "index_users_on_uid", using: :btree
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
-
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["group_id"], name: "index_users_on_group_id", using: :btree
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
-  add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
-  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false
@@ -247,9 +240,8 @@ ActiveRecord::Schema.define(version: 20160920101002) do
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
   add_foreign_key "activities", "seasons", name: "fk_activities_season_id"
   add_foreign_key "activities", "users", name: "fk_activities_user_id"

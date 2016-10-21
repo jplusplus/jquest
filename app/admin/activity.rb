@@ -3,7 +3,7 @@ ActiveAdmin.register Activity do
   belongs_to :user, :optional => true
 
   filter :season
-  filter :user
+  filter :user_id
 
   index do
     selectable_column
@@ -11,8 +11,6 @@ ActiveAdmin.register Activity do
     column :user
     column :taxonomy
     column :points
-    column :resource
-    column :assignment
     column :value
     column :season
     actions
@@ -33,7 +31,7 @@ ActiveAdmin.register Activity do
 
   controller do
     def scoped_collection
-      super.includes :assignment, :season, :user
+      super.includes :season, :user
     end
   end
 end

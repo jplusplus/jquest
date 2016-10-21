@@ -11,7 +11,7 @@ class School < ActiveRecord::Base
 
   def points
     # Get all points by season
-    Point.joins(:user).where(users: {  school_id: id })
+    Point.where(school_id: id)
   end
 
   def seasons_points_pairs

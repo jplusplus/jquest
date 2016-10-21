@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003133144) do
+ActiveRecord::Schema.define(version: 20161021101846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,9 +137,12 @@ ActiveRecord::Schema.define(version: 20161003133144) do
   create_table "points", force: :cascade do |t|
     t.integer "user_id"
     t.integer "season_id"
-    t.integer "value",     default: 0
-    t.integer "level",     default: 1
-    t.integer "round",     default: 1
+    t.integer "value",             default: 0
+    t.integer "level",             default: 1
+    t.integer "round",             default: 1
+    t.text    "user_display_name"
+    t.integer "school_id"
+    t.index ["school_id"], name: "index_points_on_school_id", using: :btree
     t.index ["season_id"], name: "index_points_on_season_id", using: :btree
     t.index ["user_id", "season_id"], name: "index_points_on_user_id_and_season_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_points_on_user_id", using: :btree

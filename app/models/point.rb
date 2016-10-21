@@ -9,8 +9,9 @@ class Point < ActiveRecord::Base
 
   def set_value
     write_attribute :value, user.activities.where(season_id: season_id).sum(:points).to_i
+    write_attribute :user_display_name, user.display_name
+    write_attribute :school_id, user.school_id
   end
-
 
   def position
     # Get global ranking
@@ -45,7 +46,7 @@ class Point < ActiveRecord::Base
   end
 
   def self.ranking(season_id)
-    Rails.cache.fetch("points/ranking/#{season_id}", expires_in: 10.seconds) do
+    Rails.cache.fetch("points/ranking/#{season_id}", expires_in: 10.minutes) do
       # We don't need more information
       select('user_id, value').
       # Restrict to a given season

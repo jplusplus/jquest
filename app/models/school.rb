@@ -25,11 +25,12 @@ class School < ActiveRecord::Base
     seasons_points_pairs.select{ |pair| pair[0] == season_id }.collect(&:last)
   end
 
+
   def points_sum_by_season
     # Low level caching
     Rails.cache.fetch("#{cache_key}/points_sum_by_season", expires_in: 10.minutes) do
       # Get all points by season
-      Season.all.pluck(:id).map do |season_id|
+      Season.ids.map do |season_id|
         # Create a pair for each season
         [ season_id, season_points(season_id).inject(0, :+) ]
       # Convert the array of pairs to a hash

@@ -49,4 +49,11 @@ class Season < ActiveRecord::Base
   def self.engines_name
     self.engines.map { |n| n.to_s.split("::").first }
   end
+
+  def self.ids
+    # Low level caching
+    Rails.cache.fetch("season/ids", expires_in: 5.minutes) do
+      all.pluck(:id)
+    end
+  end
 end

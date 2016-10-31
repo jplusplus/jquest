@@ -6,8 +6,12 @@ module API
         get :status do
           authenticate!
           garner.options(expires_in: 2.minutes) do
-            # Get Slack status as the current user
-            slack_status_for(current_user).to_h
+            begin
+              # Get Slack status as the current user
+              slack_status_for(current_user).to_h
+            rescue
+              error! 'Unable to reach Slack for updates.'
+            end
           end
         end
 

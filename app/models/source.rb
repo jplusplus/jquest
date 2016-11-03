@@ -14,6 +14,16 @@ class Source < ActiveRecord::Base
     source
   end
 
+  def self.batch_update_or_create(sources, resource)
+    sources.map! do |source|
+      # Does the source's field exist for that resource class?
+      if resource.class.columns.map(&:name).include? source.field
+        source.resource = resource
+        Source.update_or_create source
+      end
+    end
+  end
+
   protected
 
   def sanitize_value

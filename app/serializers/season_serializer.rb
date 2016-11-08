@@ -2,10 +2,10 @@ class SeasonSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
 
   attributes  :id, :name, :primary_color, :status,
-              :created_at, :updated_at, :engine, :activities, :progression
+              :created_at, :updated_at, :engine, :progression
 
   # Use associated resources' serializers
-  has_many :activities
+  # has_many :activities
 
   def engine
     object.engine_info

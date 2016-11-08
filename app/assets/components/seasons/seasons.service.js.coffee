@@ -8,7 +8,7 @@ angular.module 'jquest'
       constructor: ->
         # Load season to inject into  the menu
         @_promise = do @reload
-      # Reload
+      # Reload the season and instanciate the current class
       reload: =>
         Restangular.all('seasons').getList().then (seasons)=>
           changed = no
@@ -34,15 +34,30 @@ angular.module 'jquest'
             $rootScope.$broadcast 'progression:changed', [levelChanged, roundChanged]
           # Extend the seasons array
           angular.extend @_seasons, seasons
-      all: => @_promise
-      ready: =>  @_promise.then => @
+      # Returns the original promise
+      all: =>
+        @_promise
+      # Returns a promise resolved with an array of every season
+      ready: =>
+        @_promise.then => @
+      # True if the user started playing
+      alreadyStarted: =>
+        # Get season progression details
+        { level, round, points } = @current()?.progression
+        # Sum progression indicator (level starts at 1, round at 1, points at 0)
+        level + round + points > 2
+      # Add a human-readable taxonomy for this season's activities
       addHumanTaxonomy: (taxonomy, token)=>
         @_humanTaxonomies[taxonomy] = token
+      # Get a human-readable a taxonomy for this season's activities
       getHumanTaxonomy: (activitiy)=>
         $translate.instant @_humanTaxonomies[activitiy.taxonomy] or activitiy.taxonomy, activitiy
-      activities: => @_promise.then => @current().activities
-      current: => @_current
+      # Get the current season (once @_promise resolved)
+      current: =>
+        @_current
+      # True if the user is exploring a specific season
       hasCurrent: => @_current? and _.keys(@_current).length > 0
+      # Promise resolved with the current season
       getCurrent: =>
         # Create and return a promise
         $q (resolve, reject)=>

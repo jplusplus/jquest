@@ -5,9 +5,7 @@ module API
 
         desc "Return list of seasons"
         get do
-          policy_scope(Season).
-            # Eager load activities
-            eager_load(:activities)
+          policy_scope(Season)
         end
 
         params do
@@ -18,11 +16,8 @@ module API
           desc 'Return a season using its id.'
           get do
             authenticate!
-            policy_scope(Season).
-              # Eager load activities
-              eager_load(:activities).
-              # Find season
-              find(params[:id])
+            # Find season
+            policy_scope(Season).find(params[:id])
           end
 
           desc 'Add user activity to know we saw the intro'

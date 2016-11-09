@@ -83,12 +83,18 @@
 
   #loading-bar{
     .peg {
-      display: none;
+      background:red;
+      opacity:1;
+      border-radius:0;
+      @include box-shadow(none);
+      @include gradient-x($brand-primary, #E93F00);
     }
+
     .bar {
-      height: .5vh;
+      height: 2px;
       background-color: $brand-primary;
       z-index: $zindex-navbar-fixed + 1000;
+      @include box-shadow(0 0 2px 0 $brand-primary);
     }
   }
 }

@@ -33,6 +33,12 @@ class Season < ActiveRecord::Base
     @controller ||= Object.const_get(engine_name)::ApplicationController
   end
 
+  def assign_to!(user)
+    if controller.method_defined? :new_assignments!
+      controller.new.new_assignments! user
+    end
+  end
+
   def self.engines
     engines = []
     # Analyse every engines

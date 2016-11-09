@@ -14,4 +14,5 @@ module LogQuerySource
   end
 end
 
-ActiveRecord::LogSubscriber.send :prepend, LogQuerySource
+# Disabled!
+# ActiveRecord::LogSubscriber.send :prepend, LogQuerySource

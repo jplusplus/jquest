@@ -21,6 +21,19 @@ module API
             filter params.slice(:status)
         end
 
+        desc "Generate new assignements for a given season"
+        params do
+          requires :season_id_eq, type: Integer
+        end
+        paginate
+        get :new do
+          authenticate!
+          # Find the season
+          season = Season.find params[:season_id_eq]
+          # Returns the new assignments
+          season.assign_to!(current_user) or []
+        end
+
         params do
           requires :id, type: Integer, desc: 'assignement id'
         end

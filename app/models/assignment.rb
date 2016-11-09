@@ -37,4 +37,8 @@ class Assignment < ActiveRecord::Base
   def self.unassigned_to(user, season=user.member_of)
     where(season: season).where.not(user: user)
   end
+
+  def self.ids_by(condition={})
+    select('id').where(**condition)
+  end
 end

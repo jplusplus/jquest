@@ -10,3 +10,4 @@ User.create!(email: 'admin@example.com', role: 'admin',
              password: 'password', password_confirmation: 'password',
              otp_required_for_login: false,
              confirmed_at: DateTime.new)
+ 

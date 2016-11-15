@@ -39,6 +39,6 @@ class Assignment < ActiveRecord::Base
   end
 
   def self.ids_by(condition={})
-    select('id').where(**condition)
+    select('resource_id').where(**condition)
   end
 end

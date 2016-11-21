@@ -11,14 +11,12 @@ module VersionsControl
       end
 
       sidebar "versions", only: :show do
-        versions = resource.versions
-
         if versions.length == 0
           strong 'No versions yet'
         else
           last     = versions.last
           first    = versions.first
-          active   = resource.version
+          active   = resource.version.nil? ? last : resource.version
 
           if active.index != last.index
             strong 'Your are consulting a previous version'

@@ -68,7 +68,6 @@ ActiveAdmin.register User do
     column :email
     column :firstname
     column :lastname
-    column :phone_number
     column :group
     column :level do |user|
       user.points.find_or_create_by(season: user.member_of).level
@@ -77,7 +76,8 @@ ActiveAdmin.register User do
       user.points.find_or_create_by(season: user.member_of).round
     end
     column :home_country
-    column :spoken_language
+    column 'Activities', :activity_count
+    column 'Assignments', :assignment_count
     actions
   end
 
@@ -87,6 +87,8 @@ ActiveAdmin.register User do
   filter :firstname
   filter :lastname
   filter :school
+  filter :activity_count
+  filter :assignment_count
   filter :group
 
   form do |f|

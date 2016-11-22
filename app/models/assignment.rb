@@ -21,6 +21,13 @@ class Assignment < ActiveRecord::Base
 
   before_save :set_level
 
+  after_create :set_user_count
+  after_destroy :set_user_count
+
+  def set_user_count
+    user.update assignment_count: user.assignments.count
+  end
+
   def set_level
     if not user.nil? and level.blank?
       # Get point instance for this season

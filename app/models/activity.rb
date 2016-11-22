@@ -14,9 +14,16 @@ class Activity < ActiveRecord::Base
   after_destroy :set_user_points
   after_update :set_user_points
 
+  after_create :set_user_count
+  after_destroy :set_user_count
+
   def set_user_points
     # Saving the point instance will trigger a new computation
     user.points.find_or_create_by(season: season).save
+  end
+
+  def set_user_count
+    user.update activity_count: user.activities.count
   end
 
   def self.resource_types

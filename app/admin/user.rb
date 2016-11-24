@@ -101,8 +101,8 @@ ActiveAdmin.register User do
         panel link_to("User assignments",  admin_user_assignments_path(user)) do
           table_for user.assignments.pending.includes(:resource).order('created_at desc') do
             caption 'Pending'
-            column :resource
             column :season
+            column :resource
             column :level
           end
         end

@@ -95,6 +95,11 @@ Name | Description | Examples
 <var>SENDGRID_PASSWORD</var> | SendGrid passowrd. |
 <var>WEB_CONCURRENCY</var> | Number of concurrent process to start with Puma | `1`
 
+## Setting up SSL on Heroku
+
+Follow this [tutorial](https://medium.com/should-designers-code/how-to-set-up-ssl-with-lets-encrypt-on-heroku-for-free-266c185630db) to get SSL certificat from EFF. Enable SSL with Fatly using this [tutorial](https://docs.fastly.com/guides/securing-communications/setting-up-free-tls).
+
+
 [Ruby]: https://www.ruby-lang.org/en/documentation/installation/
 [Bower]: http://bower.io/#install-bower
 [Bundler]: http://bundler.io

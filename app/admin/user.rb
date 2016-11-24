@@ -81,7 +81,44 @@ ActiveAdmin.register User do
     actions
   end
 
-  show :title => proc{|user| user.email }
+
+  show :title => proc{|user| user.email } do
+    columns do
+      column do
+        default_main_content
+      end
+      column do
+
+        panel link_to("User progression",  admin_user_points_path(user)) do
+          table_for user.points do
+            column :season
+            column :level
+            column :round
+            column "Points", :value
+          end
+        end
+
+        panel link_to("User assignments",  admin_user_assignments_path(user)) do
+          table_for user.assignments.pending.order('created_at desc') do
+            caption 'Pending'
+            column :resource
+            column :season
+            column :level
+          end
+        end
+
+        panel link_to("User activities",  admin_user_activities_path(user)) do
+          table_for user.activities.order('created_at desc') do
+            column :season
+            column :taxonomy
+            column :points
+            column :created_at
+          end
+        end
+
+      end
+    end
+  end
 
   filter :email
   filter :firstname
@@ -110,22 +147,5 @@ ActiveAdmin.register User do
       f.input :password_confirmation
     end
     f.actions
-  end
-
-  sidebar "Shortcuts", only: [:show, :edit] do
-    ul do
-      li link_to "Activities",  admin_user_activities_path(user)
-      li link_to "Assignments",  admin_user_assignments_path(user)
-    end
-  end
-
-  sidebar "Progression", only: :show do
-    table_for user.points do
-      column :season
-      column :level
-      column :round
-      column "Points", :value
-    end
-    link_to "See more details",  admin_user_points_path(user)
   end
 end

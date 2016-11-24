@@ -30,3 +30,13 @@ $skinMainSecondColor: #211a21 !default;
 #active_admin_content #main_content_wrapper #main_content {
   margin-right: 360px;
 }
+
+.panel h3 a {
+  color:inherit;
+}
+
+.panel table caption {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}

@@ -99,7 +99,7 @@ ActiveAdmin.register User do
         end
 
         panel link_to("User assignments",  admin_user_assignments_path(user)) do
-          table_for user.assignments.pending.order('created_at desc') do
+          table_for user.assignments.pending.includes(:resource).order('created_at desc') do
             caption 'Pending'
             column :resource
             column :season
@@ -108,7 +108,7 @@ ActiveAdmin.register User do
         end
 
         panel link_to("User activities",  admin_user_activities_path(user)) do
-          table_for user.activities.order('created_at desc') do
+          table_for user.activities.includes(:season).order('created_at desc') do
             column :season
             column :taxonomy
             column :points

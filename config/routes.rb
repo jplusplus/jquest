@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  
+
   # Dispatch an error when Cloud Front trying to CDNify a forbidden resource
   match '*path', via: :all, to: 'errors#not_found',
     constraints: CloudfrontConstraint.new
@@ -18,4 +18,6 @@ Rails.application.routes.draw do
     # Add JQuest's engines route under /season/ endpoint
     mount engine => engine.root_path
   end
+  # For let's encrypt automation
+  get '/.well-known/acme-challenge/:id' => 'application#letsencrypt'
 end

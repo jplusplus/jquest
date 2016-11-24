@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= warden.user
   end
 
+  def letsencrypt
+    render text: "#{params[:id]}.#{ENV['LETSENCRYPT_TOKEN']}"
+  end
+
   # Disable yet
   def must_be_admin
     unless current_user.role? :admin, :teacher

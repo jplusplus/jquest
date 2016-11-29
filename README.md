@@ -6,6 +6,12 @@
 
 The following guide explain how to install jQuest for development purpose.
 
+### 0. Install system dependencies
+
+This may change according to your OS. On Ubuntu you must install those header packages to be able to compile ruby dependencies:
+
+  sudo apt-get install ruby-dev libpq-dev libsqlite3-dev
+
 ### 1. Setup packages
 
 Assuming you already installed [Ruby], [Bundler] and [Bower] on your computer.

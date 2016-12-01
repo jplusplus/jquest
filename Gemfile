@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Web server built for concurrency
 gem 'puma'
+# Implements data migration
+gem 'seed_migration'
 # User authentication
 gem 'devise'
 gem 'devise-two-factor'

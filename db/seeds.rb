@@ -1,13 +1,16 @@
-require 'date'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# encoding: UTF-8
+# This file is auto-generated from the current content of the database. Instead
+# of editing this file, please use the migrations feature of Seed Migration to
+# incrementally modify your database, and then regenerate this seed file.
 #
-# Examples:
+# If you need to create the database on another system, you should be using
+# db:seed, not running all the migrations from scratch. The latter is a flawed
+# and unsustainable approach (the more migrations you'll amass, the slower
+# it'll run and the greater likelihood for issues).
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(email: 'admin@example.com', role: 'admin',
-             password: 'password', password_confirmation: 'password',
-             otp_required_for_login: false,
-             confirmed_at: DateTime.new)
- 
+# It's strongly recommended to check this file into your version control system.
+
+ActiveRecord::Base.transaction do
+end
+
+SeedMigration::Migrator.bootstrap(20161201112132)

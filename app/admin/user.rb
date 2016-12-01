@@ -89,7 +89,7 @@ ActiveAdmin.register User do
     end
     column :home_country
     column 'Activities', :activity_count
-    column 'Assignments', :assignment_count
+    column 'Pending assignments', :assignment_pending_count
     column :status do |user|
       status_tag user.status
     end
@@ -158,6 +158,7 @@ ActiveAdmin.register User do
   filter :school
   filter :activity_count
   filter :assignment_count
+  filter :assignment_pending_count
   filter :group
 
   form do |f|

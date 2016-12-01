@@ -25,7 +25,8 @@ class Assignment < ActiveRecord::Base
   after_destroy :set_user_count
 
   def set_user_count
-    user.update assignment_count: user.assignments.count
+    user.update assignment_count: user.assignments.count,
+                assignment_pending_count: user.assignments.pending.count
   end
 
   def set_level

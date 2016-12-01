@@ -147,7 +147,7 @@ class User < ActiveRecord::Base
   end
 
   def invite!(*args)
-    if invitation_created_at.nil? or invitation_created_at < 5.seconds.ago
+    if invitation_created_at.nil? or invitation_created_at < 5.minutes.ago
       super
     end
   end

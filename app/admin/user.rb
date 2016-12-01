@@ -1,3 +1,5 @@
+include ActionView::Helpers::DateHelper
+
 ActiveAdmin.register User do
   permit_params :email, :phone_number, :password, :password_confirmation,
                 :otp_required_for_login, :home_country, :spoken_language,
@@ -20,11 +22,12 @@ ActiveAdmin.register User do
   })
 
   batch_action :invite do |ids, inputs|
+    count = 0
     User.find(ids).each do |user|
-      user.invite!
+      count += user.invite!(current_user).nil? ? 0 : 1
     end
     redirect_to collection_path, :flash =>{
-      :notice =>  ids.length.to_s + ' user'.pluralize(ids.length) + ' invited.'
+      :notice => count.to_s + ' user'.pluralize(count) + ' invited.'
     }
   end
 
@@ -39,12 +42,16 @@ ActiveAdmin.register User do
 
   member_action :reset, method: :get do
     resource.reset!
-    redirect_to resource_path, notice: "Restored to initial state"
+    redirect_to resource_path, notice: 'Restored to initial state'
   end
 
   member_action :invite, method: :get do
-    resource.invite!
-    redirect_to resource_path, notice: "Invited to jQuest"
+    if resource.invite!(current_user).nil?
+      flash[:warning] = 'Wait a few minutes to invite this user'
+      redirect_to resource_path
+    else
+      redirect_to resource_path, notice: 'Invited to jQuest'
+    end
   end
 
   member_action :sign_in_as, method: :get do
@@ -62,6 +69,11 @@ ActiveAdmin.register User do
     link_to "Sign in as User", sign_in_as_admin_user_path
   end
 
+  scope :all, default: true
+  scope :inactive
+  scope :invited
+  scope :accepted
+
   index do
     selectable_column
     id_column
@@ -78,6 +90,9 @@ ActiveAdmin.register User do
     column :home_country
     column 'Activities', :activity_count
     column 'Assignments', :assignment_count
+    column :status do |user|
+      status_tag user.status
+    end
     actions
   end
 
@@ -88,6 +103,23 @@ ActiveAdmin.register User do
         default_main_content
       end
       column do
+
+        panel "Unboarding" do
+          attributes_table_for user do
+            row :status do
+              status_tag user.status
+            end
+            if user.status == :invited
+              row :invitation_sent do
+                time_ago_in_words(user.invitation_created_at, include_seconds: true) + ' ago'
+              end
+            end
+            row :invited_to_slack do
+              status_tag user.invited_to_channel?
+            end
+          end
+        end
+
 
         panel link_to("User progression",  admin_user_points_path(user)) do
           table_for user.points do
@@ -138,6 +170,7 @@ ActiveAdmin.register User do
       f.input :otp_required_for_login, as: :boolean
       f.input :home_country
       f.input :spoken_language
+      f.input :invitation_created_at
       f.input :school_id, :as => :select,  collection: School.all
       f.input :group_id, :as => :select,  collection: Group.all
     end

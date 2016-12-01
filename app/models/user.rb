@@ -21,6 +21,17 @@ class User < ActiveRecord::Base
     self.confirmed_at = DateTime.new
   end
 
+  def self.accepted
+    where.not(invitation_accepted_at: nil)
+  end
+
+  def self.invited
+    where(invitation_accepted_at: nil).where.not(invitation_created_at: nil)
+  end
+
+  def self.inactive
+    where(invitation_accepted_at: nil).where(invitation_created_at: nil)
+  end
 
   def to_s
     email || phone_number
@@ -119,9 +130,25 @@ class User < ActiveRecord::Base
     roles.map(&:to_sym).include? role.to_sym
   end
 
+  def status
+    if invitation_accepted_at.present?
+      :accepted
+    elsif invitation_created_at.present?
+      :invited
+    else
+      :inactive
+    end
+  end
+
   def reset!
     points.each do |point|
       point.reset!
+    end
+  end
+
+  def invite!(*args)
+    if invitation_created_at.nil? or invitation_created_at < 5.seconds.ago
+      super
     end
   end
 

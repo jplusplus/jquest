@@ -40,3 +40,18 @@ $skinMainSecondColor: #211a21 !default;
   font-weight: bold;
   text-align: center;
 }
+
+.status_tag {
+
+  &.accepted {
+    background: #6090DB;
+  }
+
+  &.invited {
+    background: #C6A83A;
+  }
+
+  &.inactive {
+    background: #666;
+  }
+}

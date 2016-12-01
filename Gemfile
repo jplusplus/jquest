@@ -63,8 +63,6 @@ gem 'redcarpet'
 gem 'aws-sdk', '~> 2'
 # Slack integration
 gem 'slack-ruby-client', "~> 0.7.5"
-# Scheduler
-gem 'whenever', require: false
 # Custom engine
 # Developpers may want to override this value locally. Please read:
 # http://bundler.io/v1.2/man/bundle-config.1.html#LOCAL-GIT-REPOS

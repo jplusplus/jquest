@@ -38,8 +38,6 @@ COPY .bowerrc bower.json ./
 RUN bower install --production --silent --config.interactive=false
 # Copy all file
 ADD . .
-# Update the crontab for automated jobs
-RUN bundle exec whenever --update-crontab
 # This will prepare every assets, download dependencies
 # with bower and annotate angular DI
 ARG ASSET_HOST=//assets.jquestapp.com

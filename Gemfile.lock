@@ -31,7 +31,6 @@ GIT
       rails (= 5.0.0)
       schema_plus_foreign_keys
       tty
-      whenever
 
 GEM
   remote: https://rubygems.org/
@@ -138,7 +137,6 @@ GEM
     byebug (9.0.5)
     callsite (0.0.11)
     choice (0.2.0)
-    chronic (0.10.2)
     coderay (1.1.1)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -551,8 +549,6 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    whenever (0.9.7)
-      chronic (>= 0.6.3)
     wisper (1.6.1)
 
 PLATFORMS

@@ -66,6 +66,7 @@ gem 'slack-ruby-client', "~> 0.7.5"
 # Custom engine
 # Developpers may want to override this value locally. Please read:
 # http://bundler.io/v1.2/man/bundle-config.1.html#LOCAL-GIT-REPOS
+# For instance : bundle config local.jquest_pg  ../jquest-pg
 gem 'jquest_pg', github: 'jplusplus/jquest-pg', branch: 'master'
 
 group :development, :production do

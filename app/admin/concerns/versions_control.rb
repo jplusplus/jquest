@@ -36,6 +36,8 @@ module VersionsControl
                 else
                   em 'Anonymous'
                 end
+              else
+                em 'Anonymous'
               end
             end
 

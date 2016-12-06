@@ -30,7 +30,12 @@ module VersionsControl
 
             column 'Author' do |v|
               if v.whodunnit.present?
-                link_to User.find(v.whodunnit).display_name, [:admin, User.find(v.whodunnit)]
+                author = User.find_by(id: v.whodunnit)
+                unless author.nil?
+                  link_to author.display_name, [:admin, author]
+                else
+                  em 'Anonymous'
+                end
               end
             end
 

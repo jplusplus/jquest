@@ -18,7 +18,13 @@ ActiveAdmin.register User do
   end
 
   active_admin_import({
-    validate: false
+    validate: true,
+    before_batch_import: ->(importer) {
+      # Batch import email and switch to lowercase
+      user_emails = importer.values_at('email').map{ |e| [e, e.downcase] }
+      # Replace existing values
+      importer.batch_replace('email', Hash[*user_emails.flatten])
+    }
   })
 
   batch_action :invite do |ids, inputs|

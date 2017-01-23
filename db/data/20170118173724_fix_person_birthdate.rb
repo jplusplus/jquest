@@ -12,7 +12,7 @@ class FixPersonBirthdate < SeedMigration::Migration
       counter += 1
     end
     # Output updates count
-    say "-- Updated #{counter} people"
+    ActiveRecord::Migration::say "-- Updated #{counter} people"
   end
 
   def down
@@ -33,6 +33,6 @@ class FixPersonBirthdate < SeedMigration::Migration
       end
     end
     # Output updates count
-    say "-- Updated #{counter} people"
+    ActiveRecord::Migration::say "-- Updated #{counter} people"
   end
 end

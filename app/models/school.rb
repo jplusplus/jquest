@@ -2,11 +2,15 @@ class School < ActiveRecord::Base
   has_many :users
 
   def country_name
-    @country_name ||= ISO3166::Data.new(country).call['name']
+    @country_name ||= find_country.name
+  end
+
+  def find_country
+    ISO3166::Country.find_country_by_alpha2(country)
   end
 
   def language
-    @language ||= ISO3166::Data.new(country).call['languages'].first
+    @language ||= (find_country.languages || []).first
   end
 
   def points

@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git://github.com/jplusplus/jquest-pg.git
-  revision: f8f016470ab356f38612640f63b68f7e376fec7c
+  revision: 02e1cf914ce5280919c6298d95dee846fb088164
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -210,7 +210,7 @@ GEM
     gli (2.14.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    google-api-client (0.9.20)
+    google-api-client (0.9.24)
       addressable (~> 2.3)
       googleauth (~> 0.5)
       httpclient (~> 2.7)
@@ -559,7 +559,7 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
-    websocket-driver (0.6.4)
+    websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     wisper (1.6.1)

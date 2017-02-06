@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Bundle edge Rails instead: gem 'rails',  :git => 'https://github.com/rails/rails'
 gem 'rails', '5.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.6'
@@ -37,10 +37,10 @@ gem "garner"
 # Backend Interface
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'active_admin_theme'
-gem "active_admin_import" , github: "activeadmin-plugins/active_admin_import"
-gem "active_admin-sortable_tree"
+gem 'active_admin_import' ,  :git => 'https://github.com/activeadmin-plugins/active_admin_import'
+gem 'active_admin-sortable_tree'
 # Rails 5 support for active admin
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'inherited_resources',  :git => 'https://github.com/activeadmin/inherited_resources'
 # Advanced search
 gem 'ransack'
 # Specials fields
@@ -67,7 +67,7 @@ gem 'slack-ruby-client', "~> 0.7.5"
 # Developpers may want to override this value locally. Please read:
 # http://bundler.io/v1.2/man/bundle-config.1.html#LOCAL-GIT-REPOS
 # For instance : bundle config local.jquest_pg  ../jquest-pg
-gem 'jquest_pg', github: 'jplusplus/jquest-pg', branch: 'master'
+gem 'jquest_pg',  :git => 'https://github.com/jplusplus/jquest-pg', branch: 'master'
 
 group :development, :production do
   gem 'pg'

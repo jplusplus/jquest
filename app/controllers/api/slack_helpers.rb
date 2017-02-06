@@ -74,7 +74,7 @@ module API
       # Return a hash
       OpenStruct.new(
         total: slack_members.length,
-        active: slack_members.select { |u| u.presence == 'active' }.length,
+        active: slack_members.select { |u| u[:presence] == 'active' }.length,
         hostname: slack_hostname,
         # Find the current user among the member
         is_member: as_slack_member(current_user).present?,

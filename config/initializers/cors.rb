@@ -1,4 +1,4 @@
-Rails.application.config.middleware.insert_before 0, "Rack::Cors" do
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
   # Allow CORS over root API and engines' API
   ( ['/'] + Season.engines.map(&:root_path) ).each do |root_path|
     allow do

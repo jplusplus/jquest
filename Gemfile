@@ -84,6 +84,8 @@ group :development, :test do
   # Assets livereload
   gem 'guard-livereload', '~> 2.5.2', require: false
   gem "rack-livereload"
+  # Test framework
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

@@ -428,6 +428,23 @@ GEM
       railties (>= 4.2.0, < 5.1)
     retriable (2.1.0)
     rotp (2.1.2)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-rails (3.5.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     ruby-graphviz (1.2.2)
     ruby_dep (1.5.0)
     rubyzip (1.2.0)
@@ -602,6 +619,7 @@ DEPENDENCIES
   rails_12factor
   ransack
   redcarpet
+  rspec-rails (~> 3.5)
   sass-css-importer
   sass-rails (= 5.0.6)
   sdoc (~> 0.4.0)

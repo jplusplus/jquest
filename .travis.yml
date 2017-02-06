@@ -1,4 +1,7 @@
 language: ruby
+before_install:
+  # Checksum arbitrary fail: https://github.com/bundler/bundler/issues/5332
+  - bundle config disable.checksum_validation true
 bundler_args: --without production
 rvm:
   - 2.3.0

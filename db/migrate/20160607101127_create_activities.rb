@@ -18,7 +18,5 @@ class CreateActivities < ActiveRecord::Migration[5.0]
 
       t.timestamps null: false
     end
-
-    add_index :activities, [:resource_type, :resource_id]
   end
 end

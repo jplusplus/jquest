@@ -5,6 +5,8 @@ before_install:
   - bundle _1.13.6_ install
 bundler_args: --without production
 script:
+  - RAILS_ENV=test bundle exec rails db:migrate --trace
+  - bundle exec rails db:test:prepare
   - bundle exec rails test
 rvm:
   - 2.3.0

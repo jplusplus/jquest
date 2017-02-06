@@ -1,4 +1,4 @@
-class CreateActivities < ActiveRecord::Migration
+class CreateActivities < ActiveRecord::Migration[5.0]
   def change
     # Activities are used to record user's actions such as viewing a tutorial
     # or adding a contribtion during a season. The sum of there point gives

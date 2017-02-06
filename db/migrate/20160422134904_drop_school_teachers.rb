@@ -1,4 +1,4 @@
-class DropSchoolTeachers < ActiveRecord::Migration
+class DropSchoolTeachers < ActiveRecord::Migration[5.0]
   def change
     drop_table :school_teachers
   end

@@ -1,5 +1,5 @@
 # This migration comes from seed_migration (originally 20140310150145)
-class CreateDataMigrations < ActiveRecord::Migration
+class CreateDataMigrations < ActiveRecord::Migration[5.0]
   def up
     create_table SeedMigration.migration_table_name do |t|
       t.string :version

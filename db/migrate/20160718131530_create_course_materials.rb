@@ -1,4 +1,4 @@
-class CreateCourseMaterials < ActiveRecord::Migration
+class CreateCourseMaterials < ActiveRecord::Migration[5.0]
   def change
     create_table :course_materials do |t|
 

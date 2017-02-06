@@ -1,4 +1,4 @@
-class CreateAssignments < ActiveRecord::Migration
+class CreateAssignments < ActiveRecord::Migration[5.0]
   def change
     # If the assignments structure is very close to activities', it does not
     # serve the same ppurpose at all. Assignments are made to save a user

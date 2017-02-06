@@ -1,11 +1,13 @@
 language: ruby
+env:
+  - RAILS_ENV=test
 before_install:
   # Checksum arbitrary fail: https://github.com/bundler/bundler/issues/5332
   - gem install -v 1.13.6 bundler --no-rdoc --no-ri
   - bundle _1.13.6_ install
 bundler_args: --without production
 script:
-  - RAILS_ENV=test bundle exec rails db:migrate --trace
+  - bundle exec rails db:migrate --trace
   - bundle exec rails db:test:prepare
   - bundle exec rails test
 rvm:

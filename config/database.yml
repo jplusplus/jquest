@@ -19,8 +19,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
-  options: "PRAGMA FOREIGN_KEYS = ON;"
+  database: ":memory:"
+  timeout: 500
 
 production:
   <<: *default

@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/jplusplus/jquest-pg
-  revision: 2f3e3e8c55c2abd351cd3915db20ee2196da7f7b
+  revision: 4e81e85bddb98b6ff00f1841aa51cdba5dcf6ad6
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -626,6 +626,7 @@ DEPENDENCIES
   redcarpet
   sass-css-importer
   sass-rails (= 5.0.6)
+  schema_plus_foreign_keys
   sdoc (~> 0.4.0)
   seed_migration
   slack-ruby-client (~> 0.7.5)

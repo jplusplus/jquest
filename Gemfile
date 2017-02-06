@@ -23,6 +23,9 @@ gem 'devise_invitable'
 gem 'pundit'
 # Batch record creation
 gem 'activerecord-import'
+# Allow references with a different name (usefull with engine-prefixed tables)
+# See https://github.com/SchemaPlus/schema_plus_foreign_keys#migrations
+gem 'schema_plus_foreign_keys'
 # Build smart API
 gem 'grape'
 gem 'grape-active_model_serializers'

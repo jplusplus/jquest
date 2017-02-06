@@ -23,9 +23,6 @@ gem 'devise_invitable'
 gem 'pundit'
 # Batch record creation
 gem 'activerecord-import'
-# Allow references with a different name (usefull with engine-prefixed tables)
-# See https://github.com/SchemaPlus/schema_plus_foreign_keys#migrations
-gem 'schema_plus_foreign_keys'
 # Build smart API
 gem 'grape'
 gem 'grape-active_model_serializers'
@@ -80,7 +77,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  gem 'sqlite3', '1.3.13'
   # Better error display
   gem "better_errors"
   gem "binding_of_caller"

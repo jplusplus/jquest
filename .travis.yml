@@ -4,7 +4,7 @@ env:
 before_install:
   # Checksum arbitrary fail: https://github.com/bundler/bundler/issues/5332
   - gem install -v 1.13.6 bundler --no-rdoc --no-ri
-  - bundle _1.13.6_ install
+  - bundle _1.13.6_ install --jobs=3 --quiet
 bundler_args: --jobs=3 --quiet
 script:
   - bundle exec rails db:migrate --trace

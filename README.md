@@ -1,5 +1,9 @@
 # jQuest
 
+[![Code Climate](https://codeclimate.com/github/jplusplus/jquest/badges/gpa.svg)](https://codeclimate.com/github/jplusplus/jquest)
+[![Build Status](https://travis-ci.org/jplusplus/jquest.svg?branch=master)](https://travis-ci.org/jplusplus/jquest)
+
+
 [![](http://imgur.com/zwhZfsd.png)](http://www.jquestapp.com)
 
 ## Install in `development`

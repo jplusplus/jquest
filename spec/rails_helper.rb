@@ -6,6 +6,16 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'support/factory_girl'
+# Analyse every engines
+Rails::Engine.subclasses.each do |engine|
+  # Does the engine have specs? Does the specs describe a jQuest season?
+  if engine.season?
+    engine.factories_paths.each do |path|
+      require path
+    end
+  end
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

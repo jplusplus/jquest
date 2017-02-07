@@ -21,6 +21,14 @@ module Rails
         File.exist? schedule_path
       end
 
+      def factories_paths
+        Dir.glob(["#{config.root}/spec/factories.rb", "#{config.root}/spec/factories/*.rb"])
+      end
+
+      def has_factories?
+        factories_paths.length > 0
+      end
+
       def root_path(suffix='/')
         if gemspec and gemspec.metadata['root_path']
           path = suffix + gemspec.metadata['root_path']

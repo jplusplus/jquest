@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/jplusplus/jquest-pg
-  revision: 797a98489d2af0d96f1e219231fef4f956f8baaf
+  revision: 7a0f7c2dba7d383522787490ef464cecea172ce0
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -193,6 +193,11 @@ GEM
     erubis (2.7.0)
     eventmachine (1.2.1)
     execjs (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.11.0)
@@ -603,6 +608,7 @@ DEPENDENCIES
   devise-two-factor
   devise_invitable
   enumerize
+  factory_girl_rails (~> 4.0)
   garner
   grape
   grape-active_model_serializers

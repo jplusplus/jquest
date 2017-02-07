@@ -86,7 +86,8 @@ group :development, :test do
   gem "rack-livereload"
   # Test framework
   gem 'rspec-rails', '~> 3.5'
-  gem 'guard-rspec', require: false
+  gem 'guard-rspec', require: false  
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do

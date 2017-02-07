@@ -11,14 +11,14 @@ FactoryGirl.define do
     end
   end
 
-  factory :group do
-    season
-  end
-
   factory :season do
     sequence(:name) do |n|
       "Season #{n}"
     end
     engine_name 'JquestPg'
+  end
+
+  factory :group do
+    season
   end
 end

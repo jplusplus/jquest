@@ -11,7 +11,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :season do
+  factory :season, class: Season do
     sequence(:name) do |n|
       "Season #{n}"
     end
@@ -19,6 +19,6 @@ FactoryGirl.define do
   end
 
   factory :group do
-    season
+    association :season, factory: :season
   end
 end

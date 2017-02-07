@@ -4,7 +4,7 @@ if Rails.env.development?
   require 'guard/commander'
 
   # Start Guard only with rails.
-  if File.basename($0, '.*') == 'rails' && false
+  if File.basename($0, '.*') == 'rails'
     fork do
       Guard.start :no_interactions => true
     end

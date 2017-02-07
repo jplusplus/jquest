@@ -43,7 +43,7 @@
     "c3-angular": "1.2.0",
     "animate.css": "3.5.2",
     "angular-ui-router-title": "0.0.4",
-    "favico.js": "^.3.10",
+    "favico.js": "^0.3.10",
     "jquery": "^2.1",
     "angular-svg-round-progressbar": "0.4.6",
     "Stickyfill": "1.1.4",

@@ -9,7 +9,7 @@ install:
   - npm install bower
   - bower install
 script:
-  - bundle exec rails db:drop db:create db:migrate
+  - bundle exec rails db:environment:set db:drop db:create db:migrate
   - bundle exec rspec
 rvm:
   - 2.3.0

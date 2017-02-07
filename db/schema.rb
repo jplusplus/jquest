@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20161201112029) do
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "season_id"
-    t.string   "resource_type"
     t.integer  "resource_id"
+    t.string   "resource_type"
     t.integer  "points",        default: 0
     t.string   "taxonomy"
     t.datetime "created_at",                null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161201112029) do
     t.string   "value"
     t.integer  "assignment_id"
     t.index ["assignment_id"], name: "index_activities_on_assignment_id", using: :btree
+    t.index ["resource_type", "resource_id"], name: "fk__activities_resource_id", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_activities_on_resource_type_and_resource_id", using: :btree
     t.index ["season_id"], name: "index_activities_on_season_id", using: :btree
     t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
@@ -35,8 +36,8 @@ ActiveRecord::Schema.define(version: 20161201112029) do
   create_table "assignments", force: :cascade do |t|
     t.integer  "user_id",                           null: false
     t.integer  "season_id",                         null: false
-    t.string   "resource_type"
     t.integer  "resource_id"
+    t.string   "resource_type"
     t.datetime "expires_at"
     t.string   "label"
     t.datetime "created_at",                        null: false
@@ -44,7 +45,6 @@ ActiveRecord::Schema.define(version: 20161201112029) do
     t.string   "status",        default: "pending", null: false
     t.integer  "level"
     t.index ["expires_at"], name: "index_assignments_on_expires_at", using: :btree
-    t.index ["resource_type", "resource_id"], name: "index_assignments_on_resource_type_and_resource_id", using: :btree
     t.index ["season_id"], name: "index_assignments_on_season_id", using: :btree
     t.index ["user_id"], name: "index_assignments_on_user_id", using: :btree
   end
@@ -65,21 +65,19 @@ ActiveRecord::Schema.define(version: 20161201112029) do
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.integer  "season_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["season_id"], name: "index_groups_on_season_id", using: :btree
   end
 
   create_table "jquest_pg_diversities", force: :cascade do |t|
-    t.string   "resource_a_type"
     t.integer  "resource_a_id"
-    t.string   "resource_b_type"
+    t.string   "resource_a_type"
     t.integer  "resource_b_id"
+    t.string   "resource_b_type"
     t.integer  "value"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["resource_a_type", "resource_a_id"], name: "index_pg_diversities_on_resource_a_type_and_resource_a_id", using: :btree
-    t.index ["resource_b_type", "resource_b_id"], name: "index_pg_diversities_on_resource_b_type_and_resource_b_id", using: :btree
   end
 
   create_table "jquest_pg_legislatures", force: :cascade do |t|
@@ -165,8 +163,8 @@ ActiveRecord::Schema.define(version: 20161201112029) do
     t.string   "primary_color",          default: "#373a3c"
     t.string   "status",                 default: "open"
     t.string   "engine_name"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "invitation_description"
   end
 
@@ -178,13 +176,12 @@ ActiveRecord::Schema.define(version: 20161201112029) do
 
   create_table "sources", force: :cascade do |t|
     t.string   "field"
-    t.string   "resource_type"
     t.integer  "resource_id"
+    t.string   "resource_type"
     t.text     "value"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["resource_type", "resource_id", "field"], name: "index_sources_on_resource_type_and_resource_id_and_field", using: :btree
-    t.index ["resource_type", "resource_id"], name: "index_sources_on_resource_type_and_resource_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -205,6 +202,8 @@ ActiveRecord::Schema.define(version: 20161201112029) do
     t.integer  "failed_attempts",                     default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "encrypted_otp_secret"
@@ -214,8 +213,6 @@ ActiveRecord::Schema.define(version: 20161201112029) do
     t.boolean  "otp_required_for_login",              default: false, null: false
     t.string   "role",                                default: "",    null: false
     t.string   "phone_number",                        default: "",    null: false
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
     t.integer  "school_id"
     t.integer  "group_id"
     t.string   "invitation_token"
@@ -223,8 +220,8 @@ ActiveRecord::Schema.define(version: 20161201112029) do
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
-    t.string   "invited_by_type"
     t.integer  "invited_by_id"
+    t.string   "invited_by_type"
     t.integer  "invitations_count",                   default: 0
     t.string   "home_country",              limit: 3
     t.string   "spoken_language"
@@ -235,14 +232,17 @@ ActiveRecord::Schema.define(version: 20161201112029) do
     t.integer  "activity_count",                      default: 0
     t.integer  "assignment_count",                    default: 0
     t.integer  "assignment_pending_count",            default: 0
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["group_id"], name: "index_users_on_group_id", using: :btree
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
     t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
-    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id", using: :btree
     t.index ["provider"], name: "index_users_on_provider", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["school_id"], name: "index_users_on_school_id", using: :btree
     t.index ["uid"], name: "index_users_on_uid", using: :btree
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
   create_table "versions", force: :cascade do |t|
@@ -257,10 +257,10 @@ ActiveRecord::Schema.define(version: 20161201112029) do
 
   add_foreign_key "activities", "seasons", name: "fk_activities_season_id"
   add_foreign_key "activities", "users", name: "fk_activities_user_id"
-  add_foreign_key "assignments", "seasons", name: "fk_assignments_season_id"
-  add_foreign_key "assignments", "users", name: "fk_assignments_user_id"
+  add_foreign_key "assignments", "seasons"
+  add_foreign_key "assignments", "users"
   add_foreign_key "jquest_pg_mandatures", "jquest_pg_legislatures", column: "legislature_id", name: "fk_jquest_pg_mandatures_legislature_id"
   add_foreign_key "jquest_pg_mandatures", "jquest_pg_people", column: "person_id", name: "fk_jquest_pg_mandatures_person_id"
-  add_foreign_key "points", "seasons", name: "fk_points_season_id"
-  add_foreign_key "points", "users", name: "fk_points_user_id"
+  add_foreign_key "points", "seasons"
+  add_foreign_key "points", "users"
 end

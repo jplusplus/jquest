@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/jplusplus/jquest-pg
-  revision: 8de0a17c2d42bdc03775ddfc9eb4a2fd9d0df415
+  revision: 91bb5d8b84a60a6aee5b6618cc5ba075be595ec9
   branch: master
   specs:
     jquest_pg (0.0.9)
@@ -517,7 +517,7 @@ GEM
       tty-spinner (~> 0.4.0)
       tty-table (~> 0.7.0)
       tty-which (~> 0.2.0)
-    tty-color (0.4.1)
+    tty-color (0.4.2)
     tty-command (0.3.2)
       pastel (~> 0.7.0)
     tty-cursor (0.3.0)
@@ -535,7 +535,7 @@ GEM
     tty-platform (0.1.0)
     tty-progressbar (0.10.1)
       tty-screen (~> 0.5.0)
-    tty-prompt (0.10.0)
+    tty-prompt (0.10.1)
       necromancer (~> 0.3.0)
       pastel (~> 0.7.0)
       tty-cursor (~> 0.3.0)

@@ -42,11 +42,14 @@ ADD . .
 # with bower and annotate angular DI
 ARG ASSET_HOST=//assets.jquestapp.com
 RUN bundle exec rails assets:precompile
-# Switch to non-root- user
-RUN chown -R nobody:nogroup /usr/src/app
-USER nobody
 # Entrypoint script that setup or migrate db if needed
 RUN chmod +x /usr/src/app/bin/*
+# Switch to non-root- user
+RUN chown -R nobody:nogroup /usr/src/app
+RUN mkdir -p /volume/nobody ; chown -R nobody:nogroup /volume/nobody
+USER nobody
+# Create a volume to transfers data
+VOLUME /volume/nobody
 # Entrypoint must be a login shell to load .profile
 # ENTRYPOINT ["/bin/sh", "-l", "-c"]
 CMD /usr/src/app/bin/web

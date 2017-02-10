@@ -20,3 +20,4 @@ config/local-env.yml
 docker-compose.yml
 Dockerfile
 .dockerignore
+*.csv

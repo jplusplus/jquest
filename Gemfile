@@ -62,7 +62,7 @@ gem 'redcarpet'
 # AWS
 gem 'aws-sdk', '~> 2'
 # Slack integration
-gem 'slack-ruby-client', "~> 0.7.5"
+gem 'slack-ruby-client', "~> 0.7.9"
 # Custom engine
 # Developpers may want to override this value locally. Please read:
 # http://bundler.io/v1.2/man/bundle-config.1.html#LOCAL-GIT-REPOS
@@ -86,7 +86,7 @@ group :development, :test do
   gem "rack-livereload"
   # Test framework
   gem 'rspec-rails', '~> 3.5'
-  gem 'guard-rspec', require: false  
+  gem 'guard-rspec', require: false
   gem 'factory_girl_rails', '~> 4.0'
 end
 

@@ -52,7 +52,8 @@ module API
     def slack_members
       @slack_members ||=begin
         # Get user list
-        res = slack_client.users_list(presence: 1)
+        # res = slack_client.users_list
+        res = slack_client.users_list(presence: true)
         # Something when wrong?
         error! 'Unable to get information about the slack channels' unless res[:ok]
         # Get members for result

@@ -44,10 +44,10 @@ config-env:
 		$(eval CONFIG := $(shell heroku config -s -a ${APP} | awk '{print "-e " $$0 }') )
 
 run-docker: config-env
-		docker run ${CONFIG} --user=root --dns=8.8.8.8 -p 3003:3000 -it ${DOCKER_NAME} bash
+		docker run ${CONFIG} -p 3003:3000 -it ${DOCKER_NAME} bash
 
 serve-docker: config-env
-		docker run ${CONFIG} --user=root --dns=8.8.8.8  -p 3003:3000 -it ${DOCKER_NAME}
+		docker run ${CONFIG} -p 3003:3000 -it ${DOCKER_NAME}
 
-export:
-		heroku run -a $(APP) 'rails jquest_pg:export && cat all.csv' > all.csv
+export-docker: config-env
+		docker run ${CONFIG} -p 3003:3000 -it ${DOCKER_NAME} rails jquest_pg:export output=STDOUT > all.csv

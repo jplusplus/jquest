@@ -49,5 +49,5 @@ run-docker: config-env
 serve-docker: config-env
 		docker run ${CONFIG} --user=root --dns=8.8.8.8  -p 3003:3000 -it ${DOCKER_NAME}
 
-export-docker:
+export:
 		heroku run -a $(APP) 'rails jquest_pg:export && cat all.csv' > all.csv

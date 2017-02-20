@@ -104,6 +104,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.members_of(engine)
+    where group: Season.find_by_engine_name(engine.to_s).groups
+  end
+
   def seen_course_materials
     # Get value from the cache
     Rails.cache.fetch "#{cache_key}/seen_course_materials", expires_in: 30.seconds do

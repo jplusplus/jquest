@@ -19,7 +19,7 @@
     "angular-animate": "~1.5.*",
     "angular-aria": "~1.5.*",
     "angular-cookies": "~1.5.*",
-    "angular-devise": "cloudspace/angular_devise#1.3.0",
+    "angular-devise": "cloudspace/angular_devise#v1.3.0",
     "angular-growl-v2": "~0.7.5",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#1.6.0",
     "angular-loading-bar": "0.9.0",

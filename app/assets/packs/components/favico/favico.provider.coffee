@@ -1,3 +1,5 @@
+Favico = require 'favico.js'
+
 module.exports = class FavicoProvider
   options: {}
   constructor: ->

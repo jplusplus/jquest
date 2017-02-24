@@ -1,5 +1,4 @@
-angular.module 'jquest'
-  .service 'CourseMaterials', ($state, $rootScope, $sce, Restangular, Seasons, localStorageService)->
+module.exports = ($state, $rootScope, $sce, Restangular, Seasons, localStorageService)->
     'ngInject'
     class CourseMaterials
       ### Pirvate attributes

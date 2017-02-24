@@ -25,7 +25,6 @@ import 'd3';
 import 'c3';
 import 'c3-angular';
 import 'angular-ui-router-title';
-import 'favico.js';
 import 'angular-svg-round-progressbar';
 import 'stickyfill';
 import 'autolinker';
@@ -38,7 +37,21 @@ import {routesConfig} from './config/routes.coffee';
 import {translateConfig, translateRun} from './config/translate.coffee';
 import {uiConfig, uiRun} from './config/ui.coffee';
 
-import favico from './components/favico/favico.provider';
+import autolinkFilter from './components/autolink/autolink.filter.coffee';
+import courseMaterialsDirective from './components/course-materials/course-materials.directive.coffee';
+import courseMaterialsService from './components/course-materials/course-materials.service.coffee';
+import favicoProvider from './components/favico/favico.provider';
+import fieldsetDirective from './components/fieldset/fieldset.directive.coffee';
+import flatpickrDirective from './components/flatpickr/flatpickr.directive.coffee';
+import fullscreenDirective from './components/fullscreen-height/fullscreen-height.directive.coffee';
+import headerController from './components/header/header.controller.coffee';
+import menuService from './components/menu/menu.service.coffee';
+import paginatorDirective from './components/paginator/paginator.directive.coffee';
+import parallaxDirective from './components/parallax-bg/parallax-bg.directive.coffee';
+import seasonRestangularFactory from './components/season-restangular/season-restangular.factory.coffee';
+import seasonsService from './components/seasons/seasons.service.coffee';
+import stickyDirective from './components/sticky/sticky.directive.coffee';
+
 
 angular
   .module('jquest', [
@@ -63,7 +76,20 @@ angular
     'angular-svg-round-progressbar',
     'angularMoment'
   ])
-  .provider('favico', favico)
+  .provider('favico', favicoProvider)
+  .filter('autolink', autolinkFilter)
+  .directive('courseMaterials', courseMaterialsDirective)
+  .service('CourseMaterials', courseMaterialsService)
+  .directive('fieldset', fieldsetDirective)
+  .directive('flatpickr', flatpickrDirective)
+  .directive('fullscreen', fullscreenDirective)
+  .controller('HeaderCtrl', headerController)
+  .service('Menu', menuService)
+  .directive('paginator', paginatorDirective)
+  .directive('parallax', parallaxDirective)
+  .factory('seasonRestangular', seasonRestangularFactory)
+  .service('Seasons', seasonsService)
+  .directive('sticky', stickyDirective)
   .config(growlConfig)
   .config(routesConfig)
   .config(translateConfig)

@@ -111,12 +111,7 @@ $table-border-color: $card-border-color;
 //
 $popover-max-width: 425px;
 
-// Bootstrap variables
-@import "bootstrap/scss/variables.scss";
-// Bootstrap mixins
-@import "bootstrap/scss/mixins.scss";
-// Internal mixins
-@import "./mixins";
+@import "node_modules/bootstrap/scss/bootstrap";
 // Bootstrap Popover compatibility
 @import "bootstrap.popover.scss";
 // Bootstrap Tooltip compatibility

@@ -51,8 +51,13 @@ config = {
         ]
       },
       {
-        test: /\.sass$/,
-        loader: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.scss$/,
+        loader: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          'import-glob-loader'
+        ]
       },
     ]
   },

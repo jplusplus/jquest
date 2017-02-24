@@ -1,4 +1,5 @@
-<header class="header" ng-controller="HeaderCtrl as header" ng-swipe-left="menu.hide()" ng-swipe-right="menu.show()">
+<% helpers = ActionController::Base.helpers %>
+<div class="header" ng-swipe-left="menu.hide()" ng-swipe-right="menu.show()">
   <div class="header__nav">
     <nav class="navbar navbar-light header__nav__navbar">
       <div class="header__nav__navbar__hamburger" ng-if="menu.hasItems()">
@@ -11,7 +12,7 @@
 
       <div class="navbar-brand header__nav__navbar__brand">
         <a href="#!/" class="a-unstyled">
-          <img alt="jQuest" ng-src="<%= image_url('jquest-purple.svg') %>" width="117px" height="30px" />
+          <img alt="jQuest" ng-src="<%= helpers.image_url('jquest-purple.svg') %>" width="117px" height="30px" />
         </a>
       </div>
 
@@ -77,7 +78,7 @@
              popover-is-open="main.showSlackPopover">
           <h4 class="header__nav__navbar__slack__heading">
             <a href="{{ main.slackStatus.hostname }}" target="_blank" ng-if="main.slackStatus.is_member" class="a-unstyled">
-              <img src="<%= image_url('slack.svg') %>" alt="" height="16px" />
+              <img src="<%= helpers.image_url('slack.svg') %>" alt="" height="16px" />
               Ask for help
             </a>
             <span ng-if="!main.slackStatus.is_member">
@@ -108,4 +109,4 @@
       </div>
     </div>
   </div>
-</header>
+</div>

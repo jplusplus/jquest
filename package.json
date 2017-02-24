@@ -16,8 +16,13 @@
   "author": "",
   "dependencies": {
     "c3": "^0.4.11",
+    "css-loader": "^0.26.2",
     "d3": "^4.6.0",
     "html-loader": "^0.4.4",
+    "import-glob-loader": "^1.1.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.2",
+    "style-loader": "^0.13.2",
     "wiredep": "^4.0.0"
   },
   "devDependencies": {

@@ -27,5 +27,5 @@ $hamburger-hover-filter    : opacity(50%);
 
 // Base Hamburger (We need this)
 // ==================================================
-@import "css-hamburgers/_sass/hamburgers/base";
-@import "css-hamburgers/_sass/hamburgers/types/squeeze";
+@import "node_modules/hamburgers/_sass/hamburgers/base";
+@import "node_modules/hamburgers/_sass/hamburgers/types/squeeze";

@@ -1,3 +1,16 @@
+@import "node_modules/angular-growl-v2/build/angular-growl";
+@import "node_modules/angular-hotkeys/build/hotkeys";
+@import "node_modules/angular-loading-bar/build/loading-bar";
+@import "node_modules/flatpickr/dist/flatpickr";
+@import "node_modules/c3/c3";
+@import "node_modules/animate.css/animate";
+
+@import "components/utils/*.scss";
+@import "components/bootstrap/bootstrap.scss";
+@import "components/bootstrap/bootstrap.*.scss";
+@import "components/header/header.scss";
+@import "containers/**/*.scss";
+
 .flash {
   display: none;
 }

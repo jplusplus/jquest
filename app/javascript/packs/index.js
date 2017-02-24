@@ -44,7 +44,7 @@ import favicoProvider from './components/favico/favico.provider';
 import fieldsetDirective from './components/fieldset/fieldset.directive.coffee';
 import flatpickrDirective from './components/flatpickr/flatpickr.directive.coffee';
 import fullscreenDirective from './components/fullscreen-height/fullscreen-height.directive.coffee';
-import headerController from './components/header/header.controller.coffee';
+import header from './components/header/header.coffee';
 import menuService from './components/menu/menu.service.coffee';
 import paginatorDirective from './components/paginator/paginator.directive.coffee';
 import parallaxDirective from './components/parallax-bg/parallax-bg.directive.coffee';
@@ -54,6 +54,8 @@ import stickyDirective from './components/sticky/sticky.directive.coffee';
 
 import mainController from './containers/main/main.controller.coffee';
 import mainState from './containers/main/main.state.coffee';
+
+import './index.scss';
 
 angular
   .module('jquest', [
@@ -91,7 +93,7 @@ angular
   .directive('paginator', paginatorDirective)
   .directive('parallax', parallaxDirective)
   .directive('sticky', stickyDirective)
-  .controller('HeaderCtrl', headerController)
+  .component('header', header)
   .controller('MainCtrl', mainController)
   .config(mainState)
   .config(growlConfig)

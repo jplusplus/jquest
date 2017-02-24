@@ -1,11 +1,12 @@
 <% helpers = ActionController::Base.helpers %>
+<header></header>
 <div class="main" ui-view>
   <div class="main__intro">
     <div class="container">
       <div class="row">
         <div class="col-sm-6 main__intro__headline">
           <h1>
-            Enroll in <img alt="jQuest" ng-src="<%= helpers.image_path('jquest-white.svg') %>" height="40px" />
+            Enroll in <img alt="jQuest" ng-src="<%= helpers.image_url('jquest-white.svg') %>" height="40px" />
           </h1>
           <p class="lead">
             jQuest is a platform for journalism schools. It lets journalism students in Europe <strong>learn</strong> datajournalism, <strong>connect</strong> with one another and <strong>investigate</strong> collaboratively.
@@ -80,7 +81,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6 main__supports__logo">
-          <img src="<%= helpers.image_path('open-society-foundation.png') %>" />
+          <img src="<%= helpers.image_url('open-society-foundation.png') %>" />
         </div>
       </div>
     </div>

@@ -49,11 +49,8 @@ gem 'enumerize'
 # ActiveRecord versioning
 gem 'paper_trail'
 # Better assets support
-gem 'sprockets', '3.6.3'
-gem 'angular-rails-templates', "~> 1.0.2"
-gem 'ngannotate-rails'
+gem 'sprockets', '3.7.0'
 gem 'sass-css-importer'
-gem "bower-rails", "~> 0.10.0"
 gem 'webpacker', :git => 'https://github.com/rails/webpacker'
 # Email prerendering
 gem 'premailer-rails'

@@ -1,4 +1,4 @@
-module.exports.routesConfig = ($urlRouterProvider, $locationProvider, cfpLoadingBarProvider) ->
+module.exports.routesConfig = ($urlRouterProvider, $locationProvider, $stateProvider, cfpLoadingBarProvider) ->
   'ngInject'
   $urlRouterProvider.otherwise '/'
   $locationProvider.hashPrefix '!'

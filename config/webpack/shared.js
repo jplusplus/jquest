@@ -12,7 +12,7 @@ if (distDir === undefined) {
 }
 
 config = {
-  entry: glob.sync(path.join('app', 'assets', 'packs', '*.js*')).reduce(
+  entry: glob.sync(path.join('app', 'javascript', 'packs', '*.js*')).reduce(
     function(map, entry) {
       const basename = path.basename(entry, extname(entry))
       map[basename] = path.resolve(entry)
@@ -36,13 +36,23 @@ config = {
         }
       },
       {
-        test: /.erb$/,
+        test: /\.erb$/,
         enforce: 'pre',
         exclude: /node_modules/,
         loader: 'rails-erb-loader',
         options: {
-          runner: 'DISABLE_SPRING=1 bin/rails runner'
+          runner: 'bin/rails runner'
         }
+      },
+      {
+        test: /\.html(.erb)$/,
+        loaders: [
+          'html-loader'
+        ]
+      },
+      {
+        test: /\.sass$/,
+        loader: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ]
   },

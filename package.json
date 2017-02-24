@@ -17,6 +17,7 @@
   "dependencies": {
     "c3": "^0.4.11",
     "d3": "^4.6.0",
+    "html-loader": "^0.4.4",
     "wiredep": "^4.0.0"
   },
   "devDependencies": {

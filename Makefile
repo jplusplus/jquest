@@ -6,8 +6,7 @@ run:
 
 install:
 		bundle install
-		npm install
-		bower install
+		yarn || npm install
 
 migrate-with-docker: config-env
 		docker run ${CONFIG} -it ${DOCKER_NAME} bin/init

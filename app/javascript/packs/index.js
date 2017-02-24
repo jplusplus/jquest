@@ -52,6 +52,8 @@ import seasonRestangularFactory from './components/season-restangular/season-res
 import seasonsService from './components/seasons/seasons.service.coffee';
 import stickyDirective from './components/sticky/sticky.directive.coffee';
 
+import mainController from './containers/main/main.controller.coffee';
+import mainState from './containers/main/main.state.coffee';
 
 angular
   .module('jquest', [
@@ -78,18 +80,20 @@ angular
   ])
   .provider('favico', favicoProvider)
   .filter('autolink', autolinkFilter)
-  .directive('courseMaterials', courseMaterialsDirective)
+  .factory('seasonRestangular', seasonRestangularFactory)
   .service('CourseMaterials', courseMaterialsService)
+  .service('Menu', menuService)
+  .service('Seasons', seasonsService)
+  .directive('courseMaterials', courseMaterialsDirective)
   .directive('fieldset', fieldsetDirective)
   .directive('flatpickr', flatpickrDirective)
   .directive('fullscreen', fullscreenDirective)
-  .controller('HeaderCtrl', headerController)
-  .service('Menu', menuService)
   .directive('paginator', paginatorDirective)
   .directive('parallax', parallaxDirective)
-  .factory('seasonRestangular', seasonRestangularFactory)
-  .service('Seasons', seasonsService)
   .directive('sticky', stickyDirective)
+  .controller('HeaderCtrl', headerController)
+  .controller('MainCtrl', mainController)
+  .config(mainState)
   .config(growlConfig)
   .config(routesConfig)
   .config(translateConfig)

@@ -42,11 +42,6 @@ Rails.application.configure do
   # Some initialization are needed during precompile
   config.assets.initialize_on_precompile = true
 
-  config.ng_annotate.process = true
-  config.ng_annotate.ignore_paths = [
-    Rails.root.join('vendor').to_s
-  ]
-
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX

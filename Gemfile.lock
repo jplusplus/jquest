@@ -31,6 +31,15 @@ GIT
       rails (= 5.0.0)
       tty
 
+GIT
+  remote: https://github.com/rails/webpacker
+  revision: 028d8dd2522c0b6906c7a20adcadf1a804528e4e
+  specs:
+    webpacker (1.0)
+      activesupport (>= 5.0)
+      multi_json (~> 1.2)
+      railties (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -649,6 +658,7 @@ DEPENDENCIES
   sqlite3 (= 1.3.13)
   uglifier (>= 1.3.0)
   web-console (~> 3.3.1)
+  webpacker!
 
 BUNDLED WITH
    1.13.6

@@ -1,4 +1,4 @@
-if Rails.env.development?
+if false and Rails.env.development?
   require 'guard'
   # needed because of https://github.com/guard/guard/issues/793
   require 'guard/commander'

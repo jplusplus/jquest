@@ -28,3 +28,5 @@ jquest.tar.gz
 erd.pdf
 google-session.json
 *.csv
+/public/packs
+/node_modules

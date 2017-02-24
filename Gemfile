@@ -54,6 +54,7 @@ gem 'angular-rails-templates', "~> 1.0.2"
 gem 'ngannotate-rails'
 gem 'sass-css-importer'
 gem "bower-rails", "~> 0.10.0"
+gem 'webpacker', :git => 'https://github.com/rails/webpacker'
 # Email prerendering
 gem 'premailer-rails'
 gem 'nokogiri'
@@ -67,7 +68,7 @@ gem 'slack-ruby-client', "~> 0.7.9"
 # Developpers may want to override this value locally. Please read:
 # http://bundler.io/v1.2/man/bundle-config.1.html#LOCAL-GIT-REPOS
 # For instance : bundle config local.jquest_pg  ../jquest-pg
-gem 'jquest_pg',  :git => 'https://github.com/jplusplus/jquest-pg', branch: 'master'
+gem 'jquest_pg', :git => 'https://github.com/jplusplus/jquest-pg', branch: 'master'
 
 group :development, :production do
   gem 'pg'

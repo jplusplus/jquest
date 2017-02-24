@@ -6,8 +6,7 @@ before_install:
   - gem install -v 1.13.6 bundler --no-rdoc --no-ri
 install:
   - bundle _1.13.6_ install --jobs=3 --retry=3
-  - npm install bower
-  - bower install
+  - (yarn || npm install)
 script:
   - bundle exec rails db:environment:set db:drop db:create db:migrate
   - bundle exec rspec

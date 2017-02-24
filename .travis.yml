@@ -1,4 +1,5 @@
 language: ruby
+cache: yarn
 env:
   - RAILS_ENV=test
 before_install:

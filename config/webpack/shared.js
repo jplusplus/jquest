@@ -26,7 +26,10 @@ module.exports = function(env) {
     output: { filename: '[name].js', path: path.resolve('public', distDir) },
     module: {
       rules: [
-        { test: /\.coffee(.erb)?$/, loader: "coffee-loader" },
+        {
+          test: /\.coffee(.erb)?$/,
+          loader: "coffee-loader"
+        },
         {
           test: /\.js(.erb)?$/,
           exclude: /node_modules/,
@@ -47,7 +50,7 @@ module.exports = function(env) {
           }
         },
         {
-          test: /\.html(.erb)$/,
+          test: /\.html(.erb)?$/,
           loaders: [
             'html-loader'
           ]

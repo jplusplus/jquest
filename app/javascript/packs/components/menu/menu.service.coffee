@@ -1,3 +1,5 @@
+_ = require 'lodash'
+
 module.exports = ($state, $rootScope, CourseMaterials)->
   'ngInject'
   class MenuItem

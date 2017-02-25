@@ -1,6 +1,8 @@
 module.exports =
   template: require('./header.html.erb')
   controllerAs: 'header'
+  bindings:
+    user: '<'
   controller: (Menu, Seasons, $scope, $state)->
     'ngInject'
     new class HeaderCtrl

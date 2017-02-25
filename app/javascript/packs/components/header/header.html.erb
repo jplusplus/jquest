@@ -30,15 +30,15 @@
       </ul>
 
       <ul class="nav navbar-nav pull-xs-right">
-        <li class="nav-item header__nav__navbar__user" uib-dropdown ng-if="main.user">
+        <li class="nav-item header__nav__navbar__user" uib-dropdown ng-if="header.user">
           <a href uib-dropdown-toggle class="a-unstyled">
-            <img ng-src="//www.gravatar.com/avatar/{{ main.user.email_md5 }}?d=retro" class="img-circle header__nav__navbar__user__avatar" />
+            <img ng-src="//www.gravatar.com/avatar/{{ header.user.email_md5 }}?d=retro" class="img-circle header__nav__navbar__user__avatar" />
           </a>
           <div class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
             <h6 class="dropdown-header">
-              <span ng-bind-html="'header.nav.user-display' | translate: main.user"></span>
+              <span ng-bind-html="'header.nav.user-display' | translate: header.user"></span>
             </h6>
-            <div ng-show="main.user.role === 'admin'">
+            <div ng-show="header.user.role === 'admin'">
               <a class="dropdown-item" href="/admin" translate>header.nav.admin</a>
             </div>
             <div ng-show="main.inSeason">
@@ -49,7 +49,7 @@
             <a class="dropdown-item" href="/users/sign_out" translate>header.nav.logout</a>
           </div>
         </li>
-        <li class="nav-item" ng-hide="main.user">
+        <li class="nav-item" ng-hide="header.user">
           <a class="nav-link btn btn-warning" href="/users/sign_in" translate>header.nav.login</a>
         </li>
       </ul>
@@ -70,7 +70,7 @@
         </div>
       </form>
 
-      <div class="header__nav__navbar__slack nav-item pull-xs-right hidden-sm-down" ng-if="main.user && main.slackStatus">
+      <div class="header__nav__navbar__slack nav-item pull-xs-right hidden-sm-down" ng-if="header.user && main.slackStatus">
         <div uib-popover-template="'header/slack/slack.html'"
              popover-placement="bottom"
              popover-enable="!main.slackStatus.is_member"

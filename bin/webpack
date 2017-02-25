@@ -1,4 +1,11 @@
 #!/usr/bin/env ruby
+require 'bundler'
+
+def local_engines
+  Bundler.load.specs.select do |g|
+    g.name.start_with? 'jquest' and g.metadata['season']
+  end
+end
 
 ENV['RAILS_ENV'] ||= 'development'
 RAILS_ENV   = ENV['RAILS_ENV']
@@ -11,7 +18,16 @@ APP_PATH = File.expand_path('../', __dir__)
 SET_NODE_PATH  = "NODE_PATH=#{APP_PATH}/node_modules"
 WEBPACK_BIN    = "./node_modules/webpack/bin/webpack.js"
 WEBPACK_CONFIG = "#{APP_PATH}/config/webpack/#{NODE_ENV}.js"
+WEBPACK_ENTRY_DIRS = [APP_PATH]
 
-Dir.chdir(APP_PATH) do
-  exec "#{SET_NODE_PATH} #{WEBPACK_BIN} --config #{WEBPACK_CONFIG} #{ARGV.join(" ")}"
+# Get every engine
+local_engines.each do |engine|
+  # Add them as entry dir
+  WEBPACK_ENTRY_DIRS << engine.full_gem_path
+end
+
+if __FILE__ == $0
+  Dir.chdir(APP_PATH) do
+    exec "#{SET_NODE_PATH} #{WEBPACK_BIN} --config #{WEBPACK_CONFIG} --env.entries=#{WEBPACK_ENTRY_DIRS * ','} #{ARGV.join(" ")}"
+  end
 end

@@ -1,15 +1,12 @@
-FROM alpine:3.2
-RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake bash git \
-    ruby-bigdecimal ruby-io-console libstdc++ tzdata postgresql-client nodejs && \
+FROM mhart/alpine-node:6
+RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake bash git tar \
+    ruby-bigdecimal ruby-io-console ruby-rdoc libstdc++ tzdata postgresql-client openssl && \
     rm -rf /var/cache/apk/*
 # Adds all the build dependencies as a virtual group named build-dependencies.
 RUN apk --update add --virtual build-dependencies build-base ruby-dev \
     openssl-dev postgresql-dev libc-dev linux-headers
-# Fix trusted certificates erro
-# @see https://gist.github.com/mislav/5026283
-RUN curl https://curl.haxx.se/ca/cacert.pem -o "$(ruby -ropenssl -e 'puts OpenSSL::X509::DEFAULT_CERT_FILE')"
-# Manage front dependencies with bower
-RUN npm install bower -g --silent --progress=false
+# Manage front dependencies with yarn or npm
+RUN npm install -g yarn --silent --progress=false
 RUN gem install bundler
 # Configure env
 ENV PATH /usr/src/app/bin/:$PATH
@@ -32,12 +29,12 @@ RUN bundle install --without development test && \
 # After all gems are installed we finally remove virtual package group.
     apk del build-dependencies && \
     rm -rf /var/cache/apk/*
-# Copy bower config
-COPY .bowerrc bower.json ./
-# Install packages before static precompilation
-RUN bower install --production --silent --config.interactive=false
 # Copy all file
 ADD . .
+RUN yarn
+# Temporary issue with node-sass
+# @see https://github.com/sass/node-sass/issues/1579#issuecomment-279062990
+RUN npm rebuild node-sass --no-bin-links
 # This will prepare every assets, download dependencies
 # with bower and annotate angular DI
 ARG ASSET_HOST=//assets.jquestapp.com

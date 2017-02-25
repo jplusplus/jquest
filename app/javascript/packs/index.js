@@ -44,7 +44,9 @@ import favicoProvider from './components/favico/favico.provider';
 import fieldsetDirective from './components/fieldset/fieldset.directive.coffee';
 import flatpickrDirective from './components/flatpickr/flatpickr.directive.coffee';
 import fullscreenDirective from './components/fullscreen-height/fullscreen-height.directive.coffee';
+
 import header from './components/header/header.coffee';
+
 import menuService from './components/menu/menu.service.coffee';
 import paginatorDirective from './components/paginator/paginator.directive.coffee';
 import parallaxDirective from './components/parallax-bg/parallax-bg.directive.coffee';
@@ -54,6 +56,18 @@ import stickyDirective from './components/sticky/sticky.directive.coffee';
 
 import mainController from './containers/main/main.controller.coffee';
 import mainState from './containers/main/main.state.coffee';
+import mainSettingsController from './containers/main/settings/settings.controller.coffee';
+import mainSettingsState from './containers/main/settings/settings.state.coffee';
+import main403State from './containers/main/403/403.state.coffee';
+import main404State from './containers/main/404/404.state.coffee';
+import mainSeasonCourseMaterialsState from './containers/main/season/course-materials/course-materials.state.coffee';
+import mainSeasonCourseMaterialsController from './containers/main/season/course-materials/course-materials.controller.coffee';
+import mainSeasonState from './containers/main/season/season.state.coffee';
+import mainSeasonLeaderboardState from './containers/main/season/leaderboard/leaderboard.state.coffee';
+import mainSeasonLeaderboardController from './containers/main/season/leaderboard/leaderboard.controller.coffee';
+import mainSeasonActivitiesController from './containers/main/season/activities/activities.controller.coffee';
+import mainSeasonActivitiesState from './containers/main/season/activities/activities.state.coffee';
+import mainSeasonSeasonController from './containers/main/season/season.controller.coffee';
 
 import './index.scss';
 
@@ -95,7 +109,19 @@ angular
   .directive('sticky', stickyDirective)
   .component('header', header)
   .controller('MainCtrl', mainController)
+  .controller('MainSettingsCtrl', mainSettingsController)
+  .controller('MainSeasonCourseMaterialsCtrl', mainSeasonCourseMaterialsController)
+  .controller('MainSeasonLeaderboardCtrl', mainSeasonLeaderboardController)
+  .controller('MainSeasonActivitiesCtrl', mainSeasonActivitiesController)
+  .controller('MainSeasonSeasonCtrl', mainSeasonSeasonController)
   .config(mainState)
+  .config(mainSettingsState)
+  .config(main403State)
+  .config(main404State)
+  .config(mainSeasonCourseMaterialsState)
+  .config(mainSeasonState)
+  .config(mainSeasonLeaderboardState)
+  .config(mainSeasonActivitiesState)
   .config(growlConfig)
   .config(routesConfig)
   .config(translateConfig)

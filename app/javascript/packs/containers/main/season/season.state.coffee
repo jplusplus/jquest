@@ -1,5 +1,4 @@
-angular.module 'jquest'
-  .config ($stateProvider) ->
+module.exports = ($stateProvider) ->
     'ngInject'
     $stateProvider
       .state 'main.season',

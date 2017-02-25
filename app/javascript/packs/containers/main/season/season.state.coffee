@@ -2,7 +2,7 @@ module.exports = ($stateProvider) ->
     'ngInject'
     $stateProvider
       .state 'main.season',
-        templateUrl: 'main/season/season.html'
+        template: require('./season.html')
         controller: 'MainSeasonCtrl'
         controllerAs: 'season'
         resolve:

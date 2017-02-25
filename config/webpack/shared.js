@@ -56,7 +56,7 @@ module.exports = function(env) {
           ]
         },
         {
-          test: /\.scss$/,
+          test: /\.scss(.erb)?$/,
           loader: [
             'style-loader',
             'css-loader',

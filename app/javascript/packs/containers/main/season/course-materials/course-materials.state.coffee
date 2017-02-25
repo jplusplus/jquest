@@ -4,7 +4,7 @@ module.exports = ($stateProvider) ->
   'ngInject'
   $stateProvider
     .state 'main.season.course-materials',
-      templateUrl: 'main/season/course-materials/course-materials.html'
+      template: require('./course-materials.html')
       url: 'course-materials'
       controller: 'MainSeasonCourseMaterialsCtrl'
       controllerAs: 'cm'

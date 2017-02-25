@@ -2,7 +2,7 @@ module.exports = ($stateProvider) ->
   'ngInject'
   $stateProvider
     .state 'main.season.leaderboard',
-      templateUrl: 'main/season/leaderboard/leaderboard.html'
+      template: require('./leaderboard.html')
       url: 'leaderboard'
       controller: 'MainSeasonLeaderboardCtrl'
       controllerAs: 'leaderboard'

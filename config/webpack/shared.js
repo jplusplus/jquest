@@ -27,6 +27,15 @@ module.exports = function(env) {
     module: {
       rules: [
         {
+          test: /\.erb$/,
+          enforce: 'pre',
+          exclude: /node_modules/,
+          loader: 'rails-erb-loader',
+          options: {
+            runner: 'bin/rails runner'
+          }
+        },
+        {
           test: /\.coffee(.erb)?$/,
           loader: "coffee-loader"
         },
@@ -38,15 +47,6 @@ module.exports = function(env) {
             presets: [
               [ 'latest', { 'es2015': { 'modules': false } } ]
             ]
-          }
-        },
-        {
-          test: /\.erb$/,
-          enforce: 'pre',
-          exclude: /node_modules/,
-          loader: 'rails-erb-loader',
-          options: {
-            runner: 'bin/rails runner'
           }
         },
         {

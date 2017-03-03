@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/jplusplus/jquest-pg
-  revision: 26efd1e694d229415d8fc5b1a55ba7cb7d2a4829
+  revision: f7f76739edf3218dd4ee108d50238e22178e6f5d
   branch: develop
   specs:
     jquest_pg (0.0.9)
@@ -511,11 +511,11 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.5)
     tool (0.2.3)
-    tty (0.6.0)
+    tty (0.6.1)
       equatable (~> 0.5.0)
       pastel (~> 0.7.0)
       tty-color (~> 0.4.0)
-      tty-command (~> 0.3.0)
+      tty-command (~> 0.4.0)
       tty-cursor (~> 0.3.0)
       tty-editor (~> 0.1.0)
       tty-file (~> 0.2.0)
@@ -528,7 +528,7 @@ GEM
       tty-table (~> 0.7.0)
       tty-which (~> 0.2.0)
     tty-color (0.4.2)
-    tty-command (0.3.3)
+    tty-command (0.4.0)
       pastel (~> 0.7.0)
     tty-cursor (0.3.0)
     tty-editor (0.1.2)

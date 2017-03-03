@@ -63,11 +63,11 @@ import main404State from './containers/main/404/404.state.coffee';
 import mainSeasonCourseMaterialsState from './containers/main/season/course-materials/course-materials.state.coffee';
 import mainSeasonCourseMaterialsController from './containers/main/season/course-materials/course-materials.controller.coffee';
 import mainSeasonState from './containers/main/season/season.state.coffee';
+import mainSeasonController from './containers/main/season/season.controller.coffee';
 import mainSeasonLeaderboardState from './containers/main/season/leaderboard/leaderboard.state.coffee';
 import mainSeasonLeaderboardController from './containers/main/season/leaderboard/leaderboard.controller.coffee';
 import mainSeasonActivitiesController from './containers/main/season/activities/activities.controller.coffee';
 import mainSeasonActivitiesState from './containers/main/season/activities/activities.state.coffee';
-import mainSeasonSeasonController from './containers/main/season/season.controller.coffee';
 
 import './index.scss';
 
@@ -110,10 +110,10 @@ angular
   .component('header', header)
   .controller('MainCtrl', mainController)
   .controller('MainSettingsCtrl', mainSettingsController)
+  .controller('MainSeasonCtrl', mainSeasonController)
   .controller('MainSeasonCourseMaterialsCtrl', mainSeasonCourseMaterialsController)
   .controller('MainSeasonLeaderboardCtrl', mainSeasonLeaderboardController)
   .controller('MainSeasonActivitiesCtrl', mainSeasonActivitiesController)
-  .controller('MainSeasonSeasonCtrl', mainSeasonSeasonController)
   .config(mainState)
   .config(mainSettingsState)
   .config(main403State)

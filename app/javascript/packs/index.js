@@ -1,4 +1,4 @@
-import 'jquery/dist/jquery.js';
+import 'jquery/src/jquery';
 import 'angular';
 import 'angular-animate';
 import 'angular-cookies';
@@ -48,7 +48,7 @@ import fullscreenDirective from './components/fullscreen-height/fullscreen-heigh
 import header from './components/header/header.coffee';
 
 import menuService from './components/menu/menu.service.coffee';
-import paginatorDirective from './components/paginator/paginator.directive.coffee';
+import paginatorService from './components/paginator/paginator.service.coffee';
 import parallaxDirective from './components/parallax-bg/parallax-bg.directive.coffee';
 import seasonRestangularFactory from './components/season-restangular/season-restangular.factory.coffee';
 import seasonsService from './components/seasons/seasons.service.coffee';
@@ -100,11 +100,11 @@ angular
   .service('CourseMaterials', courseMaterialsService)
   .service('Menu', menuService)
   .service('Seasons', seasonsService)
+  .service('Paginator', paginatorService)
   .directive('courseMaterials', courseMaterialsDirective)
   .directive('fieldset', fieldsetDirective)
   .directive('flatpickr', flatpickrDirective)
   .directive('fullscreen', fullscreenDirective)
-  .directive('paginator', paginatorDirective)
   .directive('parallax', parallaxDirective)
   .directive('sticky', stickyDirective)
   .component('header', header)

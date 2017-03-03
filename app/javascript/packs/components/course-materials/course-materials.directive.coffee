@@ -1,2 +1,2 @@
 module.exports = ->
-  templateUrl: 'course-materials/course-materials.html'
+  template: require './course-materials.html'

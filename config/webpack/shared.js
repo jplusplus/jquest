@@ -76,7 +76,11 @@ module.exports = function(env) {
       modules: [
         path.resolve('app/javascript'),
         path.resolve('node_modules')
-      ]
+      ],
+      alias: {
+        bootstrap: path.resolve('app/javascript/packs/components/bootstrap/'),
+        utils: path.resolve('app/javascript/packs/components/utils/')
+      }
     },
 
     resolveLoader: {

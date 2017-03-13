@@ -2,7 +2,7 @@ DOCKER_NAME := jquest
 APP := jquest
 
 run:
-		bundle exec rails server
+		./node_modules/.bin/nf start
 
 install:
 		bundle install

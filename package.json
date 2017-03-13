@@ -7,7 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "./bin/webpack",
+    "build": "NODE_ENV=production ./bin/webpack",
+    "serve": "./bin/webpack-dev-server",
+    "watch": "./bin/webpack-watcher",
+    "postinstall": "npm rebuild node-sass"
   },
   "repository": {
     "type": "git",
@@ -88,6 +93,7 @@
     "compression-webpack-plugin": "^0.3.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "foreman": "^2.0.0",
     "ng-annotate-loader": "^0.2.0"
   }
 }

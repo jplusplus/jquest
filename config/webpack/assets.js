@@ -6,7 +6,7 @@ const process = require('process')
 const sharedConfig = require('./shared.js')
 const { devServer } = require('../../package.json')
 
-const production = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production'
 const hotServerAddr = `http://${devServer.host}:${devServer.port}/`
 
 module.exports = {
@@ -14,7 +14,10 @@ module.exports = {
     rules: [
       {
         test: /\.coffee(.erb)?$/,
-        loader: "coffee-loader"
+        loader: [
+          'ng-annotate-loader',
+          'coffee-loader'
+        ]
       },
       {
         test: /\.js(.erb)?$/,
@@ -38,8 +41,8 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            publicPath: devServer.enabled ? hotServerAddr : `/${sharedConfig.distDir}/`,
-            name: production ? '[name]-[hash].[ext]' : '[name].[ext]'
+            publicPath: isProduction ? `/${sharedConfig.distDir}/` : hotServerAddr,
+            name: isProduction ? '[name]-[hash].[ext]' : '[name].[ext]'
           }
         }]
       }
@@ -47,8 +50,6 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin(
-      production ? '[name]-[hash].css' : '[name].css'
-    )
+    new ExtractTextPlugin(isProduction ? '[name]-[hash].css' : '[name].css')
   ]
 }

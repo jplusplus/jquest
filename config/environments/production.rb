@@ -70,7 +70,9 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = ENV['ASSET_HOST'] || '//:assets.jquestapp.com'
+  if ENV['ASSET_HOST'].present?
+    config.action_controller.asset_host = ENV['ASSET_HOST']
+  end
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

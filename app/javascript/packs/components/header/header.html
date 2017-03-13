@@ -1,9 +1,8 @@
-<% helpers = ActionController::Base.helpers %>
-<div class="header" ng-swipe-left="menu.hide()" ng-swipe-right="menu.show()">
+<div class="header" ng-swipe-left="header.menu.hide()" ng-swipe-right="header.menu.show()">
   <div class="header__nav">
     <nav class="navbar navbar-light header__nav__navbar">
-      <div class="header__nav__navbar__hamburger" ng-if="menu.hasItems()">
-        <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': menu.isVisible() }" ng-click="menu.toggle()">
+      <div class="header__nav__navbar__hamburger" ng-if="header.menu.hasItems()">
+        <a class="hamburger hamburger--squeeze" ng-class="{ 'is-active': header.menu.isVisible() }" ng-click="header.menu.toggle()">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
@@ -12,7 +11,7 @@
 
       <div class="navbar-brand header__nav__navbar__brand">
         <a href="#!/" class="a-unstyled">
-          <img alt="jQuest" ng-src="<%= helpers.image_url('jquest-purple.svg') %>" width="117px" height="30px" />
+          <img alt="jQuest" src="../../images/jquest-purple.svg" width="117px" height="30px" />
         </a>
       </div>
 
@@ -55,8 +54,8 @@
       </ul>
 
       <form class="form-inline nav-item header__nav__navbar__search pull-xs-right hidden-md-down"
-            ng-submit="menu.search(header.q)"
-            ng-if="menu.hasSearch()">
+            ng-submit="header.menu.search(header.q)"
+            ng-if="header.menu.hasSearch()">
         <div class="form-group">
           <div class="input-group">
             <input class="form-control  header__nav__navbar__search__input"
@@ -78,11 +77,11 @@
              popover-is-open="main.showSlackPopover">
           <h4 class="header__nav__navbar__slack__heading">
             <a href="{{ main.slackStatus.hostname }}" target="_blank" ng-if="main.slackStatus.is_member" class="a-unstyled">
-              <img src="<%= helpers.image_url('slack.svg') %>" alt="" height="16px" />
+              <img src="../../images/slack.svg" alt="" height="16px" />
               Ask for help
             </a>
             <span ng-if="!main.slackStatus.is_member">
-              <i class="fa fa-lock"></i>
+              <img src="../../images/slack.svg" alt="" height="16px" />
               Ask for help
             </span>
           </h4>
@@ -93,7 +92,7 @@
       </div>
     </nav>
 
-    <div class="header__nav__menu" ng-show="menu.isVisible()">
+    <div class="header__nav__menu" ng-show="header.menu.isVisible()">
       <div ng-repeat="category in header.menu.getCategories()">
         <h4 class="header__nav__menu__links__heading"  ng-if="category">{{ category }}</h4>
         <ul class="list-inline row header__nav__menu__links">

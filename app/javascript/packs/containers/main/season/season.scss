@@ -196,7 +196,7 @@
       overflow: hidden;
 
       html body &--loading &__body {
-        background:white image-url("text-placeholder.svg") no-repeat 20px 20px;
+        background:white url("~/images/text-placeholder.svg") no-repeat 20px 20px;
         background-size: auto 150px;
       }
 

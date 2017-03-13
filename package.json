@@ -14,6 +14,22 @@
     "url": "git@github.com:jplusplus/jquest.git"
   },
   "author": "Pierre Romera <hello@pirhoo.com>",
+  "webpacker": {
+    "srcPath": "app/javascript",
+    "configPath": "config/webpack",
+    "nodeModulesPath": "node_modules",
+    "_comment": "If you rename distDir, please update distPath too",
+    "distDir": "packs",
+    "distPath": "public/packs",
+    "digestFileName": "digests.json",
+    "assets": true
+  },
+  "devServer": {
+    "enabled": true,
+    "host": "localhost",
+    "port": "8080",
+    "compress": true
+  },
   "devDependencies": {
     "angular": "~1.5.*",
     "angular-animate": "~1.5.*",
@@ -68,5 +84,10 @@
     "webpack-dev-server": "^2.4.1",
     "webpack-merge": "^3.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "compression-webpack-plugin": "^0.3.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
+    "ng-annotate-loader": "^0.2.0"
+  }
 }

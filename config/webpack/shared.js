@@ -5,12 +5,17 @@ const path = require('path')
 const process = require('process')
 const glob = require('glob')
 const extname = require('path-complete-extname')
-const distDir = process.env.WEBPACK_DIST_DIR || 'packs';
+const { webpacker, devServer } = require('../../package.json')
+const distDir = process.env.WEBPACK_DIST_DIR || webpacker.distDir || 'packs';
+const srcPath = webpacker.srcPath;
+const distPath = webpacker.distPath;
+const nodeModulesPath = webpacker.nodeModulesPath
+const digestFileName = webpacker.digestFileName
 
-module.exports = function(env) {
+const config = function(env) {
   const entries = env.entries.split(',').reduce(function(map, dir) {
     // Pattern to find entry for this dir
-    const needle = path.join(dir, 'app', 'javascript', 'packs', '**', 'index.js*');
+    const needle = path.join(dir, srcPath, 'packs', '**', 'index.js*');
     // Iterates over every file match within the current dir
     glob.sync(needle).forEach(function(entry) {
       const basename = path.basename(entry, extname(entry));
@@ -23,7 +28,7 @@ module.exports = function(env) {
 
   return {
     entry: entries,
-    output: { filename: '[name].js', path: path.resolve('public', distDir) },
+    output: { filename: '[name].js', path: path.resolve(distPath) },
     module: {
       rules: [
         {
@@ -36,34 +41,11 @@ module.exports = function(env) {
           }
         },
         {
-          test: /\.coffee(.erb)?$/,
-          loader: "coffee-loader"
-        },
-        {
-          test: /\.js(.erb)?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [ 'latest', { 'es2015': { 'modules': false } } ]
-            ]
-          }
-        },
-        {
           test: /\.html(.erb)?$/,
           loaders: [
             'html-loader'
           ]
-        },
-        {
-          test: /\.scss(.erb)?$/,
-          loader: [
-            'style-loader',
-            'css-loader',
-            'sass-loader',
-            'import-glob-loader'
-          ]
-        },
+        }
       ]
     },
 
@@ -74,17 +56,25 @@ module.exports = function(env) {
     resolve: {
       extensions: [ '.js', '.coffee' ],
       modules: [
-        path.resolve('app/javascript'),
-        path.resolve('node_modules')
+        path.resolve(srcPath),
+        path.resolve(nodeModulesPath)
       ],
       alias: {
-        bootstrap: path.resolve('app/javascript/packs/components/bootstrap/'),
-        utils: path.resolve('app/javascript/packs/components/utils/')
+        bootstrap: path.resolve(srcPath, 'packs/components/bootstrap/'),
+        utils: path.resolve(srcPath, 'packs/components/utils/')
       }
     },
 
     resolveLoader: {
-      modules: [ path.resolve('node_modules') ]
+      modules: [ path.resolve(nodeModulesPath) ]
     }
   };
 };
+
+module.exports = {
+  srcPath,
+  distDir,
+  distPath,
+  nodeModulesPath,
+  config
+}

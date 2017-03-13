@@ -1,8 +1,9 @@
 module.exports =
-  template: require('./header.html.erb')
+  template: require('./header.html')
   controllerAs: 'header'
   bindings:
     user: '<'
+    main: '<'
   controller: (Menu, Seasons, $scope, $state)->
     'ngInject'
     new class HeaderCtrl
@@ -14,4 +15,4 @@ module.exports =
           for season in seasons
             @menu.addItem name: season.name, href: season.engine.root_path
         # Watch for state changes
-        $scope.$on '$stateChangeStart', Menu.hide
+        $scope.$on '$stateChangeStart', @menu.hide

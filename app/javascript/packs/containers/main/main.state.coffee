@@ -1,6 +1,6 @@
 module.exports = ($stateProvider) ->
   $stateProvider.state 'main',
-    template: require('./main.html.erb')
+    template: require('./main.html')
     controller: 'MainCtrl'
     controllerAs: 'main'
     url: '/'

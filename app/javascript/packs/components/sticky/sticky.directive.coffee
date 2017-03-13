@@ -1,4 +1,5 @@
 module.exports = ($window)->
+  'ngInject'
   restrict: 'AC'
   link: (scope, el)->
     # Internet Explorer 11

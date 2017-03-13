@@ -1,4 +1,5 @@
 module.exports = ($stateProvider) ->
+  'ngInject'
   $stateProvider.state 'main',
     template: require('./main.html')
     controller: 'MainCtrl'

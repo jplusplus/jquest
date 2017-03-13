@@ -1,4 +1,5 @@
 module.exports = ($stateProvider) ->
+  'ngInject'
   $stateProvider
     .state 'main.settings',
       template: require('./settings.html')

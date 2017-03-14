@@ -50,7 +50,10 @@ const config = function(env) {
     },
 
     plugins: [
-      new webpack.EnvironmentPlugin(Object.keys(process.env))
+      new webpack.EnvironmentPlugin({
+        // use 'development' unless process.env.NODE_ENV is defined
+        NODE_ENV: 'development'
+      })
     ],
 
     resolve: {

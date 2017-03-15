@@ -2,7 +2,7 @@ DOCKER_NAME := jquest
 APP := jquest
 
 run:
-		./node_modules/.bin/nf start
+		./node_modules/.bin/nf start -p 3000
 
 install:
 		bundle install

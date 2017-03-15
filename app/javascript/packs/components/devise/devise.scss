@@ -6,7 +6,7 @@
 
     &:after {
       background:$brand-primary;
-      content:image-url("people-coffee-notes-tea-high-contrast.jpg");
+      content:url("~images/people-coffee-notes-tea-high-contrast.jpg");
       position: fixed;
       top:50%;
       left:50%;
@@ -20,7 +20,7 @@
       width: auto;
       max-width:770px;
 
-      & > * { 
+      & > * {
         @include box-shadow(0 0 5px 0 rgba(#000, 1) );
       }
 
@@ -52,7 +52,7 @@
 
         &:after {
           z-index:0;
-          background:center image-url("people-coffee-notes-tea-high-contrast-green.jpg") $brand-success;
+          background:center url("~images/people-coffee-notes-tea-high-contrast-green.jpg") $brand-success;
           background-size: 200% auto;
           width:100%;
         }

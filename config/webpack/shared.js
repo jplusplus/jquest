@@ -15,7 +15,7 @@ const digestFileName = webpacker.digestFileName
 const config = function(env) {
   const entries = env.entries.split(',').reduce(function(map, dir) {
     // Pattern to find entry for this dir
-    const needle = path.join(dir, srcPath, 'packs', '**', 'index.js*');
+    const needle = path.join(dir, srcPath, 'packs', '**', 'index?(-lite).js*');
     // Iterates over every file match within the current dir
     glob.sync(needle).forEach(function(entry) {
       const basename = path.basename(entry, extname(entry));
@@ -64,7 +64,8 @@ const config = function(env) {
       ],
       alias: {
         bootstrap: path.resolve(srcPath, 'packs/components/bootstrap/'),
-        utils: path.resolve(srcPath, 'packs/components/utils/')
+        utils: path.resolve(srcPath, 'packs/components/utils/'),
+        images: path.resolve(srcPath, 'packs/images/')
       }
     },
 

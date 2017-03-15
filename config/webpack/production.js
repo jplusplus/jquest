@@ -6,8 +6,8 @@ const merge = require('webpack-merge');
 const CompressionPlugin = require('compression-webpack-plugin');
 const sharedConfig = require('./shared.js');
 
-module.exports = function(env) {
-  return merge(sharedConfig(env), {
+module.exports = function() {
+  return merge(sharedConfig(), {
     output: {
       filename: '[name]-[chunkhash].js'
     },

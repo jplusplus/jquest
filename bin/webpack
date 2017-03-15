@@ -3,13 +3,7 @@ $stdout.sync = true
 
 require "shellwords"
 require "yaml"
-require 'bundler'
-
-def local_engines
-  Bundler.load.specs.select do |g|
-    g.name.start_with? 'jquest' and g.metadata['season']
-  end
-end
+load "./bin/webpack-env"
 
 ENV["RAILS_ENV"] ||= "development"
 RAILS_ENV   = ENV["RAILS_ENV"]
@@ -38,18 +32,13 @@ end
 
 WEBPACK_BIN  = "#{NODE_MODULES_PATH}/.bin/webpack"
 WEBPACK_CONFIG = "#{WEBPACK_CONFIG_PATH}/#{NODE_ENV}.js"
-WEBPACK_ENTRY_DIRS = [APP_PATH]
-
-# Get every engine
-local_engines.each do |engine|
-  # Add them as entry dir
-  WEBPACK_ENTRY_DIRS << engine.full_gem_path
-end
 
 if __FILE__ == $0
   Dir.chdir(APP_PATH) do
-    exec "NODE_PATH=#{NODE_MODULES_PATH} #{WEBPACK_BIN} " \
+    exec "NODE_PATH=#{NODE_MODULES_PATH} " \
+      "WEBPACK_ENTRY_DIRS=#{WEBPACK_ENTRY_DIRS * ','} " \
+      "#{WEBPACK_BIN} " \
       "--config #{WEBPACK_CONFIG} " \
-      "--env.entries=#{WEBPACK_ENTRY_DIRS * ','} #{ARGV.join(' ')}"
+      "#{ARGV.join(' ')}"
   end
 end

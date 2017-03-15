@@ -9,8 +9,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const { dev_server, env, paths, publicPath, production } = require('./configuration.js')
 
-module.exports = function(env) {
-  const entries = env.entries.split(',').reduce(function(map, dir) {
+module.exports = function() {
+  const entries = process.env.WEBPACK_ENTRY_DIRS.split(',').reduce(function(map, dir) {
     // Pattern to find entry for this dir
     const needle = path.join(dir, paths.src_path, 'packs', '**', 'index?(-lite).js*');
     // Iterates over every file match within the current dir

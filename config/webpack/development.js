@@ -6,15 +6,15 @@ const merge = require('webpack-merge');
 const sharedConfig = require('./shared.js');
 const { dev_server, publicPath } = require('./configuration.js');
 
-module.exports = function(env) {
-  return merge(sharedConfig(env), {
+module.exports = function() {
+  return merge(sharedConfig(), {
     devtool: 'sourcemap',
     devServer: {
       host: dev_server.host,
       port: dev_server.port,
       compress: dev_server.compress,
       publicPath
-    }
+    },
     stats: {
       errorDetails: true
     },

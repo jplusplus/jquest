@@ -51,7 +51,7 @@ gem 'paper_trail'
 # Better assets support
 gem 'sprockets', '3.7.0'
 gem 'sass-css-importer'
-gem 'webpacker', :git => 'https://github.com/rails/webpacker'
+gem 'webpacker', :git => 'https://github.com/gauravtiwari/webpacker', branch: 'feature/static-assets'
 # Email prerendering
 gem 'premailer-rails'
 gem 'nokogiri'

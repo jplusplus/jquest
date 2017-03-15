@@ -3,18 +3,18 @@
 
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const sharedConfig = require('./shared.js').config;
-const { webpacker } = require('../../package.json');
+const sharedConfig = require('./shared.js');
+const { dev_server, publicPath } = require('./configuration.js');
 
 module.exports = function(env) {
-  let config = sharedConfig(env);
-
-  if (webpacker.assets) {
-    config = merge(config, require('./assets.js'));
-  }
-
-  return merge(config, {
+  return merge(sharedConfig(env), {
     devtool: 'sourcemap',
+    devServer: {
+      host: dev_server.host,
+      port: dev_server.port,
+      compress: dev_server.compress,
+      publicPath
+    }
     stats: {
       errorDetails: true
     },

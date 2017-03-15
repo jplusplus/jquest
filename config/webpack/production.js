@@ -4,20 +4,22 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CompressionPlugin = require('compression-webpack-plugin');
-const sharedConfig = require('./shared.js').config;
-const { webpacker } = require('../../package.json');
+const sharedConfig = require('./shared.js');
 
 module.exports = function(env) {
-  let config = sharedConfig(env);
-
-  if (webpacker.assets) {
-    config = merge(config, require('./assets.js'));
-  }
-
-  return merge(config, {
-    output: { filename: '[name]-[chunkhash].js' },
+  return merge(sharedConfig(env), {
+    output: {
+      filename: '[name]-[chunkhash].js'
+    },
     plugins: [
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.UglifyJsPlugin(),
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          postcss: () => [autoprefixer]
+        }
+      }),
       new CompressionPlugin({
         asset: '[path].gz[query]',
         algorithm: 'gzip',

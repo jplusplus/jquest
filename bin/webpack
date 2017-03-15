@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+$stdout.sync = true
+
+require "shellwords"
+require "yaml"
 require 'bundler'
 
 def local_engines
@@ -7,17 +11,33 @@ def local_engines
   end
 end
 
-ENV['RAILS_ENV'] ||= 'development'
-RAILS_ENV   = ENV['RAILS_ENV']
+ENV["RAILS_ENV"] ||= "development"
+RAILS_ENV   = ENV["RAILS_ENV"]
 
-ENV['NODE_ENV'] ||= RAILS_ENV
-NODE_ENV    = ENV['NODE_ENV']
+ENV["NODE_ENV"] ||= RAILS_ENV
+NODE_ENV    = ENV["NODE_ENV"]
 
-APP_PATH = File.expand_path('../', __dir__)
+APP_PATH    = File.expand_path("../", __dir__)
+CONFIG_PATH = File.join(APP_PATH, "config/webpacker.yml")
 
-SET_NODE_PATH  = "NODE_PATH=#{APP_PATH}/node_modules"
-WEBPACK_BIN    = "./node_modules/webpack/bin/webpack.js"
-WEBPACK_CONFIG = "#{APP_PATH}/config/webpack/#{NODE_ENV}.js"
+begin
+  config              = YAML.load(File.read(CONFIG_PATH))[NODE_ENV]
+
+  NODE_MODULES_PATH   = File.join(APP_PATH.shellescape, config["paths"]["node_modules_path"])
+  WEBPACK_CONFIG_PATH = File.join(APP_PATH.shellescape, config["paths"]["config_path"])
+
+  if NODE_ENV == "development" && config["dev_server"]["enabled"]
+    puts "Warning: webpack-dev-server is currently enabled in #{CONFIG_PATH}. " \
+      "Disable to serve assets directly from packs directory"
+  end
+rescue Errno::ENOENT, NoMethodError
+  puts "config/webpacker.yml or [paths, dev_server] config not found."
+  puts "Please run bundle exec rails webpacker:install to install webpacker"
+  exit!
+end
+
+WEBPACK_BIN  = "#{NODE_MODULES_PATH}/.bin/webpack"
+WEBPACK_CONFIG = "#{WEBPACK_CONFIG_PATH}/#{NODE_ENV}.js"
 WEBPACK_ENTRY_DIRS = [APP_PATH]
 
 # Get every engine
@@ -28,6 +48,8 @@ end
 
 if __FILE__ == $0
   Dir.chdir(APP_PATH) do
-    exec "#{SET_NODE_PATH} #{WEBPACK_BIN} --config #{WEBPACK_CONFIG} --env.entries=#{WEBPACK_ENTRY_DIRS * ','} #{ARGV.join(" ")}"
+    exec "NODE_PATH=#{NODE_MODULES_PATH} #{WEBPACK_BIN} " \
+      "--config #{WEBPACK_CONFIG} " \
+      "--env.entries=#{WEBPACK_ENTRY_DIRS * ','} #{ARGV.join(' ')}"
   end
 end

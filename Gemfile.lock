@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/jplusplus/jquest-pg
-  revision: 0700180f24c48fafa36bc5d144e28c4201960e8b
+  revision: 9c7574b52d7f1993f6e1eb0fabbde65a4e927298
   branch: develop
   specs:
     jquest_pg (0.0.9)
@@ -72,11 +72,11 @@ GEM
       jquery-ui-rails (~> 5.0)
       rails (>= 3.2)
     active_admin_theme (1.0.3)
-    active_model_serializers (0.10.4)
+    active_model_serializers (0.10.5)
       actionpack (>= 4.1, < 6)
       activemodel (>= 4.1, < 6)
       case_transform (>= 0.2)
-      jsonapi (= 0.1.1.beta6)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.2)
     activeadmin (1.0.0.pre4)
       arbre (~> 1.0, >= 1.0.2)
       bourbon
@@ -222,7 +222,7 @@ GEM
     gli (2.15.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    google-api-client (0.10.0)
+    google-api-client (0.10.1)
       addressable (~> 2.3)
       googleauth (~> 0.5)
       httpclient (~> 2.7)
@@ -298,11 +298,7 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.6)
-    jsonapi (0.1.1.beta6)
-      jsonapi-parser (= 0.1.1.beta3)
-      jsonapi-renderer (= 0.1.1.beta1)
-    jsonapi-parser (0.1.1.beta3)
-    jsonapi-renderer (0.1.1.beta1)
+    jsonapi-renderer (0.1.2)
     jwt (1.5.6)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
@@ -312,7 +308,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     little-plugger (1.1.4)
-    logging (2.1.0)
+    logging (2.2.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
     loofah (2.0.3)

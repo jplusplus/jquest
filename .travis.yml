@@ -1,5 +1,14 @@
 language: ruby
+dist: trusty
+sudo: false
 cache: yarn
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://dl.yarnpkg.com/debian/ stable main'
+        key_url: 'https://dl.yarnpkg.com/debian/pubkey.gpg'
+    packages:
+      - yarn
 env:
   - RAILS_ENV=test
 before_install:

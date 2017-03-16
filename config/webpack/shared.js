@@ -62,7 +62,7 @@ module.exports = function() {
           test: /\.scss?$/,
           loaders: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            loader: [
+            use: [
               'css-loader',
               'sass-loader',
               'import-glob-loader'

@@ -12,8 +12,9 @@ module.exports = function() {
       filename: '[name]-[chunkhash].js'
     },
     plugins: [
-      new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin(),
       new webpack.LoaderOptionsPlugin({
         options: {

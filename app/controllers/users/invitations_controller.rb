@@ -28,4 +28,13 @@ class Users::InvitationsController < Devise::InvitationsController
       respond_with_navigational(resource){ render :edit }
     end
   end
+
+  protected
+
+  def resource_from_invitation_token
+    unless params[:invitation_token] && self.resource = resource_class.find_by_invitation_token(params[:invitation_token], true)
+      set_flash_message(:alert, :invitation_token_invalid) if is_flashing_format?
+      redirect_to new_user_session_path
+    end
+  end
 end

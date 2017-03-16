@@ -11,7 +11,7 @@
             jQuest is a platform for journalism schools. It lets journalism students in Europe <strong>learn</strong> datajournalism, <strong>connect</strong> with one another and <strong>investigate</strong> collaboratively.
           </p>
         </div>
-        <div class="col-sm-5 push-sm-1 main__intro__form" ng-init="main.iam = 'school'">
+        <div class="col-sm-5 push-sm-1 main__intro__form" ng-init="main.iam = 'school'" ng-if="!main.user">
           <label class="lead">
             <input type="radio" ng-model="main.iam" value="school" />
             I'm a journalism school
@@ -34,6 +34,9 @@
               enroll@jquestapp.com
             </a>
           </p>
+        </div>
+        <div class="col-sm-5 push-sm-1" ng-if="main.user">
+          Yolo
         </div>
       </div>
     </div>

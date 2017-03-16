@@ -28,10 +28,13 @@
     }
 
     &__headline {
+      position: relative;
+      z-index:10;
+
       h1 img {
         margin-left:.2em;
         @include vendor-prefix(transform, translateY(-.1em));
-        height: 1em;
+        height: 0.9em;
       }
     }
 
@@ -52,6 +55,23 @@
         color:white;
         border-radius: $line-height * 1em;
         margin-top: $line-height * 1em;
+      }
+    }
+
+    &__seasons {
+      color:white;
+      position: relative;
+      z-index:10;
+      padding:0 $spacer * 2;
+      border-left: 1px dashed white;
+
+      .btn.btn-secondary {
+        background:none;
+        border:2px solid white;
+        color:white;
+        border-radius: $line-height * 1em;
+        margin-top: $line-height * 1em;
+        font-weight: bold;
       }
     }
 

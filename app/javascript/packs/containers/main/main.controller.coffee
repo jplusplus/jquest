@@ -24,6 +24,8 @@ module.exports = (Auth, Menu, seasons, $state, $log, $scope)->
       $scope.$on 'devise:login', (event, user)=> @user = user
       # User was logged in, or Devise returned
       # previously authenticated session.
-      Auth.currentUser().then (user)=> @user = user
+      Auth.currentUser().then (@user)=> null
+      # Save all seasons in the scope
+      seasons.all().then (@seasons)=> null
       # Print out every states
       # $log.info "Mounted states: ", _.map($state.get(), 'name').join("\n")

@@ -35,8 +35,16 @@
             </a>
           </p>
         </div>
-        <div class="col-sm-5 push-sm-1" ng-if="main.user">
-          Yolo
+        <div class="col-sm-5 push-sm-1 main__intro__seasons" ng-if="main.user">
+          <ul class="list-unstyled">
+            <li ng-repeat="season in main.seasons" class="main__intro__seasons__item">
+              <h1>{{ season.name }}</h1>
+              <p class="lead">{{ season.invitation_description }}</p>
+              <a href="{{ season.engine.root_path }}" class="btn btn-block btn-secondary">
+                Start now
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
